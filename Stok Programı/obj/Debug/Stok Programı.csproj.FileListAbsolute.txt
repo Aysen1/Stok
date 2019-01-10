@@ -1,0 +1,44 @@
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\bin\Debug\Stok Programı.exe.config
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\obj\Debug\Stok Programı.csproj.ResolveComReference.cache
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\obj\Debug\Stok Programı.csprojResolveAssemblyReference.cache
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\obj\Debug\Stok_Programı.Form1.resources
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\obj\Debug\Stok_Programı.Form3.resources
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\obj\Debug\Stok_Programı.Form4.resources
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\obj\Debug\Stok_Programı.Form5.resources
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\obj\Debug\Stok_Programı.Form6.resources
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\obj\Debug\Stok_Programı.Form7.resources
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\obj\Debug\Stok_Programı.Form8.resources
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\obj\Debug\Stok_Programı.Form9.resources
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\obj\Debug\Stok_Programı.Properties.Resources.resources
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\obj\Debug\Stok Programı.csproj.GenerateResource.Cache
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\bin\Debug\Stok Programı.exe
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\bin\Debug\Stok Programı.pdb
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\obj\Debug\Stok Programı.exe
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\obj\Debug\Stok Programı.pdb
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\obj\Debug\Stok_Programı.Localization.resources
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\bin\Debug\en-US\Stok Programı.resources.dll
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\obj\Debug\Stok_Programı.Localization.en-US.resources
+C:\Users\NFM-1PC\Documents\Visual Studio 2013\Projects\Stok Programı\Stok Programı\obj\Debug\en-US\Stok Programı.resources.dll
+C:\Users\NFM-1PC\documents\visual studio 2013\Projects\Stok Programı\Stok Programı\bin\Debug\Data\Stok.mdf
+C:\Users\NFM-1PC\documents\visual studio 2013\Projects\Stok Programı\Stok Programı\bin\Debug\Data\Stok_log.ldf
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\bin\Debug\Stok Programı.exe.config
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\obj\Debug\Stok Programı.csproj.ResolveComReference.cache
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\obj\Debug\Stok Programı.exe
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\obj\Debug\Stok Programı.pdb
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\obj\Debug\Stok Programı.csprojResolveAssemblyReference.cache
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.Form1.resources
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.Form3.resources
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.Form4.resources
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.Form5.resources
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.Form6.resources
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.Form7.resources
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.Form8.resources
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.Form9.resources
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.Localization.resources
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.Properties.Resources.resources
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.Localization.en-US.resources
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\obj\Debug\Stok Programı.csproj.GenerateResource.Cache
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\obj\Debug\en-US\Stok Programı.resources.dll
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\bin\Debug\Stok Programı.exe
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\bin\Debug\Stok Programı.pdb
+C:\Users\NFM-1PC\Downloads\Stok_Takip-master\Stok_Takip-master\Stok Programı\bin\Debug\en-US\Stok Programı.resources.dll
