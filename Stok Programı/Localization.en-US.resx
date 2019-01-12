@@ -228,4 +228,7 @@
   <data name="y_ekle" xml:space="preserve">
     <value>Add Printer</value>
   </data>
+  <data name="tema" xml:space="preserve">
+    <value>Theme</value>
+  </data>
 </root>

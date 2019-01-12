@@ -273,6 +273,15 @@ namespace Stok_Programı
         {
                 txt_kullanici_isim.Focus();
         }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F10)
+            {
+                Form2 form2 = new Form2();
+                form2.Show();
+            }
+        }
     }
 
 }

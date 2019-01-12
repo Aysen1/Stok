@@ -349,6 +349,15 @@ namespace Stok_Programı {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tema.
+        /// </summary>
+        internal static string tema {
+            get {
+                return ResourceManager.GetString("tema", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Türkçe.
         /// </summary>
         internal static string türkçe {

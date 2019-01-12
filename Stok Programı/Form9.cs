@@ -88,6 +88,7 @@ namespace Stok_Programı
             ingilizceToolStripMenuItem.Text = Localization.ingilizce;
             yardımToolStripMenuItem.Text = Localization.lbl_yardim;
             cikisToolStripMenuItem.Text = Localization.lbl_cikis;
+            temaToolStripMenuItem.Text = Localization.tema;
         }
 
         private void türkçeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -108,7 +109,7 @@ namespace Stok_Programı
             System.Diagnostics.Process.Start("http://www.nfmajans.com/iletisim.html");
         }
 
-        private void btn_tema_Click(object sender, EventArgs e)
+        private void temaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult kontrol;
             ColorDialog renk = new ColorDialog();

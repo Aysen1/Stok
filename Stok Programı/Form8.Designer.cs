@@ -38,8 +38,13 @@
             this.btn_bilgi_fisi = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.anasayfaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.raporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.yardımToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cikisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txt_kod = new System.Windows.Forms.TextBox();
+            this.txt_tarih = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -137,7 +142,7 @@
             this.btn_bilgi_fisi.FlatAppearance.BorderSize = 0;
             this.btn_bilgi_fisi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_bilgi_fisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_bilgi_fisi.Location = new System.Drawing.Point(212, 155);
+            this.btn_bilgi_fisi.Location = new System.Drawing.Point(39, 155);
             this.btn_bilgi_fisi.Name = "btn_bilgi_fisi";
             this.btn_bilgi_fisi.Size = new System.Drawing.Size(173, 23);
             this.btn_bilgi_fisi.TabIndex = 4;
@@ -149,6 +154,7 @@
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.anasayfaToolStripMenuItem,
+            this.raporToolStripMenuItem,
             this.yardımToolStripMenuItem,
             this.cikisToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -164,6 +170,13 @@
             this.anasayfaToolStripMenuItem.Text = "Anasayfa";
             this.anasayfaToolStripMenuItem.Click += new System.EventHandler(this.anasayfaToolStripMenuItem_Click);
             // 
+            // raporToolStripMenuItem
+            // 
+            this.raporToolStripMenuItem.Name = "raporToolStripMenuItem";
+            this.raporToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.raporToolStripMenuItem.Text = "Rapor";
+            this.raporToolStripMenuItem.Click += new System.EventHandler(this.raporToolStripMenuItem_Click);
+            // 
             // yardımToolStripMenuItem
             // 
             this.yardımToolStripMenuItem.Name = "yardımToolStripMenuItem";
@@ -178,12 +191,50 @@
             this.cikisToolStripMenuItem.Text = "Çıkış";
             this.cikisToolStripMenuItem.Click += new System.EventHandler(this.cikisToolStripMenuItem_Click);
             // 
+            // txt_kod
+            // 
+            this.txt_kod.Location = new System.Drawing.Point(279, 155);
+            this.txt_kod.Name = "txt_kod";
+            this.txt_kod.Size = new System.Drawing.Size(139, 20);
+            this.txt_kod.TabIndex = 6;
+            // 
+            // txt_tarih
+            // 
+            this.txt_tarih.Location = new System.Drawing.Point(279, 200);
+            this.txt_tarih.Name = "txt_tarih";
+            this.txt_tarih.Size = new System.Drawing.Size(139, 20);
+            this.txt_tarih.TabIndex = 7;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "dd.M.yyyy H:mm:ss";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(142, 253);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(150, 20);
+            this.dateTimePicker1.TabIndex = 8;
+            this.dateTimePicker1.Value = new System.DateTime(2019, 1, 11, 16, 38, 13, 0);
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CustomFormat = "dd.M.yyyy H:mm:ss";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(350, 253);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(150, 20);
+            this.dateTimePicker2.TabIndex = 9;
+            this.dateTimePicker2.Value = new System.DateTime(2019, 1, 11, 16, 38, 13, 0);
+            // 
             // Form8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 402);
             this.ControlBox = false;
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.txt_tarih);
+            this.Controls.Add(this.txt_kod);
             this.Controls.Add(this.btn_bilgi_fisi);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btn_yazici_ekle);
@@ -216,5 +267,10 @@
         private System.Windows.Forms.ToolStripMenuItem anasayfaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem yardımToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cikisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem raporToolStripMenuItem;
+        private System.Windows.Forms.TextBox txt_kod;
+        private System.Windows.Forms.TextBox txt_tarih;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }

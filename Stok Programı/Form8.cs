@@ -11,6 +11,8 @@ using System.Drawing.Printing;
 using System.Drawing.Drawing2D;
 using System.Management;
 using System.Globalization;
+using DevExpress.XtraReports.UI;
+using System.Data.SqlClient;
 
 namespace Stok_Programı
 {
@@ -131,6 +133,33 @@ namespace Stok_Programı
             anasayfaToolStripMenuItem.Text = Localization.lbl_anasayfa;
             yardımToolStripMenuItem.Text = Localization.lbl_yardim;
             cikisToolStripMenuItem.Text = Localization.lbl_cikis;
+        }
+        private XtraReport1 rapor = new XtraReport1();
+        private uretimcikis rapor1 = new uretimcikis();
+        private void raporToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //rapor.LoadLayout(Application.StartupPath + "\\uruncikis.repx");
+            //rapor.DataSource = uruncikis();
+           // rapor.ShowDesigner();
+            rapor1.ShowPreview();
+           
+        }
+        private DataSet uruncikis()
+        {
+            DataSet veri = new DataSet();
+            SqlConnection baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
+            baglanti.Open();
+
+            //SqlCommand komut = new SqlCommand("select FirmaAdi,UrunKodu,CikisTarihi,UrunAdet from UretimCikis where UrunKodu=@kod",baglanti);
+           // komut.Parameters.AddWithValue("@kod", txt_kod.Text);
+              //komut.Parameters.AddWithValue("@tarih", dateTimePicker1.Text);
+              //komut.Parameters.AddWithValue("@tarih1", dateTimePicker2.Text);
+
+            SqlDataAdapter da = new SqlDataAdapter("SELECT FirmaAdi,UrunKodu,CikisTarihi,UrunAdet from UretimCikis WHERE UrunKodu='"+txt_kod.Text+"' ",baglanti);
+            da.Fill(veri);
+            baglanti.Close();
+            
+            return veri;            
         }
     }
 }

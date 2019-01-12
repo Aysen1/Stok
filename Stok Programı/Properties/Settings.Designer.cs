@@ -45,5 +45,53 @@ namespace Stok_Programı.Properties {
                 this["tema"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string serverip {
+            get {
+                return ((string)(this["serverip"]));
+            }
+            set {
+                this["serverip"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string kullaniciadi {
+            get {
+                return ((string)(this["kullaniciadi"]));
+            }
+            set {
+                this["kullaniciadi"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string sifre {
+            get {
+                return ((string)(this["sifre"]));
+            }
+            set {
+                this["sifre"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string veritabani {
+            get {
+                return ((string)(this["veritabani"]));
+            }
+            set {
+                this["veritabani"] = value;
+            }
+        }
     }
 }
