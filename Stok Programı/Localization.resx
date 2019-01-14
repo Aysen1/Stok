@@ -231,4 +231,13 @@
   <data name="tema" xml:space="preserve">
     <value>Tema</value>
   </data>
+  <data name="form2" xml:space="preserve">
+    <value>VERİTABANI BAĞLANTI AYARI</value>
+  </data>
+  <data name="ip" xml:space="preserve">
+    <value>Sunucu IP:</value>
+  </data>
+  <data name="veritabani" xml:space="preserve">
+    <value>Veritabanı Adı:</value>
+  </data>
 </root>

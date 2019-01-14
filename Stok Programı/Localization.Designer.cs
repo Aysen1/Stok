@@ -133,6 +133,15 @@ namespace Stok_Programı {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to VERİTABANI BAĞLANTI AYARI.
+        /// </summary>
+        internal static string form2 {
+            get {
+                return ResourceManager.GetString("form2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ÜRÜN KAYIT FORMU.
         /// </summary>
         internal static string form3 {
@@ -219,6 +228,15 @@ namespace Stok_Programı {
         internal static string ingilizce {
             get {
                 return ResourceManager.GetString("ingilizce", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sunucu IP:.
+        /// </summary>
+        internal static string ip {
+            get {
+                return ResourceManager.GetString("ip", resourceCulture);
             }
         }
         
@@ -381,6 +399,15 @@ namespace Stok_Programı {
         internal static string vergi_no {
             get {
                 return ResourceManager.GetString("vergi_no", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Veritabanı Adı:.
+        /// </summary>
+        internal static string veritabani {
+            get {
+                return ResourceManager.GetString("veritabani", resourceCulture);
             }
         }
         

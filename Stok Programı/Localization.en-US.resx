@@ -231,4 +231,13 @@
   <data name="tema" xml:space="preserve">
     <value>Theme</value>
   </data>
+  <data name="form2" xml:space="preserve">
+    <value>DATABASE CONNECTION SETTING</value>
+  </data>
+  <data name="ip" xml:space="preserve">
+    <value>Server IP:</value>
+  </data>
+  <data name="veritabani" xml:space="preserve">
+    <value>Database Name:</value>
+  </data>
 </root>

@@ -6,9 +6,9 @@ using DevExpress.XtraReports.UI;
 
 namespace Stok_Programı
 {
-    public partial class uretimcikis : DevExpress.XtraReports.UI.XtraReport
+    public partial class uretimgiris : DevExpress.XtraReports.UI.XtraReport
     {
-        public uretimcikis()
+        public uretimgiris()
         {
             InitializeComponent();
             xr_personel_adi.Text = Properties.Settings.Default.kullaniciadi;

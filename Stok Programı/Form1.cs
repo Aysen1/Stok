@@ -37,9 +37,14 @@ namespace Stok_Programı
             SqlDataReader data = komut.ExecuteReader();
             if (data.Read())
             {
+                Properties.Settings.Default.kullaniciadi = txt_kullanici_isim.Text;
+                Properties.Settings.Default.serverip = "NFM-1";
+                Properties.Settings.Default.sifre = txt_kullanici_sifre.Text;
+                Properties.Settings.Default.veritabani = "StokTakip";
                 Form6 form6 = new Form6();
                 form6.Show();
                 this.Hide();
+                
             }
             else
                 MessageBox.Show( "Girilen Bilgiler Hatalıdır!Tekrar Deneyiniz.");
@@ -48,6 +53,11 @@ namespace Stok_Programı
         System.Diagnostics.Process a = null;
         private void Form1_Load(object sender, EventArgs e)
         {
+            txt_kullanici_isim.Text=Properties.Settings.Default.kullaniciadi;
+            Properties.Settings.Default.serverip = "NFM-1";
+            txt_kullanici_sifre.Text = Properties.Settings.Default.sifre;
+            Properties.Settings.Default.veritabani = "StokTakip";
+
             this.WindowState = FormWindowState.Maximized;
             baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
             lbl_versiyon.Text = Application.ProductVersion;
@@ -184,6 +194,7 @@ namespace Stok_Programı
 
         private void btn_cikiss_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default.Save();
             Application.Exit();
         }
         private void metin()

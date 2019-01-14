@@ -51,14 +51,16 @@
             // 
             // txt_serverip
             // 
-            this.txt_serverip.Location = new System.Drawing.Point(171, 80);
+            this.txt_serverip.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txt_serverip.Location = new System.Drawing.Point(187, 80);
             this.txt_serverip.Name = "txt_serverip";
             this.txt_serverip.Size = new System.Drawing.Size(100, 20);
             this.txt_serverip.TabIndex = 1;
             // 
             // txt_veritabani
             // 
-            this.txt_veritabani.Location = new System.Drawing.Point(171, 122);
+            this.txt_veritabani.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txt_veritabani.Location = new System.Drawing.Point(187, 122);
             this.txt_veritabani.Name = "txt_veritabani";
             this.txt_veritabani.Size = new System.Drawing.Size(100, 20);
             this.txt_veritabani.TabIndex = 3;
@@ -75,7 +77,8 @@
             // 
             // txt_kullaniciadi
             // 
-            this.txt_kullaniciadi.Location = new System.Drawing.Point(171, 168);
+            this.txt_kullaniciadi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txt_kullaniciadi.Location = new System.Drawing.Point(187, 168);
             this.txt_kullaniciadi.Name = "txt_kullaniciadi";
             this.txt_kullaniciadi.Size = new System.Drawing.Size(100, 20);
             this.txt_kullaniciadi.TabIndex = 5;
@@ -92,7 +95,8 @@
             // 
             // txt_sifre
             // 
-            this.txt_sifre.Location = new System.Drawing.Point(171, 212);
+            this.txt_sifre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txt_sifre.Location = new System.Drawing.Point(187, 212);
             this.txt_sifre.Name = "txt_sifre";
             this.txt_sifre.Size = new System.Drawing.Size(100, 20);
             this.txt_sifre.TabIndex = 7;
@@ -134,6 +138,7 @@
             this.Controls.Add(this.lbl_serverip);
             this.Name = "Form2";
             this.Text = "Veritabanı Bağlantı Ayarı";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

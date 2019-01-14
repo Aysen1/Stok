@@ -128,19 +128,18 @@ namespace Stok_Programı
         {
             this.Text = Localization.form8;
             lbl_yazici.Text = Localization.yazici;
-            btn_bilgi_fisi.Text = Localization.bilgifisi;
-            btn_yazici_ekle.Text = Localization.y_ekle;
             anasayfaToolStripMenuItem.Text = Localization.lbl_anasayfa;
             yardımToolStripMenuItem.Text = Localization.lbl_yardim;
             cikisToolStripMenuItem.Text = Localization.lbl_cikis;
         }
         private XtraReport1 rapor = new XtraReport1();
-        private uretimcikis rapor1 = new uretimcikis();
+
         private void raporToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //rapor.LoadLayout(Application.StartupPath + "\\uruncikis.repx");
             //rapor.DataSource = uruncikis();
            // rapor.ShowDesigner();
+           uretimcikis rapor1 = new uretimcikis();
             rapor1.ShowPreview();
            
         }
@@ -155,11 +154,40 @@ namespace Stok_Programı
               //komut.Parameters.AddWithValue("@tarih", dateTimePicker1.Text);
               //komut.Parameters.AddWithValue("@tarih1", dateTimePicker2.Text);
 
-            SqlDataAdapter da = new SqlDataAdapter("SELECT FirmaAdi,UrunKodu,CikisTarihi,UrunAdet from UretimCikis WHERE UrunKodu='"+txt_kod.Text+"' ",baglanti);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT FirmaAdi,UrunKodu,CikisTarihi,UrunAdet from UretimCikis WHERE UrunKodu='" + cmbx_yazici.Text + "' ", baglanti);
             da.Fill(veri);
             baglanti.Close();
             
             return veri;            
+        }
+
+        private void sbtn_giris_Click(object sender, EventArgs e)
+        {
+            uretimgiris rapor = new uretimgiris();
+            //rapor.LoadLayout(Application.StartupPath + "\\rapor\\uretimgiris.repx");
+            rapor.ShowPreview();
+           // rapor.PageHeight = AutoSize();
+        }
+
+        private void sbtn_giris_duzenle_Click(object sender, EventArgs e)
+        {
+            uretimgiris rapor = new uretimgiris();
+           // rapor.LoadLayout(Application.StartupPath + "\\rapor\\uretimgiris.repx");
+            rapor.ShowDesigner();
+        }
+
+        private void sbtn_satis_Click(object sender, EventArgs e)
+        {
+            uretimcikis rapor = new uretimcikis();
+          //  rapor.LoadLayout(Application.StartupPath + "\\rapor\\uretimcikis.repx");
+            rapor.ShowPreview();
+        }
+
+        private void sbtn_satis_düzenle_Click(object sender, EventArgs e)
+        {
+            uretimcikis rapor = new uretimcikis();
+         //   rapor.LoadLayout(Application.StartupPath + "\\rapor\\uretimcikis.repx");
+            rapor.ShowDesigner();
         }
     }
 }

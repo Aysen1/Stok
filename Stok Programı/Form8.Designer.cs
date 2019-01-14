@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form8));
             this.lbl_yazici = new System.Windows.Forms.Label();
             this.cmbx_yazici = new System.Windows.Forms.ComboBox();
             this.btn_yazici_ekle = new System.Windows.Forms.Button();
@@ -35,16 +36,15 @@
             this.btn_cikiss = new System.Windows.Forms.Button();
             this.btn_tamekran = new System.Windows.Forms.Button();
             this.btn_simge = new System.Windows.Forms.Button();
-            this.btn_bilgi_fisi = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.anasayfaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.raporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.yardımToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cikisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txt_kod = new System.Windows.Forms.TextBox();
-            this.txt_tarih = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.sbtn_giris = new DevExpress.XtraEditors.SimpleButton();
+            this.sbtn_giris_duzenle = new DevExpress.XtraEditors.SimpleButton();
+            this.sbtn_satis = new DevExpress.XtraEditors.SimpleButton();
+            this.sbtn_satis_düzenle = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +54,7 @@
             this.lbl_yazici.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_yazici.AutoSize = true;
             this.lbl_yazici.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_yazici.Location = new System.Drawing.Point(36, 84);
+            this.lbl_yazici.Location = new System.Drawing.Point(36, 42);
             this.lbl_yazici.Name = "lbl_yazici";
             this.lbl_yazici.Size = new System.Drawing.Size(59, 13);
             this.lbl_yazici.TabIndex = 0;
@@ -64,7 +64,7 @@
             // 
             this.cmbx_yazici.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbx_yazici.FormattingEnabled = true;
-            this.cmbx_yazici.Location = new System.Drawing.Point(176, 76);
+            this.cmbx_yazici.Location = new System.Drawing.Point(176, 34);
             this.cmbx_yazici.Name = "cmbx_yazici";
             this.cmbx_yazici.Size = new System.Drawing.Size(173, 21);
             this.cmbx_yazici.TabIndex = 1;
@@ -75,7 +75,7 @@
             this.btn_yazici_ekle.FlatAppearance.BorderSize = 0;
             this.btn_yazici_ekle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_yazici_ekle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_yazici_ekle.Location = new System.Drawing.Point(399, 74);
+            this.btn_yazici_ekle.Location = new System.Drawing.Point(399, 32);
             this.btn_yazici_ekle.Name = "btn_yazici_ekle";
             this.btn_yazici_ekle.Size = new System.Drawing.Size(92, 23);
             this.btn_yazici_ekle.TabIndex = 2;
@@ -136,19 +136,6 @@
             this.btn_simge.UseVisualStyleBackColor = true;
             this.btn_simge.Click += new System.EventHandler(this.btn_simge_Click);
             // 
-            // btn_bilgi_fisi
-            // 
-            this.btn_bilgi_fisi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_bilgi_fisi.FlatAppearance.BorderSize = 0;
-            this.btn_bilgi_fisi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_bilgi_fisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_bilgi_fisi.Location = new System.Drawing.Point(39, 155);
-            this.btn_bilgi_fisi.Name = "btn_bilgi_fisi";
-            this.btn_bilgi_fisi.Size = new System.Drawing.Size(173, 23);
-            this.btn_bilgi_fisi.TabIndex = 4;
-            this.btn_bilgi_fisi.Text = "Bilgi Fişi ";
-            this.btn_bilgi_fisi.UseVisualStyleBackColor = true;
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -191,51 +178,60 @@
             this.cikisToolStripMenuItem.Text = "Çıkış";
             this.cikisToolStripMenuItem.Click += new System.EventHandler(this.cikisToolStripMenuItem_Click);
             // 
-            // txt_kod
+            // sbtn_giris
             // 
-            this.txt_kod.Location = new System.Drawing.Point(279, 155);
-            this.txt_kod.Name = "txt_kod";
-            this.txt_kod.Size = new System.Drawing.Size(139, 20);
-            this.txt_kod.TabIndex = 6;
+            this.sbtn_giris.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sbtn_giris.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_giris.ImageOptions.Image")));
+            this.sbtn_giris.Location = new System.Drawing.Point(50, 130);
+            this.sbtn_giris.Name = "sbtn_giris";
+            this.sbtn_giris.Size = new System.Drawing.Size(100, 55);
+            this.sbtn_giris.TabIndex = 6;
+            this.sbtn_giris.Text = "Giriş Fişi";
+            this.sbtn_giris.Click += new System.EventHandler(this.sbtn_giris_Click);
             // 
-            // txt_tarih
+            // sbtn_giris_duzenle
             // 
-            this.txt_tarih.Location = new System.Drawing.Point(279, 200);
-            this.txt_tarih.Name = "txt_tarih";
-            this.txt_tarih.Size = new System.Drawing.Size(139, 20);
-            this.txt_tarih.TabIndex = 7;
+            this.sbtn_giris_duzenle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sbtn_giris_duzenle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.sbtn_giris_duzenle.Location = new System.Drawing.Point(185, 130);
+            this.sbtn_giris_duzenle.Name = "sbtn_giris_duzenle";
+            this.sbtn_giris_duzenle.Size = new System.Drawing.Size(131, 55);
+            this.sbtn_giris_duzenle.TabIndex = 7;
+            this.sbtn_giris_duzenle.Text = "Giriş Fişi Düzenle";
+            this.sbtn_giris_duzenle.Click += new System.EventHandler(this.sbtn_giris_duzenle_Click);
             // 
-            // dateTimePicker1
+            // sbtn_satis
             // 
-            this.dateTimePicker1.CustomFormat = "dd.M.yyyy H:mm:ss";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(142, 253);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(150, 20);
-            this.dateTimePicker1.TabIndex = 8;
-            this.dateTimePicker1.Value = new System.DateTime(2019, 1, 11, 16, 38, 13, 0);
+            this.sbtn_satis.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sbtn_satis.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_satis.ImageOptions.Image")));
+            this.sbtn_satis.Location = new System.Drawing.Point(50, 207);
+            this.sbtn_satis.Name = "sbtn_satis";
+            this.sbtn_satis.Size = new System.Drawing.Size(100, 55);
+            this.sbtn_satis.TabIndex = 8;
+            this.sbtn_satis.Text = "Satış Fişi";
+            this.sbtn_satis.Click += new System.EventHandler(this.sbtn_satis_Click);
             // 
-            // dateTimePicker2
+            // sbtn_satis_düzenle
             // 
-            this.dateTimePicker2.CustomFormat = "dd.M.yyyy H:mm:ss";
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(350, 253);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(150, 20);
-            this.dateTimePicker2.TabIndex = 9;
-            this.dateTimePicker2.Value = new System.DateTime(2019, 1, 11, 16, 38, 13, 0);
+            this.sbtn_satis_düzenle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sbtn_satis_düzenle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.sbtn_satis_düzenle.Location = new System.Drawing.Point(185, 207);
+            this.sbtn_satis_düzenle.Name = "sbtn_satis_düzenle";
+            this.sbtn_satis_düzenle.Size = new System.Drawing.Size(131, 55);
+            this.sbtn_satis_düzenle.TabIndex = 9;
+            this.sbtn_satis_düzenle.Text = "Satış Fişi Düzenle";
+            this.sbtn_satis_düzenle.Click += new System.EventHandler(this.sbtn_satis_düzenle_Click);
             // 
             // Form8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 402);
+            this.ClientSize = new System.Drawing.Size(537, 319);
             this.ControlBox = false;
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.txt_tarih);
-            this.Controls.Add(this.txt_kod);
-            this.Controls.Add(this.btn_bilgi_fisi);
+            this.Controls.Add(this.sbtn_satis_düzenle);
+            this.Controls.Add(this.sbtn_satis);
+            this.Controls.Add(this.sbtn_giris_duzenle);
+            this.Controls.Add(this.sbtn_giris);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btn_yazici_ekle);
             this.Controls.Add(this.cmbx_yazici);
@@ -262,15 +258,14 @@
         private System.Windows.Forms.Button btn_cikiss;
         private System.Windows.Forms.Button btn_tamekran;
         private System.Windows.Forms.Button btn_simge;
-        private System.Windows.Forms.Button btn_bilgi_fisi;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem anasayfaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem yardımToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cikisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem raporToolStripMenuItem;
-        private System.Windows.Forms.TextBox txt_kod;
-        private System.Windows.Forms.TextBox txt_tarih;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private DevExpress.XtraEditors.SimpleButton sbtn_giris;
+        private DevExpress.XtraEditors.SimpleButton sbtn_giris_duzenle;
+        private DevExpress.XtraEditors.SimpleButton sbtn_satis;
+        private DevExpress.XtraEditors.SimpleButton sbtn_satis_düzenle;
     }
 }

@@ -25,7 +25,8 @@ namespace Stok_Programı
 
         private void Form6_Load(object sender, EventArgs e)
         {
-            this.BackColor = Properties.Settings.Default.tema; 
+            this.BackColor = Properties.Settings.Default.tema;
+            Properties.Settings.Default.Save();
             this.WindowState = FormWindowState.Maximized;
             timer1.Start();
             toolStripStatusLabel1.Text = DateTime.Now.ToString();
