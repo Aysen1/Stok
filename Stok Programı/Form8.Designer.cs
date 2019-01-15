@@ -45,6 +45,8 @@
             this.sbtn_giris_duzenle = new DevExpress.XtraEditors.SimpleButton();
             this.sbtn_satis = new DevExpress.XtraEditors.SimpleButton();
             this.sbtn_satis_düzenle = new DevExpress.XtraEditors.SimpleButton();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cmbx_kodlar = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -192,7 +194,7 @@
             // sbtn_giris_duzenle
             // 
             this.sbtn_giris_duzenle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.sbtn_giris_duzenle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.sbtn_giris_duzenle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_giris_duzenle.ImageOptions.Image")));
             this.sbtn_giris_duzenle.Location = new System.Drawing.Point(185, 130);
             this.sbtn_giris_duzenle.Name = "sbtn_giris_duzenle";
             this.sbtn_giris_duzenle.Size = new System.Drawing.Size(131, 55);
@@ -214,7 +216,7 @@
             // sbtn_satis_düzenle
             // 
             this.sbtn_satis_düzenle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.sbtn_satis_düzenle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.sbtn_satis_düzenle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_satis_düzenle.ImageOptions.Image")));
             this.sbtn_satis_düzenle.Location = new System.Drawing.Point(185, 207);
             this.sbtn_satis_düzenle.Name = "sbtn_satis_düzenle";
             this.sbtn_satis_düzenle.Size = new System.Drawing.Size(131, 55);
@@ -222,12 +224,31 @@
             this.sbtn_satis_düzenle.Text = "Satış Fişi Düzenle";
             this.sbtn_satis_düzenle.Click += new System.EventHandler(this.sbtn_satis_düzenle_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "dd.M.yyyy HH:mm:ss";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(199, 91);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 10;
+            // 
+            // cmbx_kodlar
+            // 
+            this.cmbx_kodlar.FormattingEnabled = true;
+            this.cmbx_kodlar.Location = new System.Drawing.Point(388, 130);
+            this.cmbx_kodlar.Name = "cmbx_kodlar";
+            this.cmbx_kodlar.Size = new System.Drawing.Size(121, 21);
+            this.cmbx_kodlar.TabIndex = 11;
+            // 
             // Form8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 319);
             this.ControlBox = false;
+            this.Controls.Add(this.cmbx_kodlar);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.sbtn_satis_düzenle);
             this.Controls.Add(this.sbtn_satis);
             this.Controls.Add(this.sbtn_giris_duzenle);
@@ -267,5 +288,7 @@
         private DevExpress.XtraEditors.SimpleButton sbtn_giris_duzenle;
         private DevExpress.XtraEditors.SimpleButton sbtn_satis;
         private DevExpress.XtraEditors.SimpleButton sbtn_satis_düzenle;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox cmbx_kodlar;
     }
 }

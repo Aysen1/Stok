@@ -23,9 +23,11 @@ namespace Stok_Programı
         {
             InitializeComponent();
         }
-
+        DataSet ds;
+        SqlDataAdapter da;
         private void Form8_Load(object sender, EventArgs e)
         {
+            baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
             this.WindowState = FormWindowState.Maximized;
             this.BackColor = Properties.Settings.Default.tema;
             foreach (String yazici in PrinterSettings.InstalledPrinters)
@@ -60,6 +62,16 @@ namespace Stok_Programı
             else if (Properties.Settings.Default.dil == "Türkçe")
                 Localization.Culture = new CultureInfo("");
             metin();
+            baglanti.Open();
+            SqlDataReader dr;
+            SqlCommand komut = new SqlCommand("select UrunKodu from UrunGiris", baglanti);
+            dr = komut.ExecuteReader();
+            while(dr.Read())
+            {
+                  cmbx_kodlar.Items.Add(dr["UrunKodu"]);
+            }
+            baglanti.Close();
+            
         }
 
         private void btn_simge_Click(object sender, EventArgs e)
@@ -143,10 +155,11 @@ namespace Stok_Programı
             rapor1.ShowPreview();
            
         }
+        SqlConnection baglanti;
         private DataSet uruncikis()
         {
             DataSet veri = new DataSet();
-            SqlConnection baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
+          
             baglanti.Open();
 
             //SqlCommand komut = new SqlCommand("select FirmaAdi,UrunKodu,CikisTarihi,UrunAdet from UretimCikis where UrunKodu=@kod",baglanti);
@@ -154,7 +167,7 @@ namespace Stok_Programı
               //komut.Parameters.AddWithValue("@tarih", dateTimePicker1.Text);
               //komut.Parameters.AddWithValue("@tarih1", dateTimePicker2.Text);
 
-            SqlDataAdapter da = new SqlDataAdapter("SELECT FirmaAdi,UrunKodu,CikisTarihi,UrunAdet from UretimCikis WHERE UrunKodu='" + cmbx_yazici.Text + "' ", baglanti);
+            da = new SqlDataAdapter("SELECT FirmaAdi,UrunKodu,CikisTarihi,UrunAdet from UretimCikis WHERE UrunKodu='" + cmbx_yazici.Text + "' ", baglanti);
             da.Fill(veri);
             baglanti.Close();
             
@@ -163,8 +176,19 @@ namespace Stok_Programı
 
         private void sbtn_giris_Click(object sender, EventArgs e)
         {
+            ds = new DataSet("Tablo_alanlari");
+            baglanti.Open();
+            da = new SqlDataAdapter("select UrunKodu,FirmaAdi,UrunAdet,GirisTarihi from UrunGiris where UrunKodu='"+cmbx_kodlar.Text +"'",baglanti);
+            da.Fill(ds);
+            ds.Tables[0].TableName = "bilgiler";
+            baglanti.Close();           
+            //MessageBox.Show("satır sayısı {0}",ds.Tables["Kod"].Rows.Count.ToString());
             uretimgiris rapor = new uretimgiris();
+            rapor.DataAdapter = da;
+            rapor.DataSource = ds;
+            rapor.DataMember = ((DataSet)rapor.DataSource).Tables[0].TableName;
             //rapor.LoadLayout(Application.StartupPath + "\\rapor\\uretimgiris.repx");
+            cmbx_kodlar.Text = "";
             rapor.ShowPreview();
            // rapor.PageHeight = AutoSize();
         }
@@ -172,13 +196,25 @@ namespace Stok_Programı
         private void sbtn_giris_duzenle_Click(object sender, EventArgs e)
         {
             uretimgiris rapor = new uretimgiris();
+          
            // rapor.LoadLayout(Application.StartupPath + "\\rapor\\uretimgiris.repx");
             rapor.ShowDesigner();
         }
 
         private void sbtn_satis_Click(object sender, EventArgs e)
         {
+            DataSet ds = new DataSet("tablo");
+            baglanti.Open();
+            da = new SqlDataAdapter("select UrunKodu,FirmaAdi,UrunAdet,CikisTarihi from UretimCikis where UrunKodu='"+cmbx_kodlar.Text+"'", baglanti);
+            da.Fill(ds);
+            ds.Tables[0].TableName = "bilgi";
+            baglanti.Close();
+
             uretimcikis rapor = new uretimcikis();
+            rapor.DataAdapter = da;
+            rapor.DataSource = ds;
+            rapor.DataMember = ((DataSet)rapor.DataSource).Tables[0].TableName;
+            cmbx_kodlar.Text = "";
           //  rapor.LoadLayout(Application.StartupPath + "\\rapor\\uretimcikis.repx");
             rapor.ShowPreview();
         }
