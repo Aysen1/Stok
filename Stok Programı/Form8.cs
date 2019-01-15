@@ -25,6 +25,7 @@ namespace Stok_Programı
         }
         DataSet ds;
         SqlDataAdapter da;
+        SqlCommand komut;
         private void Form8_Load(object sender, EventArgs e)
         {
             baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
@@ -71,7 +72,8 @@ namespace Stok_Programı
                   cmbx_kodlar.Items.Add(dr["UrunKodu"]);
             }
             baglanti.Close();
-            
+            baslangic_tarihi.Value = DateTime.Now;
+           // bitis_tarihi.Text = DateTime.Now.ToString();
         }
 
         private void btn_simge_Click(object sender, EventArgs e)
@@ -178,11 +180,25 @@ namespace Stok_Programı
         {
             ds = new DataSet("Tablo_alanlari");
             baglanti.Open();
-            da = new SqlDataAdapter("select UrunKodu,FirmaAdi,UrunAdet,GirisTarihi from UrunGiris where UrunKodu='"+cmbx_kodlar.Text +"'",baglanti);
+            if(cmbx_kodlar.Text!="")
+          {
+            komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi FROM UrunGiris1 WHERE (UrunKodu=@kod) AND (GirisTarihi >= @baslangic AND GirisTarihi < @bitis)", baglanti);
+            komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
+            komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
+            komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
+            }
+            else if(cmbx_kodlar.Text=="")
+            {
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi FROM UrunGiris1 WHERE (GirisTarihi >= @baslangic AND GirisTarihi < @bitis)", baglanti);
+               // komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
+                komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
+                komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
+            }
+            da = new SqlDataAdapter(komut);
             da.Fill(ds);
             ds.Tables[0].TableName = "bilgiler";
             baglanti.Close();           
-            //MessageBox.Show("satır sayısı {0}",ds.Tables["Kod"].Rows.Count.ToString());
+
             uretimgiris rapor = new uretimgiris();
             rapor.DataAdapter = da;
             rapor.DataSource = ds;
@@ -190,7 +206,7 @@ namespace Stok_Programı
             //rapor.LoadLayout(Application.StartupPath + "\\rapor\\uretimgiris.repx");
             cmbx_kodlar.Text = "";
             rapor.ShowPreview();
-           // rapor.PageHeight = AutoSize();
+          
         }
 
         private void sbtn_giris_duzenle_Click(object sender, EventArgs e)
@@ -203,20 +219,33 @@ namespace Stok_Programı
 
         private void sbtn_satis_Click(object sender, EventArgs e)
         {
-            DataSet ds = new DataSet("tablo");
+            ds = new DataSet("tablo");
             baglanti.Open();
-            da = new SqlDataAdapter("select UrunKodu,FirmaAdi,UrunAdet,CikisTarihi from UretimCikis where UrunKodu='"+cmbx_kodlar.Text+"'", baglanti);
+            if (cmbx_kodlar.Text != "")
+            {
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi FROM UrunCikis WHERE (UrunKodu=@kod) AND (CikisTarihi >= @baslangic AND CikisTarihi < @bitis)", baglanti);
+                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
+                komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
+                komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
+            }
+            else if(cmbx_kodlar.Text=="")
+            {
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi FROM UrunCikis WHERE (CikisTarihi >= @baslangic AND CikisTarihi < @bitis) ORDER BY CikisTarihi", baglanti);
+                komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
+                komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
+            }
+            da = new SqlDataAdapter(komut);
             da.Fill(ds);
             ds.Tables[0].TableName = "bilgi";
             baglanti.Close();
 
-            uretimcikis rapor = new uretimcikis();
-            rapor.DataAdapter = da;
-            rapor.DataSource = ds;
-            rapor.DataMember = ((DataSet)rapor.DataSource).Tables[0].TableName;
+            uretimcikis rapor2 = new uretimcikis();
+            rapor2.DataAdapter = da;
+            rapor2.DataSource = ds;
+            rapor2.DataMember = ((DataSet)rapor2.DataSource).Tables[0].TableName;
             cmbx_kodlar.Text = "";
           //  rapor.LoadLayout(Application.StartupPath + "\\rapor\\uretimcikis.repx");
-            rapor.ShowPreview();
+            rapor2.ShowPreview();
         }
 
         private void sbtn_satis_düzenle_Click(object sender, EventArgs e)

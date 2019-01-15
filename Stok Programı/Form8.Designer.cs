@@ -45,8 +45,9 @@
             this.sbtn_giris_duzenle = new DevExpress.XtraEditors.SimpleButton();
             this.sbtn_satis = new DevExpress.XtraEditors.SimpleButton();
             this.sbtn_satis_düzenle = new DevExpress.XtraEditors.SimpleButton();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.baslangic_tarihi = new System.Windows.Forms.DateTimePicker();
             this.cmbx_kodlar = new System.Windows.Forms.ComboBox();
+            this.bitis_tarihi = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -224,14 +225,16 @@
             this.sbtn_satis_düzenle.Text = "Satış Fişi Düzenle";
             this.sbtn_satis_düzenle.Click += new System.EventHandler(this.sbtn_satis_düzenle_Click);
             // 
-            // dateTimePicker1
+            // baslangic_tarihi
             // 
-            this.dateTimePicker1.CustomFormat = "dd.M.yyyy HH:mm:ss";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(199, 91);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 10;
+            this.baslangic_tarihi.CalendarForeColor = System.Drawing.Color.Maroon;
+            this.baslangic_tarihi.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.baslangic_tarihi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.baslangic_tarihi.Location = new System.Drawing.Point(75, 84);
+            this.baslangic_tarihi.Name = "baslangic_tarihi";
+            this.baslangic_tarihi.Size = new System.Drawing.Size(137, 20);
+            this.baslangic_tarihi.TabIndex = 10;
+            this.baslangic_tarihi.Value = new System.DateTime(2018, 11, 1, 0, 0, 0, 0);
             // 
             // cmbx_kodlar
             // 
@@ -241,14 +244,26 @@
             this.cmbx_kodlar.Size = new System.Drawing.Size(121, 21);
             this.cmbx_kodlar.TabIndex = 11;
             // 
+            // bitis_tarihi
+            // 
+            this.bitis_tarihi.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.bitis_tarihi.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.bitis_tarihi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.bitis_tarihi.Location = new System.Drawing.Point(234, 84);
+            this.bitis_tarihi.Name = "bitis_tarihi";
+            this.bitis_tarihi.Size = new System.Drawing.Size(137, 20);
+            this.bitis_tarihi.TabIndex = 12;
+            this.bitis_tarihi.Value = new System.DateTime(2019, 1, 12, 0, 0, 0, 0);
+            // 
             // Form8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 319);
             this.ControlBox = false;
+            this.Controls.Add(this.bitis_tarihi);
             this.Controls.Add(this.cmbx_kodlar);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.baslangic_tarihi);
             this.Controls.Add(this.sbtn_satis_düzenle);
             this.Controls.Add(this.sbtn_satis);
             this.Controls.Add(this.sbtn_giris_duzenle);
@@ -288,7 +303,8 @@
         private DevExpress.XtraEditors.SimpleButton sbtn_giris_duzenle;
         private DevExpress.XtraEditors.SimpleButton sbtn_satis;
         private DevExpress.XtraEditors.SimpleButton sbtn_satis_düzenle;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker baslangic_tarihi;
         private System.Windows.Forms.ComboBox cmbx_kodlar;
+        private System.Windows.Forms.DateTimePicker bitis_tarihi;
     }
 }

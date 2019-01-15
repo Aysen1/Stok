@@ -143,7 +143,7 @@ namespace Stok_Programı
                 baglanti.Open();
                 komut = new SqlCommand();
                 komut.Connection = baglanti;
-                komut.CommandText = "insert into UrunGiris(FirmaAdi, UrunKodu, GirisTarihi, UrunAdet, İslem) values ('" + cmbx_firmaadi.Text + "','" + cmbx_urunadi.Text + "','" + txt_giristarihi.Text + "','" + txt_adet.Text + "','" + txt_islem.Text + "')";
+                komut.CommandText = "insert into UrunGiris1(FirmaAdi, UrunKodu, GirisTarihi, UrunAdet, İslem) values ('" + cmbx_firmaadi.Text + "','" + cmbx_urunadi.Text + "','" + dateTimePicker1.Text + "','" + txt_adet.Text + "','" + txt_islem.Text + "')";
                 komut.ExecuteNonQuery();
                 baglanti.Close();
 
@@ -202,7 +202,7 @@ namespace Stok_Programı
         {
             SqlConnection baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
             baglanti.Open();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from UrunGiris", baglanti);
+            SqlDataAdapter da = new SqlDataAdapter("Select * from UrunGiris1", baglanti);
             DataSet ds = new DataSet();
             da.Fill(ds);
             string data = null;

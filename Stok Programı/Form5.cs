@@ -151,7 +151,7 @@ namespace Stok_Programı
                         baglanti.Open();
                         komut = new SqlCommand();
                         komut.Connection = baglanti;
-                        komut.CommandText = "insert into UretimCikis(FirmaAdi, UrunKodu, CikisTarihi, UrunAdet) values ('" + cmbx_firmaadi.Text + "','" + cmbx_urunadi.Text + "','" + txt_giristarihi.Text + "','" + txt_adet.Text + "')";
+                        komut.CommandText = "insert into UrunCikis(FirmaAdi, UrunKodu, CikisTarihi, UrunAdet) values ('" + cmbx_firmaadi.Text + "','" + cmbx_urunadi.Text + "','" + dateTimePicker1.Text+ "','" + txt_adet.Text + "')";
                         komut.ExecuteNonQuery();
                         baglanti.Close();
 
