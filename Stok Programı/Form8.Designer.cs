@@ -48,16 +48,21 @@
             this.baslangic_tarihi = new System.Windows.Forms.DateTimePicker();
             this.cmbx_kodlar = new System.Windows.Forms.ComboBox();
             this.bitis_tarihi = new System.Windows.Forms.DateTimePicker();
+            this.lbl_baslangic = new System.Windows.Forms.Label();
+            this.lbl_bitis = new System.Windows.Forms.Label();
+            this.lbl_kod = new System.Windows.Forms.Label();
+            this.lbl_sayı = new System.Windows.Forms.Label();
+            this.txt_adet = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_yazici
             // 
-            this.lbl_yazici.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbl_yazici.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lbl_yazici.AutoSize = true;
             this.lbl_yazici.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_yazici.Location = new System.Drawing.Point(36, 42);
+            this.lbl_yazici.Location = new System.Drawing.Point(169, 402);
             this.lbl_yazici.Name = "lbl_yazici";
             this.lbl_yazici.Size = new System.Drawing.Size(59, 13);
             this.lbl_yazici.TabIndex = 0;
@@ -65,20 +70,20 @@
             // 
             // cmbx_yazici
             // 
-            this.cmbx_yazici.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbx_yazici.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.cmbx_yazici.FormattingEnabled = true;
-            this.cmbx_yazici.Location = new System.Drawing.Point(176, 34);
+            this.cmbx_yazici.Location = new System.Drawing.Point(284, 399);
             this.cmbx_yazici.Name = "cmbx_yazici";
             this.cmbx_yazici.Size = new System.Drawing.Size(173, 21);
             this.cmbx_yazici.TabIndex = 1;
             // 
             // btn_yazici_ekle
             // 
-            this.btn_yazici_ekle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_yazici_ekle.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_yazici_ekle.FlatAppearance.BorderSize = 0;
             this.btn_yazici_ekle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_yazici_ekle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_yazici_ekle.Location = new System.Drawing.Point(399, 32);
+            this.btn_yazici_ekle.Location = new System.Drawing.Point(468, 399);
             this.btn_yazici_ekle.Name = "btn_yazici_ekle";
             this.btn_yazici_ekle.Size = new System.Drawing.Size(92, 23);
             this.btn_yazici_ekle.TabIndex = 2;
@@ -96,7 +101,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btn_cikiss, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btn_tamekran, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btn_simge, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(380, 27);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(496, 27);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -149,7 +154,7 @@
             this.cikisToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(537, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(653, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -185,7 +190,7 @@
             // 
             this.sbtn_giris.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.sbtn_giris.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_giris.ImageOptions.Image")));
-            this.sbtn_giris.Location = new System.Drawing.Point(50, 130);
+            this.sbtn_giris.Location = new System.Drawing.Point(268, 150);
             this.sbtn_giris.Name = "sbtn_giris";
             this.sbtn_giris.Size = new System.Drawing.Size(100, 55);
             this.sbtn_giris.TabIndex = 6;
@@ -196,7 +201,7 @@
             // 
             this.sbtn_giris_duzenle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.sbtn_giris_duzenle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_giris_duzenle.ImageOptions.Image")));
-            this.sbtn_giris_duzenle.Location = new System.Drawing.Point(185, 130);
+            this.sbtn_giris_duzenle.Location = new System.Drawing.Point(403, 150);
             this.sbtn_giris_duzenle.Name = "sbtn_giris_duzenle";
             this.sbtn_giris_duzenle.Size = new System.Drawing.Size(131, 55);
             this.sbtn_giris_duzenle.TabIndex = 7;
@@ -207,7 +212,7 @@
             // 
             this.sbtn_satis.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.sbtn_satis.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_satis.ImageOptions.Image")));
-            this.sbtn_satis.Location = new System.Drawing.Point(50, 207);
+            this.sbtn_satis.Location = new System.Drawing.Point(268, 227);
             this.sbtn_satis.Name = "sbtn_satis";
             this.sbtn_satis.Size = new System.Drawing.Size(100, 55);
             this.sbtn_satis.TabIndex = 8;
@@ -218,7 +223,7 @@
             // 
             this.sbtn_satis_düzenle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.sbtn_satis_düzenle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_satis_düzenle.ImageOptions.Image")));
-            this.sbtn_satis_düzenle.Location = new System.Drawing.Point(185, 207);
+            this.sbtn_satis_düzenle.Location = new System.Drawing.Point(403, 227);
             this.sbtn_satis_düzenle.Name = "sbtn_satis_düzenle";
             this.sbtn_satis_düzenle.Size = new System.Drawing.Size(131, 55);
             this.sbtn_satis_düzenle.TabIndex = 9;
@@ -230,18 +235,18 @@
             this.baslangic_tarihi.CalendarForeColor = System.Drawing.Color.Maroon;
             this.baslangic_tarihi.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.baslangic_tarihi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.baslangic_tarihi.Location = new System.Drawing.Point(75, 84);
+            this.baslangic_tarihi.Location = new System.Drawing.Point(159, 79);
             this.baslangic_tarihi.Name = "baslangic_tarihi";
             this.baslangic_tarihi.Size = new System.Drawing.Size(137, 20);
             this.baslangic_tarihi.TabIndex = 10;
-            this.baslangic_tarihi.Value = new System.DateTime(2018, 11, 1, 0, 0, 0, 0);
+            this.baslangic_tarihi.Value = new System.DateTime(2019, 1, 15, 0, 0, 0, 0);
             // 
             // cmbx_kodlar
             // 
             this.cmbx_kodlar.FormattingEnabled = true;
-            this.cmbx_kodlar.Location = new System.Drawing.Point(388, 130);
+            this.cmbx_kodlar.Location = new System.Drawing.Point(159, 168);
             this.cmbx_kodlar.Name = "cmbx_kodlar";
-            this.cmbx_kodlar.Size = new System.Drawing.Size(121, 21);
+            this.cmbx_kodlar.Size = new System.Drawing.Size(137, 21);
             this.cmbx_kodlar.TabIndex = 11;
             // 
             // bitis_tarihi
@@ -249,18 +254,66 @@
             this.bitis_tarihi.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.bitis_tarihi.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.bitis_tarihi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.bitis_tarihi.Location = new System.Drawing.Point(234, 84);
+            this.bitis_tarihi.Location = new System.Drawing.Point(159, 121);
             this.bitis_tarihi.Name = "bitis_tarihi";
             this.bitis_tarihi.Size = new System.Drawing.Size(137, 20);
             this.bitis_tarihi.TabIndex = 12;
-            this.bitis_tarihi.Value = new System.DateTime(2019, 1, 12, 0, 0, 0, 0);
+            this.bitis_tarihi.Value = new System.DateTime(2019, 1, 15, 0, 0, 0, 0);
+            // 
+            // lbl_baslangic
+            // 
+            this.lbl_baslangic.AutoSize = true;
+            this.lbl_baslangic.Location = new System.Drawing.Point(20, 85);
+            this.lbl_baslangic.Name = "lbl_baslangic";
+            this.lbl_baslangic.Size = new System.Drawing.Size(85, 13);
+            this.lbl_baslangic.TabIndex = 13;
+            this.lbl_baslangic.Text = "Başlangıç Tarihi:";
+            // 
+            // lbl_bitis
+            // 
+            this.lbl_bitis.AutoSize = true;
+            this.lbl_bitis.Location = new System.Drawing.Point(20, 127);
+            this.lbl_bitis.Name = "lbl_bitis";
+            this.lbl_bitis.Size = new System.Drawing.Size(58, 13);
+            this.lbl_bitis.TabIndex = 14;
+            this.lbl_bitis.Text = "Bitiş Tarihi:";
+            // 
+            // lbl_kod
+            // 
+            this.lbl_kod.AutoSize = true;
+            this.lbl_kod.Location = new System.Drawing.Point(20, 171);
+            this.lbl_kod.Name = "lbl_kod";
+            this.lbl_kod.Size = new System.Drawing.Size(80, 13);
+            this.lbl_kod.TabIndex = 15;
+            this.lbl_kod.Text = "Filtrelenen Kod:";
+            // 
+            // lbl_sayı
+            // 
+            this.lbl_sayı.AutoSize = true;
+            this.lbl_sayı.Location = new System.Drawing.Point(20, 219);
+            this.lbl_sayı.Name = "lbl_sayı";
+            this.lbl_sayı.Size = new System.Drawing.Size(32, 13);
+            this.lbl_sayı.TabIndex = 16;
+            this.lbl_sayı.Text = "Adet:";
+            // 
+            // txt_adet
+            // 
+            this.txt_adet.Location = new System.Drawing.Point(159, 212);
+            this.txt_adet.Name = "txt_adet";
+            this.txt_adet.Size = new System.Drawing.Size(137, 20);
+            this.txt_adet.TabIndex = 17;
             // 
             // Form8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 319);
+            this.ClientSize = new System.Drawing.Size(653, 452);
             this.ControlBox = false;
+            this.Controls.Add(this.txt_adet);
+            this.Controls.Add(this.lbl_sayı);
+            this.Controls.Add(this.lbl_kod);
+            this.Controls.Add(this.lbl_bitis);
+            this.Controls.Add(this.lbl_baslangic);
             this.Controls.Add(this.bitis_tarihi);
             this.Controls.Add(this.cmbx_kodlar);
             this.Controls.Add(this.baslangic_tarihi);
@@ -306,5 +359,10 @@
         private System.Windows.Forms.DateTimePicker baslangic_tarihi;
         private System.Windows.Forms.ComboBox cmbx_kodlar;
         private System.Windows.Forms.DateTimePicker bitis_tarihi;
+        private System.Windows.Forms.Label lbl_baslangic;
+        private System.Windows.Forms.Label lbl_bitis;
+        private System.Windows.Forms.Label lbl_kod;
+        private System.Windows.Forms.Label lbl_sayı;
+        private System.Windows.Forms.TextBox txt_adet;
     }
 }

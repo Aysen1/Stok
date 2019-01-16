@@ -60,6 +60,7 @@
             this.btn_cikiss = new System.Windows.Forms.Button();
             this.btn_simge = new System.Windows.Forms.Button();
             this.btn_tamekran = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.grpbx_urunbilgileri.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -431,6 +432,15 @@
             this.btn_tamekran.UseVisualStyleBackColor = true;
             this.btn_tamekran.Click += new System.EventHandler(this.btn_tamekran_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(90, 38);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(136, 20);
+            this.dateTimePicker1.TabIndex = 7;
+            // 
             // Form3
             // 
             this.AcceptButton = this.btn_kaydet;
@@ -438,6 +448,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(619, 466);
             this.ControlBox = false;
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.tableLayoutPanel7);
             this.Controls.Add(this.tableLayoutPanel5);
             this.Controls.Add(this.statusStrip1);
@@ -501,5 +512,6 @@
         public System.Windows.Forms.Label lbl_urun_kodu;
         public System.Windows.Forms.Label lbl_FirmaAdi;
         public System.Windows.Forms.ToolStripMenuItem cikisToolStripMenuItem;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

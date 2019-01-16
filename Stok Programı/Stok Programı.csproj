@@ -160,12 +160,6 @@
     <Compile Include="uretimgiris.Designer.cs">
       <DependentUpon>uretimgiris.cs</DependentUpon>
     </Compile>
-    <Compile Include="XtraReport1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="XtraReport1.Designer.cs">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -217,9 +211,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="uretimgiris.resx">
       <DependentUpon>uretimgiris.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XtraReport1.resx">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />

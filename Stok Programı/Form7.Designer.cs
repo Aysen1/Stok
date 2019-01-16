@@ -130,12 +130,12 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.lbl_islemm, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.txt_islem, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.lbl_firmaadi, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txt_adet, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.cmbx_firmaadi, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txt_giristarihi, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.lbl_adet, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.cmbx_urunadi, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lbl_giristarihi, 0, 2);
@@ -205,9 +205,8 @@
             // 
             // txt_giristarihi
             // 
-            this.txt_giristarihi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_giristarihi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_giristarihi.Location = new System.Drawing.Point(172, 127);
+            this.txt_giristarihi.Location = new System.Drawing.Point(12, 28);
             this.txt_giristarihi.Name = "txt_giristarihi";
             this.txt_giristarihi.Size = new System.Drawing.Size(163, 20);
             this.txt_giristarihi.TabIndex = 2;
@@ -420,11 +419,12 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(155, 36);
+            this.dateTimePicker1.Location = new System.Drawing.Point(172, 127);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(163, 20);
             this.dateTimePicker1.TabIndex = 15;
             // 
             // Form7
@@ -434,11 +434,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 500);
             this.ControlBox = false;
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.tableLayoutPanel5);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip2);
+            this.Controls.Add(this.txt_giristarihi);
             this.MinimumSize = new System.Drawing.Size(489, 467);
             this.Name = "Form7";
             this.Text = "ÜRETİM GİRİŞ";

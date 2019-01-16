@@ -128,12 +128,12 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.tableLayoutPanel2.Controls.Add(this.dateTimePicker1, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.lbl_firmaadi, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.txt_adet, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.cmbx_firmaadi, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.lbl_adet, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.lbl_urunkodu, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.txt_giristarihi, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.cmbx_urunadi, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.lbl_giristarihi, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -162,9 +162,9 @@
             // 
             this.txt_adet.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.txt_adet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_adet.Location = new System.Drawing.Point(259, 287);
+            this.txt_adet.Location = new System.Drawing.Point(240, 287);
             this.txt_adet.Name = "txt_adet";
-            this.txt_adet.Size = new System.Drawing.Size(121, 20);
+            this.txt_adet.Size = new System.Drawing.Size(140, 20);
             this.txt_adet.TabIndex = 4;
             // 
             // cmbx_firmaadi
@@ -172,9 +172,9 @@
             this.cmbx_firmaadi.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.cmbx_firmaadi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbx_firmaadi.FormattingEnabled = true;
-            this.cmbx_firmaadi.Location = new System.Drawing.Point(259, 32);
+            this.cmbx_firmaadi.Location = new System.Drawing.Point(240, 32);
             this.cmbx_firmaadi.Name = "cmbx_firmaadi";
-            this.cmbx_firmaadi.Size = new System.Drawing.Size(121, 21);
+            this.cmbx_firmaadi.Size = new System.Drawing.Size(140, 21);
             this.cmbx_firmaadi.TabIndex = 1;
             // 
             // lbl_adet
@@ -203,7 +203,7 @@
             // 
             this.txt_giristarihi.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.txt_giristarihi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_giristarihi.Location = new System.Drawing.Point(259, 202);
+            this.txt_giristarihi.Location = new System.Drawing.Point(142, 70);
             this.txt_giristarihi.Name = "txt_giristarihi";
             this.txt_giristarihi.Size = new System.Drawing.Size(121, 20);
             this.txt_giristarihi.TabIndex = 3;
@@ -213,9 +213,9 @@
             this.cmbx_urunadi.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.cmbx_urunadi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbx_urunadi.FormattingEnabled = true;
-            this.cmbx_urunadi.Location = new System.Drawing.Point(259, 117);
+            this.cmbx_urunadi.Location = new System.Drawing.Point(240, 117);
             this.cmbx_urunadi.Name = "cmbx_urunadi";
-            this.cmbx_urunadi.Size = new System.Drawing.Size(121, 21);
+            this.cmbx_urunadi.Size = new System.Drawing.Size(140, 21);
             this.cmbx_urunadi.TabIndex = 2;
             this.cmbx_urunadi.SelectedIndexChanged += new System.EventHandler(this.cmbx_urunadi_SelectedIndexChanged);
             // 
@@ -394,11 +394,13 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.dateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(324, 87);
+            this.dateTimePicker1.Location = new System.Drawing.Point(240, 202);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(140, 20);
             this.dateTimePicker1.TabIndex = 10;
             // 
             // Form5
@@ -409,11 +411,11 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(787, 665);
             this.ControlBox = false;
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.tableLayoutPanel5);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.txt_giristarihi);
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(540, 485);
             this.Name = "Form5";

@@ -21,6 +21,5 @@ C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\en-US\Stok P
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok Programı.exe
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok Programı.pdb
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok Programı.exe.licenses
-C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.XtraReport1.resources
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.uretimcikis.resources
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.uretimgiris.resources

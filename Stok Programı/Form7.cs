@@ -86,7 +86,7 @@ namespace Stok_Programı
             komut = new SqlCommand();
             komut.Connection = baglanti;
             baglanti.Open();
-            komut.CommandText = "select * from UrunKayit where FirmaAdi=@firma";
+            komut.CommandText = "select * from UrunKayit1 where FirmaAdi=@firma";
             komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
             dr = komut.ExecuteReader();
             while(dr.Read())
@@ -123,7 +123,7 @@ namespace Stok_Programı
             baglanti.Open();
             komut = new SqlCommand();
             komut.Connection = baglanti;
-            komut.CommandText = "select * from UrunKayit where UrunKodu=@kod ";
+            komut.CommandText = "select * from UrunKayit1 where UrunKodu=@kod ";
             komut.Parameters.AddWithValue("@kod", cmbx_urunadi.Text);
             dr = komut.ExecuteReader();
             if (dr.Read())
@@ -140,17 +140,29 @@ namespace Stok_Programı
             
             if (cmbx_firmaadi.Text != "" && cmbx_urunadi.Text != "" && txt_adet.Text != "" && txt_islem.Text != "")
             {
+                string UrunID="";
+                baglanti.Open();
+                SqlCommand komut1 = new SqlCommand();
+                komut1.Connection = baglanti;
+                komut1.CommandText = "select UrunID from UrunKayit1 where UrunKodu=@kod";
+                komut1.Parameters.AddWithValue("@kod", cmbx_urunadi.Text);
+                dr = komut1.ExecuteReader();
+                while (dr.Read())
+                    UrunID = dr["UrunID"].ToString();
+                baglanti.Close();
+
                 baglanti.Open();
                 komut = new SqlCommand();
                 komut.Connection = baglanti;
-                komut.CommandText = "insert into UrunGiris1(FirmaAdi, UrunKodu, GirisTarihi, UrunAdet, İslem) values ('" + cmbx_firmaadi.Text + "','" + cmbx_urunadi.Text + "','" + dateTimePicker1.Text + "','" + txt_adet.Text + "','" + txt_islem.Text + "')";
+                komut.CommandText = "insert into UrunGiris1(UrunID, FirmaAdi, UrunKodu, GirisTarihi, UrunAdet, İslem, Personel) values ('"+UrunID+"','" + cmbx_firmaadi.Text + "','" + cmbx_urunadi.Text + "','" + dateTimePicker1.Text + "','" + txt_adet.Text + "','" + txt_islem.Text + "',@personel)";
+                komut.Parameters.AddWithValue("@personel",Properties.Settings.Default.kullaniciadi);
                 komut.ExecuteNonQuery();
                 baglanti.Close();
 
                 baglanti.Open();
                 SqlCommand komut2 = new SqlCommand();
                 komut2.Connection = baglanti;
-                komut2.CommandText = "update UrunKayit set ToplamAdet=ToplamAdet+@miktar where UrunKodu=@kod";
+                komut2.CommandText = "update UrunKayit1 set ToplamAdet=ToplamAdet+@miktar where UrunKodu=@kod";
                 komut2.Parameters.AddWithValue("@kod", cmbx_urunadi.Text);
                 komut2.Parameters.AddWithValue("@miktar", int.Parse(txt_adet.Text));
                 komut2.ExecuteNonQuery();

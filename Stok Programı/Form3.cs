@@ -95,7 +95,7 @@ namespace Stok_Programı
 
             if (cmbbx_firma_adi.Text != "" && txt_urun_kodu.Text != "")
             {
-                urun_kayit();         
+                urunkod_kontrol();     
             }
             else
             {
@@ -115,8 +115,9 @@ namespace Stok_Programı
             SqlCommand komut2 = new SqlCommand();
             komut2.Connection = baglanti;
             baglanti.Open();
-            komut2.CommandText = "insert into UrunKayit(FirmaAdi, UrunKodu, KayitTarihi, UrunResim, ToplamAdet) values ('" + cmbbx_firma_adi.Text + "','" + txt_urun_kodu.Text + "','" + txt_kayit_tarihi.Text + "',@image,0)";
+            komut2.CommandText = "insert into UrunKayit1(FirmaAdi, UrunKodu, KayitTarihi, UrunResim, ToplamAdet, Personel) values ('" + cmbbx_firma_adi.Text + "','" + txt_urun_kodu.Text + "','" + dateTimePicker1.Text + "',@image,0, @personel)";
             komut2.Parameters.Add("@image", SqlDbType.Image, resim.Length).Value = resim;
+            komut2.Parameters.AddWithValue("@personel", Properties.Settings.Default.kullaniciadi);
             komut2.ExecuteNonQuery();
             MessageBox.Show("Başarılı.");
             baglanti.Close(); 
@@ -166,19 +167,24 @@ namespace Stok_Programı
         private void urunkod_kontrol()
         {
             baglanti.Open();
+            int kontrol = 0;
             komut = new SqlCommand();
             komut.Connection = baglanti;
-            komut.CommandText = "select * from UrunKayit where UrunKodu=@kod ";
+            komut.CommandText = "select * from UrunKayit1 where UrunKodu=@kod ";
             komut.Parameters.AddWithValue("@kod", txt_urun_kodu.Text);
             dr = komut.ExecuteReader();
-            if (dr.Read())
+            while (dr.Read())
             {
                 if (txt_urun_kodu.Text == dr["UrunKodu"].ToString())
                 {
-                    MessageBox.Show("Ürün Bulunmaktadır.");
+                    kontrol++;
                 }
             }
             baglanti.Close(); 
+            if (kontrol == 0)
+                urun_kayit();
+            else
+                MessageBox.Show("Bu Kodda Bir Ürün Bulunmaktadır.");
         }
 
         private void btn_simge_Click(object sender, EventArgs e)
