@@ -52,7 +52,8 @@ namespace Stok_Programı
             if (Properties.Settings.Default.dil == "İngilizce")
             {
                 Localization.Culture = new CultureInfo("en-US");
-                btn_temizle.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\kaydetK.fw.png");
+                btn_temizle.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\temizleK.fw.png");
+                btn_kaydet.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\kaydetK.fw.png");
             }
             else if (Properties.Settings.Default.dil == "Türkçe")
             {
@@ -72,7 +73,6 @@ namespace Stok_Programı
             txt_telno.Text = "";
             txt_vergidaire.Text = "";
             txt_vergino.Text = "";
-            txt_kayit_tarihi.Text = DateTime.Now.ToString();
             cmbx_il.Text = "";
             cmbx_ilce.Text = "";
             txt_adres.Text = "";
@@ -87,7 +87,7 @@ namespace Stok_Programı
             {
                 if (txt_telno.Text.Length == 11)
                 {
-                    komut.CommandText = "insert into FirmaKayit(FirmaAdi, SorumluAdi, TelefonNo, VergiDairesiAdi, VergiNo, KayitTarihi, Sehir, ilce, Adres, MersisNo) values ('" + txt_firmaadi.Text + "','" + txt_sorumlu.Text + "','" + txt_telno.Text + "','" + txt_vergidaire.Text + "','" + txt_vergino.Text + "','" + txt_kayit_tarihi.Text + "','" + cmbx_il.Text + "','" + cmbx_ilce.Text + "','" + txt_adres.Text + "','" + txt_mersis.Text + "')";
+                    komut.CommandText = "insert into FirmaKayit(FirmaAdi, SorumluAdi, TelefonNo, VergiDairesiAdi, VergiNo, KayitTarihi, Sehir, ilce, Adres, MersisNo) values ('" + txt_firmaadi.Text + "','" + txt_sorumlu.Text + "','" + txt_telno.Text + "','" + txt_vergidaire.Text + "','" + txt_vergino.Text + "','" + dateTimePicker1.Text + "','" + cmbx_il.Text + "','" + cmbx_ilce.Text + "','" + txt_adres.Text + "','" + txt_mersis.Text + "')";
                     komut.ExecuteNonQuery();
                     MessageBox.Show("Kayıt Başarılı!");
                 }
@@ -122,7 +122,7 @@ namespace Stok_Programı
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            txt_kayit_tarihi.Text = DateTime.Now.ToString();
+            dateTimePicker1.Text = DateTime.Now.ToString();
             toolStripStatusLabel1.Text = DateTime.Now.ToString();
             timer1.Start();
         }
@@ -176,7 +176,7 @@ namespace Stok_Programı
 
             Microsoft.Office.Interop.Excel.Application xl = new Microsoft.Office.Interop.Excel.Application();
             Microsoft.Office.Interop.Excel.Workbook wb = default(Microsoft.Office.Interop.Excel.Workbook);
-            wb = xl.Workbooks.Add(@"C:\\Users\\NFM-1PC\\Documents\\Firma Kayit.xls");
+            wb = xl.Workbooks.Add(Application.StartupPath+"\\exceldosyalari\\firmakayit.xls");
             Microsoft.Office.Interop.Excel.Worksheet ws = default(Microsoft.Office.Interop.Excel.Worksheet);
             ws = wb.Worksheets.get_Item(1);
 

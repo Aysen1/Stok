@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.grpbx_urunbilgileri = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.txt_kayit_tarihi = new System.Windows.Forms.TextBox();
             this.lbl_FirmaAdi = new System.Windows.Forms.Label();
             this.lbl_kayıt_tarihi = new System.Windows.Forms.Label();
             this.txt_urun_kodu = new System.Windows.Forms.TextBox();
@@ -90,10 +89,10 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.txt_kayit_tarihi, 1, 2);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.24528F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.75472F));
             this.tableLayoutPanel2.Controls.Add(this.lbl_FirmaAdi, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.dateTimePicker1, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.lbl_kayıt_tarihi, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.txt_urun_kodu, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.cmbbx_firma_adi, 1, 0);
@@ -108,15 +107,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(265, 212);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
-            // txt_kayit_tarihi
-            // 
-            this.txt_kayit_tarihi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_kayit_tarihi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_kayit_tarihi.Location = new System.Drawing.Point(135, 166);
-            this.txt_kayit_tarihi.Name = "txt_kayit_tarihi";
-            this.txt_kayit_tarihi.Size = new System.Drawing.Size(127, 20);
-            this.txt_kayit_tarihi.TabIndex = 5;
-            // 
             // lbl_FirmaAdi
             // 
             this.lbl_FirmaAdi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -124,7 +114,7 @@
             this.lbl_FirmaAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_FirmaAdi.Location = new System.Drawing.Point(3, 28);
             this.lbl_FirmaAdi.Name = "lbl_FirmaAdi";
-            this.lbl_FirmaAdi.Size = new System.Drawing.Size(126, 13);
+            this.lbl_FirmaAdi.Size = new System.Drawing.Size(97, 13);
             this.lbl_FirmaAdi.TabIndex = 0;
             this.lbl_FirmaAdi.Text = "Firma Adı:";
             // 
@@ -135,7 +125,7 @@
             this.lbl_kayıt_tarihi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_kayıt_tarihi.Location = new System.Drawing.Point(3, 169);
             this.lbl_kayıt_tarihi.Name = "lbl_kayıt_tarihi";
-            this.lbl_kayıt_tarihi.Size = new System.Drawing.Size(126, 13);
+            this.lbl_kayıt_tarihi.Size = new System.Drawing.Size(97, 13);
             this.lbl_kayıt_tarihi.TabIndex = 2;
             this.lbl_kayıt_tarihi.Text = "Kayıt Tarihi:";
             // 
@@ -143,9 +133,9 @@
             // 
             this.txt_urun_kodu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_urun_kodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_urun_kodu.Location = new System.Drawing.Point(135, 95);
+            this.txt_urun_kodu.Location = new System.Drawing.Point(106, 95);
             this.txt_urun_kodu.Name = "txt_urun_kodu";
-            this.txt_urun_kodu.Size = new System.Drawing.Size(127, 20);
+            this.txt_urun_kodu.Size = new System.Drawing.Size(156, 20);
             this.txt_urun_kodu.TabIndex = 4;
             // 
             // cmbbx_firma_adi
@@ -153,9 +143,9 @@
             this.cmbbx_firma_adi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbbx_firma_adi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbbx_firma_adi.FormattingEnabled = true;
-            this.cmbbx_firma_adi.Location = new System.Drawing.Point(135, 24);
+            this.cmbbx_firma_adi.Location = new System.Drawing.Point(106, 24);
             this.cmbbx_firma_adi.Name = "cmbbx_firma_adi";
-            this.cmbbx_firma_adi.Size = new System.Drawing.Size(127, 21);
+            this.cmbbx_firma_adi.Size = new System.Drawing.Size(156, 21);
             this.cmbbx_firma_adi.TabIndex = 3;
             // 
             // lbl_urun_kodu
@@ -165,7 +155,7 @@
             this.lbl_urun_kodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_urun_kodu.Location = new System.Drawing.Point(3, 98);
             this.lbl_urun_kodu.Name = "lbl_urun_kodu";
-            this.lbl_urun_kodu.Size = new System.Drawing.Size(126, 13);
+            this.lbl_urun_kodu.Size = new System.Drawing.Size(97, 13);
             this.lbl_urun_kodu.TabIndex = 1;
             this.lbl_urun_kodu.Text = "Ürün Kodu:";
             // 
@@ -434,11 +424,13 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(90, 38);
+            this.dateTimePicker1.Location = new System.Drawing.Point(106, 166);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(136, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(156, 20);
             this.dateTimePicker1.TabIndex = 7;
             // 
             // Form3
@@ -448,7 +440,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(619, 466);
             this.ControlBox = false;
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.tableLayoutPanel7);
             this.Controls.Add(this.tableLayoutPanel5);
             this.Controls.Add(this.statusStrip1);
@@ -484,7 +475,6 @@
         private System.Windows.Forms.GroupBox grpbx_urunbilgileri;
         private System.Windows.Forms.GroupBox grpbx_islemler;
         private System.Windows.Forms.GroupBox grpbx_resim;
-        private System.Windows.Forms.TextBox txt_kayit_tarihi;
         private System.Windows.Forms.TextBox txt_urun_kodu;
         private System.Windows.Forms.ComboBox cmbbx_firma_adi;
         private System.Windows.Forms.Button btn_kaydet;

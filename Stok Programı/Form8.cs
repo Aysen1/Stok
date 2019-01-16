@@ -73,8 +73,11 @@ namespace Stok_Programı
                   cmbx_kodlar.Items.Add(dr["UrunKodu"]);
             }
             baglanti.Close();
-            baslangic_tarihi.Value = DateTime.Now;
-           // bitis_tarihi.Text = DateTime.Now.ToString();
+            baslangic_tarihi.ShowCheckBox = true;
+            baslangic_tarihi.Checked = false;
+
+            bitis_tarihi.ShowCheckBox = true;
+            bitis_tarihi.Checked = false;
         }
 
         private void btn_simge_Click(object sender, EventArgs e)
@@ -146,11 +149,6 @@ namespace Stok_Programı
         }
         private void raporToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //rapor.LoadLayout(Application.StartupPath + "\\uruncikis.repx");
-            //rapor.DataSource = uruncikis();
-           // rapor.ShowDesigner();
-           uretimcikis rapor1 = new uretimcikis();
-            rapor1.ShowPreview();
            
         }
         private DataSet uruncikis()
@@ -175,73 +173,43 @@ namespace Stok_Programı
         {
             ds = new DataSet("Tablo_alanlari");
             baglanti.Open();
-            if (cmbx_kodlar.Text != "" & baslangic_tarihi.Text != "2000-01-01 00:00:00" & bitis_tarihi.Text != "2000-01-01 00:00:00")
+            if (cmbx_kodlar.Text != "" & baslangic_tarihi.Checked==false & bitis_tarihi.Checked==false)
+            {
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi FROM UrunGiris1 WHERE (UrunKodu=@kod)  ORDER BY GirisTarihi", baglanti);
+                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
+            }
+            else if (cmbx_kodlar.Text == "" & baslangic_tarihi.Checked==true & bitis_tarihi.Checked==true)
+            {
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi FROM UrunGiris1 WHERE (GirisTarihi >= @baslangic AND GirisTarihi < @bitis) ORDER BY GirisTarihi", baglanti);
+                komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
+                komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
+            }
+            else if (cmbx_kodlar.Text != "" & baslangic_tarihi.Checked ==true  & bitis_tarihi.Checked == true)
             {
                 komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi FROM UrunGiris1 WHERE (UrunKodu=@kod) AND (GirisTarihi >= @baslangic AND GirisTarihi < @bitis) ORDER BY GirisTarihi", baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
-                da = new SqlDataAdapter(komut);
-                da.Fill(ds);
-                ds.Tables[0].TableName = "bilgiler";
-                baglanti.Close();
-                if (ds.Tables[0].Rows.Count == 0)
-                    MessageBox.Show("Ürün Bulunmamaktadır.");
-                else
-                {
-                    uretimgiris rapor = new uretimgiris();
-                    rapor.DataAdapter = da;
-                    rapor.DataSource = ds;
-                    rapor.DataMember = ((DataSet)rapor.DataSource).Tables[0].TableName;
-                    //rapor.LoadLayout(Application.StartupPath + "\\rapor\\uretimgiris.repx");
-                    cmbx_kodlar.Text = "";
-                    rapor.ShowPreview();
-                }
             }
-            else if (cmbx_kodlar.Text == "" & baslangic_tarihi.Text != "2000-01-01 00:00:00" & bitis_tarihi.Text != "2000-01-01 00:00:00")
+            else if(cmbx_kodlar.Text=="" & baslangic_tarihi.Checked==false & bitis_tarihi.Checked==false)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi FROM UrunGiris1 WHERE (GirisTarihi >= @baslangic AND GirisTarihi < @bitis) ORDER BY GirisTarihi", baglanti);
-                // komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
-                komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
-                komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
-                da = new SqlDataAdapter(komut);
-                da.Fill(ds);
-                ds.Tables[0].TableName = "bilgiler";
-                baglanti.Close();
-                if (ds.Tables[0].Rows.Count == 0)
-                    MessageBox.Show("Ürün Bulunmamaktadır.");
-                else
-                {
-                    uretimgiris rapor = new uretimgiris();
-                    rapor.DataAdapter = da;
-                    rapor.DataSource = ds;
-                    rapor.DataMember = ((DataSet)rapor.DataSource).Tables[0].TableName;
-                   // rapor.LoadLayout(Application.StartupPath + "\\rapor\\uretimgiris2.repx");
-                    cmbx_kodlar.Text = "";
-                    rapor.ShowPreview();
-                }
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi FROM UrunGiris1 ORDER BY GirisTarihi", baglanti); 
             }
-            else if (cmbx_kodlar.Text != "" & baslangic_tarihi.Text == "2000-01-01 00:00:00" & bitis_tarihi.Text == "2000-01-01 00:00:00")
-            {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi FROM UrunGiris1 WHERE UrunKodu=@kod ORDER BY GirisTarihi", baglanti);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
-                da = new SqlDataAdapter(komut);
-                da.Fill(ds);
-                ds.Tables[0].TableName = "bilgiler";
-                baglanti.Close();
+            da = new SqlDataAdapter(komut);
+            da.Fill(ds);
+            ds.Tables[0].TableName = "bilgiler";
+            baglanti.Close();
 
-                if (ds.Tables[0].Rows.Count == 0)
-                    MessageBox.Show("Ürün Bulunmamaktadır.");
-                else
-                {
-                    uretimgiris rapor = new uretimgiris();
-                    rapor.DataAdapter = da;
-                    rapor.DataSource = ds;
-                    rapor.DataMember = ((DataSet)rapor.DataSource).Tables[0].TableName;
-                  //  rapor.LoadLayout(Application.StartupPath + "\\rapor\\uretimgiris2.repx");
-                    cmbx_kodlar.Text = "";
-                    rapor.ShowPreview();
-                }
+            if (ds.Tables[0].Rows.Count == 0)
+                MessageBox.Show("Ürün Bulunmamaktadır.");
+            else
+            {
+                uretimgiris rapor = new uretimgiris();
+                rapor.DataAdapter = da;
+                rapor.DataSource = ds;
+                rapor.DataMember = ((DataSet)rapor.DataSource).Tables[0].TableName;
+                cmbx_kodlar.Text = "";
+                rapor.ShowPreview();
             }
           
         }
@@ -249,7 +217,7 @@ namespace Stok_Programı
         {
             ds = new DataSet("Tablo_alanlari");
             baglanti.Open();
-            if (cmbx_kodlar.Text != "" & baslangic_tarihi.Text != "2000-01-01 00:00:00" & bitis_tarihi.Text != "2000-01-01 00:00:00")
+            if (cmbx_kodlar.Text == "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked==false)
             {
                 komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi FROM UrunGiris1 WHERE (UrunKodu=@kod) AND (GirisTarihi >= @baslangic AND GirisTarihi < @bitis) ORDER BY GirisTarihi", baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
@@ -268,25 +236,33 @@ namespace Stok_Programı
                 cmbx_kodlar.Text = "";
                 rapor.ShowDesigner();
             }
-           // rapor.LoadLayout(Application.StartupPath + "\\rapor\\uretimgiris.repx");
         }
         private void sbtn_satis_Click(object sender, EventArgs e)
         {
             ds = new DataSet("tablo");
             baglanti.Open();
-            if (cmbx_kodlar.Text != "" )
+            if (cmbx_kodlar.Text != "" & baslangic_tarihi.Checked == true & bitis_tarihi.Checked == true)
             {
                 komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi FROM UrunCikis WHERE (UrunKodu=@kod) AND (CikisTarihi >= @baslangic AND CikisTarihi < @bitis)  ORDER BY CikisTarihi", baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
             }
-            else if (cmbx_kodlar.Text == "" & txt_adet.Text != "")
+            else if (cmbx_kodlar.Text == "" & baslangic_tarihi.Checked==true & bitis_tarihi.Checked==true )
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi FROM UrunCikis WHERE (CikisTarihi >= @baslangic AND CikisTarihi < @bitis) AND (UrunAdet >= @adet) ORDER BY CikisTarihi", baglanti);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi FROM UrunCikis WHERE (CikisTarihi >= @baslangic AND CikisTarihi < @bitis) ORDER BY CikisTarihi", baglanti);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
-                komut.Parameters.AddWithValue("@adet", int.Parse(txt_adet.Text));
+                //komut.Parameters.AddWithValue("@adet", int.Parse(txt_adet.Text));
+            }
+            else if (cmbx_kodlar.Text != "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false)
+            {
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi FROM UrunCikis WHERE (UrunKodu=@kod) ORDER BY CikisTarihi", baglanti);
+                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
+            }
+            else if (cmbx_kodlar.Text == "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false)
+            {
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi FROM UrunCikis ORDER BY CikisTarihi", baglanti);
             }
             da = new SqlDataAdapter(komut);
             da.Fill(ds);

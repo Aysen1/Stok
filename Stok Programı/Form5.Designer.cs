@@ -36,12 +36,12 @@
             this.cikisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lbl_firmaadi = new System.Windows.Forms.Label();
             this.txt_adet = new System.Windows.Forms.TextBox();
             this.cmbx_firmaadi = new System.Windows.Forms.ComboBox();
             this.lbl_adet = new System.Windows.Forms.Label();
             this.lbl_urunkodu = new System.Windows.Forms.Label();
-            this.txt_giristarihi = new System.Windows.Forms.TextBox();
             this.cmbx_urunadi = new System.Windows.Forms.ComboBox();
             this.lbl_giristarihi = new System.Windows.Forms.Label();
             this.pctrbx_resim = new System.Windows.Forms.PictureBox();
@@ -58,7 +58,6 @@
             this.btn_cikiss = new System.Windows.Forms.Button();
             this.btn_tamekran = new System.Windows.Forms.Button();
             this.btn_simge = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -147,6 +146,17 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(383, 340);
             this.tableLayoutPanel2.TabIndex = 13;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(224, 202);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(156, 20);
+            this.dateTimePicker1.TabIndex = 10;
+            // 
             // lbl_firmaadi
             // 
             this.lbl_firmaadi.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -162,9 +172,9 @@
             // 
             this.txt_adet.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.txt_adet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_adet.Location = new System.Drawing.Point(240, 287);
+            this.txt_adet.Location = new System.Drawing.Point(224, 287);
             this.txt_adet.Name = "txt_adet";
-            this.txt_adet.Size = new System.Drawing.Size(140, 20);
+            this.txt_adet.Size = new System.Drawing.Size(156, 20);
             this.txt_adet.TabIndex = 4;
             // 
             // cmbx_firmaadi
@@ -172,9 +182,9 @@
             this.cmbx_firmaadi.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.cmbx_firmaadi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbx_firmaadi.FormattingEnabled = true;
-            this.cmbx_firmaadi.Location = new System.Drawing.Point(240, 32);
+            this.cmbx_firmaadi.Location = new System.Drawing.Point(224, 32);
             this.cmbx_firmaadi.Name = "cmbx_firmaadi";
-            this.cmbx_firmaadi.Size = new System.Drawing.Size(140, 21);
+            this.cmbx_firmaadi.Size = new System.Drawing.Size(156, 21);
             this.cmbx_firmaadi.TabIndex = 1;
             // 
             // lbl_adet
@@ -199,23 +209,14 @@
             this.lbl_urunkodu.TabIndex = 7;
             this.lbl_urunkodu.Text = "Ürün Kodu:";
             // 
-            // txt_giristarihi
-            // 
-            this.txt_giristarihi.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.txt_giristarihi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_giristarihi.Location = new System.Drawing.Point(142, 70);
-            this.txt_giristarihi.Name = "txt_giristarihi";
-            this.txt_giristarihi.Size = new System.Drawing.Size(121, 20);
-            this.txt_giristarihi.TabIndex = 3;
-            // 
             // cmbx_urunadi
             // 
             this.cmbx_urunadi.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.cmbx_urunadi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbx_urunadi.FormattingEnabled = true;
-            this.cmbx_urunadi.Location = new System.Drawing.Point(240, 117);
+            this.cmbx_urunadi.Location = new System.Drawing.Point(224, 117);
             this.cmbx_urunadi.Name = "cmbx_urunadi";
-            this.cmbx_urunadi.Size = new System.Drawing.Size(140, 21);
+            this.cmbx_urunadi.Size = new System.Drawing.Size(156, 21);
             this.cmbx_urunadi.TabIndex = 2;
             this.cmbx_urunadi.SelectedIndexChanged += new System.EventHandler(this.cmbx_urunadi_SelectedIndexChanged);
             // 
@@ -392,17 +393,6 @@
             this.btn_simge.UseVisualStyleBackColor = true;
             this.btn_simge.Click += new System.EventHandler(this.btn_simge_Click);
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(240, 202);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(140, 20);
-            this.dateTimePicker1.TabIndex = 10;
-            // 
             // Form5
             // 
             this.AcceptButton = this.btn_kaydet;
@@ -415,7 +405,6 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.txt_giristarihi);
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(540, 485);
             this.Name = "Form5";
@@ -452,7 +441,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ComboBox cmbx_firmaadi;
         private System.Windows.Forms.ComboBox cmbx_urunadi;
-        private System.Windows.Forms.TextBox txt_giristarihi;
         private System.Windows.Forms.TextBox txt_adet;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;

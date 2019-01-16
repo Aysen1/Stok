@@ -52,7 +52,7 @@ namespace Stok_Programı
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            txt_giristarihi.Text = DateTime.Now.ToString();
+            dateTimePicker1.Text = DateTime.Now.ToString();
             toolStripStatusLabel1.Text = DateTime.Now.ToString();
             timer1.Start();
         }
@@ -112,7 +112,6 @@ namespace Stok_Programı
             cmbx_firmaadi.Text = "";
             cmbx_urunadi.Text = "";
             txt_adet.Text = "";
-            txt_giristarihi.Text = "";
             pctrbx_resim.Image = null;
         }
 
@@ -217,14 +216,14 @@ namespace Stok_Programı
         {
             SqlConnection baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
             baglanti.Open();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from UretimCikis", baglanti);
+            SqlDataAdapter da = new SqlDataAdapter("Select * from UrunCikis", baglanti);
             DataSet ds = new DataSet();
             da.Fill(ds);
             string data = null;
 
             Microsoft.Office.Interop.Excel.Application xl = new Microsoft.Office.Interop.Excel.Application();
             Microsoft.Office.Interop.Excel.Workbook wb = default(Microsoft.Office.Interop.Excel.Workbook);
-            wb = xl.Workbooks.Add(@"C:\\Users\\NFM-1PC\\Documents\\uretim cikis.xls");
+            wb = xl.Workbooks.Add(Application.StartupPath+"\\exceldosyalari\\uruncikis.xls");
             Microsoft.Office.Interop.Excel.Worksheet ws = default(Microsoft.Office.Interop.Excel.Worksheet);
             ws = wb.Worksheets.get_Item(1);
 

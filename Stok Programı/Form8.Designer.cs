@@ -239,7 +239,7 @@
             this.baslangic_tarihi.Name = "baslangic_tarihi";
             this.baslangic_tarihi.Size = new System.Drawing.Size(137, 20);
             this.baslangic_tarihi.TabIndex = 10;
-            this.baslangic_tarihi.Value = new System.DateTime(2019, 1, 15, 0, 0, 0, 0);
+            this.baslangic_tarihi.Value = new System.DateTime(2019, 1, 16, 0, 0, 0, 0);
             // 
             // cmbx_kodlar
             // 
@@ -258,7 +258,7 @@
             this.bitis_tarihi.Name = "bitis_tarihi";
             this.bitis_tarihi.Size = new System.Drawing.Size(137, 20);
             this.bitis_tarihi.TabIndex = 12;
-            this.bitis_tarihi.Value = new System.DateTime(2019, 1, 15, 0, 0, 0, 0);
+            this.bitis_tarihi.Value = new System.DateTime(2019, 1, 16, 0, 0, 0, 0);
             // 
             // lbl_baslangic
             // 

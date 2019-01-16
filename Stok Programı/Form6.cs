@@ -139,14 +139,14 @@ namespace Stok_Programı
         {
             SqlConnection baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
             baglanti.Open();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from UrunKayit", baglanti);
+            SqlDataAdapter da = new SqlDataAdapter("Select * from UrunKayit1", baglanti);
             DataSet ds = new DataSet();
             da.Fill(ds);
             string data = null;
 
             Microsoft.Office.Interop.Excel.Application xl = new Microsoft.Office.Interop.Excel.Application();
             Microsoft.Office.Interop.Excel.Workbook wb = default(Microsoft.Office.Interop.Excel.Workbook);
-            wb = xl.Workbooks.Add(@"C:\\Users\\NFM-1PC\\Documents\\Urun Kayit.xls");
+            wb = xl.Workbooks.Add(System.Windows.Forms.Application.StartupPath + "\\exceldosyalari\\stok.xls");
             Microsoft.Office.Interop.Excel.Worksheet ws = default(Microsoft.Office.Interop.Excel.Worksheet);
             ws = wb.Worksheets.get_Item(1);
 

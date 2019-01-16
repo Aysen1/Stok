@@ -98,7 +98,7 @@ namespace Stok_Programı
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            txt_giristarihi.Text = DateTime.Now.ToString();
+            dateTimePicker1.Text = DateTime.Now.ToString();
             toolStripStatusLabel1.Text = DateTime.Now.ToString();
             timer1.Start();
         }
@@ -113,9 +113,8 @@ namespace Stok_Programı
             cmbx_firmaadi.Text = "";
             cmbx_urunadi.Text = "";
             txt_adet.Text = "";
-            txt_giristarihi.Text = "";
             txt_islem.Text = "";
-            pctrbx_resim.Image = null;
+            pctrbx_resim.Image = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\barkod.png");
         }
 
         private void cmbx_urunadi_SelectedIndexChanged(object sender, EventArgs e)
@@ -221,7 +220,7 @@ namespace Stok_Programı
 
             Microsoft.Office.Interop.Excel.Application xl = new Microsoft.Office.Interop.Excel.Application();
             Microsoft.Office.Interop.Excel.Workbook wb = default(Microsoft.Office.Interop.Excel.Workbook);
-            wb = xl.Workbooks.Add(@"C:\\Users\\NFM-1PC\\Documents\\uretim giris.xls");
+            wb = xl.Workbooks.Add(Application.StartupPath+"\\exceldosyalari\\urungiris.xls");
             Microsoft.Office.Interop.Excel.Worksheet ws = default(Microsoft.Office.Interop.Excel.Worksheet);
             ws = wb.Worksheets.get_Item(1);
 

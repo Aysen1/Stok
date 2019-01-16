@@ -87,7 +87,6 @@ namespace Stok_Programı
         {
             cmbbx_firma_adi.Text = "";
             txt_urun_kodu.Text = "";
-            txt_kayit_tarihi.Text = ""; 
         }
 
         private void btn_kaydet_Click(object sender, EventArgs e)
@@ -160,7 +159,7 @@ namespace Stok_Programı
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            txt_kayit_tarihi.Text = DateTime.Now.ToString();
+            dateTimePicker1.Text = DateTime.Now.ToString();
             toolStripStatusLabel1.Text = DateTime.Now.ToString();
             timer1.Start();
         }

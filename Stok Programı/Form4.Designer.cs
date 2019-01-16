@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.grpbx_firmabilgi = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.txt_kayit_tarihi = new System.Windows.Forms.TextBox();
             this.cmbx_ilce = new System.Windows.Forms.ComboBox();
             this.txt_adres = new System.Windows.Forms.TextBox();
             this.lbl_firmaadi = new System.Windows.Forms.Label();
@@ -68,6 +67,7 @@
             this.btn_cikiss = new System.Windows.Forms.Button();
             this.btn_tamekran = new System.Windows.Forms.Button();
             this.btn_simge = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.grpbx_firmabilgi.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.grpbx_islem.SuspendLayout();
@@ -93,7 +93,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.txt_kayit_tarihi, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 9);
             this.tableLayoutPanel1.Controls.Add(this.cmbx_ilce, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.txt_adres, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.lbl_firmaadi, 0, 0);
@@ -129,15 +129,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(329, 392);
             this.tableLayoutPanel1.TabIndex = 4;
-            // 
-            // txt_kayit_tarihi
-            // 
-            this.txt_kayit_tarihi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_kayit_tarihi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_kayit_tarihi.Location = new System.Drawing.Point(167, 361);
-            this.txt_kayit_tarihi.Name = "txt_kayit_tarihi";
-            this.txt_kayit_tarihi.Size = new System.Drawing.Size(159, 20);
-            this.txt_kayit_tarihi.TabIndex = 21;
             // 
             // cmbx_ilce
             // 
@@ -513,6 +504,16 @@
             this.btn_simge.UseVisualStyleBackColor = true;
             this.btn_simge.Click += new System.EventHandler(this.btn_simge_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(167, 354);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(159, 20);
+            this.dateTimePicker1.TabIndex = 22;
+            // 
             // Form4
             // 
             this.AcceptButton = this.btn_kaydet;
@@ -562,7 +563,6 @@
         private System.Windows.Forms.Button btn_temizle;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TextBox txt_mersis;
-        private System.Windows.Forms.TextBox txt_kayit_tarihi;
         private System.Windows.Forms.ComboBox cmbx_ilce;
         private System.Windows.Forms.ComboBox cmbx_il;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -586,5 +586,6 @@
         public System.Windows.Forms.ToolStripMenuItem cikisToolStripMenuItem;
         public System.Windows.Forms.Label lbl_mersis;
         public System.Windows.Forms.Label lbl_kayit_tarihi;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
