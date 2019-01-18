@@ -340,7 +340,7 @@
             this.vendorEmail.StylePriority.UseBorders = false;
             this.vendorEmail.StylePriority.UseFont = false;
             this.vendorEmail.StylePriority.UseTextAlignment = false;
-            this.vendorEmail.Text = "info@orser.com";
+            this.vendorEmail.Text = "info@orserboya.com";
             this.vendorEmail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.vendorEmail.Weight = 1.47037036899627D;
             // 

@@ -60,6 +60,8 @@
             this.S3 = new DevExpress.XtraEditors.SimpleButton();
             this.S4 = new DevExpress.XtraEditors.SimpleButton();
             this.S5 = new DevExpress.XtraEditors.SimpleButton();
+            this.S6 = new DevExpress.XtraEditors.SimpleButton();
+            this.S7 = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -369,7 +371,7 @@
             // S5
             // 
             this.S5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.S5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.S5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S5.ImageOptions.Image")));
             this.S5.Location = new System.Drawing.Point(248, 332);
             this.S5.Name = "S5";
             this.S5.Size = new System.Drawing.Size(100, 55);
@@ -377,12 +379,36 @@
             this.S5.Text = "5";
             this.S5.Click += new System.EventHandler(this.S5_Click);
             // 
+            // S6
+            // 
+            this.S6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.S6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S6.ImageOptions.Image")));
+            this.S6.Location = new System.Drawing.Point(357, 332);
+            this.S6.Name = "S6";
+            this.S6.Size = new System.Drawing.Size(100, 55);
+            this.S6.TabIndex = 23;
+            this.S6.Text = "6";
+            this.S6.Click += new System.EventHandler(this.S6_Click);
+            // 
+            // S7
+            // 
+            this.S7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.S7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.S7.Location = new System.Drawing.Point(468, 332);
+            this.S7.Name = "S7";
+            this.S7.Size = new System.Drawing.Size(100, 55);
+            this.S7.TabIndex = 24;
+            this.S7.Text = "7";
+            this.S7.Click += new System.EventHandler(this.S7_Click);
+            // 
             // Form8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 452);
             this.ControlBox = false;
+            this.Controls.Add(this.S7);
+            this.Controls.Add(this.S6);
             this.Controls.Add(this.S5);
             this.Controls.Add(this.S4);
             this.Controls.Add(this.S3);
@@ -449,5 +475,7 @@
         private DevExpress.XtraEditors.SimpleButton S3;
         private DevExpress.XtraEditors.SimpleButton S4;
         private DevExpress.XtraEditors.SimpleButton S5;
+        private DevExpress.XtraEditors.SimpleButton S6;
+        private DevExpress.XtraEditors.SimpleButton S7;
     }
 }

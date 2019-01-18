@@ -28,3 +28,5 @@ C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Program
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.tasarim3.resources
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.tasarim4.resources
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.tasarim5.resources
+C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.tasarim6.resources
+C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.tasarim7.resources
