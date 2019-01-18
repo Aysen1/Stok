@@ -24,3 +24,4 @@ C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok Program
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.uretimcikis.resources
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.uretimgiris.resources
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.tasarim.resources
+C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.tasarim2.resources

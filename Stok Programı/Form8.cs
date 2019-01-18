@@ -29,6 +29,7 @@ namespace Stok_Programı
         SqlConnection baglanti;
         private void Form8_Load(object sender, EventArgs e)
         {
+            timer1.Start();
             baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
             this.WindowState = FormWindowState.Maximized;
             this.BackColor = Properties.Settings.Default.tema;
@@ -367,6 +368,43 @@ namespace Stok_Programı
                 }
 
             
+        }
+
+        private void S2_Click(object sender, EventArgs e)
+        {
+            ds = new DataSet("Tablo");
+            baglanti.Open();
+            if (cmbx_kodlar.Text != "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false)
+            {
+                komut = new SqlCommand(@"SELECT FirmaAdi,UrunAdet,CikisTarihi FROM UrunCikis WHERE UrunKodu=@kod", baglanti);
+                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
+            }
+            da = new SqlDataAdapter(komut);
+            da.Fill(ds);
+            ds.Tables[0].TableName = "bilgiler";
+            baglanti.Close();
+
+            if (ds.Tables[0].Rows.Count == 0)
+                MessageBox.Show("Ürün Bulunmamaktadır.");
+            else
+            {
+                tasarim2 fatura2 = new tasarim2();
+                fatura2.DataAdapter = da;
+                fatura2.DataSource = ds;
+                fatura2.productName.Text = cmbx_kodlar.Text;
+                fatura2.invoiceDate.Text = DateTime.Now.ToString();
+                fatura2.invoiceDueDate.DataBindings.Add("Text", ds, "CikisTarihi");
+                fatura2.quantity.DataBindings.Add("Text", ds, "UrunAdet");
+                fatura2.customerName.DataBindings.Add("Text", ds, "FirmaAdi");
+                fatura2.DataMember = ((DataSet)fatura2.DataSource).Tables[0].TableName;
+                //fatura.ShowDesigner();
+                fatura2.ShowPreview();
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Start();
         }
     }
 }

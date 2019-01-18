@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form8));
             this.lbl_yazici = new System.Windows.Forms.Label();
             this.cmbx_yazici = new System.Windows.Forms.ComboBox();
@@ -54,6 +55,8 @@
             this.lbl_sayı = new System.Windows.Forms.Label();
             this.txt_adet = new System.Windows.Forms.TextBox();
             this.ssatis = new DevExpress.XtraEditors.SimpleButton();
+            this.S2 = new DevExpress.XtraEditors.SimpleButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -315,13 +318,28 @@
             // ssatis
             // 
             this.ssatis.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ssatis.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.ssatis.Location = new System.Drawing.Point(144, 254);
+            this.ssatis.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ssatis.ImageOptions.Image")));
+            this.ssatis.Location = new System.Drawing.Point(12, 256);
             this.ssatis.Name = "ssatis";
             this.ssatis.Size = new System.Drawing.Size(100, 55);
             this.ssatis.TabIndex = 18;
-            this.ssatis.Text = "Satış Fişi1";
+            this.ssatis.Text = "1";
             this.ssatis.Click += new System.EventHandler(this.ssatis_Click);
+            // 
+            // S2
+            // 
+            this.S2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.S2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.S2.Location = new System.Drawing.Point(128, 256);
+            this.S2.Name = "S2";
+            this.S2.Size = new System.Drawing.Size(100, 55);
+            this.S2.TabIndex = 19;
+            this.S2.Text = "2";
+            this.S2.Click += new System.EventHandler(this.S2_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form8
             // 
@@ -329,6 +347,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 452);
             this.ControlBox = false;
+            this.Controls.Add(this.S2);
             this.Controls.Add(this.ssatis);
             this.Controls.Add(this.txt_adet);
             this.Controls.Add(this.lbl_sayı);
@@ -386,5 +405,7 @@
         private System.Windows.Forms.Label lbl_sayı;
         private System.Windows.Forms.TextBox txt_adet;
         private DevExpress.XtraEditors.SimpleButton ssatis;
+        private DevExpress.XtraEditors.SimpleButton S2;
+        private System.Windows.Forms.Timer timer1;
     }
 }
