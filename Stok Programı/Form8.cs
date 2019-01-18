@@ -406,5 +406,45 @@ namespace Stok_Programı
         {
             timer1.Start();
         }
+
+        private void S3_Click(object sender, EventArgs e)
+        {
+            ds = new DataSet("Tablo");
+            baglanti.Open();
+            if (cmbx_kodlar.Text != "")
+            {
+                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,FirmaKayit.Adres FROM UrunCikis,FirmaKayit WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi)", baglanti);
+                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
+            }
+            else if (cmbx_kodlar.Text=="")
+            {
+                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunKodu,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,FirmaKayit.Adres FROM UrunCikis,FirmaKayit WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi)", baglanti);
+            }
+            da = new SqlDataAdapter(komut);
+            da.Fill(ds);
+            ds.Tables[0].TableName = "bilgiler";
+            baglanti.Close();
+
+            if (ds.Tables[0].Rows.Count == 0)
+                MessageBox.Show("Ürün Bulunmamaktadır.");
+            else
+            {
+                tasarim3 fatura3 = new tasarim3();
+                fatura3.DataAdapter = da;
+                fatura3.DataSource = ds;
+                fatura3.productDescription.DataBindings.Add("Text", ds, "UrunKodu");
+                fatura3.invoiceDate.Text = DateTime.Now.ToString();
+                //  fatura.xrpersonel.DataBindings.Add("Text", ds, "Personel");
+                fatura3.invoiceDate.DataBindings.Add("Text", ds, "CikisTarihi");
+                // fatura.xr_firmailce.DataBindings.Add("Text", ds, "ilce");
+                fatura3.customerAddress.DataBindings.Add("Text", ds, "Adres");
+                fatura3.quantity.DataBindings.Add("Text", ds, "UrunAdet");
+                fatura3.customerName.DataBindings.Add("Text", ds, "FirmaAdi");
+                fatura3.DataMember = ((DataSet)fatura3.DataSource).Tables[0].TableName;
+                //fatura.ShowDesigner();
+                fatura3.ShowPreview();
+            }
+
+        }
     }
 }

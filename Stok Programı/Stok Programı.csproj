@@ -160,6 +160,12 @@
     <Compile Include="tasarim2.Designer.cs">
       <DependentUpon>tasarim2.cs</DependentUpon>
     </Compile>
+    <Compile Include="tasarim3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tasarim3.Designer.cs">
+      <DependentUpon>tasarim3.cs</DependentUpon>
+    </Compile>
     <Compile Include="uretimcikis.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -223,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="tasarim2.resx">
       <DependentUpon>tasarim2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tasarim3.resx">
+      <DependentUpon>tasarim3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uretimcikis.resx">
       <DependentUpon>uretimcikis.cs</DependentUpon>
