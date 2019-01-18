@@ -62,6 +62,7 @@
             this.S5 = new DevExpress.XtraEditors.SimpleButton();
             this.S6 = new DevExpress.XtraEditors.SimpleButton();
             this.S7 = new DevExpress.XtraEditors.SimpleButton();
+            this.S8 = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +72,7 @@
             this.lbl_yazici.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lbl_yazici.AutoSize = true;
             this.lbl_yazici.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_yazici.Location = new System.Drawing.Point(169, 402);
+            this.lbl_yazici.Location = new System.Drawing.Point(171, 402);
             this.lbl_yazici.Name = "lbl_yazici";
             this.lbl_yazici.Size = new System.Drawing.Size(59, 13);
             this.lbl_yazici.TabIndex = 0;
@@ -324,9 +325,9 @@
             // 
             this.ssatis.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ssatis.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ssatis.ImageOptions.Image")));
-            this.ssatis.Location = new System.Drawing.Point(12, 256);
+            this.ssatis.Location = new System.Drawing.Point(18, 251);
             this.ssatis.Name = "ssatis";
-            this.ssatis.Size = new System.Drawing.Size(100, 55);
+            this.ssatis.Size = new System.Drawing.Size(68, 39);
             this.ssatis.TabIndex = 18;
             this.ssatis.Text = "1";
             this.ssatis.Click += new System.EventHandler(this.ssatis_Click);
@@ -335,9 +336,9 @@
             // 
             this.S2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.S2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S2.ImageOptions.Image")));
-            this.S2.Location = new System.Drawing.Point(128, 256);
+            this.S2.Location = new System.Drawing.Point(103, 251);
             this.S2.Name = "S2";
-            this.S2.Size = new System.Drawing.Size(100, 55);
+            this.S2.Size = new System.Drawing.Size(68, 39);
             this.S2.TabIndex = 19;
             this.S2.Text = "2";
             this.S2.Click += new System.EventHandler(this.S2_Click);
@@ -350,9 +351,9 @@
             // 
             this.S3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.S3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S3.ImageOptions.Image")));
-            this.S3.Location = new System.Drawing.Point(12, 332);
+            this.S3.Location = new System.Drawing.Point(18, 296);
             this.S3.Name = "S3";
-            this.S3.Size = new System.Drawing.Size(100, 55);
+            this.S3.Size = new System.Drawing.Size(68, 39);
             this.S3.TabIndex = 20;
             this.S3.Text = "3";
             this.S3.Click += new System.EventHandler(this.S3_Click);
@@ -361,9 +362,9 @@
             // 
             this.S4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.S4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S4.ImageOptions.Image")));
-            this.S4.Location = new System.Drawing.Point(128, 332);
+            this.S4.Location = new System.Drawing.Point(103, 296);
             this.S4.Name = "S4";
-            this.S4.Size = new System.Drawing.Size(100, 55);
+            this.S4.Size = new System.Drawing.Size(68, 39);
             this.S4.TabIndex = 21;
             this.S4.Text = "4";
             this.S4.Click += new System.EventHandler(this.S4_Click);
@@ -372,9 +373,9 @@
             // 
             this.S5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.S5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S5.ImageOptions.Image")));
-            this.S5.Location = new System.Drawing.Point(248, 332);
+            this.S5.Location = new System.Drawing.Point(18, 341);
             this.S5.Name = "S5";
-            this.S5.Size = new System.Drawing.Size(100, 55);
+            this.S5.Size = new System.Drawing.Size(68, 39);
             this.S5.TabIndex = 22;
             this.S5.Text = "5";
             this.S5.Click += new System.EventHandler(this.S5_Click);
@@ -383,9 +384,9 @@
             // 
             this.S6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.S6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S6.ImageOptions.Image")));
-            this.S6.Location = new System.Drawing.Point(357, 332);
+            this.S6.Location = new System.Drawing.Point(103, 341);
             this.S6.Name = "S6";
-            this.S6.Size = new System.Drawing.Size(100, 55);
+            this.S6.Size = new System.Drawing.Size(68, 39);
             this.S6.TabIndex = 23;
             this.S6.Text = "6";
             this.S6.Click += new System.EventHandler(this.S6_Click);
@@ -393,13 +394,24 @@
             // S7
             // 
             this.S7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.S7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.S7.Location = new System.Drawing.Point(468, 332);
+            this.S7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S7.ImageOptions.Image")));
+            this.S7.Location = new System.Drawing.Point(18, 384);
             this.S7.Name = "S7";
-            this.S7.Size = new System.Drawing.Size(100, 55);
+            this.S7.Size = new System.Drawing.Size(68, 39);
             this.S7.TabIndex = 24;
             this.S7.Text = "7";
             this.S7.Click += new System.EventHandler(this.S7_Click);
+            // 
+            // S8
+            // 
+            this.S8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.S8.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.S8.Location = new System.Drawing.Point(101, 386);
+            this.S8.Name = "S8";
+            this.S8.Size = new System.Drawing.Size(68, 39);
+            this.S8.TabIndex = 25;
+            this.S8.Text = "8";
+            this.S8.Click += new System.EventHandler(this.S8_Click);
             // 
             // Form8
             // 
@@ -407,6 +419,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 452);
             this.ControlBox = false;
+            this.Controls.Add(this.S8);
             this.Controls.Add(this.S7);
             this.Controls.Add(this.S6);
             this.Controls.Add(this.S5);
@@ -477,5 +490,6 @@
         private DevExpress.XtraEditors.SimpleButton S5;
         private DevExpress.XtraEditors.SimpleButton S6;
         private DevExpress.XtraEditors.SimpleButton S7;
+        private DevExpress.XtraEditors.SimpleButton S8;
     }
 }
