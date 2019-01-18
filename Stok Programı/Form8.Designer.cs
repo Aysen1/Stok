@@ -58,6 +58,7 @@
             this.S2 = new DevExpress.XtraEditors.SimpleButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.S3 = new DevExpress.XtraEditors.SimpleButton();
+            this.S4 = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -345,13 +346,24 @@
             // S3
             // 
             this.S3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.S3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.S3.Location = new System.Drawing.Point(128, 333);
+            this.S3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S3.ImageOptions.Image")));
+            this.S3.Location = new System.Drawing.Point(12, 332);
             this.S3.Name = "S3";
             this.S3.Size = new System.Drawing.Size(100, 55);
             this.S3.TabIndex = 20;
             this.S3.Text = "3";
             this.S3.Click += new System.EventHandler(this.S3_Click);
+            // 
+            // S4
+            // 
+            this.S4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.S4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.S4.Location = new System.Drawing.Point(128, 332);
+            this.S4.Name = "S4";
+            this.S4.Size = new System.Drawing.Size(100, 55);
+            this.S4.TabIndex = 21;
+            this.S4.Text = "4";
+            this.S4.Click += new System.EventHandler(this.S4_Click);
             // 
             // Form8
             // 
@@ -359,6 +371,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 452);
             this.ControlBox = false;
+            this.Controls.Add(this.S4);
             this.Controls.Add(this.S3);
             this.Controls.Add(this.S2);
             this.Controls.Add(this.ssatis);
@@ -421,5 +434,6 @@
         private DevExpress.XtraEditors.SimpleButton S2;
         private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraEditors.SimpleButton S3;
+        private DevExpress.XtraEditors.SimpleButton S4;
     }
 }
