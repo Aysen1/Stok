@@ -148,6 +148,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tasarim.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tasarim.Designer.cs">
+      <DependentUpon>tasarim.cs</DependentUpon>
+    </Compile>
     <Compile Include="uretimcikis.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -206,6 +212,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="tasarim.resx">
+      <DependentUpon>tasarim.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="uretimcikis.resx">
       <DependentUpon>uretimcikis.cs</DependentUpon>
     </EmbeddedResource>
@@ -295,7 +304,6 @@
     <Content Include="image\urungirisK.fw.png" />
     <Content Include="image\yukle.fw.png" />
     <Content Include="image\yukleK.fw.png" />
-    <None Include="Resources\simge.fw.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -313,6 +321,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

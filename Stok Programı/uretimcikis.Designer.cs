@@ -53,14 +53,14 @@
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.Kodlar = new DevExpress.XtraReports.Parameters.Parameter();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
+            this.xr_satis = new DevExpress.XtraReports.UI.XRLabel();
+            this.xr_miktar = new DevExpress.XtraReports.UI.XRLabel();
+            this.xr_firma = new DevExpress.XtraReports.UI.XRLabel();
+            this.xr_kod = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // sqlDataSource1
@@ -107,16 +107,16 @@
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xr_kod,
+            this.xr_firma,
+            this.xr_miktar,
+            this.xr_satis,
             this.xr_personel_adi,
             this.xr_personel,
             this.xrLabel8,
             this.xrLabel7,
             this.xrLabel6,
-            this.xrLabel5,
-            this.xrLabel4,
-            this.xrLabel3,
-            this.xrLabel2,
-            this.xrLabel1});
+            this.xrLabel5});
             this.Detail.HeightF = 170F;
             this.Detail.Name = "Detail";
             // 
@@ -130,7 +130,7 @@
             this.xr_personel_adi.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xr_personel_adi.StylePriority.UseFont = false;
             this.xr_personel_adi.StylePriority.UseTextAlignment = false;
-            this.xr_personel_adi.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xr_personel_adi.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
             // 
             // xr_personel
             // 
@@ -143,7 +143,7 @@
             this.xr_personel.StylePriority.UseFont = false;
             this.xr_personel.StylePriority.UseTextAlignment = false;
             this.xr_personel.Text = "Personel:";
-            this.xr_personel.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xr_personel.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
             // 
             // xrLabel8
             // 
@@ -191,62 +191,6 @@
             this.xrLabel5.StylePriority.UseFont = false;
             this.xrLabel5.Text = "Ürün Kodu:";
             // 
-            // xrLabel4
-            // 
-            this.xrLabel4.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[CikisTarihi]")});
-            this.xrLabel4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(403.62F, 140F);
-            this.xrLabel4.Multiline = true;
-            this.xrLabel4.Name = "xrLabel4";
-            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(134.3751F, 23.00001F);
-            this.xrLabel4.StylePriority.UseFont = false;
-            this.xrLabel4.StylePriority.UseTextAlignment = false;
-            this.xrLabel4.Text = "xrLabel4";
-            this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
-            // 
-            // xrLabel3
-            // 
-            this.xrLabel3.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[UrunAdet]")});
-            this.xrLabel3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(258.2501F, 106.2083F);
-            this.xrLabel3.Multiline = true;
-            this.xrLabel3.Name = "xrLabel3";
-            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.xrLabel3.StylePriority.UseFont = false;
-            this.xrLabel3.StylePriority.UseTextAlignment = false;
-            this.xrLabel3.Text = "xrLabel3";
-            this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            // 
-            // xrLabel2
-            // 
-            this.xrLabel2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[FirmaAdi]")});
-            this.xrLabel2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(258.2501F, 67.29169F);
-            this.xrLabel2.Multiline = true;
-            this.xrLabel2.Name = "xrLabel2";
-            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.xrLabel2.StylePriority.UseFont = false;
-            this.xrLabel2.Text = "xrLabel2";
-            // 
-            // xrLabel1
-            // 
-            this.xrLabel1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[UrunKodu]")});
-            this.xrLabel1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(258.2501F, 25.62501F);
-            this.xrLabel1.Multiline = true;
-            this.xrLabel1.Name = "xrLabel1";
-            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.xrLabel1.StylePriority.UseFont = false;
-            this.xrLabel1.Text = "xrLabel1";
-            // 
             // Kodlar
             // 
             this.Kodlar.Description = "Kod:";
@@ -293,6 +237,54 @@
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(116.67F, 37.21F);
             this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage;
             // 
+            // xr_satis
+            // 
+            this.xr_satis.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.xr_satis.LocationFloat = new DevExpress.Utils.PointFloat(403.6248F, 140F);
+            this.xr_satis.Multiline = true;
+            this.xr_satis.Name = "xr_satis";
+            this.xr_satis.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xr_satis.SizeF = new System.Drawing.SizeF(134.3751F, 23.00001F);
+            this.xr_satis.StylePriority.UseFont = false;
+            this.xr_satis.StylePriority.UseTextAlignment = false;
+            this.xr_satis.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
+            // 
+            // xr_miktar
+            // 
+            this.xr_miktar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.xr_miktar.LocationFloat = new DevExpress.Utils.PointFloat(256.6248F, 106.2083F);
+            this.xr_miktar.Multiline = true;
+            this.xr_miktar.Name = "xr_miktar";
+            this.xr_miktar.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xr_miktar.SizeF = new System.Drawing.SizeF(184.9585F, 23.00001F);
+            this.xr_miktar.StylePriority.UseFont = false;
+            this.xr_miktar.StylePriority.UseTextAlignment = false;
+            this.xr_miktar.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // xr_firma
+            // 
+            this.xr_firma.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.xr_firma.LocationFloat = new DevExpress.Utils.PointFloat(256.6248F, 67.29169F);
+            this.xr_firma.Multiline = true;
+            this.xr_firma.Name = "xr_firma";
+            this.xr_firma.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xr_firma.SizeF = new System.Drawing.SizeF(184.9585F, 23.00001F);
+            this.xr_firma.StylePriority.UseFont = false;
+            this.xr_firma.StylePriority.UseTextAlignment = false;
+            this.xr_firma.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // xr_kod
+            // 
+            this.xr_kod.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.xr_kod.LocationFloat = new DevExpress.Utils.PointFloat(256.6248F, 25.62501F);
+            this.xr_kod.Multiline = true;
+            this.xr_kod.Name = "xr_kod";
+            this.xr_kod.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xr_kod.SizeF = new System.Drawing.SizeF(184.9585F, 23.00001F);
+            this.xr_kod.StylePriority.UseFont = false;
+            this.xr_kod.StylePriority.UseTextAlignment = false;
+            this.xr_kod.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
             // uretimcikis
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -323,19 +315,19 @@
         private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
         private DevExpress.XtraReports.UI.DetailBand Detail;
         private DevExpress.XtraReports.Parameters.Parameter Kodlar;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel2;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel8;
         private DevExpress.XtraReports.UI.XRLabel xrLabel7;
         private DevExpress.XtraReports.UI.XRLabel xrLabel6;
         private DevExpress.XtraReports.UI.XRLabel xrLabel5;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel4;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel3;
         private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader1;
         private DevExpress.XtraReports.UI.XRPictureBox xrPictureBox1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel9;
-        private DevExpress.XtraReports.UI.XRLabel xr_personel_adi;
         private DevExpress.XtraReports.UI.XRLabel xr_personel;
+        public DevExpress.XtraReports.UI.XRLabel xr_personel_adi;
+        public DevExpress.XtraReports.UI.XRLabel xr_satis;
+        public DevExpress.XtraReports.UI.XRLabel xr_kod;
+        public DevExpress.XtraReports.UI.XRLabel xr_firma;
+        public DevExpress.XtraReports.UI.XRLabel xr_miktar;
 
     }
 }

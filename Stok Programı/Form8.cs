@@ -64,14 +64,16 @@ namespace Stok_Programı
             else if (Properties.Settings.Default.dil == "Türkçe")
                 Localization.Culture = new CultureInfo("");
             metin();
+
             baglanti.Open();
             SqlDataReader dr;
-            SqlCommand komut = new SqlCommand("select UrunKodu from UrunGiris1", baglanti);
+            SqlCommand komut = new SqlCommand("select UrunKodu from UrunKayit1", baglanti);
             dr = komut.ExecuteReader();
             while(dr.Read())
             {
                   cmbx_kodlar.Items.Add(dr["UrunKodu"]);
             }
+
             baglanti.Close();
             baslangic_tarihi.ShowCheckBox = true;
             baslangic_tarihi.Checked = false;
@@ -175,25 +177,25 @@ namespace Stok_Programı
             baglanti.Open();
             if (cmbx_kodlar.Text != "" & baslangic_tarihi.Checked==false & bitis_tarihi.Checked==false)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi FROM UrunGiris1 WHERE (UrunKodu=@kod)  ORDER BY GirisTarihi", baglanti);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi,Personel FROM UrunGiris1 WHERE (UrunKodu=@kod)  ORDER BY GirisTarihi", baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
             }
             else if (cmbx_kodlar.Text == "" & baslangic_tarihi.Checked==true & bitis_tarihi.Checked==true)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi FROM UrunGiris1 WHERE (GirisTarihi >= @baslangic AND GirisTarihi < @bitis) ORDER BY GirisTarihi", baglanti);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi,Personel FROM UrunGiris1 WHERE (GirisTarihi >= @baslangic AND GirisTarihi < @bitis) ORDER BY GirisTarihi", baglanti);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
             }
             else if (cmbx_kodlar.Text != "" & baslangic_tarihi.Checked ==true  & bitis_tarihi.Checked == true)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi FROM UrunGiris1 WHERE (UrunKodu=@kod) AND (GirisTarihi >= @baslangic AND GirisTarihi < @bitis) ORDER BY GirisTarihi", baglanti);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi,Personel FROM UrunGiris1 WHERE (UrunKodu=@kod) AND (GirisTarihi >= @baslangic AND GirisTarihi < @bitis) ORDER BY GirisTarihi", baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
             }
             else if(cmbx_kodlar.Text=="" & baslangic_tarihi.Checked==false & bitis_tarihi.Checked==false)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi FROM UrunGiris1 ORDER BY GirisTarihi", baglanti); 
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi,Personel FROM UrunGiris1 ORDER BY GirisTarihi", baglanti); 
             }
             da = new SqlDataAdapter(komut);
             da.Fill(ds);
@@ -207,8 +209,14 @@ namespace Stok_Programı
                 uretimgiris rapor = new uretimgiris();
                 rapor.DataAdapter = da;
                 rapor.DataSource = ds;
+                rapor.xr_urunkodu.DataBindings.Add("Text", ds, "UrunKodu");
+                rapor.xr_firmaadi.DataBindings.Add("Text", ds, "FirmaAdi");
+                rapor.xr_urun_adet.DataBindings.Add("Text", ds, "UrunAdet");
+                rapor.xr_personel_adi.DataBindings.Add("Text", ds, "Personel");
+                rapor.xr_giris.DataBindings.Add("Text", ds, "GirisTarihi");
                 rapor.DataMember = ((DataSet)rapor.DataSource).Tables[0].TableName;
                 cmbx_kodlar.Text = "";
+                rapor.LoadLayout(Application.StartupPath + "\\rapor\\uretimgirisS.repx");
                 rapor.ShowPreview();
             }
           
@@ -219,10 +227,7 @@ namespace Stok_Programı
             baglanti.Open();
             if (cmbx_kodlar.Text == "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked==false)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi FROM UrunGiris1 WHERE (UrunKodu=@kod) AND (GirisTarihi >= @baslangic AND GirisTarihi < @bitis) ORDER BY GirisTarihi", baglanti);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
-                komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
-                komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi,Personel FROM UrunGiris1 ORDER BY GirisTarihi", baglanti);
                 da = new SqlDataAdapter(komut);
                 da.Fill(ds);
                 ds.Tables[0].TableName = "bilgiler";
@@ -231,11 +236,18 @@ namespace Stok_Programı
                 uretimgiris rapor = new uretimgiris();
                 rapor.DataAdapter = da;
                 rapor.DataSource = ds;
+                rapor.xr_urunkodu.DataBindings.Add("Text", ds, "UrunKodu");
+                rapor.xr_firmaadi.DataBindings.Add("Text", ds, "FirmaAdi");
+                rapor.xr_urun_adet.DataBindings.Add("Text", ds, "UrunAdet");
+                rapor.xr_personel_adi.DataBindings.Add("Text", ds, "Personel");
+                rapor.xr_giris.DataBindings.Add("Text", ds, "GirisTarihi");
                 rapor.DataMember = ((DataSet)rapor.DataSource).Tables[0].TableName;
-                //rapor.LoadLayout(Application.StartupPath + "\\rapor\\uretimgiris.repx");
+                rapor.LoadLayout(Application.StartupPath + "\\rapor\\uretimgirisS.repx");
                 cmbx_kodlar.Text = "";
                 rapor.ShowDesigner();
             }
+            else
+                MessageBox.Show("Rapor şablonunda değişiklik yapabilmeniz için gerekli alanların boş olması gerekmektedir.");
         }
         private void sbtn_satis_Click(object sender, EventArgs e)
         {
@@ -243,26 +255,26 @@ namespace Stok_Programı
             baglanti.Open();
             if (cmbx_kodlar.Text != "" & baslangic_tarihi.Checked == true & bitis_tarihi.Checked == true)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi FROM UrunCikis WHERE (UrunKodu=@kod) AND (CikisTarihi >= @baslangic AND CikisTarihi < @bitis)  ORDER BY CikisTarihi", baglanti);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi,Personel FROM UrunCikis WHERE (UrunKodu=@kod) AND (CikisTarihi >= @baslangic AND CikisTarihi < @bitis)  ORDER BY CikisTarihi", baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
             }
             else if (cmbx_kodlar.Text == "" & baslangic_tarihi.Checked==true & bitis_tarihi.Checked==true )
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi FROM UrunCikis WHERE (CikisTarihi >= @baslangic AND CikisTarihi < @bitis) ORDER BY CikisTarihi", baglanti);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi,Personel FROM UrunCikis WHERE (CikisTarihi >= @baslangic AND CikisTarihi < @bitis) ORDER BY CikisTarihi", baglanti);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
                 //komut.Parameters.AddWithValue("@adet", int.Parse(txt_adet.Text));
             }
             else if (cmbx_kodlar.Text != "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi FROM UrunCikis WHERE (UrunKodu=@kod) ORDER BY CikisTarihi", baglanti);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi,Personel FROM UrunCikis WHERE (UrunKodu=@kod) ORDER BY CikisTarihi", baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
             }
             else if (cmbx_kodlar.Text == "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi FROM UrunCikis ORDER BY CikisTarihi", baglanti);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi,Personel FROM UrunCikis ORDER BY CikisTarihi", baglanti);
             }
             da = new SqlDataAdapter(komut);
             da.Fill(ds);
@@ -275,18 +287,86 @@ namespace Stok_Programı
                 uretimcikis rapor2 = new uretimcikis();
                 rapor2.DataAdapter = da;
                 rapor2.DataSource = ds;
+                rapor2.xr_kod.DataBindings.Add("Text", ds, "UrunKodu");
+                rapor2.xr_firma.DataBindings.Add("Text", ds, "FirmaAdi");
+                rapor2.xr_miktar.DataBindings.Add("Text", ds, "UrunAdet");
+                rapor2.xr_satis.DataBindings.Add("Text", ds, "CikisTarihi");
+                rapor2.xr_personel_adi.DataBindings.Add("Text", ds, "Personel");
                 rapor2.DataMember = ((DataSet)rapor2.DataSource).Tables[0].TableName;
                 cmbx_kodlar.Text = "";
-                //  rapor.LoadLayout(Application.StartupPath + "\\rapor\\uretimcikis.repx");
+                rapor2.LoadLayout(Application.StartupPath + "\\rapor\\uretimcikisS.repx");
                 rapor2.ShowPreview();
             }
 
         }
         private void sbtn_satis_düzenle_Click(object sender, EventArgs e)
         {
-            uretimcikis rapor = new uretimcikis();
-         //   rapor.LoadLayout(Application.StartupPath + "\\rapor\\uretimcikis.repx");
-            rapor.ShowDesigner();
+            ds = new DataSet("Tablo");
+            baglanti.Open();
+            if (cmbx_kodlar.Text == "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false)
+            {
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi,Personel FROM UrunCikis ORDER BY CikisTarihi", baglanti);
+                da = new SqlDataAdapter(komut);
+                da.Fill(ds);
+                ds.Tables[0].TableName = "bilgi";
+                baglanti.Close();
+
+                uretimcikis rapor2 = new uretimcikis();
+                rapor2.DataAdapter = da;
+                rapor2.DataSource = ds;
+                rapor2.xr_kod.DataBindings.Add("Text", ds, "UrunKodu");
+                rapor2.xr_firma.DataBindings.Add("Text", ds, "FirmaAdi");
+                rapor2.xr_miktar.DataBindings.Add("Text", ds, "UrunAdet");
+                rapor2.xr_satis.DataBindings.Add("Text", ds, "CikisTarihi");
+                rapor2.xr_personel_adi.DataBindings.Add("Text", ds, "Personel");
+                rapor2.DataMember = ((DataSet)rapor2.DataSource).Tables[0].TableName;
+                cmbx_kodlar.Text = "";
+                rapor2.LoadLayout(Application.StartupPath + "\\rapor\\uretimcikisS.repx");
+                rapor2.ShowDesigner();
+            }
+            else
+                MessageBox.Show("Rapor şablonunda değişiklik yapabilmeniz için gerekli alanların boş olması gerekmektedir.");
+        }
+
+        private void ssatis_Click(object sender, EventArgs e)
+        {
+            ds = new DataSet("Tablo");
+            baglanti.Open();
+            if (cmbx_kodlar.Text != "" & baslangic_tarihi.Checked == true & bitis_tarihi.Checked == true)
+            {
+                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,UrunCikis.Personel,FirmaKayit.Sehir,FirmaKayit.ilce,FirmaKayit.Adres,FirmaKayit.SorumluAdi FROM UrunCikis,FirmaKayit WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.CikisTarihi>=@baslangic and UrunCikis.CikisTarihi<@bitis)", baglanti);
+                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
+                komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
+                komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
+                // komut.Parameters.AddWithValue("@ad", xrLabel1.Text);
+            }
+                da = new SqlDataAdapter(komut);
+                da.Fill(ds);
+                ds.Tables[0].TableName = "bilgiler";
+                baglanti.Close();
+
+                if (ds.Tables[0].Rows.Count == 0)
+                    MessageBox.Show("Ürün Bulunmamaktadır.");
+                else
+                {
+                    tasarim fatura = new tasarim();
+                    fatura.DataAdapter = da;
+                    fatura.DataSource = ds;
+                    fatura.productName.Text = cmbx_kodlar.Text;
+                    //  fatura.xrpersonel.DataBindings.Add("Text", ds, "Personel");
+                    fatura.invoiceDate.DataBindings.Add("Text", ds, "CikisTarihi");
+                    fatura.customerCity.DataBindings.Add("Text", ds, "Sehir");
+                    // fatura.xr_firmailce.DataBindings.Add("Text", ds, "ilce");
+                    fatura.customerAddress.DataBindings.Add("Text", ds, "Adres");
+                    fatura.quantity.DataBindings.Add("Text", ds, "UrunAdet");
+                    fatura.customerName.DataBindings.Add("Text", ds, "FirmaAdi");
+                    fatura.customerContactName.DataBindings.Add("Text", ds, "SorumluAdi");
+                    fatura.DataMember = ((DataSet)fatura.DataSource).Tables[0].TableName;
+                    //fatura.ShowDesigner();
+                    fatura.ShowPreview();
+                }
+
+            
         }
     }
 }

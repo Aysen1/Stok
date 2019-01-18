@@ -26,6 +26,8 @@ namespace Stok_Programı
 
         private void Form7_Load(object sender, EventArgs e)
         {
+            dateTimePicker1.Text = DateTime.Now.ToString();
+
             this.BackColor = Properties.Settings.Default.tema;
             this.WindowState = FormWindowState.Maximized;
             timer1.Start();
@@ -98,7 +100,7 @@ namespace Stok_Programı
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            dateTimePicker1.Text = DateTime.Now.ToString();
+            //dateTimePicker1.Text = DateTime.Now.ToString();
             toolStripStatusLabel1.Text = DateTime.Now.ToString();
             timer1.Start();
         }

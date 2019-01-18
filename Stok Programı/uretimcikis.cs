@@ -11,7 +11,6 @@ namespace Stok_Programı
         public uretimcikis()
         {
             InitializeComponent();
-            xr_personel_adi.Text = Properties.Settings.Default.kullaniciadi;
         }
 
     }

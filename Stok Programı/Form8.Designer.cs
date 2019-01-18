@@ -53,6 +53,7 @@
             this.lbl_kod = new System.Windows.Forms.Label();
             this.lbl_sayı = new System.Windows.Forms.Label();
             this.txt_adet = new System.Windows.Forms.TextBox();
+            this.ssatis = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -234,74 +235,93 @@
             // 
             this.baslangic_tarihi.CalendarForeColor = System.Drawing.Color.Maroon;
             this.baslangic_tarihi.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.baslangic_tarihi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.baslangic_tarihi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.baslangic_tarihi.Location = new System.Drawing.Point(159, 79);
             this.baslangic_tarihi.Name = "baslangic_tarihi";
-            this.baslangic_tarihi.Size = new System.Drawing.Size(137, 20);
+            this.baslangic_tarihi.Size = new System.Drawing.Size(161, 20);
             this.baslangic_tarihi.TabIndex = 10;
             this.baslangic_tarihi.Value = new System.DateTime(2019, 1, 16, 0, 0, 0, 0);
             // 
             // cmbx_kodlar
             // 
+            this.cmbx_kodlar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbx_kodlar.FormattingEnabled = true;
             this.cmbx_kodlar.Location = new System.Drawing.Point(159, 168);
             this.cmbx_kodlar.Name = "cmbx_kodlar";
-            this.cmbx_kodlar.Size = new System.Drawing.Size(137, 21);
+            this.cmbx_kodlar.Size = new System.Drawing.Size(161, 21);
             this.cmbx_kodlar.TabIndex = 11;
             // 
             // bitis_tarihi
             // 
             this.bitis_tarihi.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.bitis_tarihi.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.bitis_tarihi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.bitis_tarihi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.bitis_tarihi.Location = new System.Drawing.Point(159, 121);
             this.bitis_tarihi.Name = "bitis_tarihi";
-            this.bitis_tarihi.Size = new System.Drawing.Size(137, 20);
+            this.bitis_tarihi.Size = new System.Drawing.Size(161, 20);
             this.bitis_tarihi.TabIndex = 12;
             this.bitis_tarihi.Value = new System.DateTime(2019, 1, 16, 0, 0, 0, 0);
             // 
             // lbl_baslangic
             // 
             this.lbl_baslangic.AutoSize = true;
+            this.lbl_baslangic.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_baslangic.Location = new System.Drawing.Point(20, 85);
             this.lbl_baslangic.Name = "lbl_baslangic";
-            this.lbl_baslangic.Size = new System.Drawing.Size(85, 13);
+            this.lbl_baslangic.Size = new System.Drawing.Size(102, 13);
             this.lbl_baslangic.TabIndex = 13;
             this.lbl_baslangic.Text = "Başlangıç Tarihi:";
             // 
             // lbl_bitis
             // 
             this.lbl_bitis.AutoSize = true;
+            this.lbl_bitis.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_bitis.Location = new System.Drawing.Point(20, 127);
             this.lbl_bitis.Name = "lbl_bitis";
-            this.lbl_bitis.Size = new System.Drawing.Size(58, 13);
+            this.lbl_bitis.Size = new System.Drawing.Size(71, 13);
             this.lbl_bitis.TabIndex = 14;
             this.lbl_bitis.Text = "Bitiş Tarihi:";
             // 
             // lbl_kod
             // 
             this.lbl_kod.AutoSize = true;
+            this.lbl_kod.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_kod.Location = new System.Drawing.Point(20, 171);
             this.lbl_kod.Name = "lbl_kod";
-            this.lbl_kod.Size = new System.Drawing.Size(80, 13);
+            this.lbl_kod.Size = new System.Drawing.Size(96, 13);
             this.lbl_kod.TabIndex = 15;
             this.lbl_kod.Text = "Filtrelenen Kod:";
             // 
             // lbl_sayı
             // 
             this.lbl_sayı.AutoSize = true;
+            this.lbl_sayı.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_sayı.Location = new System.Drawing.Point(20, 219);
             this.lbl_sayı.Name = "lbl_sayı";
-            this.lbl_sayı.Size = new System.Drawing.Size(32, 13);
+            this.lbl_sayı.Size = new System.Drawing.Size(37, 13);
             this.lbl_sayı.TabIndex = 16;
             this.lbl_sayı.Text = "Adet:";
             // 
             // txt_adet
             // 
+            this.txt_adet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txt_adet.Location = new System.Drawing.Point(159, 212);
             this.txt_adet.Name = "txt_adet";
-            this.txt_adet.Size = new System.Drawing.Size(137, 20);
+            this.txt_adet.Size = new System.Drawing.Size(161, 20);
             this.txt_adet.TabIndex = 17;
+            // 
+            // ssatis
+            // 
+            this.ssatis.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ssatis.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.ssatis.Location = new System.Drawing.Point(144, 254);
+            this.ssatis.Name = "ssatis";
+            this.ssatis.Size = new System.Drawing.Size(100, 55);
+            this.ssatis.TabIndex = 18;
+            this.ssatis.Text = "Satış Fişi1";
+            this.ssatis.Click += new System.EventHandler(this.ssatis_Click);
             // 
             // Form8
             // 
@@ -309,6 +329,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 452);
             this.ControlBox = false;
+            this.Controls.Add(this.ssatis);
             this.Controls.Add(this.txt_adet);
             this.Controls.Add(this.lbl_sayı);
             this.Controls.Add(this.lbl_kod);
@@ -364,5 +385,6 @@
         private System.Windows.Forms.Label lbl_kod;
         private System.Windows.Forms.Label lbl_sayı;
         private System.Windows.Forms.TextBox txt_adet;
+        private DevExpress.XtraEditors.SimpleButton ssatis;
     }
 }
