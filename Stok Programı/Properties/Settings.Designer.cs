@@ -93,5 +93,17 @@ namespace Stok_Programı.Properties {
                 this["veritabani"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string fatura {
+            get {
+                return ((string)(this["fatura"]));
+            }
+            set {
+                this["fatura"] = value;
+            }
+        }
     }
 }

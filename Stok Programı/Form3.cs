@@ -24,8 +24,7 @@ namespace Stok_Programı
         public Form3()
         {
             InitializeComponent();
-        }
-        
+        }      
         private void Form3_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
@@ -35,7 +34,6 @@ namespace Stok_Programı
             baglan.InitialCatalog = Properties.Settings.Default.veritabani;
             baglan.IntegratedSecurity = true;
             baglanti = new SqlConnection(baglan.ConnectionString);
-           // baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
             firma_listele();
             pctrbx_urunresim.Image = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\barkod.png");
             btn_simge.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\simge.fw.png");
@@ -93,7 +91,6 @@ namespace Stok_Programı
             cmbbx_firma_adi.Text = "";
             txt_urun_kodu.Text = "";
         }
-
         private void btn_kaydet_Click(object sender, EventArgs e)
         {
 
@@ -105,8 +102,7 @@ namespace Stok_Programı
             {
                 baglanti.Close();
                 MessageBox.Show("Lütfen Bilgileri Tam Giriniz.");
-            }
-          
+            }     
         }
         private void urun_kayit()
         {
@@ -115,7 +111,7 @@ namespace Stok_Programı
             byte[] resim = br.ReadBytes((int)fs.Length);
             br.Close();
             fs.Close();
-
+            
             SqlCommand komut2 = new SqlCommand();
             komut2.Connection = baglanti;
             baglanti.Open();
@@ -126,7 +122,6 @@ namespace Stok_Programı
             MessageBox.Show("Başarılı.");
             baglanti.Close(); 
         }
-
         private void btn_resim_yukle_Click(object sender, EventArgs e)
         {
             OpenFileDialog opfd1 = new OpenFileDialog();
@@ -137,31 +132,26 @@ namespace Stok_Programı
                 resimpath = opfd1.FileName.ToString();
             }
         }
-
         private void btn_resim_sil_Click(object sender, EventArgs e)
         {
             pctrbx_urunresim.Image = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\barkod.png");
         }
-
         private void anaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form6 form6 = new Form6();
             form6.Show();
             this.Hide();
         }
-
         private void cikisToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
             form1.Show();
             this.Dispose();
         }
-
         private void yardımToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.nfmajans.com/iletisim.html");
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             dateTimePicker1.Text = DateTime.Now.ToString();
@@ -190,22 +180,18 @@ namespace Stok_Programı
             else
                 MessageBox.Show("Bu Kodda Bir Ürün Bulunmaktadır.");
         }
-
         private void btn_simge_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
         private void btn_tamekran_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
         }
-
         private void btn_cikiss_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void Form3_Shown(object sender, EventArgs e)
         {
             txt_urun_kodu.Focus();

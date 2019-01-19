@@ -50,14 +50,12 @@ namespace Stok_Programı
             }
             baglanti.Close();
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             //dateTimePicker1.Text = DateTime.Now.ToString();
             toolStripStatusLabel1.Text = DateTime.Now.ToString();
             timer1.Start();
         }
-
         private void Form5_Load(object sender, EventArgs e)
         {
             dateTimePicker1.Text = DateTime.Now.ToString();
@@ -107,12 +105,10 @@ namespace Stok_Programı
             metin();
             toolStripStatusLabel1.BackColor = Color.White;            
         }
-
         private void yardımToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.nfmajans.com/iletisim.html");
         }
-
         private void btn_temizle_Click(object sender, EventArgs e)
         {
             cmbx_firmaadi.Text = "";
@@ -120,7 +116,6 @@ namespace Stok_Programı
             txt_adet.Text = "";
             pctrbx_resim.Image = null;
         }
-
         private void cmbx_urunadi_SelectedIndexChanged(object sender, EventArgs e)
         {
             baglanti.Open();
@@ -137,7 +132,6 @@ namespace Stok_Programı
             }
             baglanti.Close(); 
         }
-
         private void btn_kaydet_Click(object sender, EventArgs e)
         {
             if (cmbx_firmaadi.Text != "" && cmbx_urunadi.Text != "" && txt_adet.Text != "")
@@ -171,6 +165,15 @@ namespace Stok_Programı
                         komut2.ExecuteNonQuery();
                         baglanti.Close();
 
+                       /* baglanti.Open();
+                        DataSet ds = new DataSet("Tablo");
+                        SqlCommand komut4 = new SqlCommand("SELECT * FROM UrunCikis,FirmaKayit WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi)",baglanti);
+                        komut4.Parameters.AddWithValue("@kod",cmbx_urunadi.Text);
+                        SqlDataAdapter da = new SqlDataAdapter(komut4);
+                        da.Fill(ds);
+                        ds.Tables[0].TableName = "bilgi";
+                        baglanti.Close();*/
+                        
                         MessageBox.Show("Kayıt Başarılı.");
                     }
                     else
@@ -183,44 +186,37 @@ namespace Stok_Programı
             else
                 MessageBox.Show("Kayıt Gerçekleştirilemedi.Tekrar Deneyiniz.");
         }
-
         private void anasayfaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form6 form6 = new Form6();
             form6.Show();
             this.Hide();
         }
-
         private void çıkışToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form6 form6 = new Form6();
             this.Close();
             form6.Show();
         }
-
         private void btn_simge_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
         private void btn_tamekran_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
         }
-
         private void btn_cikiss_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void Form5_Shown(object sender, EventArgs e)
         {
             cmbx_firmaadi.Focus();
         }
-
         private void excelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SqlConnection baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
+           // SqlConnection baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
             baglanti.Open();
             SqlDataAdapter da = new SqlDataAdapter("Select * from UrunCikis", baglanti);
             DataSet ds = new DataSet();

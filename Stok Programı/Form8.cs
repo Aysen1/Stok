@@ -13,12 +13,12 @@ using System.Management;
 using System.Globalization;
 using DevExpress.XtraReports.UI;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Stok_Programı
 {
     public partial class Form8 : Form
-    {
-        
+    {      
         public Form8()
         {
             InitializeComponent();
@@ -87,23 +87,19 @@ namespace Stok_Programı
             bitis_tarihi.ShowCheckBox = true;
             bitis_tarihi.Checked = false;
         }
-
         private void btn_simge_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
         private void btn_tamekran_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
         }
-
         private void btn_cikiss_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-        private static ManagementScope oManagementScope = null;
-              
+        private static ManagementScope oManagementScope = null;              
         public static bool yazici_ekle(string sPrinterName)
         {
             try
@@ -157,26 +153,28 @@ namespace Stok_Programı
         }
         private void raporToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+            OpenFileDialog opfd = new OpenFileDialog();
+            opfd.InitialDirectory = Application.StartupPath + "\\rapor";
+            if(opfd.ShowDialog()==DialogResult.OK)
+            {
+                Properties.Settings.Default.fatura = Path.GetFileName(opfd.FileName);
+                MessageBox.Show(Properties.Settings.Default.fatura);
+                Properties.Settings.Default.Save();
+            }
         }
         private DataSet uruncikis()
         {
-            DataSet veri = new DataSet();
-          
+            DataSet veri = new DataSet();      
             baglanti.Open();
-
             //SqlCommand komut = new SqlCommand("select FirmaAdi,UrunKodu,CikisTarihi,UrunAdet from UretimCikis where UrunKodu=@kod",baglanti);
            // komut.Parameters.AddWithValue("@kod", txt_kod.Text);
               //komut.Parameters.AddWithValue("@tarih", dateTimePicker1.Text);
               //komut.Parameters.AddWithValue("@tarih1", dateTimePicker2.Text);
-
             da = new SqlDataAdapter("SELECT FirmaAdi,UrunKodu,CikisTarihi,UrunAdet from UretimCikis WHERE UrunKodu='" + cmbx_yazici.Text + "' ", baglanti);
             da.Fill(veri);
-            baglanti.Close();
-            
+            baglanti.Close();   
             return veri;            
         }
-
         private void sbtn_giris_Click(object sender, EventArgs e)
         {
             ds = new DataSet("Tablo_alanlari");
@@ -224,8 +222,7 @@ namespace Stok_Programı
                 cmbx_kodlar.Text = "";
                 rapor.LoadLayout(Application.StartupPath + "\\rapor\\uretimgirisS.repx");
                 rapor.ShowPreview();
-            }
-          
+            }         
         }
         private void sbtn_giris_duzenle_Click(object sender, EventArgs e)
         {
@@ -303,7 +300,6 @@ namespace Stok_Programı
                 rapor2.LoadLayout(Application.StartupPath + "\\rapor\\uretimcikisS.repx");
                 rapor2.ShowPreview();
             }
-
         }
         private void sbtn_satis_düzenle_Click(object sender, EventArgs e)
         {
@@ -333,7 +329,6 @@ namespace Stok_Programı
             else
                 MessageBox.Show("Rapor şablonunda değişiklik yapabilmeniz için gerekli alanların boş olması gerekmektedir.");
         }
-
         private void ssatis_Click(object sender, EventArgs e)
         {
             ds = new DataSet("Tablo");
@@ -360,23 +355,17 @@ namespace Stok_Programı
                     fatura.DataAdapter = da;
                     fatura.DataSource = ds;
                     fatura.productName.DataBindings.Add("Text", ds, "UrunKodu");
-                    //  fatura.xrpersonel.DataBindings.Add("Text", ds, "Personel");
                     fatura.invoiceDate.DataBindings.Add("Text", ds, "CikisTarihi");
                     fatura.customerCity.DataBindings.Add("Text", ds, "Sehir");
-                    // fatura.xr_firmailce.DataBindings.Add("Text", ds, "ilce");
                     fatura.customerAddress.DataBindings.Add("Text", ds, "Adres");
                     fatura.quantity.DataBindings.Add("Text", ds, "UrunAdet");
                     fatura.customerName.DataBindings.Add("Text", ds, "FirmaAdi");
                     fatura.customerContactName.DataBindings.Add("Text", ds, "SorumluAdi");
                     fatura.DataMember = ((DataSet)fatura.DataSource).Tables[0].TableName;
                     fatura.LoadLayout(Application.StartupPath + "\\rapor\\tasarim.repx");
-                    //fatura.ShowDesigner();
                     fatura.ShowPreview();
-                }
-
-            
+                }           
         }
-
         private void S2_Click(object sender, EventArgs e)
         {
             ds = new DataSet("Tablo");
@@ -409,16 +398,13 @@ namespace Stok_Programı
                 fatura2.customerName.DataBindings.Add("Text", ds, "FirmaAdi");
                 fatura2.DataMember = ((DataSet)fatura2.DataSource).Tables[0].TableName;
                 fatura2.LoadLayout(Application.StartupPath + "\\rapor\\tasarim2.repx");
-                //fatura2.ShowDesigner();
                 fatura2.ShowPreview();
             }
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Start();
         }
-
         private void S3_Click(object sender, EventArgs e)
         {
             ds = new DataSet("Tablo");
@@ -453,12 +439,9 @@ namespace Stok_Programı
                 fatura3.customerName.DataBindings.Add("Text", ds, "FirmaAdi");
                 fatura3.DataMember = ((DataSet)fatura3.DataSource).Tables[0].TableName;
                 fatura3.LoadLayout(Application.StartupPath + "\\rapor\\tasarim3.repx");
-                //fatura3.ShowDesigner();
                 fatura3.ShowPreview();
             }
-
         }
-
         private void S4_Click(object sender, EventArgs e)
         {
             ds = new DataSet("Tablo");
@@ -495,11 +478,9 @@ namespace Stok_Programı
                 fatura4.customerTel.DataBindings.Add("Text", ds, "TelefonNo");
                 fatura4.DataMember = ((DataSet)fatura4.DataSource).Tables[0].TableName;
                 fatura4.LoadLayout(Application.StartupPath + "\\rapor\\tasarim4.repx");
-               // fatura4.ShowDesigner();
                 fatura4.ShowPreview();
             }
         }
-
         private void S5_Click(object sender, EventArgs e)
         {
             ds = new DataSet("Tablo");
@@ -533,7 +514,6 @@ namespace Stok_Programı
              //   fatura5.ShowPreview();
             }
         }
-
         private void S6_Click(object sender, EventArgs e)
         {
             ds = new DataSet("Tablo");
@@ -569,10 +549,8 @@ namespace Stok_Programı
                 fatura5.DataMember = ((DataSet)fatura5.DataSource).Tables[0].TableName;
                 fatura5.LoadLayout(Application.StartupPath + "\\rapor\\tasarim6.repx");
                 fatura5.ShowPreview();
-               // fatura5.ShowDesigner();
             }
         }
-
         private void S7_Click(object sender, EventArgs e)
         {
             ds = new DataSet("Tablo");
@@ -610,11 +588,9 @@ namespace Stok_Programı
                 fatura5.customerPhone.DataBindings.Add("Text", ds, "TelefonNo");
                 fatura5.DataMember = ((DataSet)fatura5.DataSource).Tables[0].TableName;
                 fatura5.LoadLayout(Application.StartupPath + "\\rapor\\tasarim7.repx");
-                fatura5.ShowPreview();
-                //fatura5.ShowDesigner();
+                fatura5.ShowPreview();;
             }
         }
-
         private void S8_Click(object sender, EventArgs e)
         {
             ds = new DataSet("Tablo");
@@ -649,7 +625,32 @@ namespace Stok_Programı
                 fatura5.DataMember = ((DataSet)fatura5.DataSource).Tables[0].TableName;
                 fatura5.LoadLayout(Application.StartupPath + "\\rapor\\tasarim8.repx");
                 fatura5.ShowPreview();
-                //fatura5.ShowDesigner();
+            }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            ds = new DataSet("Tablo");
+            baglanti.Open();
+            if (cmbx_kodlar.Text == "")
+            {
+                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunKodu,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,FirmaKayit.TelefonNo FROM UrunCikis,FirmaKayit WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) ORDER BY UrunCikis.UrunKodu", baglanti);
+            }
+            da = new SqlDataAdapter(komut);
+            da.Fill(ds);
+            ds.Tables[0].TableName = "bilgiler";
+            baglanti.Close();
+
+            if (ds.Tables[0].Rows.Count == 0)
+                MessageBox.Show("Ürün Bulunmamaktadır.");
+            else
+            {
+                string isim=Properties.Settings.Default.fatura;
+                string dosyayolu=String.Format(Application.StartupPath+"\\rapor\\{0}",isim);
+                //MessageBox.Show(dosyayolu);      
+                OpenFileDialog opfd = new OpenFileDialog();
+                opfd.InitialDirectory = dosyayolu;
+                opfd.OpenFile();
             }
         }
     }

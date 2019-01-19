@@ -22,14 +22,10 @@ namespace Stok_Programı
         SqlConnection baglanti;
         SqlConnectionStringBuilder baglan = new SqlConnectionStringBuilder();
         SqlCommand komut;
-        string resimpath;
-        SqlDataReader dr;
-
         public Form1()
         {
             InitializeComponent();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             baglanti.Open();
@@ -48,7 +44,6 @@ namespace Stok_Programı
                 MessageBox.Show( "Girilen Bilgiler Hatalıdır!Tekrar Deneyiniz.");
             baglanti.Close();
         }
-        System.Diagnostics.Process a = null;
         private void Form1_Load(object sender, EventArgs e)
         {
            // Properties.Settings.Default.serverip = "NFM-1\\MSSQLSERVER01";
@@ -114,8 +109,6 @@ namespace Stok_Programı
             metin();
             this.BackColor=Properties.Settings.Default.tema;
             tableLayoutPanel4.BackColor = Properties.Settings.Default.tema;
-            //this.BackColor = Color.White;
-            //tableLayoutPanel4.BackColor = Color.White;
             panel1.Location = new Point(this.ClientSize.Width / 2 - panel1.ClientSize.Width / 2, this.ClientSize.Height / 2 - panel1.ClientSize.Height / 2);
             panel1.Anchor = AnchorStyles.None;
         }
@@ -123,77 +116,62 @@ namespace Stok_Programı
         {
             this.Dispose();
         }
-
         private void yardımToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.nfmajans.com/iletisim.html");
         }
-
         private void btn_0_Click(object sender, EventArgs e)
         {
             txt_kullanici_sifre.Text = txt_kullanici_sifre.Text + "0";
         }
-
         private void btn_1_Click(object sender, EventArgs e)
         {
             txt_kullanici_sifre.Text = txt_kullanici_sifre.Text + "1";
         }
-
         private void btn_2_Click(object sender, EventArgs e)
         {
             txt_kullanici_sifre.Text = txt_kullanici_sifre.Text + "2";
         }
-
         private void btn_3_Click(object sender, EventArgs e)
         {
             txt_kullanici_sifre.Text = txt_kullanici_sifre.Text + "3";
         }
-
         private void btn_4_Click(object sender, EventArgs e)
         {
             txt_kullanici_sifre.Text = txt_kullanici_sifre.Text + "4";
         }
-
         private void btn_5_Click(object sender, EventArgs e)
         {
             txt_kullanici_sifre.Text = txt_kullanici_sifre.Text + "5";
         }
-
         private void btn_6_Click(object sender, EventArgs e)
         {
             txt_kullanici_sifre.Text = txt_kullanici_sifre.Text + "6";
         }
-
         private void btn_7_Click(object sender, EventArgs e)
         {
             txt_kullanici_sifre.Text = txt_kullanici_sifre.Text + "7";
         }
-
         private void btn_8_Click(object sender, EventArgs e)
         {
             txt_kullanici_sifre.Text = txt_kullanici_sifre.Text + "8";
         }
-
         private void btn_9_Click(object sender, EventArgs e)
         {
             txt_kullanici_sifre.Text = txt_kullanici_sifre.Text + "9";
         }
-
         private void btn_sil_Click(object sender, EventArgs e)
         {
             txt_kullanici_sifre.Text = "";
         }
-
         private void btn_simge_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
         private void btn_tamekran_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
         }
-
         private void btn_cikiss_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.Save();
@@ -272,21 +250,16 @@ namespace Stok_Programı
 
             path.CloseFigure();
             return path;
-        }
-
-       
+        }     
         private void timer1_Tick(object sender, EventArgs e)
         {
             lbl_destek.Text = DateTime.Now.ToString();
             timer1.Start();
         }
-
-
         private void Form1_Shown(object sender, EventArgs e)
         {
                 txt_kullanici_isim.Focus();
         }
-
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F10)
@@ -296,5 +269,4 @@ namespace Stok_Programı
             }
         }
     }
-
 }

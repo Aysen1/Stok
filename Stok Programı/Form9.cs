@@ -14,12 +14,10 @@ namespace Stok_Programı
 {
     public partial class Form9 : Form
     {
-        string a="";
         public Form9()
         {
             InitializeComponent();
         }
-        string secilen;
         private void Form9_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
@@ -49,22 +47,18 @@ namespace Stok_Programı
             metin();
             this.BackColor = Properties.Settings.Default.tema;
         }
-
         private void btn_simge_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
         private void btn_tamekran_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
         }
-
         private void btn_cikiss_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void ingilizceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Localization.Culture = new CultureInfo("en-US");
@@ -72,7 +66,6 @@ namespace Stok_Programı
             Properties.Settings.Default.Save();
             metin();
         }
-
         private void anasayfaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form6 form6 = new Form6();
@@ -90,7 +83,6 @@ namespace Stok_Programı
             cikisToolStripMenuItem.Text = Localization.lbl_cikis;
             temaToolStripMenuItem.Text = Localization.tema;
         }
-
         private void türkçeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Localization.Culture = new CultureInfo("");
@@ -98,17 +90,14 @@ namespace Stok_Programı
             Properties.Settings.Default.Save();
             metin();
         }
-
         private void cikisToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void yardımToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.nfmajans.com/iletisim.html");
         }
-
         private void temaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult kontrol;
@@ -121,6 +110,5 @@ namespace Stok_Programı
                 Properties.Settings.Default.Save();
             }
         }
-
     }
 }

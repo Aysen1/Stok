@@ -22,7 +22,6 @@ namespace Stok_Programı
         {
             InitializeComponent();
         }
-
         private void Form6_Load(object sender, EventArgs e)
         {
             this.BackColor = Properties.Settings.Default.tema;
@@ -76,21 +75,18 @@ namespace Stok_Programı
             metin();
             toolStripStatusLabel1.BackColor = Color.White;
         }
-
         private void btn_urun_Click(object sender, EventArgs e)
         {
             Form3 form3 = new Form3();
             form3.Show();
             this.Hide();
         }
-
         private void btn_firma_Click(object sender, EventArgs e)
         {
             Form4 form4 = new Form4();
             form4.Show();
             this.Hide();
         }
-
         private void btn_giris_Click(object sender, EventArgs e)
         {
             Form7 form7 = new Form7();
@@ -98,31 +94,26 @@ namespace Stok_Programı
             this.Hide();
            
         }
-
         private void btn_cikis_Click(object sender, EventArgs e)
         {
             Form5 form5 = new Form5();
             form5.Show();
             this.Hide();
         }
-
         private void anasayfaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Show();
         }
-
         private void cikisToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
             form1.Show();
             this.Dispose();
         }
-
         private void yardımToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.nfmajans.com/iletisim.html");
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             toolStripStatusLabel1.Text = DateTime.Now.ToString();
@@ -134,7 +125,6 @@ namespace Stok_Programı
             form8.Show();
             this.Hide();
         }
-
         private void btn_stok_Click(object sender, EventArgs e)
         {
             SqlConnectionStringBuilder baglan = new SqlConnectionStringBuilder();
@@ -166,24 +156,20 @@ namespace Stok_Programı
             baglanti.Close();
             xl.Visible = true;
         }
-
         private void btn_simge_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
         private void btn_tamekran_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
         }
-
         private void btn_cikiss_Click(object sender, EventArgs e)
         {
             Form form1 = new Form1();
             form1.Show();
             this.Dispose();
         }
-
         private void btn_ayarlar_Click(object sender, EventArgs e)
         {
             Form9 form9 = new Form9();

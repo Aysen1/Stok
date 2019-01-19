@@ -23,7 +23,6 @@ namespace Stok_Programı
         {
             InitializeComponent();
         }
-
         private void Form4_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
@@ -33,7 +32,6 @@ namespace Stok_Programı
             baglan.InitialCatalog = Properties.Settings.Default.veritabani;
             baglan.IntegratedSecurity = true;
             baglanti = new SqlConnection(baglan.ConnectionString);
-           // baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
             btn_simge.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\simge.fw.png");
             btn_tamekran.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\tamekran.fw.png");
             btn_cikiss.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\cikis.fw.png");
@@ -70,7 +68,6 @@ namespace Stok_Programı
             this.BackColor = Properties.Settings.Default.tema;
             toolStripStatusLabel1.BackColor = Color.White;            
         }
-
         private void btn_temizle_Click(object sender, EventArgs e)
         {
             txt_firmaadi.Text = "";
@@ -82,7 +79,6 @@ namespace Stok_Programı
             cmbx_ilce.Text = "";
             txt_adres.Text = "";
         }
-
         private void btn_kaydet_Click(object sender, EventArgs e)
         {
             baglanti.Open();
@@ -97,34 +93,28 @@ namespace Stok_Programı
                     MessageBox.Show("Kayıt Başarılı!");
                 }
                 else
-                    MessageBox.Show("Lütfen geçerli bir telefon numarası giriniz.");
-                
+                    MessageBox.Show("Lütfen geçerli bir telefon numarası giriniz.");     
             }
             else
-                MessageBox.Show("Lütfen gerekli tüm alanları doldurun.");
-            
+                MessageBox.Show("Lütfen gerekli tüm alanları doldurun.");     
             baglanti.Close();
         }
-
         private void anasayfaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form6 form6 = new Form6();
             form6.Show();
             this.Hide();
         }
-
         private void cikisToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form6 form6 = new Form6();
             this.Close();
             form6.Show();
         }
-
         private void yardımToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.nfmajans.com/iletisim.html");
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             dateTimePicker1.Text = DateTime.Now.ToString();
@@ -142,8 +132,6 @@ namespace Stok_Programı
             cmbx_il.DataSource = dt;
             baglanti.Close();
         }
-
-
         private void cmbx_il_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbx_il.SelectedIndex != -1)
@@ -159,17 +147,14 @@ namespace Stok_Programı
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
         private void btn_tamekran_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
         }
-
         private void btn_cikiss_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void excelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SqlConnection baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");

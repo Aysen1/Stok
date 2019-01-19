@@ -63,6 +63,7 @@
             this.S6 = new DevExpress.XtraEditors.SimpleButton();
             this.S7 = new DevExpress.XtraEditors.SimpleButton();
             this.S8 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -405,7 +406,7 @@
             // S8
             // 
             this.S8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.S8.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.S8.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S8.ImageOptions.Image")));
             this.S8.Location = new System.Drawing.Point(101, 386);
             this.S8.Name = "S8";
             this.S8.Size = new System.Drawing.Size(68, 39);
@@ -413,12 +414,24 @@
             this.S8.Text = "8";
             this.S8.Click += new System.EventHandler(this.S8_Click);
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(332, 305);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(84, 39);
+            this.simpleButton1.TabIndex = 26;
+            this.simpleButton1.Text = "fatura";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // Form8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 452);
             this.ControlBox = false;
+            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.S8);
             this.Controls.Add(this.S7);
             this.Controls.Add(this.S6);
@@ -491,5 +504,6 @@
         private DevExpress.XtraEditors.SimpleButton S6;
         private DevExpress.XtraEditors.SimpleButton S7;
         private DevExpress.XtraEditors.SimpleButton S8;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }
