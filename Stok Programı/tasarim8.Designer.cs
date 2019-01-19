@@ -537,7 +537,7 @@
             this.totalCaption.Name = "totalCaption";
             this.totalCaption.StylePriority.UseFont = false;
             this.totalCaption.StylePriority.UseTextAlignment = false;
-            this.totalCaption.Text = "TOPLAM TUTAR";
+            this.totalCaption.Text = "TOPLAM";
             this.totalCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.totalCaption.Weight = 3.7211418967813294D;
             // 
@@ -627,7 +627,7 @@
             // 
             this.lineTotalCaption.Name = "lineTotalCaption";
             this.lineTotalCaption.StylePriority.UseTextAlignment = false;
-            this.lineTotalCaption.Text = "Toplam";
+            this.lineTotalCaption.Text = "Tutar";
             this.lineTotalCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.lineTotalCaption.Weight = 0.55057837116473252D;
             // 

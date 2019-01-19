@@ -682,7 +682,7 @@
             this.total2Caption.StylePriority.UseForeColor = false;
             this.total2Caption.StylePriority.UsePadding = false;
             this.total2Caption.StylePriority.UseTextAlignment = false;
-            this.total2Caption.Text = "TOPLAM TUTAR";
+            this.total2Caption.Text = "TOPLAM";
             this.total2Caption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.total2Caption.Weight = 1D;
             // 
@@ -868,7 +868,7 @@
             this.lineTotalCaption.StylePriority.UseFont = false;
             this.lineTotalCaption.StylePriority.UseForeColor = false;
             this.lineTotalCaption.StylePriority.UseTextAlignment = false;
-            this.lineTotalCaption.Text = "TOPLAM";
+            this.lineTotalCaption.Text = "TUTAR";
             this.lineTotalCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.lineTotalCaption.Weight = 0.30785032120391059D;
             // 

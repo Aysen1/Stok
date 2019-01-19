@@ -20,6 +20,7 @@ namespace Stok_Programı
     public partial class Form1 : Form
     {
         SqlConnection baglanti;
+        SqlConnectionStringBuilder baglan = new SqlConnectionStringBuilder();
         SqlCommand komut;
         string resimpath;
         SqlDataReader dr;
@@ -38,13 +39,10 @@ namespace Stok_Programı
             if (data.Read())
             {
                 Properties.Settings.Default.kullaniciadi = txt_kullanici_isim.Text;
-                Properties.Settings.Default.serverip = "NFM-1";
                 Properties.Settings.Default.sifre = txt_kullanici_sifre.Text;
-                Properties.Settings.Default.veritabani = "StokTakip";
                 Form6 form6 = new Form6();
                 form6.Show();
-                this.Hide();
-                
+                this.Hide();             
             }
             else
                 MessageBox.Show( "Girilen Bilgiler Hatalıdır!Tekrar Deneyiniz.");
@@ -53,13 +51,17 @@ namespace Stok_Programı
         System.Diagnostics.Process a = null;
         private void Form1_Load(object sender, EventArgs e)
         {
+           // Properties.Settings.Default.serverip = "NFM-1\\MSSQLSERVER01";
+            baglan.DataSource = Properties.Settings.Default.serverip;
+            baglan.InitialCatalog = Properties.Settings.Default.veritabani;
+            baglan.IntegratedSecurity = true;
+            baglanti = new SqlConnection(baglan.ConnectionString);
+
             txt_kullanici_isim.Text=Properties.Settings.Default.kullaniciadi;
-            Properties.Settings.Default.serverip = "NFM-1";
             txt_kullanici_sifre.Text = Properties.Settings.Default.sifre;
-            Properties.Settings.Default.veritabani = "StokTakip";
 
             this.WindowState = FormWindowState.Maximized;
-            baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
+          //  baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
             lbl_versiyon.Text = Application.ProductVersion;
             lbl_nfm.Text = "NFM AJANS SAN. VE TIC. LTD. STI";
             lbl_destek.Text = "Destek Hattı: 0 (236) 231 40 10";

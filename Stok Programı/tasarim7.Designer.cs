@@ -74,6 +74,9 @@
             this.customerCountryRow = new DevExpress.XtraReports.UI.XRTableRow();
             this.customerTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
             this.customerCity = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.customerPhone = new DevExpress.XtraReports.UI.XRTableCell();
             this.vendorTable = new DevExpress.XtraReports.UI.XRTable();
             this.vendorNameRow = new DevExpress.XtraReports.UI.XRTableRow();
             this.vendorName = new DevExpress.XtraReports.UI.XRTableCell();
@@ -119,9 +122,6 @@
             this.lineTotalCaption = new DevExpress.XtraReports.UI.XRTableCell();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.baseControlStyle = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
-            this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.customerPhone = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.detailTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorTable)).BeginInit();
@@ -405,6 +405,32 @@
             this.customerCity.Name = "customerCity";
             this.customerCity.Text = "CustomerCity";
             this.customerCity.Weight = 1.1915477284685581D;
+            // 
+            // xrTableRow1
+            // 
+            this.xrTableRow1.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.xrTableCell1,
+            this.customerPhone});
+            this.xrTableRow1.Name = "xrTableRow1";
+            this.xrTableRow1.Weight = 1D;
+            // 
+            // xrTableCell1
+            // 
+            this.xrTableCell1.Multiline = true;
+            this.xrTableCell1.Name = "xrTableCell1";
+            this.xrTableCell1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrTableCell1.StylePriority.UsePadding = false;
+            this.xrTableCell1.StylePriority.UseTextAlignment = false;
+            this.xrTableCell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrTableCell1.Weight = 0.67557505517096983D;
+            // 
+            // customerPhone
+            // 
+            this.customerPhone.Multiline = true;
+            this.customerPhone.Name = "customerPhone";
+            this.customerPhone.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.customerPhone.Text = "CustomerPhone";
+            this.customerPhone.Weight = 1.1915477284685581D;
             // 
             // vendorTable
             // 
@@ -709,7 +735,7 @@
             this.totalCaption.StylePriority.UseFont = false;
             this.totalCaption.StylePriority.UsePadding = false;
             this.totalCaption.StylePriority.UseTextAlignment = false;
-            this.totalCaption.Text = "TOPLAM TUTAR";
+            this.totalCaption.Text = "TOPLAM";
             this.totalCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.totalCaption.Weight = 1.5060970566200949D;
             // 
@@ -793,7 +819,7 @@
             // 
             this.lineTotalCaption.Name = "lineTotalCaption";
             this.lineTotalCaption.StylePriority.UseTextAlignment = false;
-            this.lineTotalCaption.Text = "TOPLAM";
+            this.lineTotalCaption.Text = "TUTAR";
             this.lineTotalCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.lineTotalCaption.Weight = 0.52892080119263185D;
             // 
@@ -841,32 +867,6 @@
             this.baseControlStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.baseControlStyle.Name = "baseControlStyle";
             this.baseControlStyle.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            // 
-            // xrTableRow1
-            // 
-            this.xrTableRow1.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
-            this.xrTableCell1,
-            this.customerPhone});
-            this.xrTableRow1.Name = "xrTableRow1";
-            this.xrTableRow1.Weight = 1D;
-            // 
-            // xrTableCell1
-            // 
-            this.xrTableCell1.Multiline = true;
-            this.xrTableCell1.Name = "xrTableCell1";
-            this.xrTableCell1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrTableCell1.StylePriority.UsePadding = false;
-            this.xrTableCell1.StylePriority.UseTextAlignment = false;
-            this.xrTableCell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrTableCell1.Weight = 0.67557505517096983D;
-            // 
-            // customerPhone
-            // 
-            this.customerPhone.Multiline = true;
-            this.customerPhone.Name = "customerPhone";
-            this.customerPhone.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.customerPhone.Text = "CustomerPhone";
-            this.customerPhone.Weight = 1.1915477284685581D;
             // 
             // tasarim7
             // 

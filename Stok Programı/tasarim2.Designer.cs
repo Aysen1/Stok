@@ -208,11 +208,11 @@
             // 
             this.vendorContactsTable.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(211)))), ((int)(((byte)(205)))));
             this.vendorContactsTable.Font = new System.Drawing.Font("Segoe UI", 7.75F);
-            this.vendorContactsTable.LocationFloat = new DevExpress.Utils.PointFloat(271F, 25F);
+            this.vendorContactsTable.LocationFloat = new DevExpress.Utils.PointFloat(255.375F, 25F);
             this.vendorContactsTable.Name = "vendorContactsTable";
             this.vendorContactsTable.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.vendorContactsRow});
-            this.vendorContactsTable.SizeF = new System.Drawing.SizeF(378.9991F, 15F);
+            this.vendorContactsTable.SizeF = new System.Drawing.SizeF(394.6241F, 15F);
             this.vendorContactsTable.StylePriority.UseBorderColor = false;
             this.vendorContactsTable.StylePriority.UseFont = false;
             // 
@@ -222,7 +222,7 @@
             this.vendorWebsite,
             this.vendorEmail,
             this.vendorPhone});
-            this.vendorContactsRow.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.vendorContactsRow.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.vendorContactsRow.Name = "vendorContactsRow";
             this.vendorContactsRow.StylePriority.UseFont = false;
             this.vendorContactsRow.Weight = 1D;
@@ -269,7 +269,7 @@
             this.thankYouLabel.SizeF = new System.Drawing.SizeF(110.4167F, 40F);
             this.thankYouLabel.StylePriority.UseFont = false;
             this.thankYouLabel.StylePriority.UseTextAlignment = false;
-            this.thankYouLabel.Text = "Thank you!";
+            this.thankYouLabel.Text = "Teşekkürler!";
             this.thankYouLabel.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // heartLabel
@@ -547,7 +547,7 @@
             this.totalCaption.StylePriority.UseFont = false;
             this.totalCaption.StylePriority.UseForeColor = false;
             this.totalCaption.StylePriority.UseTextAlignment = false;
-            this.totalCaption.Text = "TOPLAM TUTAR";
+            this.totalCaption.Text = "TOPLAM";
             this.totalCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.totalCaption.TextFormatString = "{0:$0.00}";
             this.totalCaption.Weight = 0.86395575723338147D;
@@ -562,7 +562,7 @@
             // 
             // invoiceDueDate
             // 
-            this.invoiceDueDate.Font = new System.Drawing.Font("Segoe UI", 26F);
+            this.invoiceDueDate.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.invoiceDueDate.ForeColor = System.Drawing.Color.Black;
             this.invoiceDueDate.Name = "invoiceDueDate";
             this.invoiceDueDate.StylePriority.UseFont = false;
@@ -575,7 +575,7 @@
             // 
             // total
             // 
-            this.total.Font = new System.Drawing.Font("Segoe UI", 26F, System.Drawing.FontStyle.Bold);
+            this.total.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.total.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(102)))), ((int)(((byte)(78)))));
             this.total.Name = "total";
             this.total.StylePriority.UseFont = false;
@@ -672,7 +672,7 @@
             // 
             this.lineTotalCaptionCell.Name = "lineTotalCaptionCell";
             this.lineTotalCaptionCell.StylePriority.UseTextAlignment = false;
-            this.lineTotalCaptionCell.Text = "TOPLAM FİYAT";
+            this.lineTotalCaptionCell.Text = "TUTAR";
             this.lineTotalCaptionCell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.lineTotalCaptionCell.Weight = 0.53455211842257433D;
             // 

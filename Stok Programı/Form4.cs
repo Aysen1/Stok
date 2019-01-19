@@ -17,6 +17,7 @@ namespace Stok_Programı
     public partial class Form4 : Form
     {
         SqlConnection baglanti;
+        SqlConnectionStringBuilder baglan = new SqlConnectionStringBuilder();
         SqlCommand komut;
         public Form4()
         {
@@ -28,7 +29,11 @@ namespace Stok_Programı
             this.WindowState = FormWindowState.Maximized;
             timer1.Start();
             toolStripStatusLabel1.Text = DateTime.Now.ToString();
-            baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
+            baglan.DataSource = Properties.Settings.Default.serverip;
+            baglan.InitialCatalog = Properties.Settings.Default.veritabani;
+            baglan.IntegratedSecurity = true;
+            baglanti = new SqlConnection(baglan.ConnectionString);
+           // baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
             btn_simge.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\simge.fw.png");
             btn_tamekran.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\tamekran.fw.png");
             btn_cikiss.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\cikis.fw.png");

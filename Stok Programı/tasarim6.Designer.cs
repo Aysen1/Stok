@@ -535,7 +535,7 @@
             this.totalCaption.StylePriority.UseFont = false;
             this.totalCaption.StylePriority.UsePadding = false;
             this.totalCaption.StylePriority.UseTextAlignment = false;
-            this.totalCaption.Text = "TOPLAM TUTAR";
+            this.totalCaption.Text = "TOPLAM";
             this.totalCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.totalCaption.Weight = 0.84464081370499255D;
             // 
@@ -627,7 +627,7 @@
             this.lineTotalCaption.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 10, 5, 0, 100F);
             this.lineTotalCaption.StylePriority.UsePadding = false;
             this.lineTotalCaption.StylePriority.UseTextAlignment = false;
-            this.lineTotalCaption.Text = "TOPLAM";
+            this.lineTotalCaption.Text = "TUTAR";
             this.lineTotalCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.lineTotalCaption.Weight = 0.68754517279656213D;
             // 

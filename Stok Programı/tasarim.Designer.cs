@@ -141,7 +141,6 @@
             this.unitPrice,
             this.lineTotal});
             this.detailTableRow.Name = "detailTableRow";
-            this.detailTableRow.Visible = true;
             this.detailTableRow.Weight = 10.58D;
             // 
             // quantity
@@ -545,7 +544,7 @@
             this.totalCaption.StylePriority.UseFont = false;
             this.totalCaption.StylePriority.UsePadding = false;
             this.totalCaption.StylePriority.UseTextAlignment = false;
-            this.totalCaption.Text = "TOPLAM FİYAT";
+            this.totalCaption.Text = "TOPLAM";
             this.totalCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.totalCaption.Weight = 1.336803081098942D;
             // 
@@ -643,7 +642,7 @@
             this.lineTotalCaption.StylePriority.UseBorders = false;
             this.lineTotalCaption.StylePriority.UseFont = false;
             this.lineTotalCaption.StylePriority.UseTextAlignment = false;
-            this.lineTotalCaption.Text = "TOPLAM FİYAT";
+            this.lineTotalCaption.Text = "TUTAR";
             this.lineTotalCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.lineTotalCaption.Weight = 0.36788545669295691D;
             // 
@@ -669,7 +668,7 @@
             this.thankYouLabel.SizeF = new System.Drawing.SizeF(648.8189F, 24.99998F);
             this.thankYouLabel.StylePriority.UseFont = false;
             this.thankYouLabel.StylePriority.UseTextAlignment = false;
-            this.thankYouLabel.Text = "İŞİNİZ İÇİN TEŞEKKÜR EDERİZ!";
+            this.thankYouLabel.Text = "BİZİ TERCİH ETTİĞİNİZ İÇİN TEŞEKKÜR EDERİZ!";
             this.thankYouLabel.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // sqlDataSource1

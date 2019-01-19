@@ -166,8 +166,8 @@
             this.productName.StylePriority.UseFont = false;
             this.productName.StylePriority.UsePadding = false;
             this.productName.StylePriority.UseTextAlignment = false;
-            this.productName.Text = "Ürün1";
             this.productName.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
+            this.productName.TextFormatString = "Ürün Kodu: {0}";
             this.productName.Weight = 1.229204899698507D;
             // 
             // quantity
@@ -703,7 +703,7 @@
             this.totalCaption.StylePriority.UseForeColor = false;
             this.totalCaption.StylePriority.UsePadding = false;
             this.totalCaption.StylePriority.UseTextAlignment = false;
-            this.totalCaption.Text = "TOPLAM FİYAT:";
+            this.totalCaption.Text = "TOPLAM:";
             this.totalCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.totalCaption.Weight = 2.22626722228565D;
             // 
@@ -806,7 +806,7 @@
             this.lineTotalCaption.StylePriority.UseForeColor = false;
             this.lineTotalCaption.StylePriority.UsePadding = false;
             this.lineTotalCaption.StylePriority.UseTextAlignment = false;
-            this.lineTotalCaption.Text = "TOPLAM";
+            this.lineTotalCaption.Text = "TUTAR";
             this.lineTotalCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.lineTotalCaption.Weight = 0.31922587575351463D;
             // 
@@ -902,7 +902,6 @@
         private DevExpress.XtraReports.UI.DetailBand Detail;
         private DevExpress.XtraReports.UI.XRTable detailTable;
         private DevExpress.XtraReports.UI.XRTableRow detailTableRow1;
-        private DevExpress.XtraReports.UI.XRTableCell productName;
         private DevExpress.XtraReports.UI.XRTableCell unitPrice;
         private DevExpress.XtraReports.UI.XRTableCell lineTotal;
         private DevExpress.XtraReports.UI.XRTableRow detailTableRow2;
@@ -960,6 +959,7 @@
         public DevExpress.XtraReports.UI.XRTableCell quantity;
         public DevExpress.XtraReports.UI.XRTableCell customerName;
         public DevExpress.XtraReports.UI.XRTableCell customerAddress;
+        public DevExpress.XtraReports.UI.XRTableCell productName;
 
     }
 }

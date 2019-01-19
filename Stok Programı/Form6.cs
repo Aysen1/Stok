@@ -137,7 +137,11 @@ namespace Stok_Programı
 
         private void btn_stok_Click(object sender, EventArgs e)
         {
-            SqlConnection baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
+            SqlConnectionStringBuilder baglan = new SqlConnectionStringBuilder();
+            baglan.DataSource = Properties.Settings.Default.serverip;
+            baglan.InitialCatalog = Properties.Settings.Default.veritabani;
+            baglan.IntegratedSecurity = true;
+            SqlConnection baglanti = new SqlConnection(baglan.ConnectionString);
             baglanti.Open();
             SqlDataAdapter da = new SqlDataAdapter("Select * from UrunKayit1", baglanti);
             DataSet ds = new DataSet();
