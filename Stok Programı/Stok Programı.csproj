@@ -124,6 +124,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="fatura.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="fatura.Designer.cs">
+      <DependentUpon>fatura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,12 +232,6 @@
     <Compile Include="tasarim7.Designer.cs">
       <DependentUpon>tasarim7.cs</DependentUpon>
     </Compile>
-    <Compile Include="tasarim8.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="tasarim8.Designer.cs">
-      <DependentUpon>tasarim8.cs</DependentUpon>
-    </Compile>
     <Compile Include="uretimcikis.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -244,6 +244,9 @@
     <Compile Include="uretimgiris.Designer.cs">
       <DependentUpon>uretimgiris.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="fatura.resx">
+      <DependentUpon>fatura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -307,9 +310,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="tasarim7.resx">
       <DependentUpon>tasarim7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="tasarim8.resx">
-      <DependentUpon>tasarim8.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uretimcikis.resx">
       <DependentUpon>uretimcikis.cs</DependentUpon>

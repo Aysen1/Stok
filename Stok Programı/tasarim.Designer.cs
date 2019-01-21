@@ -56,13 +56,6 @@
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.GroupHeader2 = new DevExpress.XtraReports.UI.GroupHeaderBand();
-            this.invoiceInfoTable = new DevExpress.XtraReports.UI.XRTable();
-            this.invoiceInfoTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
-            this.invoiceLabel = new DevExpress.XtraReports.UI.XRTableCell();
-            this.invoiceNumberRow = new DevExpress.XtraReports.UI.XRTableRow();
-            this.invoiceNumber = new DevExpress.XtraReports.UI.XRTableCell();
-            this.invoiceDateRow = new DevExpress.XtraReports.UI.XRTableRow();
-            this.invoiceDate = new DevExpress.XtraReports.UI.XRTableCell();
             this.customerTable = new DevExpress.XtraReports.UI.XRTable();
             this.customerTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.toLabel = new DevExpress.XtraReports.UI.XRTableCell();
@@ -89,6 +82,10 @@
             this.vendorCountry = new DevExpress.XtraReports.UI.XRTableCell();
             this.vendorPhoneRow = new DevExpress.XtraReports.UI.XRTableRow();
             this.vendorPhone = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
+            this.invoiceNumber = new DevExpress.XtraReports.UI.XRLabel();
+            this.invoiceDate = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.totalTable = new DevExpress.XtraReports.UI.XRTable();
             this.totalRow = new DevExpress.XtraReports.UI.XRTableRow();
@@ -106,7 +103,6 @@
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.baseControlStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             ((System.ComponentModel.ISupportInitialize)(this.detailTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invoiceInfoTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalTable)).BeginInit();
@@ -217,9 +213,12 @@
             // GroupHeader2
             // 
             this.GroupHeader2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.invoiceInfoTable,
             this.customerTable,
-            this.vendorTable});
+            this.vendorTable,
+            this.xrLabel1,
+            this.xrLabel2,
+            this.invoiceNumber,
+            this.invoiceDate});
             this.GroupHeader2.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
             new DevExpress.XtraReports.UI.GroupField("InvoiceNumber", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
             this.GroupHeader2.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
@@ -228,77 +227,6 @@
             this.GroupHeader2.Name = "GroupHeader2";
             this.GroupHeader2.StyleName = "baseControlStyle";
             this.GroupHeader2.StylePriority.UseBackColor = false;
-            // 
-            // invoiceInfoTable
-            // 
-            this.invoiceInfoTable.LocationFloat = new DevExpress.Utils.PointFloat(391.8152F, 10.00001F);
-            this.invoiceInfoTable.Name = "invoiceInfoTable";
-            this.invoiceInfoTable.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
-            this.invoiceInfoTable.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
-            this.invoiceInfoTableRow1,
-            this.invoiceNumberRow,
-            this.invoiceDateRow});
-            this.invoiceInfoTable.SizeF = new System.Drawing.SizeF(257.1848F, 147.9167F);
-            this.invoiceInfoTable.StylePriority.UsePadding = false;
-            // 
-            // invoiceInfoTableRow1
-            // 
-            this.invoiceInfoTableRow1.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
-            this.invoiceLabel});
-            this.invoiceInfoTableRow1.Name = "invoiceInfoTableRow1";
-            this.invoiceInfoTableRow1.Weight = 1.0555555987396978D;
-            // 
-            // invoiceLabel
-            // 
-            this.invoiceLabel.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold);
-            this.invoiceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
-            this.invoiceLabel.Name = "invoiceLabel";
-            this.invoiceLabel.StylePriority.UseFont = false;
-            this.invoiceLabel.StylePriority.UseForeColor = false;
-            this.invoiceLabel.StylePriority.UseTextAlignment = false;
-            this.invoiceLabel.Text = "FATURA";
-            this.invoiceLabel.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            this.invoiceLabel.Weight = 1.9362311327613928D;
-            // 
-            // invoiceNumberRow
-            // 
-            this.invoiceNumberRow.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
-            this.invoiceNumber});
-            this.invoiceNumberRow.Name = "invoiceNumberRow";
-            this.invoiceNumberRow.Weight = 0.45833333333333337D;
-            // 
-            // invoiceNumber
-            // 
-            this.invoiceNumber.CanShrink = true;
-            this.invoiceNumber.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.invoiceNumber.Name = "invoiceNumber";
-            this.invoiceNumber.StylePriority.UseFont = false;
-            this.invoiceNumber.StylePriority.UseForeColor = false;
-            this.invoiceNumber.StylePriority.UseTextAlignment = false;
-            this.invoiceNumber.Text = "NO #000001";
-            this.invoiceNumber.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.invoiceNumber.TextFormatString = "INVOICE #{0}";
-            this.invoiceNumber.Weight = 1.9362311327613928D;
-            // 
-            // invoiceDateRow
-            // 
-            this.invoiceDateRow.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
-            this.invoiceDate});
-            this.invoiceDateRow.Name = "invoiceDateRow";
-            this.invoiceDateRow.Weight = 0.45833333333333337D;
-            // 
-            // invoiceDate
-            // 
-            this.invoiceDate.CanShrink = true;
-            this.invoiceDate.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.invoiceDate.Name = "invoiceDate";
-            this.invoiceDate.StylePriority.UseFont = false;
-            this.invoiceDate.StylePriority.UseForeColor = false;
-            this.invoiceDate.StylePriority.UseTextAlignment = false;
-            this.invoiceDate.Text = "TARİH";
-            this.invoiceDate.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.invoiceDate.TextFormatString = "{0:MMMM d, yyyy}";
-            this.invoiceDate.Weight = 1.9362311327613928D;
             // 
             // customerTable
             // 
@@ -507,6 +435,63 @@
             this.vendorPhone.Text = "0(236) 233 81 00";
             this.vendorPhone.TextFormatString = "Phone: {0}";
             this.vendorPhone.Weight = 2D;
+            // 
+            // xrLabel1
+            // 
+            this.xrLabel1.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold);
+            this.xrLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(490.0789F, 10.00001F);
+            this.xrLabel1.Name = "xrLabel1";
+            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(158.921F, 79.16669F);
+            this.xrLabel1.StylePriority.UseFont = false;
+            this.xrLabel1.StylePriority.UseForeColor = false;
+            this.xrLabel1.StylePriority.UsePadding = false;
+            this.xrLabel1.StylePriority.UseTextAlignment = false;
+            this.xrLabel1.Text = "FATURA";
+            this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
+            // 
+            // xrLabel2
+            // 
+            this.xrLabel2.CanShrink = true;
+            this.xrLabel2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(490.0789F, 89.1667F);
+            this.xrLabel2.Name = "xrLabel2";
+            this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(40.05078F, 34.37501F);
+            this.xrLabel2.StylePriority.UseFont = false;
+            this.xrLabel2.StylePriority.UsePadding = false;
+            this.xrLabel2.StylePriority.UseTextAlignment = false;
+            this.xrLabel2.Text = "NO:";
+            this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
+            // invoiceNumber
+            // 
+            this.invoiceNumber.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.invoiceNumber.LocationFloat = new DevExpress.Utils.PointFloat(558.7682F, 89.1667F);
+            this.invoiceNumber.Multiline = true;
+            this.invoiceNumber.Name = "invoiceNumber";
+            this.invoiceNumber.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
+            this.invoiceNumber.SizeF = new System.Drawing.SizeF(90.23187F, 34.375F);
+            this.invoiceNumber.StylePriority.UseFont = false;
+            this.invoiceNumber.StylePriority.UsePadding = false;
+            this.invoiceNumber.StylePriority.UseTextAlignment = false;
+            this.invoiceNumber.Text = " #000001";
+            this.invoiceNumber.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            // 
+            // invoiceDate
+            // 
+            this.invoiceDate.CanShrink = true;
+            this.invoiceDate.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.invoiceDate.LocationFloat = new DevExpress.Utils.PointFloat(490.0789F, 123.5417F);
+            this.invoiceDate.Name = "invoiceDate";
+            this.invoiceDate.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
+            this.invoiceDate.SizeF = new System.Drawing.SizeF(158.921F, 34.37502F);
+            this.invoiceDate.StylePriority.UseFont = false;
+            this.invoiceDate.StylePriority.UsePadding = false;
+            this.invoiceDate.StylePriority.UseTextAlignment = false;
+            this.invoiceDate.Text = "TARİH";
+            this.invoiceDate.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // GroupFooter1
             // 
@@ -736,7 +721,6 @@
             this.baseControlStyle});
             this.Version = "18.2";
             ((System.ComponentModel.ISupportInitialize)(this.detailTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.invoiceInfoTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalTable)).EndInit();
@@ -755,12 +739,6 @@
         private DevExpress.XtraReports.UI.TopMarginBand TopMargin;
         private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
         private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader2;
-        private DevExpress.XtraReports.UI.XRTable invoiceInfoTable;
-        private DevExpress.XtraReports.UI.XRTableRow invoiceInfoTableRow1;
-        private DevExpress.XtraReports.UI.XRTableCell invoiceLabel;
-        private DevExpress.XtraReports.UI.XRTableRow invoiceNumberRow;
-        private DevExpress.XtraReports.UI.XRTableCell invoiceNumber;
-        private DevExpress.XtraReports.UI.XRTableRow invoiceDateRow;
         private DevExpress.XtraReports.UI.XRTable customerTable;
         private DevExpress.XtraReports.UI.XRTableRow customerTableRow1;
         private DevExpress.XtraReports.UI.XRTableCell toLabel;
@@ -801,11 +779,14 @@
         private DevExpress.XtraReports.UI.XRControlStyle baseControlStyle;
         public DevExpress.XtraReports.UI.XRTableCell quantity;
         public DevExpress.XtraReports.UI.XRTableCell productName;
-        public DevExpress.XtraReports.UI.XRTableCell invoiceDate;
         public DevExpress.XtraReports.UI.XRTableCell customerName;
         public DevExpress.XtraReports.UI.XRTableCell customerContactName;
         public DevExpress.XtraReports.UI.XRTableCell customerAddress;
         public DevExpress.XtraReports.UI.XRTableCell customerCity;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel1;
+        public DevExpress.XtraReports.UI.XRLabel invoiceDate;
+        public DevExpress.XtraReports.UI.XRLabel invoiceNumber;
+        public DevExpress.XtraReports.UI.XRLabel xrLabel2;
 
     }
 }

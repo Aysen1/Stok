@@ -95,7 +95,7 @@
             this.xrPanel2 = new DevExpress.XtraReports.UI.XRPanel();
             this.invoiceInfoTable = new DevExpress.XtraReports.UI.XRTable();
             this.invoiceNumberRow = new DevExpress.XtraReports.UI.XRTableRow();
-            this.invoiceNumber = new DevExpress.XtraReports.UI.XRTableCell();
+            this.invoiceNumber1 = new DevExpress.XtraReports.UI.XRTableCell();
             this.invoiceDateRow = new DevExpress.XtraReports.UI.XRTableRow();
             this.invoiceDate = new DevExpress.XtraReports.UI.XRTableCell();
             this.invoiceTotalTable = new DevExpress.XtraReports.UI.XRTable();
@@ -119,6 +119,7 @@
             this.lineTotalCaption = new DevExpress.XtraReports.UI.XRTableCell();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.baseControlStyle = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.invoiceNumber = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.detailTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorContactsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorTable)).BeginInit();
@@ -442,7 +443,7 @@
             this.vendorAddress.Name = "vendorAddress";
             this.vendorAddress.StylePriority.UseFont = false;
             this.vendorAddress.StylePriority.UseTextAlignment = false;
-            this.vendorAddress.Text = "Yunusemre/MANİSA";
+            this.vendorAddress.Text = "Yunusemre";
             this.vendorAddress.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.vendorAddress.Weight = 1D;
             // 
@@ -620,20 +621,21 @@
             // invoiceNumberRow
             // 
             this.invoiceNumberRow.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.invoiceNumber1,
             this.invoiceNumber});
             this.invoiceNumberRow.Name = "invoiceNumberRow";
             this.invoiceNumberRow.Weight = 0.76137257033012162D;
             // 
-            // invoiceNumber
+            // invoiceNumber1
             // 
-            this.invoiceNumber.Font = new System.Drawing.Font("Segoe UI", 19F);
-            this.invoiceNumber.Name = "invoiceNumber";
-            this.invoiceNumber.StylePriority.UseFont = false;
-            this.invoiceNumber.StylePriority.UseTextAlignment = false;
-            this.invoiceNumber.Text = "FaturaNo / 000001";
-            this.invoiceNumber.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.invoiceNumber.TextFormatString = "FaturaNo / {0}";
-            this.invoiceNumber.Weight = 0.912698488401723D;
+            this.invoiceNumber1.Font = new System.Drawing.Font("Segoe UI", 19F);
+            this.invoiceNumber1.Name = "invoiceNumber1";
+            this.invoiceNumber1.StylePriority.UseFont = false;
+            this.invoiceNumber1.StylePriority.UseTextAlignment = false;
+            this.invoiceNumber1.Text = "Fatura No:";
+            this.invoiceNumber1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.invoiceNumber1.TextFormatString = "FaturaNo / {0}";
+            this.invoiceNumber1.Weight = 0.45634924420086148D;
             // 
             // invoiceDateRow
             // 
@@ -917,6 +919,17 @@
             this.baseControlStyle.Name = "baseControlStyle";
             this.baseControlStyle.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             // 
+            // invoiceNumber
+            // 
+            this.invoiceNumber.Font = new System.Drawing.Font("Segoe UI", 19F);
+            this.invoiceNumber.Multiline = true;
+            this.invoiceNumber.Name = "invoiceNumber";
+            this.invoiceNumber.StylePriority.UseFont = false;
+            this.invoiceNumber.StylePriority.UseTextAlignment = false;
+            this.invoiceNumber.Text = "invoiceNumber";
+            this.invoiceNumber.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.invoiceNumber.Weight = 0.45634924420086148D;
+            // 
             // tasarim4
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -989,7 +1002,6 @@
         private DevExpress.XtraReports.UI.XRPanel xrPanel2;
         private DevExpress.XtraReports.UI.XRTable invoiceInfoTable;
         private DevExpress.XtraReports.UI.XRTableRow invoiceNumberRow;
-        private DevExpress.XtraReports.UI.XRTableCell invoiceNumber;
         private DevExpress.XtraReports.UI.XRTableRow invoiceDateRow;
         private DevExpress.XtraReports.UI.XRTable invoiceTotalTable;
         private DevExpress.XtraReports.UI.XRTableRow invoiceTotalTableRow1;
@@ -1022,6 +1034,8 @@
         public DevExpress.XtraReports.UI.XRTableCell customerTown;
         public DevExpress.XtraReports.UI.XRTableCell customerCity;
         public DevExpress.XtraReports.UI.XRTableCell customerTel;
+        public DevExpress.XtraReports.UI.XRTableCell invoiceNumber1;
+        public DevExpress.XtraReports.UI.XRTableCell invoiceNumber;
 
     }
 }

@@ -3,7 +3,6 @@ C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok Program
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\bin\Debug\Stok Programı.exe
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\bin\Debug\Stok Programı.pdb
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\bin\Debug\en-US\Stok Programı.resources.dll
-C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok Programı.csprojResolveAssemblyReference.cache
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.Form1.resources
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.Form2.resources
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.Form3.resources
@@ -29,7 +28,6 @@ C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Program
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.tasarim4.resources
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.tasarim6.resources
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.tasarim7.resources
-C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.tasarim8.resources
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\bin\Debug\DevExpress.Charts.v18.2.Core.dll
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\bin\Debug\DevExpress.CodeParser.v18.2.dll
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\bin\Debug\DevExpress.Data.v18.2.dll
@@ -135,3 +133,4 @@ C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\bin\Debug\de\DevExpres
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\bin\Debug\es\DevExpress.XtraReports.v18.2.Extensions.resources.dll
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\bin\Debug\ja\DevExpress.XtraReports.v18.2.Extensions.resources.dll
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\bin\Debug\ru\DevExpress.XtraReports.v18.2.Extensions.resources.dll
+C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.fatura.resources

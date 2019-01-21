@@ -58,6 +58,7 @@ namespace Stok_Programı
         }
         private void Form5_Load(object sender, EventArgs e)
         {
+           // Properties.Settings.Default.faturano = 0;
             dateTimePicker1.Text = DateTime.Now.ToString();
             this.BackColor = Properties.Settings.Default.tema;
             this.WindowState = FormWindowState.Maximized;
@@ -146,13 +147,17 @@ namespace Stok_Programı
                     if (int.Parse(txt_adet.Text) <= int.Parse(dr[5].ToString()) && int.Parse(dr[5].ToString()) != 0)
                     {
                         UrunID = dr["UrunID"].ToString();
+                        Properties.Settings.Default.faturano += 1;
+                        Properties.Settings.Default.Save();
+                       // MessageBox.Show(Properties.Settings.Default.faturano.ToString());
                         baglanti.Close();
 
                         baglanti.Open();
                         komut = new SqlCommand();
                         komut.Connection = baglanti;
-                        komut.CommandText = "insert into UrunCikis(UrunID, FirmaAdi, UrunKodu, CikisTarihi, UrunAdet, Personel) values ('"+UrunID+"','" + cmbx_firmaadi.Text + "','" + cmbx_urunadi.Text + "','" + dateTimePicker1.Text+ "','" + txt_adet.Text + "',@personel)";
+                        komut.CommandText = "insert into UrunCikis(UrunID, FirmaAdi, UrunKodu, CikisTarihi, UrunAdet, Personel, FaturaNo) values ('"+UrunID+"','" + cmbx_firmaadi.Text + "','" + cmbx_urunadi.Text + "','" + dateTimePicker1.Text+ "','" + txt_adet.Text + "',@personel,@faturano)";
                         komut.Parameters.AddWithValue("@personel", Properties.Settings.Default.kullaniciadi);
+                        komut.Parameters.AddWithValue("@faturano", Properties.Settings.Default.faturano);
                         komut.ExecuteNonQuery();
                         baglanti.Close();
 
@@ -184,7 +189,9 @@ namespace Stok_Programı
                 }
             }
             else
+            {
                 MessageBox.Show("Kayıt Gerçekleştirilemedi.Tekrar Deneyiniz.");
+            }
         }
         private void anasayfaToolStripMenuItem_Click(object sender, EventArgs e)
         {

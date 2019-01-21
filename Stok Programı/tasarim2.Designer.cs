@@ -103,6 +103,8 @@
             this.lineTotalCaptionCell = new DevExpress.XtraReports.UI.XRTableCell();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.baseControlStyle = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.faturano = new DevExpress.XtraReports.UI.XRTableCell();
+            this.faturano1 = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.detailTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorContactsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceInfoTable)).BeginInit();
@@ -132,7 +134,7 @@
             this.detailTable.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 5, 0, 100F);
             this.detailTable.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.detailTableRow});
-            this.detailTable.SizeF = new System.Drawing.SizeF(650F, 35F);
+            this.detailTable.SizeF = new System.Drawing.SizeF(652F, 35F);
             this.detailTable.StylePriority.UseFont = false;
             this.detailTable.StylePriority.UsePadding = false;
             // 
@@ -140,6 +142,7 @@
             // 
             this.detailTableRow.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
             this.productName,
+            this.faturano1,
             this.quantity,
             this.unitPrice,
             this.lineTotal});
@@ -151,7 +154,7 @@
             this.productName.Name = "productName";
             this.productName.StylePriority.UsePadding = false;
             this.productName.Text = "ProductName";
-            this.productName.Weight = 1.2791103986779131D;
+            this.productName.Weight = 1.5120931733217033D;
             // 
             // quantity
             // 
@@ -160,7 +163,7 @@
             this.quantity.StylePriority.UseTextAlignment = false;
             this.quantity.Text = "1";
             this.quantity.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.quantity.Weight = 0.20794141038459232D;
+            this.quantity.Weight = 0.46559078385831382D;
             // 
             // unitPrice
             // 
@@ -170,7 +173,7 @@
             this.unitPrice.Text = "0,00 ₺";
             this.unitPrice.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.unitPrice.TextFormatString = "{0:$0.00}";
-            this.unitPrice.Weight = 0.43550145953603214D;
+            this.unitPrice.Weight = 0.57921835146284806D;
             // 
             // lineTotal
             // 
@@ -183,7 +186,7 @@
             this.lineTotal.Text = "0,00 ₺";
             this.lineTotal.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.lineTotal.TextFormatString = "{0:$0.00}";
-            this.lineTotal.Weight = 0.54191906534549128D;
+            this.lineTotal.Weight = 0.72109004250705533D;
             // 
             // TopMargin
             // 
@@ -199,7 +202,7 @@
             this.vendorContactsTable,
             this.thankYouLabel,
             this.heartLabel});
-            this.BottomMargin.HeightF = 63.74995F;
+            this.BottomMargin.HeightF = 64F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -290,16 +293,11 @@
             // GroupHeader2
             // 
             this.GroupHeader2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.invoiceInfoTable,
-            this.customerTable,
-            this.vendorTable,
-            this.vendorLogo,
-            this.invoiceLabel});
+            this.headerTable});
             this.GroupHeader2.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
             new DevExpress.XtraReports.UI.GroupField("InvoiceNumber", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
             this.GroupHeader2.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
-            this.GroupHeader2.HeightF = 230F;
-            this.GroupHeader2.Level = 1;
+            this.GroupHeader2.HeightF = 101.4166F;
             this.GroupHeader2.Name = "GroupHeader2";
             this.GroupHeader2.StyleName = "baseControlStyle";
             this.GroupHeader2.StylePriority.UseBackColor = false;
@@ -328,7 +326,7 @@
             this.invoiceDateCaption.StylePriority.UseFont = false;
             this.invoiceDateCaption.StylePriority.UsePadding = false;
             this.invoiceDateCaption.StylePriority.UseTextAlignment = false;
-            this.invoiceDateCaption.Text = "Veriliş Tarihi:";
+            this.invoiceDateCaption.Text = "Fatura Tarihi:";
             this.invoiceDateCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.invoiceDateCaption.Weight = 0.49655929171275132D;
             // 
@@ -368,6 +366,7 @@
             this.invoiceNumber.Name = "invoiceNumber";
             this.invoiceNumber.StylePriority.UseFont = false;
             this.invoiceNumber.Text = "000001";
+            this.invoiceNumber.TextFormatString = "#0000{0}";
             this.invoiceNumber.Weight = 1.3680312174875988D;
             // 
             // customerTable
@@ -397,7 +396,7 @@
             // 
             // vendorTable
             // 
-            this.vendorTable.LocationFloat = new DevExpress.Utils.PointFloat(350F, 89.99999F);
+            this.vendorTable.LocationFloat = new DevExpress.Utils.PointFloat(349.9991F, 89.99999F);
             this.vendorTable.Name = "vendorTable";
             this.vendorTable.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.vendorNameRow,
@@ -476,7 +475,7 @@
             // 
             this.vendorLogo.ImageAlignment = DevExpress.XtraPrinting.ImageAlignment.MiddleCenter;
             this.vendorLogo.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("vendorLogo.ImageSource"));
-            this.vendorLogo.LocationFloat = new DevExpress.Utils.PointFloat(500.0001F, 0F);
+            this.vendorLogo.LocationFloat = new DevExpress.Utils.PointFloat(499.9991F, 0F);
             this.vendorLogo.Name = "vendorLogo";
             this.vendorLogo.SizeF = new System.Drawing.SizeF(150F, 71F);
             this.vendorLogo.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage;
@@ -486,7 +485,7 @@
             // invoiceLabel
             // 
             this.invoiceLabel.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.invoiceLabel.LocationFloat = new DevExpress.Utils.PointFloat(0.0004182782F, 9.999995F);
+            this.invoiceLabel.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10.00001F);
             this.invoiceLabel.Name = "invoiceLabel";
             this.invoiceLabel.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.invoiceLabel.SizeF = new System.Drawing.SizeF(185F, 50F);
@@ -611,8 +610,13 @@
             // GroupHeader1
             // 
             this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.headerTable});
-            this.GroupHeader1.HeightF = 50F;
+            this.invoiceInfoTable,
+            this.customerTable,
+            this.vendorTable,
+            this.invoiceLabel,
+            this.vendorLogo});
+            this.GroupHeader1.HeightF = 190F;
+            this.GroupHeader1.Level = 1;
             this.GroupHeader1.Name = "GroupHeader1";
             this.GroupHeader1.RepeatEveryPage = true;
             this.GroupHeader1.StyleName = "baseControlStyle";
@@ -623,12 +627,12 @@
             this.headerTable.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.headerTable.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.headerTable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(86)))), ((int)(((byte)(85)))));
-            this.headerTable.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.headerTable.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10.00001F);
             this.headerTable.Name = "headerTable";
             this.headerTable.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 5, 0, 100F);
             this.headerTable.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.headerTableRow});
-            this.headerTable.SizeF = new System.Drawing.SizeF(650F, 32F);
+            this.headerTable.SizeF = new System.Drawing.SizeF(652F, 32F);
             this.headerTable.StylePriority.UseBorderColor = false;
             this.headerTable.StylePriority.UseBorders = false;
             this.headerTable.StylePriority.UseFont = false;
@@ -639,6 +643,7 @@
             // 
             this.headerTableRow.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
             this.productNameCaption,
+            this.faturano,
             this.quantityCaption,
             this.unitPriceCaption,
             this.lineTotalCaptionCell});
@@ -650,7 +655,7 @@
             this.productNameCaption.Name = "productNameCaption";
             this.productNameCaption.StylePriority.UsePadding = false;
             this.productNameCaption.Text = "ÜRÜN KODU";
-            this.productNameCaption.Weight = 1.2611252269900464D;
+            this.productNameCaption.Weight = 1.1209322515431481D;
             // 
             // quantityCaption
             // 
@@ -658,7 +663,7 @@
             this.quantityCaption.StylePriority.UseTextAlignment = false;
             this.quantityCaption.Text = "MİKTAR";
             this.quantityCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.quantityCaption.Weight = 0.20495475959705467D;
+            this.quantityCaption.Weight = 0.3451477350439528D;
             // 
             // unitPriceCaption
             // 
@@ -721,6 +726,25 @@
             this.baseControlStyle.Name = "baseControlStyle";
             this.baseControlStyle.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             // 
+            // faturano
+            // 
+            this.faturano.Multiline = true;
+            this.faturano.Name = "faturano";
+            this.faturano.StylePriority.UseTextAlignment = false;
+            this.faturano.Text = "FATURA NO";
+            this.faturano.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.faturano.Weight = 0.3451477350439528D;
+            // 
+            // faturano1
+            // 
+            this.faturano1.Multiline = true;
+            this.faturano1.Name = "faturano1";
+            this.faturano1.StylePriority.UsePadding = false;
+            this.faturano1.StylePriority.UseTextAlignment = false;
+            this.faturano1.Text = "no";
+            this.faturano1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.faturano1.Weight = 0.46559038147202148D;
+            // 
             // tasarim2
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -736,7 +760,7 @@
             this.DataMember = "UrunCikis";
             this.DataSource = this.sqlDataSource1;
             this.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.Margins = new System.Drawing.Printing.Margins(100, 100, 18, 64);
+            this.Margins = new System.Drawing.Printing.Margins(98, 100, 18, 64);
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.baseControlStyle});
             this.Version = "18.2";
@@ -775,7 +799,6 @@
         public DevExpress.XtraReports.UI.XRTableCell invoiceDate;
         private DevExpress.XtraReports.UI.XRTableRow invoiceNumberRow;
         private DevExpress.XtraReports.UI.XRTableCell invoiceNumberCaption;
-        private DevExpress.XtraReports.UI.XRTableCell invoiceNumber;
         private DevExpress.XtraReports.UI.XRTable customerTable;
         private DevExpress.XtraReports.UI.XRTableRow customerNameRow;
         private DevExpress.XtraReports.UI.XRTable vendorTable;
@@ -811,6 +834,9 @@
         public DevExpress.XtraReports.UI.XRTableCell quantity;
         public DevExpress.XtraReports.UI.XRTableCell invoiceDueDate;
         public DevExpress.XtraReports.UI.XRTableCell customerName;
+        public DevExpress.XtraReports.UI.XRTableCell invoiceNumber;
+        public DevExpress.XtraReports.UI.XRTableCell faturano1;
+        public DevExpress.XtraReports.UI.XRTableCell faturano;
 
     }
 }

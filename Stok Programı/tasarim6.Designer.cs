@@ -147,7 +147,9 @@
             this.productName.Name = "productName";
             this.productName.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 5, 5, 5, 100F);
             this.productName.StylePriority.UsePadding = false;
+            this.productName.StylePriority.UseTextAlignment = false;
             this.productName.Text = "ProductName";
+            this.productName.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.productName.Weight = 0.49905592520620479D;
             // 
             // productDescription
@@ -272,7 +274,7 @@
             this.invoiceNumberCaption.StylePriority.UseFont = false;
             this.invoiceNumberCaption.StylePriority.UsePadding = false;
             this.invoiceNumberCaption.StylePriority.UseTextAlignment = false;
-            this.invoiceNumberCaption.Text = "FATURA#";
+            this.invoiceNumberCaption.Text = "FATURA NO#";
             this.invoiceNumberCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.invoiceNumberCaption.Weight = 0.54753422741896873D;
             // 
@@ -719,7 +721,6 @@
         private DevExpress.XtraReports.UI.XRTableCell invoiceLabel;
         private DevExpress.XtraReports.UI.XRTableRow invoiceNumberRow;
         private DevExpress.XtraReports.UI.XRTableCell invoiceNumberCaption;
-        private DevExpress.XtraReports.UI.XRTableCell invoiceNumber;
         private DevExpress.XtraReports.UI.XRTableRow invoiceDateRow;
         private DevExpress.XtraReports.UI.XRTableCell invoiceDateCaption;
         private DevExpress.XtraReports.UI.XRTableRow invoiceDueDateRow;
@@ -761,6 +762,7 @@
         public DevExpress.XtraReports.UI.XRTableCell customerAddress;
         public DevExpress.XtraReports.UI.XRTableCell invoiceDate;
         public DevExpress.XtraReports.UI.XRTableCell invoiceDueDate;
+        public DevExpress.XtraReports.UI.XRTableCell invoiceNumber;
 
     }
 }

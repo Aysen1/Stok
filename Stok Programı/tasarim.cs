@@ -12,6 +12,5 @@ namespace Stok_Programı
         {
             InitializeComponent();
         }
-
     }
 }

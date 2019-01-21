@@ -6,9 +6,9 @@ using DevExpress.XtraReports.UI;
 
 namespace Stok_Programı
 {
-    public partial class tasarim8 : DevExpress.XtraReports.UI.XtraReport
+    public partial class fatura : DevExpress.XtraReports.UI.XtraReport
     {
-        public tasarim8()
+        public fatura()
         {
             InitializeComponent();
         }

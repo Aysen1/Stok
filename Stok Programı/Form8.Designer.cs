@@ -52,8 +52,7 @@
             this.lbl_baslangic = new System.Windows.Forms.Label();
             this.lbl_bitis = new System.Windows.Forms.Label();
             this.lbl_kod = new System.Windows.Forms.Label();
-            this.lbl_sayı = new System.Windows.Forms.Label();
-            this.txt_adet = new System.Windows.Forms.TextBox();
+            this.lbl_firma = new System.Windows.Forms.Label();
             this.ssatis = new DevExpress.XtraEditors.SimpleButton();
             this.S2 = new DevExpress.XtraEditors.SimpleButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -64,6 +63,7 @@
             this.S7 = new DevExpress.XtraEditors.SimpleButton();
             this.S8 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.cmbx_firmaadi = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -304,23 +304,15 @@
             this.lbl_kod.TabIndex = 15;
             this.lbl_kod.Text = "Filtrelenen Kod:";
             // 
-            // lbl_sayı
+            // lbl_firma
             // 
-            this.lbl_sayı.AutoSize = true;
-            this.lbl_sayı.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_sayı.Location = new System.Drawing.Point(20, 219);
-            this.lbl_sayı.Name = "lbl_sayı";
-            this.lbl_sayı.Size = new System.Drawing.Size(37, 13);
-            this.lbl_sayı.TabIndex = 16;
-            this.lbl_sayı.Text = "Adet:";
-            // 
-            // txt_adet
-            // 
-            this.txt_adet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_adet.Location = new System.Drawing.Point(159, 212);
-            this.txt_adet.Name = "txt_adet";
-            this.txt_adet.Size = new System.Drawing.Size(161, 20);
-            this.txt_adet.TabIndex = 17;
+            this.lbl_firma.AutoSize = true;
+            this.lbl_firma.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_firma.Location = new System.Drawing.Point(20, 219);
+            this.lbl_firma.Name = "lbl_firma";
+            this.lbl_firma.Size = new System.Drawing.Size(63, 13);
+            this.lbl_firma.TabIndex = 16;
+            this.lbl_firma.Text = "Firma Adı:";
             // 
             // ssatis
             // 
@@ -412,7 +404,6 @@
             this.S8.Size = new System.Drawing.Size(68, 39);
             this.S8.TabIndex = 25;
             this.S8.Text = "8";
-            this.S8.Click += new System.EventHandler(this.S8_Click);
             // 
             // simpleButton1
             // 
@@ -425,12 +416,22 @@
             this.simpleButton1.Text = "fatura";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
+            // cmbx_firmaadi
+            // 
+            this.cmbx_firmaadi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbx_firmaadi.FormattingEnabled = true;
+            this.cmbx_firmaadi.Location = new System.Drawing.Point(159, 211);
+            this.cmbx_firmaadi.Name = "cmbx_firmaadi";
+            this.cmbx_firmaadi.Size = new System.Drawing.Size(161, 21);
+            this.cmbx_firmaadi.TabIndex = 27;
+            // 
             // Form8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 452);
             this.ControlBox = false;
+            this.Controls.Add(this.cmbx_firmaadi);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.S8);
             this.Controls.Add(this.S7);
@@ -440,8 +441,7 @@
             this.Controls.Add(this.S3);
             this.Controls.Add(this.S2);
             this.Controls.Add(this.ssatis);
-            this.Controls.Add(this.txt_adet);
-            this.Controls.Add(this.lbl_sayı);
+            this.Controls.Add(this.lbl_firma);
             this.Controls.Add(this.lbl_kod);
             this.Controls.Add(this.lbl_bitis);
             this.Controls.Add(this.lbl_baslangic);
@@ -493,8 +493,7 @@
         private System.Windows.Forms.Label lbl_baslangic;
         private System.Windows.Forms.Label lbl_bitis;
         private System.Windows.Forms.Label lbl_kod;
-        private System.Windows.Forms.Label lbl_sayı;
-        private System.Windows.Forms.TextBox txt_adet;
+        private System.Windows.Forms.Label lbl_firma;
         private DevExpress.XtraEditors.SimpleButton ssatis;
         private DevExpress.XtraEditors.SimpleButton S2;
         private System.Windows.Forms.Timer timer1;
@@ -505,5 +504,6 @@
         private DevExpress.XtraEditors.SimpleButton S7;
         private DevExpress.XtraEditors.SimpleButton S8;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private System.Windows.Forms.ComboBox cmbx_firmaadi;
     }
 }
