@@ -99,6 +99,9 @@
             this.invoiceNumberRow = new DevExpress.XtraReports.UI.XRTableRow();
             this.invoiceLabel = new DevExpress.XtraReports.UI.XRTableCell();
             this.invoiceDatesTable = new DevExpress.XtraReports.UI.XRTable();
+            this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.faturano = new DevExpress.XtraReports.UI.XRTableCell();
             this.invoiceDateRow = new DevExpress.XtraReports.UI.XRTableRow();
             this.invoiceDateCaption = new DevExpress.XtraReports.UI.XRTableCell();
             this.invoiceDate = new DevExpress.XtraReports.UI.XRTableCell();
@@ -121,9 +124,6 @@
             this.lineTotalCaption = new DevExpress.XtraReports.UI.XRTableCell();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.baseControlStyle = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
-            this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.faturano = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.detailTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorTable)).BeginInit();
@@ -466,7 +466,7 @@
             this.vendorName.Name = "vendorName";
             this.vendorName.StylePriority.UseFont = false;
             this.vendorName.StylePriority.UsePadding = false;
-            this.vendorName.Text = "ORSER BOYA SERİGAFİ";
+            this.vendorName.Text = "ORSER BOYA SERİGRAFİ";
             this.vendorName.Weight = 1D;
             // 
             // vendorAddressRow
@@ -624,6 +624,37 @@
             this.invoiceDateRow,
             this.invoiceDueDateRow});
             this.invoiceDatesTable.SizeF = new System.Drawing.SizeF(315.0421F, 69F);
+            // 
+            // xrTableRow2
+            // 
+            this.xrTableRow2.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.xrTableCell2,
+            this.faturano});
+            this.xrTableRow2.Name = "xrTableRow2";
+            this.xrTableRow2.Weight = 0.92D;
+            // 
+            // xrTableCell2
+            // 
+            this.xrTableCell2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell2.Multiline = true;
+            this.xrTableCell2.Name = "xrTableCell2";
+            this.xrTableCell2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrTableCell2.StylePriority.UseFont = false;
+            this.xrTableCell2.StylePriority.UsePadding = false;
+            this.xrTableCell2.StylePriority.UseTextAlignment = false;
+            this.xrTableCell2.Text = "   FATURA NO:";
+            this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrTableCell2.Weight = 0.67534851383576688D;
+            // 
+            // faturano
+            // 
+            this.faturano.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.faturano.Multiline = true;
+            this.faturano.Name = "faturano";
+            this.faturano.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.faturano.StylePriority.UseFont = false;
+            this.faturano.Text = "faturano";
+            this.faturano.Weight = 1.1892418625891656D;
             // 
             // invoiceDateRow
             // 
@@ -864,37 +895,6 @@
             this.baseControlStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.baseControlStyle.Name = "baseControlStyle";
             this.baseControlStyle.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            // 
-            // xrTableRow2
-            // 
-            this.xrTableRow2.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
-            this.xrTableCell2,
-            this.faturano});
-            this.xrTableRow2.Name = "xrTableRow2";
-            this.xrTableRow2.Weight = 0.92D;
-            // 
-            // xrTableCell2
-            // 
-            this.xrTableCell2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrTableCell2.Multiline = true;
-            this.xrTableCell2.Name = "xrTableCell2";
-            this.xrTableCell2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrTableCell2.StylePriority.UseFont = false;
-            this.xrTableCell2.StylePriority.UsePadding = false;
-            this.xrTableCell2.StylePriority.UseTextAlignment = false;
-            this.xrTableCell2.Text = "   FATURA NO:";
-            this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            this.xrTableCell2.Weight = 0.67534851383576688D;
-            // 
-            // faturano
-            // 
-            this.faturano.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.faturano.Multiline = true;
-            this.faturano.Name = "faturano";
-            this.faturano.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.faturano.StylePriority.UseFont = false;
-            this.faturano.Text = "faturano";
-            this.faturano.Weight = 1.1892418625891656D;
             // 
             // tasarim7
             // 

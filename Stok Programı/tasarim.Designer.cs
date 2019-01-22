@@ -372,7 +372,7 @@
             this.vendorContactName.Name = "vendorContactName";
             this.vendorContactName.StylePriority.UseFont = false;
             this.vendorContactName.StylePriority.UsePadding = false;
-            this.vendorContactName.Text = "ORSER BOYA SERİGAFİ";
+            this.vendorContactName.Text = "ORSER BOYA SERİGRAFİ";
             this.vendorContactName.Weight = 2D;
             // 
             // vendorAddressRow

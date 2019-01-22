@@ -58,11 +58,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.S3 = new DevExpress.XtraEditors.SimpleButton();
             this.S4 = new DevExpress.XtraEditors.SimpleButton();
-            this.S5 = new DevExpress.XtraEditors.SimpleButton();
             this.S6 = new DevExpress.XtraEditors.SimpleButton();
             this.S7 = new DevExpress.XtraEditors.SimpleButton();
-            this.S8 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.fatura = new DevExpress.XtraEditors.SimpleButton();
             this.cmbx_firmaadi = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -362,17 +360,6 @@
             this.S4.Text = "4";
             this.S4.Click += new System.EventHandler(this.S4_Click);
             // 
-            // S5
-            // 
-            this.S5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.S5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S5.ImageOptions.Image")));
-            this.S5.Location = new System.Drawing.Point(18, 341);
-            this.S5.Name = "S5";
-            this.S5.Size = new System.Drawing.Size(68, 39);
-            this.S5.TabIndex = 22;
-            this.S5.Text = "5";
-            this.S5.Click += new System.EventHandler(this.S5_Click);
-            // 
             // S6
             // 
             this.S6.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -388,33 +375,23 @@
             // 
             this.S7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.S7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S7.ImageOptions.Image")));
-            this.S7.Location = new System.Drawing.Point(18, 384);
+            this.S7.Location = new System.Drawing.Point(18, 341);
             this.S7.Name = "S7";
             this.S7.Size = new System.Drawing.Size(68, 39);
             this.S7.TabIndex = 24;
             this.S7.Text = "7";
             this.S7.Click += new System.EventHandler(this.S7_Click);
             // 
-            // S8
+            // fatura
             // 
-            this.S8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.S8.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S8.ImageOptions.Image")));
-            this.S8.Location = new System.Drawing.Point(101, 386);
-            this.S8.Name = "S8";
-            this.S8.Size = new System.Drawing.Size(68, 39);
-            this.S8.TabIndex = 25;
-            this.S8.Text = "8";
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(332, 305);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(84, 39);
-            this.simpleButton1.TabIndex = 26;
-            this.simpleButton1.Text = "fatura";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.fatura.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fatura.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("fatura.ImageOptions.Image")));
+            this.fatura.Location = new System.Drawing.Point(332, 305);
+            this.fatura.Name = "fatura";
+            this.fatura.Size = new System.Drawing.Size(84, 39);
+            this.fatura.TabIndex = 26;
+            this.fatura.Text = "fatura";
+            this.fatura.Click += new System.EventHandler(this.fatura_Click);
             // 
             // cmbx_firmaadi
             // 
@@ -432,11 +409,9 @@
             this.ClientSize = new System.Drawing.Size(653, 452);
             this.ControlBox = false;
             this.Controls.Add(this.cmbx_firmaadi);
-            this.Controls.Add(this.simpleButton1);
-            this.Controls.Add(this.S8);
+            this.Controls.Add(this.fatura);
             this.Controls.Add(this.S7);
             this.Controls.Add(this.S6);
-            this.Controls.Add(this.S5);
             this.Controls.Add(this.S4);
             this.Controls.Add(this.S3);
             this.Controls.Add(this.S2);
@@ -499,11 +474,9 @@
         private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraEditors.SimpleButton S3;
         private DevExpress.XtraEditors.SimpleButton S4;
-        private DevExpress.XtraEditors.SimpleButton S5;
         private DevExpress.XtraEditors.SimpleButton S6;
         private DevExpress.XtraEditors.SimpleButton S7;
-        private DevExpress.XtraEditors.SimpleButton S8;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton fatura;
         private System.Windows.Forms.ComboBox cmbx_firmaadi;
     }
 }

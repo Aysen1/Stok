@@ -50,6 +50,7 @@
             this.detailTable = new DevExpress.XtraReports.UI.XRTable();
             this.detailTableRow = new DevExpress.XtraReports.UI.XRTableRow();
             this.productName = new DevExpress.XtraReports.UI.XRTableCell();
+            this.faturano1 = new DevExpress.XtraReports.UI.XRTableCell();
             this.quantity = new DevExpress.XtraReports.UI.XRTableCell();
             this.unitPrice = new DevExpress.XtraReports.UI.XRTableCell();
             this.lineTotal = new DevExpress.XtraReports.UI.XRTableCell();
@@ -63,6 +64,13 @@
             this.thankYouLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.heartLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupHeader2 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.headerTable = new DevExpress.XtraReports.UI.XRTable();
+            this.headerTableRow = new DevExpress.XtraReports.UI.XRTableRow();
+            this.productNameCaption = new DevExpress.XtraReports.UI.XRTableCell();
+            this.faturano = new DevExpress.XtraReports.UI.XRTableCell();
+            this.quantityCaption = new DevExpress.XtraReports.UI.XRTableCell();
+            this.unitPriceCaption = new DevExpress.XtraReports.UI.XRTableCell();
+            this.lineTotalCaptionCell = new DevExpress.XtraReports.UI.XRTableCell();
             this.invoiceInfoTable = new DevExpress.XtraReports.UI.XRTable();
             this.invoiceDateRow = new DevExpress.XtraReports.UI.XRTableRow();
             this.invoiceDateCaption = new DevExpress.XtraReports.UI.XRTableCell();
@@ -95,24 +103,16 @@
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.subtotalTable = new DevExpress.XtraReports.UI.XRTable();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
-            this.headerTable = new DevExpress.XtraReports.UI.XRTable();
-            this.headerTableRow = new DevExpress.XtraReports.UI.XRTableRow();
-            this.productNameCaption = new DevExpress.XtraReports.UI.XRTableCell();
-            this.quantityCaption = new DevExpress.XtraReports.UI.XRTableCell();
-            this.unitPriceCaption = new DevExpress.XtraReports.UI.XRTableCell();
-            this.lineTotalCaptionCell = new DevExpress.XtraReports.UI.XRTableCell();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.baseControlStyle = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.faturano = new DevExpress.XtraReports.UI.XRTableCell();
-            this.faturano1 = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.detailTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorContactsTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.headerTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceInfoTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.summariesTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subtotalTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.headerTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -155,6 +155,16 @@
             this.productName.StylePriority.UsePadding = false;
             this.productName.Text = "ProductName";
             this.productName.Weight = 1.5120931733217033D;
+            // 
+            // faturano1
+            // 
+            this.faturano1.Multiline = true;
+            this.faturano1.Name = "faturano1";
+            this.faturano1.StylePriority.UsePadding = false;
+            this.faturano1.StylePriority.UseTextAlignment = false;
+            this.faturano1.Text = "no";
+            this.faturano1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.faturano1.Weight = 0.46559038147202148D;
             // 
             // quantity
             // 
@@ -302,6 +312,75 @@
             this.GroupHeader2.StyleName = "baseControlStyle";
             this.GroupHeader2.StylePriority.UseBackColor = false;
             // 
+            // headerTable
+            // 
+            this.headerTable.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(201)))), ((int)(((byte)(194)))));
+            this.headerTable.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.headerTable.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.headerTable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(86)))), ((int)(((byte)(85)))));
+            this.headerTable.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10.00001F);
+            this.headerTable.Name = "headerTable";
+            this.headerTable.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 5, 0, 100F);
+            this.headerTable.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
+            this.headerTableRow});
+            this.headerTable.SizeF = new System.Drawing.SizeF(652F, 32F);
+            this.headerTable.StylePriority.UseBorderColor = false;
+            this.headerTable.StylePriority.UseBorders = false;
+            this.headerTable.StylePriority.UseFont = false;
+            this.headerTable.StylePriority.UseForeColor = false;
+            this.headerTable.StylePriority.UsePadding = false;
+            // 
+            // headerTableRow
+            // 
+            this.headerTableRow.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.productNameCaption,
+            this.faturano,
+            this.quantityCaption,
+            this.unitPriceCaption,
+            this.lineTotalCaptionCell});
+            this.headerTableRow.Name = "headerTableRow";
+            this.headerTableRow.Weight = 11.5D;
+            // 
+            // productNameCaption
+            // 
+            this.productNameCaption.Name = "productNameCaption";
+            this.productNameCaption.StylePriority.UsePadding = false;
+            this.productNameCaption.Text = "ÜRÜN KODU";
+            this.productNameCaption.Weight = 1.1209322515431481D;
+            // 
+            // faturano
+            // 
+            this.faturano.Multiline = true;
+            this.faturano.Name = "faturano";
+            this.faturano.StylePriority.UseTextAlignment = false;
+            this.faturano.Text = "FATURA NO";
+            this.faturano.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.faturano.Weight = 0.3451477350439528D;
+            // 
+            // quantityCaption
+            // 
+            this.quantityCaption.Name = "quantityCaption";
+            this.quantityCaption.StylePriority.UseTextAlignment = false;
+            this.quantityCaption.Text = "MİKTAR";
+            this.quantityCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.quantityCaption.Weight = 0.3451477350439528D;
+            // 
+            // unitPriceCaption
+            // 
+            this.unitPriceCaption.Name = "unitPriceCaption";
+            this.unitPriceCaption.StylePriority.UseTextAlignment = false;
+            this.unitPriceCaption.Text = "BİRİM FİYAT";
+            this.unitPriceCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.unitPriceCaption.Weight = 0.429381446953317D;
+            // 
+            // lineTotalCaptionCell
+            // 
+            this.lineTotalCaptionCell.Name = "lineTotalCaptionCell";
+            this.lineTotalCaptionCell.StylePriority.UseTextAlignment = false;
+            this.lineTotalCaptionCell.Text = "TUTAR";
+            this.lineTotalCaptionCell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.lineTotalCaptionCell.Weight = 0.53455211842257433D;
+            // 
             // invoiceInfoTable
             // 
             this.invoiceInfoTable.LocationFloat = new DevExpress.Utils.PointFloat(0F, 129.1666F);
@@ -420,7 +499,7 @@
             this.vendorName.Name = "vendorName";
             this.vendorName.StylePriority.UseFont = false;
             this.vendorName.StylePriority.UsePadding = false;
-            this.vendorName.Text = "ORSER BOYA SERİGAFİ";
+            this.vendorName.Text = "ORSER BOYA SERİGRAFİ";
             this.vendorName.Weight = 1D;
             // 
             // vendorAddressRow
@@ -621,66 +700,6 @@
             this.GroupHeader1.RepeatEveryPage = true;
             this.GroupHeader1.StyleName = "baseControlStyle";
             // 
-            // headerTable
-            // 
-            this.headerTable.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(201)))), ((int)(((byte)(194)))));
-            this.headerTable.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.headerTable.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.headerTable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(86)))), ((int)(((byte)(85)))));
-            this.headerTable.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10.00001F);
-            this.headerTable.Name = "headerTable";
-            this.headerTable.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 5, 0, 100F);
-            this.headerTable.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
-            this.headerTableRow});
-            this.headerTable.SizeF = new System.Drawing.SizeF(652F, 32F);
-            this.headerTable.StylePriority.UseBorderColor = false;
-            this.headerTable.StylePriority.UseBorders = false;
-            this.headerTable.StylePriority.UseFont = false;
-            this.headerTable.StylePriority.UseForeColor = false;
-            this.headerTable.StylePriority.UsePadding = false;
-            // 
-            // headerTableRow
-            // 
-            this.headerTableRow.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
-            this.productNameCaption,
-            this.faturano,
-            this.quantityCaption,
-            this.unitPriceCaption,
-            this.lineTotalCaptionCell});
-            this.headerTableRow.Name = "headerTableRow";
-            this.headerTableRow.Weight = 11.5D;
-            // 
-            // productNameCaption
-            // 
-            this.productNameCaption.Name = "productNameCaption";
-            this.productNameCaption.StylePriority.UsePadding = false;
-            this.productNameCaption.Text = "ÜRÜN KODU";
-            this.productNameCaption.Weight = 1.1209322515431481D;
-            // 
-            // quantityCaption
-            // 
-            this.quantityCaption.Name = "quantityCaption";
-            this.quantityCaption.StylePriority.UseTextAlignment = false;
-            this.quantityCaption.Text = "MİKTAR";
-            this.quantityCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.quantityCaption.Weight = 0.3451477350439528D;
-            // 
-            // unitPriceCaption
-            // 
-            this.unitPriceCaption.Name = "unitPriceCaption";
-            this.unitPriceCaption.StylePriority.UseTextAlignment = false;
-            this.unitPriceCaption.Text = "BİRİM FİYAT";
-            this.unitPriceCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.unitPriceCaption.Weight = 0.429381446953317D;
-            // 
-            // lineTotalCaptionCell
-            // 
-            this.lineTotalCaptionCell.Name = "lineTotalCaptionCell";
-            this.lineTotalCaptionCell.StylePriority.UseTextAlignment = false;
-            this.lineTotalCaptionCell.Text = "TUTAR";
-            this.lineTotalCaptionCell.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.lineTotalCaptionCell.Weight = 0.53455211842257433D;
-            // 
             // sqlDataSource1
             // 
             this.sqlDataSource1.ConnectionName = "StokTakip_Connection";
@@ -726,25 +745,6 @@
             this.baseControlStyle.Name = "baseControlStyle";
             this.baseControlStyle.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             // 
-            // faturano
-            // 
-            this.faturano.Multiline = true;
-            this.faturano.Name = "faturano";
-            this.faturano.StylePriority.UseTextAlignment = false;
-            this.faturano.Text = "FATURA NO";
-            this.faturano.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.faturano.Weight = 0.3451477350439528D;
-            // 
-            // faturano1
-            // 
-            this.faturano1.Multiline = true;
-            this.faturano1.Name = "faturano1";
-            this.faturano1.StylePriority.UsePadding = false;
-            this.faturano1.StylePriority.UseTextAlignment = false;
-            this.faturano1.Text = "no";
-            this.faturano1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.faturano1.Weight = 0.46559038147202148D;
-            // 
             // tasarim2
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -766,12 +766,12 @@
             this.Version = "18.2";
             ((System.ComponentModel.ISupportInitialize)(this.detailTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorContactsTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.headerTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceInfoTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.summariesTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subtotalTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.headerTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }

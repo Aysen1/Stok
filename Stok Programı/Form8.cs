@@ -510,39 +510,6 @@ namespace Stok_Programı
                 fatura4.ShowPreview();
             }
         }
-        private void S5_Click(object sender, EventArgs e)
-        {
-            ds = new DataSet("Tablo");
-            baglanti.Open();
-            if (cmbx_kodlar.Text != "")
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.UrunKodu,UrunCikis.CikisTarihi FROM UrunCikis,FirmaKayit WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi)", baglanti);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
-            }
-            else if (cmbx_kodlar.Text == "")
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunKodu,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,FirmaKayit.TelefonNo FROM UrunCikis,FirmaKayit WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi)", baglanti);
-            }
-            da = new SqlDataAdapter(komut);
-            da.Fill(ds);
-            ds.Tables[0].TableName = "bilgiler";
-            baglanti.Close();
-
-            if (ds.Tables[0].Rows.Count == 0)
-                MessageBox.Show("Ürün Bulunmamaktadır.");
-            else
-            {
-             //   tasarim5 fatura5 = new tasarim5();
-             //   fatura5.DataAdapter = da;
-             //   fatura5.DataSource = ds;
-              //  fatura5.productName.DataBindings.Add("Text", ds, "UrunKodu");
-             //   fatura5.invoiceDate.Text = DateTime.Now.ToString();
-              //  fatura5.quantity.DataBindings.Add("Text", ds, "UrunAdet");
-             //   fatura5.productDescription.DataBindings.Add("Text", ds, "FirmaAdi");
-             //   fatura5.DataMember = ((DataSet)fatura5.DataSource).Tables[0].TableName;
-             //   fatura5.ShowPreview();
-            }
-        }
         private void S6_Click(object sender, EventArgs e)
         {
             ds = new DataSet("Tablo");
@@ -628,81 +595,54 @@ namespace Stok_Programı
                 fatura5.ShowPreview();;
             }
         }
-       /* private void S8_Click(object sender, EventArgs e)
-        {
-            ds = new DataSet("Tablo");
-            baglanti.Open();
-            if (cmbx_kodlar.Text != "")
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.UrunKodu,UrunCikis.CikisTarihi,FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,FirmaKayit.TelefonNo FROM UrunCikis,FirmaKayit WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi)", baglanti);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
-            }
-            else if (cmbx_kodlar.Text == "")
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunKodu,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,FirmaKayit.TelefonNo FROM UrunCikis,FirmaKayit WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) ORDER BY UrunCikis.UrunKodu", baglanti);
-            }
-            da = new SqlDataAdapter(komut);
-            da.Fill(ds);
-            ds.Tables[0].TableName = "bilgiler";
-            baglanti.Close();
-
-            if (ds.Tables[0].Rows.Count == 0)
-                MessageBox.Show("Ürün Bulunmamaktadır.");
-            else
-            {
-                tasarim8 fatura5 = new tasarim8();
-                fatura5.DataAdapter = da;
-                fatura5.DataSource = ds;
-                fatura5.productName.DataBindings.Add("Text", ds, "UrunKodu");
-                fatura5.invoiceDate.Text = DateTime.Now.ToString();
-                fatura5.quantity.DataBindings.Add("Text", ds, "UrunAdet");
-                fatura5.productDescription.DataBindings.Add("Text", ds, "FirmaAdi");
-                fatura5.customerName.DataBindings.Add("Text", ds, "FirmaAdi");
-                fatura5.customerAddress.DataBindings.Add("Text", ds, "Adres");
-                fatura5.DataMember = ((DataSet)fatura5.DataSource).Tables[0].TableName;
-                //fatura5.LoadLayout(Application.StartupPath + "\\rapor\\tasarim8.repx");
-                fatura5.ShowPreview();
-            }
-        }*/
-
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void fatura_Click(object sender, EventArgs e)
         {
             ds = new DataSet("Tablo");
             baglanti.Open();
             if (cmbx_kodlar.Text == "" & cmbx_firmaadi.Text!="")
             {
                 komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunKodu,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,FirmaKayit.Adres,FirmaKayit.Sehir,
-                FirmaKayit.ilce,FirmaKayit.TelefonNo,FirmaKayit.VergiDairesiAdi,FirmaKayit.MersisNo FROM UrunCikis,FirmaKayit 
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) ORDER BY UrunCikis.CikisTarihi", baglanti);
+                FirmaKayit.ilce,FirmaKayit.TelefonNo,FirmaKayit.VergiDairesiAdi,FirmaKayit.MersisNo,UrunKayit1.BirimFiyati,UrunCikis.ToplamFiyat
+                FROM UrunCikis,FirmaKayit,UrunKayit1 
+                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) AND(UrunCikis.UrunID=UrunKayit1.UrunID) ORDER BY UrunCikis.CikisTarihi", baglanti);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-            }
-            da = new SqlDataAdapter(komut);
-            da.Fill(ds);
-            ds.Tables[0].TableName = "bilgiler";
-            baglanti.Close();
-
-            if (ds.Tables[0].Rows.Count == 0)
-                MessageBox.Show("Ürün Bulunmamaktadır.");
-            else
-            {
-                Properties.Settings.Default.faturano++;
-                Properties.Settings.Default.Save();
-                fatura fatura1 = new fatura();
-                fatura1.DataAdapter = da;
-                fatura1.DataSource = ds;
-                fatura1.faturano.Text = Properties.Settings.Default.faturano.ToString();
-                fatura1.faturatarih.Text = DateTime.Now.ToString();
-                fatura1.satistarih.DataBindings.Add("Text",ds,"CikisTarihi");
-                fatura1.firmaadi.DataBindings.Add("Text", ds, "FirmaAdi");
-                fatura1.firmaadres.DataBindings.Add("Text", ds, "Adres");
-                fatura1.firmail.DataBindings.Add("Text", ds, "Sehir");
-                fatura1.firmailce.DataBindings.Add("Text", ds, "ilce");
-                fatura1.urunadi.DataBindings.Add("Text", ds, "UrunKodu");
-                fatura1.miktar.DataBindings.Add("Text", ds, "UrunAdet");
-                fatura1.vergi.DataBindings.Add("Text", ds, "VergiDairesiAdi");
-                fatura1.mersis.DataBindings.Add("Text", ds, "MersisNo");
-                fatura1.DataMember = ((DataSet)fatura1.DataSource).Tables[0].TableName;
-                fatura1.ShowPreview();
+                da = new SqlDataAdapter(komut);
+                da.Fill(ds);
+                ds.Tables[0].TableName = "bilgiler";
+                baglanti.Close();
+                decimal a=0;
+                if (ds.Tables[0].Rows.Count == 0)
+                    MessageBox.Show("Ürün Bulunmamaktadır.");
+                else
+                {
+                    for (int i = 0; i < ds.Tables[0].Rows.Count;i++ )
+                    {
+                       a +=Convert.ToDecimal(ds.Tables[0].Rows[i].ItemArray[11]);              
+                    }
+                    Properties.Settings.Default.faturano++;
+                    Properties.Settings.Default.Save();
+                    fatura fatura1 = new fatura();
+                    fatura1.DataAdapter = da;
+                    fatura1.DataSource = ds;
+                    fatura1.faturano.Text = Properties.Settings.Default.faturano.ToString();
+                    fatura1.faturatarih.Text = DateTime.Now.ToString();
+                    fatura1.satistarih.DataBindings.Add("Text", ds, "CikisTarihi");
+                    fatura1.firmaadi.DataBindings.Add("Text", ds, "FirmaAdi");
+                    fatura1.firmaadres.DataBindings.Add("Text", ds, "Adres");
+                    fatura1.firmail.DataBindings.Add("Text", ds, "Sehir");
+                    fatura1.firmailce.DataBindings.Add("Text", ds, "ilce");
+                    fatura1.urunadi.DataBindings.Add("Text", ds, "UrunKodu");
+                    fatura1.miktar.DataBindings.Add("Text", ds, "UrunAdet");
+                    fatura1.vergi.DataBindings.Add("Text", ds, "VergiDairesiAdi");
+                    fatura1.mersis.DataBindings.Add("Text", ds, "MersisNo");
+                    fatura1.birimfiyat.DataBindings.Add("Text", ds, "BirimFiyati");
+                    fatura1.tutar.DataBindings.Add("Text", ds, "ToplamFiyat");
+                    fatura1.toplam.Text = string.Format("{0:C}", a);
+                    //cmbx_kodlar.Text = string.Format("{0:#,##,##.00₺}", a);
+                    fatura1.personel.Text = Properties.Settings.Default.kullaniciadi;
+                    fatura1.DataMember = ((DataSet)fatura1.DataSource).Tables[0].TableName;
+                    fatura1.ShowPreview();
+                }
             }
         }
     }

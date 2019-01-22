@@ -96,6 +96,7 @@
             this.invoiceInfoTable = new DevExpress.XtraReports.UI.XRTable();
             this.invoiceNumberRow = new DevExpress.XtraReports.UI.XRTableRow();
             this.invoiceNumber1 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.invoiceNumber = new DevExpress.XtraReports.UI.XRTableCell();
             this.invoiceDateRow = new DevExpress.XtraReports.UI.XRTableRow();
             this.invoiceDate = new DevExpress.XtraReports.UI.XRTableCell();
             this.invoiceTotalTable = new DevExpress.XtraReports.UI.XRTable();
@@ -119,7 +120,6 @@
             this.lineTotalCaption = new DevExpress.XtraReports.UI.XRTableCell();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.baseControlStyle = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.invoiceNumber = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.detailTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorContactsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorTable)).BeginInit();
@@ -410,7 +410,7 @@
             this.vendorName.Name = "vendorName";
             this.vendorName.StylePriority.UseFont = false;
             this.vendorName.StylePriority.UseTextAlignment = false;
-            this.vendorName.Text = "ORSER BOYA SERİGAFİ";
+            this.vendorName.Text = "ORSER BOYA SERİGRAFİ";
             this.vendorName.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.vendorName.Weight = 1D;
             // 
@@ -636,6 +636,17 @@
             this.invoiceNumber1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.invoiceNumber1.TextFormatString = "FaturaNo / {0}";
             this.invoiceNumber1.Weight = 0.45634924420086148D;
+            // 
+            // invoiceNumber
+            // 
+            this.invoiceNumber.Font = new System.Drawing.Font("Segoe UI", 19F);
+            this.invoiceNumber.Multiline = true;
+            this.invoiceNumber.Name = "invoiceNumber";
+            this.invoiceNumber.StylePriority.UseFont = false;
+            this.invoiceNumber.StylePriority.UseTextAlignment = false;
+            this.invoiceNumber.Text = "invoiceNumber";
+            this.invoiceNumber.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.invoiceNumber.Weight = 0.45634924420086148D;
             // 
             // invoiceDateRow
             // 
@@ -918,17 +929,6 @@
             this.baseControlStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.baseControlStyle.Name = "baseControlStyle";
             this.baseControlStyle.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            // 
-            // invoiceNumber
-            // 
-            this.invoiceNumber.Font = new System.Drawing.Font("Segoe UI", 19F);
-            this.invoiceNumber.Multiline = true;
-            this.invoiceNumber.Name = "invoiceNumber";
-            this.invoiceNumber.StylePriority.UseFont = false;
-            this.invoiceNumber.StylePriority.UseTextAlignment = false;
-            this.invoiceNumber.Text = "invoiceNumber";
-            this.invoiceNumber.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.invoiceNumber.Weight = 0.45634924420086148D;
             // 
             // tasarim4
             // 

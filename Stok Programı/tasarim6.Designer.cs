@@ -133,6 +133,7 @@
             // 
             // detailTableRow
             // 
+            this.detailTableRow.BackColor = System.Drawing.Color.WhiteSmoke;
             this.detailTableRow.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
             this.productName,
             this.productDescription,
@@ -140,6 +141,7 @@
             this.unitPrice,
             this.lineTotal});
             this.detailTableRow.Name = "detailTableRow";
+            this.detailTableRow.StylePriority.UseBackColor = false;
             this.detailTableRow.Weight = 10.58D;
             // 
             // productName
@@ -431,7 +433,7 @@
             this.vendorName.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.vendorName.StylePriority.UseFont = false;
             this.vendorName.StylePriority.UsePadding = false;
-            this.vendorName.Text = "ORSER BOYA SERİGAFİ";
+            this.vendorName.Text = "ORSER BOYA SERİGRAFİ";
             this.vendorName.Weight = 1D;
             // 
             // vendorAddressRow
