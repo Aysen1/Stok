@@ -53,7 +53,7 @@
             this.lbl_bitis = new System.Windows.Forms.Label();
             this.lbl_kod = new System.Windows.Forms.Label();
             this.lbl_firma = new System.Windows.Forms.Label();
-            this.ssatis = new DevExpress.XtraEditors.SimpleButton();
+            this.S1 = new DevExpress.XtraEditors.SimpleButton();
             this.S2 = new DevExpress.XtraEditors.SimpleButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.S3 = new DevExpress.XtraEditors.SimpleButton();
@@ -312,16 +312,16 @@
             this.lbl_firma.TabIndex = 16;
             this.lbl_firma.Text = "Firma Adı:";
             // 
-            // ssatis
+            // S1
             // 
-            this.ssatis.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ssatis.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ssatis.ImageOptions.Image")));
-            this.ssatis.Location = new System.Drawing.Point(18, 251);
-            this.ssatis.Name = "ssatis";
-            this.ssatis.Size = new System.Drawing.Size(68, 39);
-            this.ssatis.TabIndex = 18;
-            this.ssatis.Text = "1";
-            this.ssatis.Click += new System.EventHandler(this.ssatis_Click);
+            this.S1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.S1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ssatis.ImageOptions.Image")));
+            this.S1.Location = new System.Drawing.Point(18, 251);
+            this.S1.Name = "S1";
+            this.S1.Size = new System.Drawing.Size(68, 39);
+            this.S1.TabIndex = 18;
+            this.S1.Text = "1";
+            this.S1.Click += new System.EventHandler(this.S1_Click);
             // 
             // S2
             // 
@@ -386,7 +386,7 @@
             // 
             this.fatura.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.fatura.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("fatura.ImageOptions.Image")));
-            this.fatura.Location = new System.Drawing.Point(332, 305);
+            this.fatura.Location = new System.Drawing.Point(268, 296);
             this.fatura.Name = "fatura";
             this.fatura.Size = new System.Drawing.Size(84, 39);
             this.fatura.TabIndex = 26;
@@ -415,7 +415,7 @@
             this.Controls.Add(this.S4);
             this.Controls.Add(this.S3);
             this.Controls.Add(this.S2);
-            this.Controls.Add(this.ssatis);
+            this.Controls.Add(this.S1);
             this.Controls.Add(this.lbl_firma);
             this.Controls.Add(this.lbl_kod);
             this.Controls.Add(this.lbl_bitis);
@@ -469,7 +469,7 @@
         private System.Windows.Forms.Label lbl_bitis;
         private System.Windows.Forms.Label lbl_kod;
         private System.Windows.Forms.Label lbl_firma;
-        private DevExpress.XtraEditors.SimpleButton ssatis;
+        private DevExpress.XtraEditors.SimpleButton S1;
         private DevExpress.XtraEditors.SimpleButton S2;
         private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraEditors.SimpleButton S3;
