@@ -240,4 +240,22 @@
   <data name="veritabani" xml:space="preserve">
     <value>Veritabanı Adı:</value>
   </data>
+  <data name="filtrekod" xml:space="preserve">
+    <value>Filtrelenen Kod:</value>
+  </data>
+  <data name="filtre_araclari" xml:space="preserve">
+    <value>Fatura Filtreleme Araçları</value>
+  </data>
+  <data name="rapor" xml:space="preserve">
+    <value>Rapor</value>
+  </data>
+  <data name="sablon" xml:space="preserve">
+    <value>Fatura Şablonları</value>
+  </data>
+  <data name="tarih1" xml:space="preserve">
+    <value>Başlangıç Tarihi:</value>
+  </data>
+  <data name="tarih2" xml:space="preserve">
+    <value>Bitiş Tarihi:</value>
+  </data>
 </root>

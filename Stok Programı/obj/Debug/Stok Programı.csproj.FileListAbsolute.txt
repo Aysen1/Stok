@@ -134,3 +134,4 @@ C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\bin\Debug\es\DevExpres
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\bin\Debug\ja\DevExpress.XtraReports.v18.2.Extensions.resources.dll
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\bin\Debug\ru\DevExpress.XtraReports.v18.2.Extensions.resources.dll
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.fatura.resources
+C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok Programı.csprojResolveAssemblyReference.cache

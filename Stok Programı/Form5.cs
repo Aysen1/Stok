@@ -122,19 +122,20 @@ namespace Stok_Programı
             baglanti.Open();
             komut = new SqlCommand();
             komut.Connection = baglanti;
-            komut.CommandText = "select * from UrunKayit1 where UrunKodu=@kod ";
+            komut.CommandText = "SELECT UrunKayit1.UrunResim,UrunCikis.BirimFiyati FROM UrunKayit1,UrunCikis WHERE (UrunKayit1.UrunKodu=@kod) AND (UrunCikis.UrunKodu=@kod)";
             komut.Parameters.AddWithValue("@kod", cmbx_urunadi.Text);
             dr = komut.ExecuteReader();
             if (dr.Read())
             {
-                Stream stream = dr.GetStream(4);
+                Stream stream = dr.GetStream(0);
                 pctrbx_resim.Image = Image.FromStream(stream);
+                txt_birim_fiyati.Text = string.Format("{0:###,###.00}", dr["BirimFiyati"]); //Textboxa gelen değeri varsayılan para birimine dönüştürerek yazıyor.
             }
             baglanti.Close(); 
         }
         private void btn_kaydet_Click(object sender, EventArgs e)
         {
-            if (cmbx_firmaadi.Text != "" && cmbx_urunadi.Text != "" && txt_adet.Text != "")
+            if (cmbx_firmaadi.Text != "" & cmbx_urunadi.Text != "" & txt_adet.Text != "" & txt_birim_fiyati.Text!="")
             {
                 baglanti.Open();
                 string UrunID=null;
@@ -145,21 +146,19 @@ namespace Stok_Programı
                 dr = komut3.ExecuteReader();
                 if (dr.Read())
                 {
-                    if (int.Parse(txt_adet.Text) <= int.Parse(dr[5].ToString()) && int.Parse(dr[5].ToString()) != 0)
+                    if (int.Parse(txt_adet.Text) <= int.Parse(dr[5].ToString()) & int.Parse(dr[5].ToString()) != 0)
                     {
                         UrunID = dr["UrunID"].ToString();
-                        fiyat=Convert.ToDecimal(dr["BirimFiyati"]);
-                       // Properties.Settings.Default.faturano += 1;
-                       // Properties.Settings.Default.Save();
-                       // MessageBox.Show(Properties.Settings.Default.faturano.ToString());
+                       // fiyat=Convert.ToDecimal(dr["BirimFiyati"]);
+                        fiyat=Convert.ToDecimal(txt_birim_fiyati.Text);
                         baglanti.Close();
 
                         baglanti.Open();
                         komut = new SqlCommand();
                         komut.Connection = baglanti;
-                        komut.CommandText = "insert into UrunCikis(UrunID, FirmaAdi, UrunKodu, CikisTarihi, UrunAdet, Personel, ToplamFiyat) values ('"+UrunID+"','" + cmbx_firmaadi.Text + "','" + cmbx_urunadi.Text + "','" + dateTimePicker1.Text+ "','" + txt_adet.Text + "',@personel,@toplam)";
+                        komut.CommandText = "insert into UrunCikis (UrunID, FirmaAdi, UrunKodu, CikisTarihi, UrunAdet, Personel, BirimFiyati, ToplamFiyat) VALUES ('"+UrunID+"','" + cmbx_firmaadi.Text + "','" + cmbx_urunadi.Text + "','" + dateTimePicker1.Text+ "','" + txt_adet.Text + "',@personel,@birimfiyat,@toplam)";
                         komut.Parameters.AddWithValue("@personel", Properties.Settings.Default.kullaniciadi);
-                        //komut.Parameters.AddWithValue("@faturano", Properties.Settings.Default.faturano);
+                        komut.Parameters.AddWithValue("@birimfiyat", fiyat);
                         komut.Parameters.AddWithValue("@toplam", fiyat * adet);
                         komut.ExecuteNonQuery();
                         baglanti.Close();
@@ -218,7 +217,7 @@ namespace Stok_Programı
         private void excelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             baglanti.Open();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from UrunCikis", baglanti);
+            SqlDataAdapter da = new SqlDataAdapter("Select CikisID,UrunID,FirmaAdi,UrunKodu,CikisTarihi,UrunAdet,Personel,FORMAT(BirimFiyati,'n2')+space(1)+NCHAR(8378),FORMAT(ToplamFiyat,'n2')+space(1)+NCHAR(8378) from UrunCikis", baglanti);
             DataSet ds = new DataSet();
             da.Fill(ds);
             string data = null;

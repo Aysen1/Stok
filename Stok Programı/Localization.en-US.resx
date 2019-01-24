@@ -240,4 +240,22 @@
   <data name="veritabani" xml:space="preserve">
     <value>Database Name:</value>
   </data>
+  <data name="filtrekod" xml:space="preserve">
+    <value>Filtering Code:</value>
+  </data>
+  <data name="filtre_araclari" xml:space="preserve">
+    <value>Invoice Filtering Tools</value>
+  </data>
+  <data name="rapor" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="sablon" xml:space="preserve">
+    <value>Invoice Templates</value>
+  </data>
+  <data name="tarih1" xml:space="preserve">
+    <value>From Date:</value>
+  </data>
+  <data name="tarih2" xml:space="preserve">
+    <value>To Date:</value>
+  </data>
 </root>

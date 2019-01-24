@@ -124,6 +124,24 @@ namespace Stok_Programı {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fatura Filtreleme Araçları.
+        /// </summary>
+        internal static string filtre_araclari {
+            get {
+                return ResourceManager.GetString("filtre_araclari", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filtrelenen Kod:.
+        /// </summary>
+        internal static string filtrekod {
+            get {
+                return ResourceManager.GetString("filtrekod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to KULLANICI GİRİŞİ.
         /// </summary>
         internal static string form1 {
@@ -349,11 +367,47 @@ namespace Stok_Programı {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rapor.
+        /// </summary>
+        internal static string rapor {
+            get {
+                return ResourceManager.GetString("rapor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fatura Şablonları.
+        /// </summary>
+        internal static string sablon {
+            get {
+                return ResourceManager.GetString("sablon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sorumlu:.
         /// </summary>
         internal static string sorumlu {
             get {
                 return ResourceManager.GetString("sorumlu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Başlangıç Tarihi:.
+        /// </summary>
+        internal static string tarih1 {
+            get {
+                return ResourceManager.GetString("tarih1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bitiş Tarihi:.
+        /// </summary>
+        internal static string tarih2 {
+            get {
+                return ResourceManager.GetString("tarih2", resourceCulture);
             }
         }
         

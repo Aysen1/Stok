@@ -133,7 +133,7 @@ namespace Stok_Programı
             baglan.IntegratedSecurity = true;
             SqlConnection baglanti = new SqlConnection(baglan.ConnectionString);
             baglanti.Open();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from UrunKayit1", baglanti);
+            SqlDataAdapter da = new SqlDataAdapter("Select UrunID,FirmaAdi,UrunKodu,KayitTarihi,UrunResim,ToplamAdet,Personel,FORMAT(BirimFiyati,'n2')+space(1)+NCHAR(8378) from UrunKayit1", baglanti);
             DataSet ds = new DataSet();
             da.Fill(ds);
             string data = null;
