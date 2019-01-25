@@ -64,16 +64,20 @@
             this.cmbx_firmaadi = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.temizle = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.rapor = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.temizle = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tarih = new System.Windows.Forms.ToolStripStatusLabel();
+            this.saat = new System.Windows.Forms.ToolStripStatusLabel();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_yazici
@@ -455,6 +459,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fatura Filtreleme Araçları";
             // 
+            // temizle
+            // 
+            this.temizle.FlatAppearance.BorderSize = 0;
+            this.temizle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.temizle.Location = new System.Drawing.Point(160, 208);
+            this.temizle.Name = "temizle";
+            this.temizle.Size = new System.Drawing.Size(75, 40);
+            this.temizle.TabIndex = 29;
+            this.temizle.UseVisualStyleBackColor = true;
+            this.temizle.Click += new System.EventHandler(this.temizle_Click);
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -506,16 +521,31 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Fatura Şablonları";
             // 
-            // temizle
+            // statusStrip1
             // 
-            this.temizle.FlatAppearance.BorderSize = 0;
-            this.temizle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.temizle.Location = new System.Drawing.Point(160, 208);
-            this.temizle.Name = "temizle";
-            this.temizle.Size = new System.Drawing.Size(75, 40);
-            this.temizle.TabIndex = 29;
-            this.temizle.UseVisualStyleBackColor = true;
-            this.temizle.Click += new System.EventHandler(this.temizle_Click);
+            this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tarih,
+            this.saat});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 490);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(842, 22);
+            this.statusStrip1.TabIndex = 32;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // tarih
+            // 
+            this.tarih.LinkColor = System.Drawing.Color.White;
+            this.tarih.Name = "tarih";
+            this.tarih.Size = new System.Drawing.Size(33, 17);
+            this.tarih.Text = "tarih";
+            // 
+            // saat
+            // 
+            this.saat.LinkColor = System.Drawing.Color.White;
+            this.saat.Name = "saat";
+            this.saat.Size = new System.Drawing.Size(29, 17);
+            this.saat.Text = "saat";
             // 
             // Form8
             // 
@@ -523,6 +553,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 512);
             this.ControlBox = false;
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -542,6 +573,8 @@
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -587,5 +620,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private DevExpress.XtraEditors.SimpleButton rapor;
         private System.Windows.Forms.Button temizle;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel tarih;
+        private System.Windows.Forms.ToolStripStatusLabel saat;
     }
 }

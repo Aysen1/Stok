@@ -93,6 +93,7 @@ namespace Stok_Programı
             if (Properties.Settings.Default.dil == "İngilizce")
             {
                 Localization.Culture = new CultureInfo("en-US");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");                
                 btn_giris.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\bgirisK.fw.png");
                 btn_kapat.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\biptalK.fw.png");
                 btn_sil.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\bsilK.fw.png");
@@ -101,6 +102,7 @@ namespace Stok_Programı
             else if (Properties.Settings.Default.dil == "Türkçe")
             {
                 Localization.Culture = new CultureInfo("");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
                 btn_sil.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\bsil.fw.png");
                 btn_giris.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\bgiris.fw.png");
                 btn_kapat.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\biptal.fw.png");

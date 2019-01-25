@@ -30,7 +30,6 @@ namespace Stok_Programı
             timer1.Start();
             toolStripStatusLabel1.Text = DateTime.Now.ToString();
             pctrbx_logo.Image = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\logo.jpeg");
-           // pctrbx_logo.Image = Image.FromFile("C:\\Users\\NFM-1PC\\Pictures\\fw_files\\logo1.png");
             btn_simge.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\simge.fw.png");
             btn_tamekran.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\tamekran.fw.png");
             btn_cikiss.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\cikis.fw.png");
@@ -52,7 +51,8 @@ namespace Stok_Programı
             btn_cikiss.Region = rg3;
             if (Properties.Settings.Default.dil == "İngilizce")
             {
-                Localization.Culture = new CultureInfo("en-US");
+                //Localization.Culture = new CultureInfo("en-US");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
                 btn_giris.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\urungirisK.fw.png");
                 btn_cikis.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\uruncikisK.fw.png");
                 btn_urun.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\ukayitK.fw.png");
@@ -63,7 +63,8 @@ namespace Stok_Programı
             }
             else if (Properties.Settings.Default.dil == "Türkçe")
             {
-                Localization.Culture = new CultureInfo("");
+                //Localization.Culture = new CultureInfo("");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
                 btn_giris.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\urungiris.fw.png");
                 btn_cikis.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\uruncikis.fw.png");
                 btn_urun.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\ukayit.fw.png");

@@ -67,13 +67,13 @@ namespace Stok_Programı
 
             if (Properties.Settings.Default.dil == "İngilizce")
             {
-                Localization.Culture = new CultureInfo("en-US");
                 temizle.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\temizleK.fw.png");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
             }
             else if (Properties.Settings.Default.dil == "Türkçe")
             {
-                Localization.Culture = new CultureInfo("");
                 temizle.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\temizle.fw.png");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
             }
             metin();
 
@@ -96,12 +96,12 @@ namespace Stok_Programı
             bitis_tarihi.Text = DateTime.Now.ToString();
             baslangic_tarihi.ShowCheckBox = true;
             baslangic_tarihi.Checked = false;
-
             bitis_tarihi.ShowCheckBox = true;
             bitis_tarihi.Checked = false;
-
             groupBox2.Location = new Point(this.ClientSize.Width / 2 - groupBox2.ClientSize.Width / 2, this.ClientSize.Height / 2 - groupBox2.ClientSize.Height / 2);
             groupBox2.Anchor = AnchorStyles.None;
+            saat.BackColor = Color.White;
+            tarih.BackColor = Color.White;
         }
         private void btn_simge_Click(object sender, EventArgs e)
         {
@@ -481,6 +481,8 @@ namespace Stok_Programı
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
+            tarih.Text = DateTime.Today.ToLongDateString();
+            saat.Text = DateTime.Now.ToLongTimeString();
             timer1.Start();
         }
         private void S3_Click(object sender, EventArgs e)

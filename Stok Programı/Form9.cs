@@ -20,6 +20,7 @@ namespace Stok_Programı
         }
         private void Form9_Load(object sender, EventArgs e)
         {
+            timer1.Start();
             this.WindowState = FormWindowState.Maximized;
             btn_simge.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\simge.fw.png");
             btn_tamekran.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\tamekran.fw.png");
@@ -41,11 +42,14 @@ namespace Stok_Programı
             btn_cikiss.Region = rg3;
 
             if (Properties.Settings.Default.dil == "İngilizce")
-                Localization.Culture = new CultureInfo("en-US");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
             else if(Properties.Settings.Default.dil=="Türkçe")
-                Localization.Culture = new CultureInfo("");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
             metin();
             this.BackColor = Properties.Settings.Default.tema;
+            tarih.Text = DateTime.Today.ToLongDateString();
+            saat.BackColor = Color.White;
+            tarih.BackColor = Color.White;
         }
         private void btn_simge_Click(object sender, EventArgs e)
         {
@@ -64,6 +68,7 @@ namespace Stok_Programı
             Localization.Culture = new CultureInfo("en-US");
             Properties.Settings.Default.dil = "İngilizce";
             Properties.Settings.Default.Save();
+            System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
             metin();
         }
         private void anasayfaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -82,12 +87,15 @@ namespace Stok_Programı
             yardımToolStripMenuItem.Text = Localization.lbl_yardim;
             cikisToolStripMenuItem.Text = Localization.lbl_cikis;
             temaToolStripMenuItem.Text = Localization.tema;
+            tarih.Text = DateTime.Today.ToLongDateString();
+            saat.Text = DateTime.Now.ToLongTimeString();
         }
         private void türkçeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Localization.Culture = new CultureInfo("");
             Properties.Settings.Default.dil = "Türkçe";
             Properties.Settings.Default.Save();
+            System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
             metin();
         }
         private void cikisToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,6 +117,12 @@ namespace Stok_Programı
                 Properties.Settings.Default.tema = renk.Color;
                 Properties.Settings.Default.Save();
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            saat.Text = DateTime.Now.ToLongTimeString();
+            timer1.Start();
         }
     }
 }

@@ -57,7 +57,8 @@ namespace Stok_Programı
 
             if (Properties.Settings.Default.dil == "İngilizce")
             { 
-                Localization.Culture = new CultureInfo("en-US");
+              //  Localization.Culture = new CultureInfo("en-US");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");                
                 btn_temizle.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\temizleK.fw.png");
                 btn_kaydet.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\kaydetK.fw.png");
                 btn_resim_yukle.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\yukleK.fw.png");
@@ -65,7 +66,8 @@ namespace Stok_Programı
             }
             else if (Properties.Settings.Default.dil == "Türkçe")
             { 
-                Localization.Culture = new CultureInfo("");
+               // Localization.Culture = new CultureInfo("");
+                System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
                 btn_temizle.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\temizle.fw.png");
                 btn_kaydet.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\kaydet.fw.png");
                 btn_resim_yukle.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\yukle.fw.png");
