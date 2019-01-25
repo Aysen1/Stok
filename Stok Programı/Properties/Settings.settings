@@ -3,13 +3,13 @@
   <Profiles />
   <Settings>
     <Setting Name="dil" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Türkçe</Value>
     </Setting>
     <Setting Name="tema" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="serverip" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">NFM-1\MSSQLSERVER01</Value>
     </Setting>
     <Setting Name="kullaniciadi" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -18,7 +18,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="veritabani" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">StokTakip</Value>
     </Setting>
     <Setting Name="fatura" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

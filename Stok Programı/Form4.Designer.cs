@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.grpbx_firmabilgi = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.cmbx_ilce = new System.Windows.Forms.ComboBox();
             this.txt_adres = new System.Windows.Forms.TextBox();
             this.lbl_firmaadi = new System.Windows.Forms.Label();
@@ -60,14 +61,14 @@
             this.yardımToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cikisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tarih = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_cikiss = new System.Windows.Forms.Button();
             this.btn_tamekran = new System.Windows.Forms.Button();
             this.btn_simge = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.saat = new System.Windows.Forms.ToolStripStatusLabel();
             this.grpbx_firmabilgi.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.grpbx_islem.SuspendLayout();
@@ -129,6 +130,16 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(329, 392);
             this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(167, 354);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(159, 20);
+            this.dateTimePicker1.TabIndex = 22;
             // 
             // cmbx_ilce
             // 
@@ -417,20 +428,22 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
+            this.tarih,
+            this.saat});
             this.statusStrip1.Location = new System.Drawing.Point(0, 594);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(516, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // tarih
             // 
-            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(38, 17);
-            this.toolStripStatusLabel1.Text = "timer";
+            this.tarih.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tarih.Name = "tarih";
+            this.tarih.Size = new System.Drawing.Size(33, 17);
+            this.tarih.Text = "tarih";
             // 
             // timer1
             // 
@@ -504,15 +517,11 @@
             this.btn_simge.UseVisualStyleBackColor = true;
             this.btn_simge.Click += new System.EventHandler(this.btn_simge_Click);
             // 
-            // dateTimePicker1
+            // saat
             // 
-            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(167, 354);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(159, 20);
-            this.dateTimePicker1.TabIndex = 22;
+            this.saat.Name = "saat";
+            this.saat.Size = new System.Drawing.Size(29, 17);
+            this.saat.Text = "saat";
             // 
             // Form4
             // 
@@ -558,7 +567,7 @@
         private System.Windows.Forms.TextBox txt_sorumlu;
         private System.Windows.Forms.TextBox txt_firmaadi;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel tarih;
         private System.Windows.Forms.Button btn_kaydet;
         private System.Windows.Forms.Button btn_temizle;
         private System.Windows.Forms.Timer timer1;
@@ -587,5 +596,6 @@
         public System.Windows.Forms.Label lbl_mersis;
         public System.Windows.Forms.Label lbl_kayit_tarihi;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ToolStripStatusLabel saat;
     }
 }

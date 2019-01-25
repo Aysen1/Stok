@@ -53,13 +53,14 @@
             this.btn_kaydet = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tarih = new System.Windows.Forms.ToolStripStatusLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_cikiss = new System.Windows.Forms.Button();
             this.btn_tamekran = new System.Windows.Forms.Button();
             this.btn_simge = new System.Windows.Forms.Button();
+            this.saat = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -159,7 +160,7 @@
             this.txt_birim_fiyati.Name = "txt_birim_fiyati";
             this.txt_birim_fiyati.Size = new System.Drawing.Size(156, 20);
             this.txt_birim_fiyati.TabIndex = 18;
-            this.txt_birim_fiyati.Text = "0.00 ₺";
+            this.txt_birim_fiyati.Text = "0,00₺";
             this.txt_birim_fiyati.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label1
@@ -325,17 +326,19 @@
             // 
             this.statusStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
+            this.tarih,
+            this.saat});
             this.statusStrip1.Location = new System.Drawing.Point(0, 643);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(787, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // tarih
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            this.tarih.Name = "tarih";
+            this.tarih.Size = new System.Drawing.Size(33, 17);
+            this.tarih.Text = "tarih";
             // 
             // tableLayoutPanel1
             // 
@@ -420,6 +423,12 @@
             this.btn_simge.UseVisualStyleBackColor = true;
             this.btn_simge.Click += new System.EventHandler(this.btn_simge_Click);
             // 
+            // saat
+            // 
+            this.saat.Name = "saat";
+            this.saat.Size = new System.Drawing.Size(29, 17);
+            this.saat.Text = "saat";
+            // 
             // Form5
             // 
             this.AcceptButton = this.btn_kaydet;
@@ -469,7 +478,7 @@
         private System.Windows.Forms.ComboBox cmbx_firmaadi;
         private System.Windows.Forms.ComboBox cmbx_urunadi;
         private System.Windows.Forms.TextBox txt_adet;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel tarih;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
@@ -489,5 +498,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox txt_birim_fiyati;
         public System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripStatusLabel saat;
     }
 }

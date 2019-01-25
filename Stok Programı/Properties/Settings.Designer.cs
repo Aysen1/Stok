@@ -25,7 +25,7 @@ namespace Stok_Programı.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Türkçe")]
         public string dil {
             get {
                 return ((string)(this["dil"]));
@@ -48,7 +48,7 @@ namespace Stok_Programı.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("NFM-1\\MSSQLSERVER01")]
         public string serverip {
             get {
                 return ((string)(this["serverip"]));
@@ -84,7 +84,7 @@ namespace Stok_Programı.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("StokTakip")]
         public string veritabani {
             get {
                 return ((string)(this["veritabani"]));

@@ -46,7 +46,8 @@ namespace Stok_Programı
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-           // Properties.Settings.Default.serverip = "NFM-1\\MSSQLSERVER01";
+            //Properties.Settings.Default.serverip = "NFM-1\\MSSQLSERVER01";
+           // Properties.Settings.Default.veritabani = "StokTakip";
             baglan.DataSource = Properties.Settings.Default.serverip;
             baglan.InitialCatalog = Properties.Settings.Default.veritabani;
             baglan.IntegratedSecurity = true;
@@ -54,7 +55,7 @@ namespace Stok_Programı
 
             txt_kullanici_isim.Text=Properties.Settings.Default.kullaniciadi;
             txt_kullanici_sifre.Text = Properties.Settings.Default.sifre;
-
+           // Properties.Settings.Default.dil = "Türkçe";
             this.WindowState = FormWindowState.Maximized;
           //  baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
             lbl_versiyon.Text = Application.ProductVersion;
@@ -74,6 +75,8 @@ namespace Stok_Programı
             btn_tamekran.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\tamekran.fw.png");
             btn_cikiss.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\cikis.fw.png");
             pctrbx_logo.Image = Image.FromFile(Application.StartupPath + "\\image\\logo.jpeg");
+
+            lbl_versiyon.Text = "Versiyon " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             GraphicsPath gp1 = new GraphicsPath();
             gp1.AddEllipse(0, 0, btn_simge.Width - 1, btn_simge.Height - 1);

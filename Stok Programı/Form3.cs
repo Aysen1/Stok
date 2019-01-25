@@ -27,9 +27,9 @@ namespace Stok_Programı
         }      
         private void Form3_Load(object sender, EventArgs e)
         {
+            tarih.Text = DateTime.Today.ToLongDateString();
             this.WindowState = FormWindowState.Maximized;
             timer1.Start();
-            toolStripStatusLabel1.Text = DateTime.Now.ToString();
             baglan.DataSource = Properties.Settings.Default.serverip;
             baglan.InitialCatalog = Properties.Settings.Default.veritabani;
             baglan.IntegratedSecurity = true;
@@ -75,7 +75,8 @@ namespace Stok_Programı
             }
             metin();
             this.BackColor = Properties.Settings.Default.tema;
-            toolStripStatusLabel1.BackColor = Color.White;
+            tarih.BackColor = Color.White;
+            saat.BackColor = Color.White;
         }
         private void firma_listele()
         {
@@ -157,7 +158,7 @@ namespace Stok_Programı
         private void timer1_Tick(object sender, EventArgs e)
         {
             dateTimePicker1.Text = DateTime.Now.ToString();
-            toolStripStatusLabel1.Text = DateTime.Now.ToString();
+            saat.Text = DateTime.Now.ToLongTimeString(); ;
             timer1.Start();
         }
         private void urunkod_kontrol()

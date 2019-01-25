@@ -28,7 +28,7 @@ namespace Stok_Programı
             Properties.Settings.Default.Save();
             this.WindowState = FormWindowState.Maximized;
             timer1.Start();
-            toolStripStatusLabel1.Text = DateTime.Now.ToString();
+            tarih.Text = DateTime.Now.ToString();
             pctrbx_logo.Image = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\logo.jpeg");
             btn_simge.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\simge.fw.png");
             btn_tamekran.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\tamekran.fw.png");
@@ -49,6 +49,8 @@ namespace Stok_Programı
             gp3.AddEllipse(0, 0, btn_cikiss.Width - 1, btn_cikiss.Height - 1);
             Region rg3 = new Region(gp3);
             btn_cikiss.Region = rg3;
+
+            tarih.Text = DateTime.Today.ToLongDateString();
             if (Properties.Settings.Default.dil == "İngilizce")
             {
                 //Localization.Culture = new CultureInfo("en-US");
@@ -74,7 +76,8 @@ namespace Stok_Programı
                 btn_ayarlar.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\ayarlar.fw.png");
             }
             metin();
-            toolStripStatusLabel1.BackColor = Color.White;
+            tarih.BackColor = Color.White;
+            saat.BackColor = Color.White;
         }
         private void btn_urun_Click(object sender, EventArgs e)
         {
@@ -117,7 +120,7 @@ namespace Stok_Programı
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            toolStripStatusLabel1.Text = DateTime.Now.ToString();
+            saat.Text = DateTime.Now.ToLongTimeString();
             timer1.Start();
         }
         private void btn_araclar_Click(object sender, EventArgs e)

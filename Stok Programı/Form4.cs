@@ -27,7 +27,7 @@ namespace Stok_Programı
         {
             this.WindowState = FormWindowState.Maximized;
             timer1.Start();
-            toolStripStatusLabel1.Text = DateTime.Now.ToString();
+            tarih.Text = DateTime.Now.ToString();
             baglan.DataSource = Properties.Settings.Default.serverip;
             baglan.InitialCatalog = Properties.Settings.Default.veritabani;
             baglan.IntegratedSecurity = true;
@@ -36,6 +36,7 @@ namespace Stok_Programı
             btn_tamekran.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\tamekran.fw.png");
             btn_cikiss.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\cikis.fw.png");
             il_listele();
+            tarih.Text = DateTime.Today.ToLongDateString();
 
             GraphicsPath gp1 = new GraphicsPath();
             gp1.AddEllipse(0, 0, btn_simge.Width - 1, btn_simge.Height - 1);
@@ -68,7 +69,8 @@ namespace Stok_Programı
             }
             metin();
             this.BackColor = Properties.Settings.Default.tema;
-            toolStripStatusLabel1.BackColor = Color.White;            
+            tarih.BackColor = Color.White;
+            saat.BackColor = Color.White;           
         }
         private void btn_temizle_Click(object sender, EventArgs e)
         {
@@ -120,7 +122,7 @@ namespace Stok_Programı
         private void timer1_Tick(object sender, EventArgs e)
         {
             dateTimePicker1.Text = DateTime.Now.ToString();
-            toolStripStatusLabel1.Text = DateTime.Now.ToString();
+            saat.Text = DateTime.Now.ToLongTimeString();
             timer1.Start();
         }
         private void il_listele()

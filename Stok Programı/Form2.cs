@@ -20,12 +20,17 @@ namespace Stok_Programı
 
         private void btn_baglan_Click(object sender, EventArgs e)
         {
-            if(txt_serverip.Text==Environment.MachineName)
+            if (txt_serverip.Text == "NFM-1\\MSSQLSERVER01" && txt_veritabani.Text=="StokTakip")
             {
-                Form6 form6 = new Form6();
-                form6.Show();
-                this.Dispose();
+                Properties.Settings.Default.serverip = txt_serverip.Text;
+                Properties.Settings.Default.veritabani = txt_veritabani.Text;
+                Properties.Settings.Default.kullaniciadi = txt_kullaniciadi.Text;
+                Properties.Settings.Default.sifre = txt_sifre.Text;
+                Properties.Settings.Default.Save();
+                MessageBox.Show(txt_serverip.Text);
             }
+            else if (txt_serverip.Text != "NFM-1\\MSSQLSERVER01" & txt_veritabani.Text != "StokTakip")
+                MessageBox.Show(txt_serverip.Text);
         }
 
         private void Form2_Load(object sender, EventArgs e)

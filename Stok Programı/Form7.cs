@@ -32,7 +32,7 @@ namespace Stok_Programı
             this.BackColor = Properties.Settings.Default.tema;
             this.WindowState = FormWindowState.Maximized;
             timer1.Start();
-            toolStripStatusLabel1.Text = DateTime.Now.ToString();
+            tarih.Text = DateTime.Now.ToString();
             baglan.DataSource = Properties.Settings.Default.serverip;
             baglan.InitialCatalog = Properties.Settings.Default.veritabani;
             baglan.IntegratedSecurity = true;
@@ -74,7 +74,8 @@ namespace Stok_Programı
                 btn_kaydet.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\kaydet.fw.png");
             }
             metinler();
-            toolStripStatusLabel1.BackColor = Color.White;            
+            tarih.BackColor = Color.White;
+            saat.BackColor = Color.White;        
         }
         private void firma_listele()
         {
@@ -108,7 +109,8 @@ namespace Stok_Programı
         private void timer1_Tick(object sender, EventArgs e)
         {
             //dateTimePicker1.Text = DateTime.Now.ToString();
-            toolStripStatusLabel1.Text = DateTime.Now.ToString();
+            tarih.Text = DateTime.Today.ToLongDateString();
+            saat.Text = DateTime.Now.ToLongTimeString();
             timer1.Start();
         }
 
