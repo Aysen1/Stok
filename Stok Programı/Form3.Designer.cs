@@ -53,14 +53,14 @@
             this.btn_resim_yukle = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tarih = new System.Windows.Forms.ToolStripStatusLabel();
+            this.saat = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_cikiss = new System.Windows.Forms.Button();
-            this.btn_simge = new System.Windows.Forms.Button();
-            this.btn_tamekran = new System.Windows.Forms.Button();
-            this.saat = new System.Windows.Forms.ToolStripStatusLabel();
+            this.cikis = new DevExpress.XtraEditors.SimpleButton();
+            this.tamekran = new DevExpress.XtraEditors.SimpleButton();
+            this.simge = new DevExpress.XtraEditors.SimpleButton();
             this.grpbx_urunbilgileri.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -348,6 +348,13 @@
             this.tarih.Size = new System.Drawing.Size(38, 17);
             this.tarih.Text = "timer";
             // 
+            // saat
+            // 
+            this.saat.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.saat.Name = "saat";
+            this.saat.Size = new System.Drawing.Size(29, 17);
+            this.saat.Text = "saat";
+            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -389,9 +396,9 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel7.Controls.Add(this.btn_cikiss, 2, 0);
-            this.tableLayoutPanel7.Controls.Add(this.btn_simge, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.btn_tamekran, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.cikis, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.tamekran, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.simge, 0, 0);
             this.tableLayoutPanel7.Location = new System.Drawing.Point(485, 30);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
@@ -399,48 +406,38 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(134, 39);
             this.tableLayoutPanel7.TabIndex = 6;
             // 
-            // btn_cikiss
+            // cikis
             // 
-            this.btn_cikiss.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_cikiss.FlatAppearance.BorderSize = 0;
-            this.btn_cikiss.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cikiss.Location = new System.Drawing.Point(100, 8);
-            this.btn_cikiss.Name = "btn_cikiss";
-            this.btn_cikiss.Size = new System.Drawing.Size(30, 30);
-            this.btn_cikiss.TabIndex = 2;
-            this.btn_cikiss.UseVisualStyleBackColor = true;
-            this.btn_cikiss.Click += new System.EventHandler(this.btn_cikiss_Click);
+            this.cikis.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cikis.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.cikis.ImageOptions.Image = global::Stok_Programı.Properties.Resources.mcikis;
+            this.cikis.Location = new System.Drawing.Point(98, 6);
+            this.cikis.Name = "cikis";
+            this.cikis.Size = new System.Drawing.Size(34, 33);
+            this.cikis.TabIndex = 15;
+            this.cikis.Click += new System.EventHandler(this.cikis_Click);
             // 
-            // btn_simge
+            // tamekran
             // 
-            this.btn_simge.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_simge.FlatAppearance.BorderSize = 0;
-            this.btn_simge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_simge.Location = new System.Drawing.Point(8, 8);
-            this.btn_simge.Name = "btn_simge";
-            this.btn_simge.Size = new System.Drawing.Size(30, 30);
-            this.btn_simge.TabIndex = 0;
-            this.btn_simge.UseVisualStyleBackColor = true;
-            this.btn_simge.Click += new System.EventHandler(this.btn_simge_Click);
+            this.tamekran.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tamekran.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.tamekran.ImageOptions.Image = global::Stok_Programı.Properties.Resources.mtamekran;
+            this.tamekran.Location = new System.Drawing.Point(52, 6);
+            this.tamekran.Name = "tamekran";
+            this.tamekran.Size = new System.Drawing.Size(34, 33);
+            this.tamekran.TabIndex = 14;
+            this.tamekran.Click += new System.EventHandler(this.tamekran_Click);
             // 
-            // btn_tamekran
+            // simge
             // 
-            this.btn_tamekran.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_tamekran.FlatAppearance.BorderSize = 0;
-            this.btn_tamekran.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_tamekran.Location = new System.Drawing.Point(54, 8);
-            this.btn_tamekran.Name = "btn_tamekran";
-            this.btn_tamekran.Size = new System.Drawing.Size(30, 30);
-            this.btn_tamekran.TabIndex = 1;
-            this.btn_tamekran.UseVisualStyleBackColor = true;
-            this.btn_tamekran.Click += new System.EventHandler(this.btn_tamekran_Click);
-            // 
-            // saat
-            // 
-            this.saat.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.saat.Name = "saat";
-            this.saat.Size = new System.Drawing.Size(29, 17);
-            this.saat.Text = "saat";
+            this.simge.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.simge.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.simge.ImageOptions.Image = global::Stok_Programı.Properties.Resources.msmge;
+            this.simge.Location = new System.Drawing.Point(6, 6);
+            this.simge.Name = "simge";
+            this.simge.Size = new System.Drawing.Size(34, 33);
+            this.simge.TabIndex = 13;
+            this.simge.Click += new System.EventHandler(this.simge_Click);
             // 
             // Form3
             // 
@@ -453,7 +450,7 @@
             this.Controls.Add(this.tableLayoutPanel5);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
-            this.MinimumSize = new System.Drawing.Size(576, 409);
+            this.MinimumSize = new System.Drawing.Size(580, 450);
             this.Name = "Form3";
             this.Text = "ÜRÜN KAYIT FORMU";
             this.Load += new System.EventHandler(this.Form3_Load);
@@ -501,9 +498,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.Button btn_cikiss;
-        private System.Windows.Forms.Button btn_simge;
-        private System.Windows.Forms.Button btn_tamekran;
         public System.Windows.Forms.MenuStrip menuStrip1;
         public System.Windows.Forms.ToolStripMenuItem anaToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem yardımToolStripMenuItem;
@@ -513,5 +507,8 @@
         public System.Windows.Forms.ToolStripMenuItem cikisToolStripMenuItem;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ToolStripStatusLabel saat;
+        private DevExpress.XtraEditors.SimpleButton simge;
+        private DevExpress.XtraEditors.SimpleButton tamekran;
+        private DevExpress.XtraEditors.SimpleButton cikis;
     }
 }

@@ -11,7 +11,6 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Drawing.Drawing2D;
 using System.Globalization;
-
 namespace Stok_Programı
 {
     public partial class Form3 : Form
@@ -36,28 +35,9 @@ namespace Stok_Programı
             baglanti = new SqlConnection(baglan.ConnectionString);
             firma_listele();
             pctrbx_urunresim.Image = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\barkod.png");
-            btn_simge.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\simge.fw.png");
-            btn_tamekran.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\tamekran.fw.png");
-            btn_cikiss.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\cikis.fw.png");
-
-            GraphicsPath gp1 = new GraphicsPath();
-            gp1.AddEllipse(0, 0, btn_simge.Width - 1, btn_simge.Height - 1);
-            Region rg1 = new Region(gp1);
-            btn_simge.Region = rg1;
-
-            GraphicsPath gp2 = new GraphicsPath();
-            gp2.AddEllipse(0, 0, btn_tamekran.Width - 1, btn_tamekran.Height - 1);
-            Region rg2 = new Region(gp2);
-            btn_tamekran.Region = rg2;
-
-            GraphicsPath gp3 = new GraphicsPath();
-            gp3.AddEllipse(0, 0, btn_cikiss.Width - 1, btn_cikiss.Height - 1);
-            Region rg3 = new Region(gp3);
-            btn_cikiss.Region = rg3;
 
             if (Properties.Settings.Default.dil == "İngilizce")
             { 
-              //  Localization.Culture = new CultureInfo("en-US");
                 System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");                
                 btn_temizle.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\temizleK.fw.png");
                 btn_kaydet.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\kaydetK.fw.png");
@@ -66,7 +46,6 @@ namespace Stok_Programı
             }
             else if (Properties.Settings.Default.dil == "Türkçe")
             { 
-               // Localization.Culture = new CultureInfo("");
                 System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
                 btn_temizle.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\temizle.fw.png");
                 btn_kaydet.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\kaydet.fw.png");
@@ -183,18 +162,6 @@ namespace Stok_Programı
             else
                 MessageBox.Show("Bu Kodda Bir Ürün Bulunmaktadır.");
         }
-        private void btn_simge_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-        private void btn_tamekran_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-        }
-        private void btn_cikiss_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
         private void Form3_Shown(object sender, EventArgs e)
         {
             txt_urun_kodu.Focus();
@@ -208,6 +175,18 @@ namespace Stok_Programı
             lbl_FirmaAdi.Text = Localization.lbl_firmaadi;
             lbl_urun_kodu.Text = Localization.lbl_urunkodu;
             lbl_kayıt_tarihi.Text = Localization.lbl_kayit;
+        }
+        private void simge_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        private void tamekran_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+        private void cikis_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

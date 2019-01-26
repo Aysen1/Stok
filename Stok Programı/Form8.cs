@@ -14,7 +14,6 @@ using System.Globalization;
 using DevExpress.XtraReports.UI;
 using System.Data.SqlClient;
 using System.IO;
-
 namespace Stok_Programı
 {
     public partial class Form8 : Form
@@ -45,26 +44,7 @@ namespace Stok_Programı
             PrintDocument pd = new PrintDocument();
             string defaultPrinter = pd.PrinterSettings.PrinterName;
             cmbx_yazici.Text = defaultPrinter;
-
-            btn_simge.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\simge.fw.png");
-            btn_tamekran.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\tamekran.fw.png");
-            btn_cikiss.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\cikis.fw.png");
-
-            GraphicsPath gp1 = new GraphicsPath();
-            gp1.AddEllipse(0, 0, btn_simge.Width - 1, btn_simge.Height - 1);
-            Region rg1 = new Region(gp1);
-            btn_simge.Region = rg1;
-
-            GraphicsPath gp2 = new GraphicsPath();
-            gp2.AddEllipse(0, 0, btn_tamekran.Width - 1, btn_tamekran.Height - 1);
-            Region rg2 = new Region(gp2);
-            btn_tamekran.Region = rg2;
-
-            GraphicsPath gp3 = new GraphicsPath();
-            gp3.AddEllipse(0, 0, btn_cikiss.Width - 1, btn_cikiss.Height - 1);
-            Region rg3 = new Region(gp3);
-            btn_cikiss.Region = rg3;
-
+          
             if (Properties.Settings.Default.dil == "İngilizce")
             {
                 temizle.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\temizleK.fw.png");
@@ -103,18 +83,6 @@ namespace Stok_Programı
             saat.BackColor = Color.White;
             tarih.BackColor = Color.White;
         }
-        private void btn_simge_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-        private void btn_tamekran_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-        }
-        private void btn_cikiss_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
         private static ManagementScope oManagementScope = null;              
         public static bool yazici_ekle(string sPrinterName)
         {
@@ -129,7 +97,6 @@ namespace Stok_Programı
                 MessageBox.Show("başarılı");
                 return true;
             }
-
             catch(Exception ex)
             {
                 return false;
@@ -1071,6 +1038,18 @@ namespace Stok_Programı
             cmbx_kodlar.Text = "";
             baslangic_tarihi.Checked = false;
             bitis_tarihi.Checked = false;
+        }
+        private void ssimge_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        private void scikis_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void stam_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
         }
     }
 }

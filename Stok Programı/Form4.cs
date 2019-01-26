@@ -10,8 +10,6 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Drawing.Drawing2D;
 using System.Globalization;
-
-
 namespace Stok_Programı
 {
     public partial class Form4 : Form
@@ -27,42 +25,21 @@ namespace Stok_Programı
         {
             this.WindowState = FormWindowState.Maximized;
             timer1.Start();
-            tarih.Text = DateTime.Now.ToString();
             baglan.DataSource = Properties.Settings.Default.serverip;
             baglan.InitialCatalog = Properties.Settings.Default.veritabani;
             baglan.IntegratedSecurity = true;
             baglanti = new SqlConnection(baglan.ConnectionString);
-            btn_simge.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\simge.fw.png");
-            btn_tamekran.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\tamekran.fw.png");
-            btn_cikiss.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\cikis.fw.png");
             il_listele();
             tarih.Text = DateTime.Today.ToLongDateString();
 
-            GraphicsPath gp1 = new GraphicsPath();
-            gp1.AddEllipse(0, 0, btn_simge.Width - 1, btn_simge.Height - 1);
-            Region rg1 = new Region(gp1);
-            btn_simge.Region = rg1;
-
-            GraphicsPath gp2 = new GraphicsPath();
-            gp2.AddEllipse(0, 0, btn_tamekran.Width - 1, btn_tamekran.Height - 1);
-            Region rg2 = new Region(gp2);
-            btn_tamekran.Region = rg2;
-
-            GraphicsPath gp3 = new GraphicsPath();
-            gp3.AddEllipse(0, 0, btn_cikiss.Width - 1, btn_cikiss.Height - 1);
-            Region rg3 = new Region(gp3);
-            btn_cikiss.Region = rg3;
-
             if (Properties.Settings.Default.dil == "İngilizce")
             {
-               // Localization.Culture = new CultureInfo("en-US");
                 System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
                 btn_temizle.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\temizleK.fw.png");
                 btn_kaydet.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\kaydetK.fw.png");
             }
             else if (Properties.Settings.Default.dil == "Türkçe")
             {
-               // Localization.Culture = new CultureInfo("");
                 System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
                 btn_temizle.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\temizle.fw.png");
                 btn_kaydet.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\kaydet.fw.png");
@@ -147,18 +124,6 @@ namespace Stok_Programı
                 cmbx_ilce.DataSource = dt;
             }
         }
-        private void btn_simge_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-        private void btn_tamekran_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-        }
-        private void btn_cikiss_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
         private void excelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SqlConnection baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
@@ -203,6 +168,18 @@ namespace Stok_Programı
             lbl_ilce.Text = Localization.ilce;
             lbl_adres.Text = Localization.adres;
             lbl_kayit_tarihi.Text = Localization.lbl_kayit;
+        }
+        private void simge_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        private void tamekran_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+        private void cikis_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

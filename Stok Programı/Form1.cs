@@ -71,27 +71,8 @@ namespace Stok_Programı
             btn_7.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\b7.fw.png");
             btn_8.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\b8.fw.png");
             btn_9.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\b9.fw.png");
-            btn_simge.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\simge.fw.png");
-            btn_tamekran.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\tamekran.fw.png");
-            btn_cikiss.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\cikis.fw.png");
             pctrbx_logo.Image = Image.FromFile(Application.StartupPath + "\\image\\logo.jpeg");
-
             lbl_versiyon.Text = "Versiyon " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
-            GraphicsPath gp1 = new GraphicsPath();
-            gp1.AddEllipse(0, 0, btn_simge.Width - 1, btn_simge.Height - 1);
-            Region rg1 = new Region(gp1);
-            btn_simge.Region = rg1; 
-
-            GraphicsPath gp2 = new GraphicsPath();
-            gp2.AddEllipse(0, 0, btn_tamekran.Width - 1, btn_tamekran.Height - 1);
-            Region rg2 = new Region(gp2);
-            btn_tamekran.Region = rg2;
-
-            GraphicsPath gp3 = new GraphicsPath();
-            gp3.AddEllipse(0, 0, btn_cikiss.Width - 1, btn_cikiss.Height - 1);
-            Region rg3 = new Region(gp3);
-            btn_cikiss.Region = rg3;
 
             if (Properties.Settings.Default.dil == "İngilizce")
             {
@@ -116,10 +97,6 @@ namespace Stok_Programı
             tableLayoutPanel4.BackColor = Properties.Settings.Default.tema;
             panel1.Location = new Point(this.ClientSize.Width / 2 - panel1.ClientSize.Width / 2, this.ClientSize.Height / 2 - panel1.ClientSize.Height / 2);
             panel1.Anchor = AnchorStyles.None;
-        }
-        private void btn_kapat_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
         }
         private void yardımToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -169,19 +146,6 @@ namespace Stok_Programı
         {
             txt_kullanici_sifre.Text = "";
         }
-        private void btn_simge_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-        private void btn_tamekran_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-        }
-        private void btn_cikiss_Click(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.Save();
-            Application.Exit();
-        }
         private void metin()
         {
             lbl_kullanici_adi.Text = Localization.lbl_kullanici_adi;
@@ -189,73 +153,7 @@ namespace Stok_Programı
             lbl_kullanicigiris.Text = Localization.lbl_kullanicigiris;
             lbl_sifre.Text = Localization.lbl_sifre;
             lbl_destek.Text = Localization.lbl_destek;
-        }
-        private GraphicsPath RoundedRectangle(RectangleF rect, float xradius, float yradius,bool round_ul, bool round_ur, bool round_lr, bool round_ll)
-        {
-            PointF point1, point2;
-            GraphicsPath path = new GraphicsPath();
-            if (round_ul)
-            {
-                RectangleF corner = new RectangleF(rect.X, rect.Y, 2 * xradius, 2 * yradius);
-                path.AddArc(corner, 180, 90);
-                point1 = new PointF(rect.X, rect.Y);
-            }
-            else
-                point1 = new PointF(rect.X, rect.Y);
-
-            if (round_ur)
-                point2 = new PointF(rect.Right - xradius, rect.Y);
-            else
-                point2 = new PointF(rect.Right,rect.Y);
-            path.AddLine(point1, point2);
-
-            if (round_ur)
-            {
-                RectangleF corner = new RectangleF(rect.Right - 2 * xradius, rect.Y, 2 * xradius, 2 * yradius);
-                path.AddArc(corner, 270, 90);
-                point1 = new PointF(rect.Right, rect.Y + yradius);
-            }
-            else
-                point1 = new PointF(rect.Right,rect.Y);
-            if (round_lr)
-                point2 = new PointF(rect.Right, rect.Bottom - yradius);
-            else
-                point2 = new PointF(rect.Right, rect.Bottom);
-            path.AddLine(point1, point2);
-
-            if (round_lr)
-            {
-                RectangleF corner = new RectangleF(rect.Right - 2 * xradius, rect.Bottom - 2 * yradius, 2 * xradius, 2 * yradius);
-                path.AddArc(corner, 0, 90);
-                point1 = new PointF(rect.Right - xradius, rect.Bottom);
-            }
-            else
-                point1 = new PointF(rect.Right, rect.Bottom);
-
-            if (round_ll)
-                point2 = new PointF(rect.X + xradius, rect.Bottom);
-            else
-                point2 = new PointF(rect.X,rect.Bottom);
-            path.AddLine(point1, point2);
-
-            if (round_ll)
-            {
-                RectangleF corner = new RectangleF(rect.X, rect.Bottom - 2 * yradius, 2 * xradius, 2 * yradius);
-                path.AddArc(corner, 90, 90);
-                point1 = new PointF(rect.X, rect.Bottom - yradius);
-            }
-            else
-                point1 = new PointF(rect.X,rect.Bottom);
-
-            if (round_ul)
-                point2 = new PointF(rect.X, rect.Y + yradius);
-            else
-                point2 = new PointF(rect.X, rect.Y);
-            path.AddLine(point1,point2);
-
-            path.CloseFigure();
-            return path;
-        }     
+        }   
         private void timer1_Tick(object sender, EventArgs e)
         {
             lbl_destek.Text = DateTime.Now.ToString();
@@ -272,6 +170,27 @@ namespace Stok_Programı
                 Form2 form2 = new Form2();
                 form2.Show();
             }
+        }
+
+        private void simge_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void tamekran_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void cikis_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btn_kapat_Click(object sender, EventArgs e)
+        {
+            txt_kullanici_isim.Text = "";
+            txt_kullanici_sifre.Text = "";
         }
     }
 }

@@ -27,12 +27,9 @@ namespace Stok_Programı
 
         private void Form7_Load(object sender, EventArgs e)
         {
-            dateTimePicker1.Text = DateTime.Now.ToString();
-
             this.BackColor = Properties.Settings.Default.tema;
             this.WindowState = FormWindowState.Maximized;
             timer1.Start();
-            tarih.Text = DateTime.Now.ToString();
             baglan.DataSource = Properties.Settings.Default.serverip;
             baglan.InitialCatalog = Properties.Settings.Default.veritabani;
             baglan.IntegratedSecurity = true;
@@ -40,35 +37,15 @@ namespace Stok_Programı
            // baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
             firma_listele();
             pctrbx_resim.Image = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\barkod.png");
-            btn_simge.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\simge.fw.png");
-            btn_tamekran.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\tamekran.fw.png");
-            btn_cikiss.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\cikis.fw.png");
 
-            GraphicsPath gp1 = new GraphicsPath();
-            gp1.AddEllipse(0, 0, btn_simge.Width - 1, btn_simge.Height - 1);
-            Region rg1 = new Region(gp1);
-            btn_simge.Region = rg1;
-
-            GraphicsPath gp2 = new GraphicsPath();
-            gp2.AddEllipse(0, 0, btn_tamekran.Width - 1, btn_tamekran.Height - 1);
-            Region rg2 = new Region(gp2);
-            btn_tamekran.Region = rg2;
-
-            GraphicsPath gp3 = new GraphicsPath();
-            gp3.AddEllipse(0, 0, btn_cikiss.Width - 1, btn_cikiss.Height - 1);
-            Region rg3 = new Region(gp3);
-            btn_cikiss.Region = rg3;
-            Form9 form9 = new Form9();
             if (Properties.Settings.Default.dil == "İngilizce")
             {
-                //Localization.Culture = new CultureInfo("en-US");
                 System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
                 btn_temizle.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\temizleK.fw.png");
                 btn_kaydet.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\kaydetK.fw.png");
             }
             else if (Properties.Settings.Default.dil == "Türkçe")
             { 
-               // Localization.Culture = new CultureInfo("");
                 System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
                 btn_temizle.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\temizle.fw.png");
                 btn_kaydet.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\kaydet.fw.png");
@@ -108,7 +85,7 @@ namespace Stok_Programı
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //dateTimePicker1.Text = DateTime.Now.ToString();
+            dateTimePicker1.Text = DateTime.Now.ToString();
             tarih.Text = DateTime.Today.ToLongDateString();
             saat.Text = DateTime.Now.ToLongTimeString();
             timer1.Start();
@@ -140,7 +117,6 @@ namespace Stok_Programı
             {
                 Stream stream = dr.GetStream(4);
                 pctrbx_resim.Image = Image.FromStream(stream);
-              
             }
             baglanti.Close();  
         }
@@ -180,18 +156,15 @@ namespace Stok_Programı
 
                 MessageBox.Show("Kayıt Başarılı.");
             }
-
             else
                 MessageBox.Show("Kayıt Gerçekleştirilemedi.Tekrar Deneyiniz.");
         }
-
         private void anasayfaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form6 form6 = new Form6();
             form6.Show();
             this.Hide();
         }
-
         private void cmbx_firmaadi_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbx_firmaadi.SelectedIndex != -1)
@@ -204,22 +177,7 @@ namespace Stok_Programı
             Form6 form6 = new Form6();
             this.Close();
             form6.Show();
-        }
-        private void btn_simge_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void btn_tamekran_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-        }
-
-        private void btn_cikiss_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
+        } 
         private void excelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SqlConnection baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
@@ -259,6 +217,18 @@ namespace Stok_Programı
             lbl_giristarihi.Text = Localization.giris;
             lbl_adet.Text = Localization.adet;
             lbl_islemm.Text = Localization.islem;
+        }
+        private void simge_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        private void tamekran_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+        private void cikis_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

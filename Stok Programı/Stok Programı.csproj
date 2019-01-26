@@ -400,6 +400,9 @@
     <Content Include="image\urungirisK.fw.png" />
     <Content Include="image\yukle.fw.png" />
     <Content Include="image\yukleK.fw.png" />
+    <None Include="Resources\mcikis.png" />
+    <None Include="Resources\mtamekran.png" />
+    <None Include="Resources\msmge.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -418,9 +421,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

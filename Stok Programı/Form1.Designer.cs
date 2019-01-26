@@ -58,12 +58,12 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.pctrbx_logo = new System.Windows.Forms.PictureBox();
             this.lbl_kullanicigiris = new System.Windows.Forms.Label();
-            this.btn_tamekran = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btn_cikiss = new System.Windows.Forms.Button();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_simge = new System.Windows.Forms.Button();
+            this.cikis = new DevExpress.XtraEditors.SimpleButton();
+            this.tamekran = new DevExpress.XtraEditors.SimpleButton();
+            this.simge = new DevExpress.XtraEditors.SimpleButton();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -73,7 +73,7 @@
             this.tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctrbx_logo)).BeginInit();
             this.panel1.SuspendLayout();
-            this.tableLayoutPanel9.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -494,18 +494,6 @@
             this.lbl_kullanicigiris.TabIndex = 2;
             this.lbl_kullanicigiris.Text = "KULLANICI GİRİŞİ";
             // 
-            // btn_tamekran
-            // 
-            this.btn_tamekran.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_tamekran.FlatAppearance.BorderSize = 0;
-            this.btn_tamekran.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_tamekran.Location = new System.Drawing.Point(75, 9);
-            this.btn_tamekran.Name = "btn_tamekran";
-            this.btn_tamekran.Size = new System.Drawing.Size(30, 30);
-            this.btn_tamekran.TabIndex = 7;
-            this.btn_tamekran.UseVisualStyleBackColor = true;
-            this.btn_tamekran.Click += new System.EventHandler(this.btn_tamekran_Click);
-            // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -520,46 +508,55 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // btn_cikiss
+            // cikis
             // 
-            this.btn_cikiss.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btn_cikiss.FlatAppearance.BorderSize = 0;
-            this.btn_cikiss.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cikiss.Location = new System.Drawing.Point(117, 9);
-            this.btn_cikiss.Name = "btn_cikiss";
-            this.btn_cikiss.Size = new System.Drawing.Size(30, 30);
-            this.btn_cikiss.TabIndex = 8;
-            this.btn_cikiss.UseVisualStyleBackColor = true;
-            this.btn_cikiss.Click += new System.EventHandler(this.btn_cikiss_Click);
+            this.cikis.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cikis.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.cikis.ImageOptions.Image = global::Stok_Programı.Properties.Resources.mcikis;
+            this.cikis.Location = new System.Drawing.Point(98, 4);
+            this.cikis.Name = "cikis";
+            this.cikis.Size = new System.Drawing.Size(34, 34);
+            this.cikis.TabIndex = 2;
+            this.cikis.Click += new System.EventHandler(this.cikis_Click);
             // 
-            // tableLayoutPanel9
+            // tamekran
             // 
-            this.tableLayoutPanel9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel9.ColumnCount = 3;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel9.Controls.Add(this.btn_cikiss, 2, 0);
-            this.tableLayoutPanel9.Controls.Add(this.btn_simge, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.btn_tamekran, 1, 0);
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(567, 9);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 1;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(164, 49);
-            this.tableLayoutPanel9.TabIndex = 7;
+            this.tamekran.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tamekran.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.tamekran.ImageOptions.Image = global::Stok_Programı.Properties.Resources.mtamekran;
+            this.tamekran.Location = new System.Drawing.Point(52, 4);
+            this.tamekran.Name = "tamekran";
+            this.tamekran.Size = new System.Drawing.Size(34, 34);
+            this.tamekran.TabIndex = 1;
+            this.tamekran.Click += new System.EventHandler(this.tamekran_Click);
             // 
-            // btn_simge
+            // simge
             // 
-            this.btn_simge.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btn_simge.FlatAppearance.BorderSize = 0;
-            this.btn_simge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_simge.Location = new System.Drawing.Point(33, 9);
-            this.btn_simge.Name = "btn_simge";
-            this.btn_simge.Size = new System.Drawing.Size(30, 30);
-            this.btn_simge.TabIndex = 6;
-            this.btn_simge.UseVisualStyleBackColor = true;
-            this.btn_simge.Click += new System.EventHandler(this.btn_simge_Click);
+            this.simge.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.simge.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.simge.ImageOptions.Image = global::Stok_Programı.Properties.Resources.msmge;
+            this.simge.Location = new System.Drawing.Point(6, 4);
+            this.simge.Name = "simge";
+            this.simge.Size = new System.Drawing.Size(34, 34);
+            this.simge.TabIndex = 0;
+            this.simge.Click += new System.EventHandler(this.simge_Click);
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel8.ColumnCount = 3;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tableLayoutPanel8.Controls.Add(this.simge, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.cikis, 2, 0);
+            this.tableLayoutPanel8.Controls.Add(this.tamekran, 1, 0);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(591, 12);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 1;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(135, 43);
+            this.tableLayoutPanel8.TabIndex = 9;
             // 
             // Form1
             // 
@@ -571,13 +568,13 @@
             this.CancelButton = this.btn_kapat;
             this.ClientSize = new System.Drawing.Size(738, 741);
             this.ControlBox = false;
-            this.Controls.Add(this.tableLayoutPanel9);
+            this.Controls.Add(this.tableLayoutPanel8);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel6);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.KeyPreview = true;
-            this.MinimumSize = new System.Drawing.Size(341, 390);
+            this.MinimumSize = new System.Drawing.Size(350, 480);
             this.Name = "Form1";
             this.Text = "KULLANICI GİRİŞİ";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -595,7 +592,7 @@
             this.tableLayoutPanel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctrbx_logo)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -628,16 +625,16 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pctrbx_logo;
-        private System.Windows.Forms.Button btn_tamekran;
         public System.Windows.Forms.Label lbl_kullanici_adi;
         public System.Windows.Forms.Label lbl_sifre;
         public System.Windows.Forms.Label lbl_kullanicigiris;
         public System.Windows.Forms.Label lbl_destek;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button btn_cikiss;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private System.Windows.Forms.Button btn_simge;
+        private DevExpress.XtraEditors.SimpleButton cikis;
+        private DevExpress.XtraEditors.SimpleButton tamekran;
+        private DevExpress.XtraEditors.SimpleButton simge;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
     }
 }
 

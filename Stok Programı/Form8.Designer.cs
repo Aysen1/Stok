@@ -34,18 +34,11 @@
             this.cmbx_yazici = new System.Windows.Forms.ComboBox();
             this.btn_yazici_ekle = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_cikiss = new System.Windows.Forms.Button();
-            this.btn_tamekran = new System.Windows.Forms.Button();
-            this.btn_simge = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.anasayfaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.raporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.yardımToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cikisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sbtn_giris = new DevExpress.XtraEditors.SimpleButton();
-            this.sbtn_giris_duzenle = new DevExpress.XtraEditors.SimpleButton();
-            this.sbtn_satis = new DevExpress.XtraEditors.SimpleButton();
-            this.sbtn_satis_düzenle = new DevExpress.XtraEditors.SimpleButton();
             this.baslangic_tarihi = new System.Windows.Forms.DateTimePicker();
             this.cmbx_kodlar = new System.Windows.Forms.ComboBox();
             this.bitis_tarihi = new System.Windows.Forms.DateTimePicker();
@@ -53,24 +46,31 @@
             this.lbl_bitis = new System.Windows.Forms.Label();
             this.lbl_kod = new System.Windows.Forms.Label();
             this.lbl_firma = new System.Windows.Forms.Label();
-            this.S1 = new DevExpress.XtraEditors.SimpleButton();
-            this.S2 = new DevExpress.XtraEditors.SimpleButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.S3 = new DevExpress.XtraEditors.SimpleButton();
-            this.S4 = new DevExpress.XtraEditors.SimpleButton();
-            this.S6 = new DevExpress.XtraEditors.SimpleButton();
-            this.S7 = new DevExpress.XtraEditors.SimpleButton();
-            this.fatura = new DevExpress.XtraEditors.SimpleButton();
             this.cmbx_firmaadi = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.temizle = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.rapor = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tarih = new System.Windows.Forms.ToolStripStatusLabel();
             this.saat = new System.Windows.Forms.ToolStripStatusLabel();
+            this.rapor = new DevExpress.XtraEditors.SimpleButton();
+            this.S1 = new DevExpress.XtraEditors.SimpleButton();
+            this.S2 = new DevExpress.XtraEditors.SimpleButton();
+            this.sbtn_satis_düzenle = new DevExpress.XtraEditors.SimpleButton();
+            this.fatura = new DevExpress.XtraEditors.SimpleButton();
+            this.sbtn_satis = new DevExpress.XtraEditors.SimpleButton();
+            this.S3 = new DevExpress.XtraEditors.SimpleButton();
+            this.sbtn_giris_duzenle = new DevExpress.XtraEditors.SimpleButton();
+            this.S4 = new DevExpress.XtraEditors.SimpleButton();
+            this.sbtn_giris = new DevExpress.XtraEditors.SimpleButton();
+            this.S6 = new DevExpress.XtraEditors.SimpleButton();
+            this.S7 = new DevExpress.XtraEditors.SimpleButton();
+            this.stam = new DevExpress.XtraEditors.SimpleButton();
+            this.scikis = new DevExpress.XtraEditors.SimpleButton();
+            this.ssimge = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -85,7 +85,7 @@
             this.lbl_yazici.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lbl_yazici.AutoSize = true;
             this.lbl_yazici.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_yazici.Location = new System.Drawing.Point(266, 462);
+            this.lbl_yazici.Location = new System.Drawing.Point(268, 522);
             this.lbl_yazici.Name = "lbl_yazici";
             this.lbl_yazici.Size = new System.Drawing.Size(59, 13);
             this.lbl_yazici.TabIndex = 0;
@@ -95,7 +95,7 @@
             // 
             this.cmbx_yazici.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.cmbx_yazici.FormattingEnabled = true;
-            this.cmbx_yazici.Location = new System.Drawing.Point(379, 459);
+            this.cmbx_yazici.Location = new System.Drawing.Point(381, 519);
             this.cmbx_yazici.Name = "cmbx_yazici";
             this.cmbx_yazici.Size = new System.Drawing.Size(173, 21);
             this.cmbx_yazici.TabIndex = 1;
@@ -106,7 +106,7 @@
             this.btn_yazici_ekle.FlatAppearance.BorderSize = 0;
             this.btn_yazici_ekle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_yazici_ekle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_yazici_ekle.Location = new System.Drawing.Point(563, 459);
+            this.btn_yazici_ekle.Location = new System.Drawing.Point(565, 519);
             this.btn_yazici_ekle.Name = "btn_yazici_ekle";
             this.btn_yazici_ekle.Size = new System.Drawing.Size(92, 23);
             this.btn_yazici_ekle.TabIndex = 2;
@@ -121,51 +121,16 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
-            this.tableLayoutPanel1.Controls.Add(this.btn_cikiss, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btn_tamekran, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btn_simge, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(685, 27);
+            this.tableLayoutPanel1.Controls.Add(this.stam, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.scikis, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.ssimge, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(689, 27);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(145, 43);
             this.tableLayoutPanel1.TabIndex = 3;
-            // 
-            // btn_cikiss
-            // 
-            this.btn_cikiss.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_cikiss.FlatAppearance.BorderSize = 0;
-            this.btn_cikiss.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cikiss.Location = new System.Drawing.Point(103, 6);
-            this.btn_cikiss.Name = "btn_cikiss";
-            this.btn_cikiss.Size = new System.Drawing.Size(30, 30);
-            this.btn_cikiss.TabIndex = 6;
-            this.btn_cikiss.UseVisualStyleBackColor = true;
-            this.btn_cikiss.Click += new System.EventHandler(this.btn_cikiss_Click);
-            // 
-            // btn_tamekran
-            // 
-            this.btn_tamekran.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_tamekran.FlatAppearance.BorderSize = 0;
-            this.btn_tamekran.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_tamekran.Location = new System.Drawing.Point(54, 6);
-            this.btn_tamekran.Name = "btn_tamekran";
-            this.btn_tamekran.Size = new System.Drawing.Size(30, 30);
-            this.btn_tamekran.TabIndex = 5;
-            this.btn_tamekran.UseVisualStyleBackColor = true;
-            this.btn_tamekran.Click += new System.EventHandler(this.btn_tamekran_Click);
-            // 
-            // btn_simge
-            // 
-            this.btn_simge.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_simge.FlatAppearance.BorderSize = 0;
-            this.btn_simge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_simge.Location = new System.Drawing.Point(8, 6);
-            this.btn_simge.Name = "btn_simge";
-            this.btn_simge.Size = new System.Drawing.Size(30, 30);
-            this.btn_simge.TabIndex = 4;
-            this.btn_simge.UseVisualStyleBackColor = true;
-            this.btn_simge.Click += new System.EventHandler(this.btn_simge_Click);
             // 
             // menuStrip1
             // 
@@ -177,7 +142,7 @@
             this.cikisToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(842, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(846, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -208,50 +173,6 @@
             this.cikisToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.cikisToolStripMenuItem.Text = "Çıkış";
             this.cikisToolStripMenuItem.Click += new System.EventHandler(this.cikisToolStripMenuItem_Click);
-            // 
-            // sbtn_giris
-            // 
-            this.sbtn_giris.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.sbtn_giris.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_giris.ImageOptions.Image")));
-            this.sbtn_giris.Location = new System.Drawing.Point(122, 107);
-            this.sbtn_giris.Name = "sbtn_giris";
-            this.sbtn_giris.Size = new System.Drawing.Size(88, 46);
-            this.sbtn_giris.TabIndex = 6;
-            this.sbtn_giris.Text = "Giriş Fişi";
-            this.sbtn_giris.Click += new System.EventHandler(this.sbtn_giris_Click);
-            // 
-            // sbtn_giris_duzenle
-            // 
-            this.sbtn_giris_duzenle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.sbtn_giris_duzenle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_giris_duzenle.ImageOptions.Image")));
-            this.sbtn_giris_duzenle.Location = new System.Drawing.Point(12, 160);
-            this.sbtn_giris_duzenle.Name = "sbtn_giris_duzenle";
-            this.sbtn_giris_duzenle.Size = new System.Drawing.Size(88, 46);
-            this.sbtn_giris_duzenle.TabIndex = 7;
-            this.sbtn_giris_duzenle.Text = "GDüzenle";
-            this.sbtn_giris_duzenle.Click += new System.EventHandler(this.sbtn_giris_duzenle_Click);
-            // 
-            // sbtn_satis
-            // 
-            this.sbtn_satis.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.sbtn_satis.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_satis.ImageOptions.Image")));
-            this.sbtn_satis.Location = new System.Drawing.Point(232, 107);
-            this.sbtn_satis.Name = "sbtn_satis";
-            this.sbtn_satis.Size = new System.Drawing.Size(88, 46);
-            this.sbtn_satis.TabIndex = 8;
-            this.sbtn_satis.Text = "Satış Fişi";
-            this.sbtn_satis.Click += new System.EventHandler(this.sbtn_satis_Click);
-            // 
-            // sbtn_satis_düzenle
-            // 
-            this.sbtn_satis_düzenle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.sbtn_satis_düzenle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_satis_düzenle.ImageOptions.Image")));
-            this.sbtn_satis_düzenle.Location = new System.Drawing.Point(122, 160);
-            this.sbtn_satis_düzenle.Name = "sbtn_satis_düzenle";
-            this.sbtn_satis_düzenle.Size = new System.Drawing.Size(88, 46);
-            this.sbtn_satis_düzenle.TabIndex = 9;
-            this.sbtn_satis_düzenle.Text = "SDüzenle";
-            this.sbtn_satis_düzenle.Click += new System.EventHandler(this.sbtn_satis_düzenle_Click);
             // 
             // baslangic_tarihi
             // 
@@ -333,86 +254,9 @@
             this.lbl_firma.TabIndex = 16;
             this.lbl_firma.Text = "Firma Adı:";
             // 
-            // S1
-            // 
-            this.S1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.S1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S1.ImageOptions.Image")));
-            this.S1.Location = new System.Drawing.Point(12, 3);
-            this.S1.Name = "S1";
-            this.S1.Size = new System.Drawing.Size(88, 46);
-            this.S1.TabIndex = 18;
-            this.S1.Text = "1";
-            this.S1.Click += new System.EventHandler(this.S1_Click);
-            // 
-            // S2
-            // 
-            this.S2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.S2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S2.ImageOptions.Image")));
-            this.S2.Location = new System.Drawing.Point(122, 3);
-            this.S2.Name = "S2";
-            this.S2.Size = new System.Drawing.Size(88, 46);
-            this.S2.TabIndex = 19;
-            this.S2.Text = "2";
-            this.S2.Click += new System.EventHandler(this.S2_Click);
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // S3
-            // 
-            this.S3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.S3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S3.ImageOptions.Image")));
-            this.S3.Location = new System.Drawing.Point(232, 3);
-            this.S3.Name = "S3";
-            this.S3.Size = new System.Drawing.Size(88, 46);
-            this.S3.TabIndex = 20;
-            this.S3.Text = "3";
-            this.S3.Click += new System.EventHandler(this.S3_Click);
-            // 
-            // S4
-            // 
-            this.S4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.S4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S4.ImageOptions.Image")));
-            this.S4.Location = new System.Drawing.Point(12, 55);
-            this.S4.Name = "S4";
-            this.S4.Size = new System.Drawing.Size(88, 46);
-            this.S4.TabIndex = 21;
-            this.S4.Text = "4";
-            this.S4.Click += new System.EventHandler(this.S4_Click);
-            // 
-            // S6
-            // 
-            this.S6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.S6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S6.ImageOptions.Image")));
-            this.S6.Location = new System.Drawing.Point(122, 55);
-            this.S6.Name = "S6";
-            this.S6.Size = new System.Drawing.Size(88, 46);
-            this.S6.TabIndex = 23;
-            this.S6.Text = "6";
-            this.S6.Click += new System.EventHandler(this.S6_Click);
-            // 
-            // S7
-            // 
-            this.S7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.S7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S7.ImageOptions.Image")));
-            this.S7.Location = new System.Drawing.Point(232, 55);
-            this.S7.Name = "S7";
-            this.S7.Size = new System.Drawing.Size(88, 46);
-            this.S7.TabIndex = 24;
-            this.S7.Text = "7";
-            this.S7.Click += new System.EventHandler(this.S7_Click);
-            // 
-            // fatura
-            // 
-            this.fatura.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fatura.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("fatura.ImageOptions.Image")));
-            this.fatura.Location = new System.Drawing.Point(12, 107);
-            this.fatura.Name = "fatura";
-            this.fatura.Size = new System.Drawing.Size(88, 46);
-            this.fatura.TabIndex = 26;
-            this.fatura.Text = "fatura";
-            this.fatura.Click += new System.EventHandler(this.fatura_Click);
             // 
             // cmbx_firmaadi
             // 
@@ -499,22 +343,11 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(332, 210);
             this.tableLayoutPanel3.TabIndex = 30;
             // 
-            // rapor
-            // 
-            this.rapor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rapor.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("rapor.ImageOptions.Image")));
-            this.rapor.Location = new System.Drawing.Point(232, 160);
-            this.rapor.Name = "rapor";
-            this.rapor.Size = new System.Drawing.Size(88, 46);
-            this.rapor.TabIndex = 27;
-            this.rapor.Text = "RAPOR";
-            this.rapor.Click += new System.EventHandler(this.rapor_Click);
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tableLayoutPanel3);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox2.Location = new System.Drawing.Point(484, 208);
+            this.groupBox2.Location = new System.Drawing.Point(439, 233);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(346, 232);
             this.groupBox2.TabIndex = 31;
@@ -527,9 +360,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tarih,
             this.saat});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 490);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 550);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(842, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(846, 22);
             this.statusStrip1.TabIndex = 32;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -547,11 +380,176 @@
             this.saat.Size = new System.Drawing.Size(29, 17);
             this.saat.Text = "saat";
             // 
+            // rapor
+            // 
+            this.rapor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rapor.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("rapor.ImageOptions.Image")));
+            this.rapor.Location = new System.Drawing.Point(232, 160);
+            this.rapor.Name = "rapor";
+            this.rapor.Size = new System.Drawing.Size(88, 46);
+            this.rapor.TabIndex = 27;
+            this.rapor.Text = "RAPOR";
+            this.rapor.Click += new System.EventHandler(this.rapor_Click);
+            // 
+            // S1
+            // 
+            this.S1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.S1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S1.ImageOptions.Image")));
+            this.S1.Location = new System.Drawing.Point(12, 3);
+            this.S1.Name = "S1";
+            this.S1.Size = new System.Drawing.Size(88, 46);
+            this.S1.TabIndex = 18;
+            this.S1.Text = "1";
+            this.S1.Click += new System.EventHandler(this.S1_Click);
+            // 
+            // S2
+            // 
+            this.S2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.S2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S2.ImageOptions.Image")));
+            this.S2.Location = new System.Drawing.Point(122, 3);
+            this.S2.Name = "S2";
+            this.S2.Size = new System.Drawing.Size(88, 46);
+            this.S2.TabIndex = 19;
+            this.S2.Text = "2";
+            this.S2.Click += new System.EventHandler(this.S2_Click);
+            // 
+            // sbtn_satis_düzenle
+            // 
+            this.sbtn_satis_düzenle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sbtn_satis_düzenle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_satis_düzenle.ImageOptions.Image")));
+            this.sbtn_satis_düzenle.Location = new System.Drawing.Point(122, 160);
+            this.sbtn_satis_düzenle.Name = "sbtn_satis_düzenle";
+            this.sbtn_satis_düzenle.Size = new System.Drawing.Size(88, 46);
+            this.sbtn_satis_düzenle.TabIndex = 9;
+            this.sbtn_satis_düzenle.Text = "SDüzenle";
+            this.sbtn_satis_düzenle.Click += new System.EventHandler(this.sbtn_satis_düzenle_Click);
+            // 
+            // fatura
+            // 
+            this.fatura.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fatura.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("fatura.ImageOptions.Image")));
+            this.fatura.Location = new System.Drawing.Point(12, 107);
+            this.fatura.Name = "fatura";
+            this.fatura.Size = new System.Drawing.Size(88, 46);
+            this.fatura.TabIndex = 26;
+            this.fatura.Text = "fatura";
+            this.fatura.Click += new System.EventHandler(this.fatura_Click);
+            // 
+            // sbtn_satis
+            // 
+            this.sbtn_satis.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sbtn_satis.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_satis.ImageOptions.Image")));
+            this.sbtn_satis.Location = new System.Drawing.Point(232, 107);
+            this.sbtn_satis.Name = "sbtn_satis";
+            this.sbtn_satis.Size = new System.Drawing.Size(88, 46);
+            this.sbtn_satis.TabIndex = 8;
+            this.sbtn_satis.Text = "Satış Fişi";
+            this.sbtn_satis.Click += new System.EventHandler(this.sbtn_satis_Click);
+            // 
+            // S3
+            // 
+            this.S3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.S3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S3.ImageOptions.Image")));
+            this.S3.Location = new System.Drawing.Point(232, 3);
+            this.S3.Name = "S3";
+            this.S3.Size = new System.Drawing.Size(88, 46);
+            this.S3.TabIndex = 20;
+            this.S3.Text = "3";
+            this.S3.Click += new System.EventHandler(this.S3_Click);
+            // 
+            // sbtn_giris_duzenle
+            // 
+            this.sbtn_giris_duzenle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sbtn_giris_duzenle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_giris_duzenle.ImageOptions.Image")));
+            this.sbtn_giris_duzenle.Location = new System.Drawing.Point(12, 160);
+            this.sbtn_giris_duzenle.Name = "sbtn_giris_duzenle";
+            this.sbtn_giris_duzenle.Size = new System.Drawing.Size(88, 46);
+            this.sbtn_giris_duzenle.TabIndex = 7;
+            this.sbtn_giris_duzenle.Text = "GDüzenle";
+            this.sbtn_giris_duzenle.Click += new System.EventHandler(this.sbtn_giris_duzenle_Click);
+            // 
+            // S4
+            // 
+            this.S4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.S4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S4.ImageOptions.Image")));
+            this.S4.Location = new System.Drawing.Point(12, 55);
+            this.S4.Name = "S4";
+            this.S4.Size = new System.Drawing.Size(88, 46);
+            this.S4.TabIndex = 21;
+            this.S4.Text = "4";
+            this.S4.Click += new System.EventHandler(this.S4_Click);
+            // 
+            // sbtn_giris
+            // 
+            this.sbtn_giris.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sbtn_giris.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_giris.ImageOptions.Image")));
+            this.sbtn_giris.Location = new System.Drawing.Point(122, 107);
+            this.sbtn_giris.Name = "sbtn_giris";
+            this.sbtn_giris.Size = new System.Drawing.Size(88, 46);
+            this.sbtn_giris.TabIndex = 6;
+            this.sbtn_giris.Text = "Giriş Fişi";
+            this.sbtn_giris.Click += new System.EventHandler(this.sbtn_giris_Click);
+            // 
+            // S6
+            // 
+            this.S6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.S6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S6.ImageOptions.Image")));
+            this.S6.Location = new System.Drawing.Point(122, 55);
+            this.S6.Name = "S6";
+            this.S6.Size = new System.Drawing.Size(88, 46);
+            this.S6.TabIndex = 23;
+            this.S6.Text = "6";
+            this.S6.Click += new System.EventHandler(this.S6_Click);
+            // 
+            // S7
+            // 
+            this.S7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.S7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("S7.ImageOptions.Image")));
+            this.S7.Location = new System.Drawing.Point(232, 55);
+            this.S7.Name = "S7";
+            this.S7.Size = new System.Drawing.Size(88, 46);
+            this.S7.TabIndex = 24;
+            this.S7.Text = "7";
+            this.S7.Click += new System.EventHandler(this.S7_Click);
+            // 
+            // stam
+            // 
+            this.stam.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.stam.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.stam.ImageOptions.Image = global::Stok_Programı.Properties.Resources.mtamekran;
+            this.stam.Location = new System.Drawing.Point(52, 4);
+            this.stam.Name = "stam";
+            this.stam.Size = new System.Drawing.Size(34, 34);
+            this.stam.TabIndex = 34;
+            this.stam.Click += new System.EventHandler(this.stam_Click);
+            // 
+            // scikis
+            // 
+            this.scikis.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.scikis.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.scikis.ImageOptions.Image = global::Stok_Programı.Properties.Resources.mcikis;
+            this.scikis.Location = new System.Drawing.Point(101, 4);
+            this.scikis.Name = "scikis";
+            this.scikis.Size = new System.Drawing.Size(34, 34);
+            this.scikis.TabIndex = 33;
+            this.scikis.Click += new System.EventHandler(this.scikis_Click);
+            // 
+            // ssimge
+            // 
+            this.ssimge.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ssimge.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.ssimge.ImageOptions.Image = global::Stok_Programı.Properties.Resources.msmge;
+            this.ssimge.Location = new System.Drawing.Point(6, 4);
+            this.ssimge.Name = "ssimge";
+            this.ssimge.Size = new System.Drawing.Size(34, 34);
+            this.ssimge.TabIndex = 34;
+            this.ssimge.Click += new System.EventHandler(this.ssimge_Click);
+            // 
             // Form8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 512);
+            this.ClientSize = new System.Drawing.Size(846, 572);
             this.ControlBox = false;
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox2);
@@ -562,6 +560,7 @@
             this.Controls.Add(this.lbl_yazici);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(862, 466);
             this.Name = "Form8";
             this.Text = "ARAÇLAR";
             this.Load += new System.EventHandler(this.Form8_Load);
@@ -586,9 +585,6 @@
         private System.Windows.Forms.ComboBox cmbx_yazici;
         private System.Windows.Forms.Button btn_yazici_ekle;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button btn_cikiss;
-        private System.Windows.Forms.Button btn_tamekran;
-        private System.Windows.Forms.Button btn_simge;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem anasayfaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem yardımToolStripMenuItem;
@@ -623,5 +619,8 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tarih;
         private System.Windows.Forms.ToolStripStatusLabel saat;
+        private DevExpress.XtraEditors.SimpleButton scikis;
+        private DevExpress.XtraEditors.SimpleButton ssimge;
+        private DevExpress.XtraEditors.SimpleButton stam;
     }
 }

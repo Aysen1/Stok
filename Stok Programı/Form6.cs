@@ -28,32 +28,11 @@ namespace Stok_Programı
             Properties.Settings.Default.Save();
             this.WindowState = FormWindowState.Maximized;
             timer1.Start();
-            tarih.Text = DateTime.Now.ToString();
             pctrbx_logo.Image = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\logo.jpeg");
-            btn_simge.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\simge.fw.png");
-            btn_tamekran.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\tamekran.fw.png");
-            btn_cikiss.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\cikis.fw.png");
-            menuStrip1.Visible = false;
-
-            GraphicsPath gp1 = new GraphicsPath();
-            gp1.AddEllipse(0, 0, btn_simge.Width - 1, btn_simge.Height - 1);
-            Region rg1 = new Region(gp1);
-            btn_simge.Region = rg1;
-
-            GraphicsPath gp2 = new GraphicsPath();
-            gp2.AddEllipse(0, 0, btn_tamekran.Width - 1, btn_tamekran.Height - 1);
-            Region rg2 = new Region(gp2);
-            btn_tamekran.Region = rg2;
-
-            GraphicsPath gp3 = new GraphicsPath();
-            gp3.AddEllipse(0, 0, btn_cikiss.Width - 1, btn_cikiss.Height - 1);
-            Region rg3 = new Region(gp3);
-            btn_cikiss.Region = rg3;
 
             tarih.Text = DateTime.Today.ToLongDateString();
             if (Properties.Settings.Default.dil == "İngilizce")
             {
-                //Localization.Culture = new CultureInfo("en-US");
                 System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
                 btn_giris.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\urungirisK.fw.png");
                 btn_cikis.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\uruncikisK.fw.png");
@@ -65,7 +44,6 @@ namespace Stok_Programı
             }
             else if (Properties.Settings.Default.dil == "Türkçe")
             {
-                //Localization.Culture = new CultureInfo("");
                 System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
                 btn_giris.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\urungiris.fw.png");
                 btn_cikis.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\uruncikis.fw.png");
@@ -95,8 +73,7 @@ namespace Stok_Programı
         {
             Form7 form7 = new Form7();
             form7.Show();
-            this.Hide();
-           
+            this.Hide();       
         }
         private void btn_cikis_Click(object sender, EventArgs e)
         {
@@ -160,20 +137,6 @@ namespace Stok_Programı
             baglanti.Close();
             xl.Visible = true;
         }
-        private void btn_simge_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-        private void btn_tamekran_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-        }
-        private void btn_cikiss_Click(object sender, EventArgs e)
-        {
-            Form form1 = new Form1();
-            form1.Show();
-            this.Dispose();
-        }
         private void btn_ayarlar_Click(object sender, EventArgs e)
         {
             Form9 form9 = new Form9();
@@ -183,6 +146,21 @@ namespace Stok_Programı
         private void metin()
         {
             this.Text = Localization.form6; 
+        }
+        private void simge_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        private void tamekran_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+        private void cikis_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Dispose();
+            //System.Windows.Forms.Application.Exit();
         }
     }
 }
