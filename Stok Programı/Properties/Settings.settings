@@ -29,5 +29,11 @@
     <Setting Name="raporno" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="kullaniciisim" Type="System.String" Scope="User">
+      <Value Profile="(Default)">nfm</Value>
+    </Setting>
+    <Setting Name="kullanicisifre" Type="System.String" Scope="User">
+      <Value Profile="(Default)">NFM</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

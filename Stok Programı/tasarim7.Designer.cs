@@ -1144,7 +1144,6 @@
         private DevExpress.XtraReports.UI.XRTable invoiceDatesTable;
         private DevExpress.XtraReports.UI.XRTableRow invoiceDateRow;
         private DevExpress.XtraReports.UI.XRTableCell invoiceDateCaption;
-        private DevExpress.XtraReports.UI.XRTableRow invoiceDueDateRow;
         private DevExpress.XtraReports.UI.XRTableCell invoiceDueDateCaption;
         private DevExpress.XtraReports.UI.GroupFooterBand GroupFooter1;
         private DevExpress.XtraReports.UI.XRLine xrLine3;
@@ -1195,6 +1194,7 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell8;
         private DevExpress.XtraReports.UI.GroupFooterBand GroupFooter2;
         private DevExpress.XtraReports.UI.XRLine xrLine4;
+        public DevExpress.XtraReports.UI.XRTableRow invoiceDueDateRow;
 
     }
 }

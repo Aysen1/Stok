@@ -129,5 +129,29 @@ namespace Stok_Programı.Properties {
                 this["raporno"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("nfm")]
+        public string kullaniciisim {
+            get {
+                return ((string)(this["kullaniciisim"]));
+            }
+            set {
+                this["kullaniciisim"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NFM")]
+        public string kullanicisifre {
+            get {
+                return ((string)(this["kullanicisifre"]));
+            }
+            set {
+                this["kullanicisifre"] = value;
+            }
+        }
     }
 }

@@ -51,6 +51,8 @@ namespace Stok_Programı
             baglan.DataSource = Properties.Settings.Default.serverip;
             baglan.InitialCatalog = Properties.Settings.Default.veritabani;
             baglan.IntegratedSecurity = true;
+            baglan.UserID = Properties.Settings.Default.kullaniciisim;
+            baglan.Password = Properties.Settings.Default.kullanicisifre;
             baglanti = new SqlConnection(baglan.ConnectionString);
 
             txt_kullanici_isim.Text=Properties.Settings.Default.kullaniciadi;

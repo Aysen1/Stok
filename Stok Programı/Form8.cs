@@ -694,6 +694,10 @@ namespace Stok_Programı
                 Properties.Settings.Default.Save();
                 fatura5.DataAdapter = da;
                 fatura5.DataSource = ds;
+                if (ds.Tables[0].Rows.Count == 1)
+                    fatura5.invoiceDueDateRow.Visible = true;
+                else
+                    fatura5.invoiceDueDateRow.Visible = false;
                 fatura5.productName.DataBindings.Add("Text", ds, "UrunKodu");
                 fatura5.invoiceDate.Text = DateTime.Now.ToString();
                 fatura5.invoiceDueDate.DataBindings.Add("Text", ds, "CikisTarihi");
@@ -794,6 +798,10 @@ namespace Stok_Programı
                 Properties.Settings.Default.Save();
                 fatura5.DataAdapter = da;
                 fatura5.DataSource = ds;
+                if (ds.Tables[0].Rows.Count == 1)
+                    fatura5.invoiceDueDateRow.Visible = true;
+                else
+                    fatura5.invoiceDueDateRow.Visible = false;
                 fatura5.productName.DataBindings.Add("Text", ds, "UrunKodu");
                 fatura5.invoiceDate.Text = DateTime.Now.ToString();
                 fatura5.invoiceDueDate.DataBindings.Add("Text", ds, "CikisTarihi");
@@ -934,6 +942,10 @@ namespace Stok_Programı
                 fatura fatura1 = new fatura();
                 fatura1.DataAdapter = da;
                 fatura1.DataSource = ds;
+                if (ds.Tables[0].Rows.Count == 1)
+                    fatura1.invoiceduedaterow.Visible = true;
+                else
+                    fatura1.invoiceduedaterow.Visible = false;
                 fatura1.faturano.Text = Properties.Settings.Default.faturano.ToString();
                 fatura1.faturatarih.Text = DateTime.Now.ToString();
                 fatura1.satistarih.DataBindings.Add("Text", ds, "CikisTarihi");
@@ -1016,7 +1028,7 @@ namespace Stok_Programı
                 fatura1.firma.DataBindings.Add("Text", ds, "FirmaAdi");
                 fatura1.xrTable3.Visible = false;
                 fatura1.xrTable4.Visible = false;
-                fatura1.xrTableRow8.Visible = false;
+                fatura1.invoiceduedaterow.Visible = false;
                 fatura1.islembicimi.Text = "SATIŞ RAPORU";
                 fatura1.islemno.Text = "RAPOR NO#";
                 fatura1.xrTableCell23.Visible = false;
@@ -1031,7 +1043,6 @@ namespace Stok_Programı
                 fatura1.ShowPreview();
             }
         }
-
         private void temizle_Click(object sender, EventArgs e)
         {
             cmbx_firmaadi.Text = "";

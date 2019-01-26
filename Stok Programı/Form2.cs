@@ -24,8 +24,8 @@ namespace Stok_Programı
             {
                 Properties.Settings.Default.serverip = txt_serverip.Text;
                 Properties.Settings.Default.veritabani = txt_veritabani.Text;
-                Properties.Settings.Default.kullaniciadi = txt_kullaniciadi.Text;
-                Properties.Settings.Default.sifre = txt_sifre.Text;
+                Properties.Settings.Default.kullaniciisim = txt_kullaniciadi.Text;
+                Properties.Settings.Default.kullanicisifre = txt_sifre.Text;
                 Properties.Settings.Default.Save();
                 MessageBox.Show(txt_serverip.Text);
             }
@@ -37,8 +37,8 @@ namespace Stok_Programı
         {
             txt_serverip.Text = Properties.Settings.Default.serverip;
             txt_veritabani.Text = Properties.Settings.Default.veritabani;
-            txt_kullaniciadi.Text = Properties.Settings.Default.kullaniciadi;
-            txt_sifre.Text = Properties.Settings.Default.sifre;
+            txt_kullaniciadi.Text = Properties.Settings.Default.kullaniciisim;
+            txt_sifre.Text = Properties.Settings.Default.kullanicisifre;
             if(Properties.Settings.Default.dil=="İngilizce")
             {
                 Localization.Culture = new CultureInfo("en-US");

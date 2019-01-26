@@ -94,13 +94,13 @@ namespace Stok_Programı
             br.Close();
             fs.Close();
             
-            SqlCommand komut2 = new SqlCommand();
-            komut2.Connection = baglanti;
+            komut = new SqlCommand();
+            komut.Connection = baglanti;
             baglanti.Open();
-            komut2.CommandText = "insert into UrunKayit1(FirmaAdi, UrunKodu, KayitTarihi, UrunResim, ToplamAdet, Personel) values ('" + cmbbx_firma_adi.Text + "','" + txt_urun_kodu.Text + "','" + dateTimePicker1.Text + "',@image,0, @personel)";
-            komut2.Parameters.Add("@image", SqlDbType.Image, resim.Length).Value = resim;
-            komut2.Parameters.AddWithValue("@personel", Properties.Settings.Default.kullaniciadi);
-            komut2.ExecuteNonQuery();
+            komut.CommandText = "insert into UrunKayit1(FirmaAdi, UrunKodu, KayitTarihi, UrunResim, ToplamAdet, Personel) values ('" + cmbbx_firma_adi.Text + "','" + txt_urun_kodu.Text + "','" + dateTimePicker1.Text + "',@image,0, @personel)";
+            komut.Parameters.Add("@image", SqlDbType.Image, resim.Length).Value = resim;
+            komut.Parameters.AddWithValue("@personel", Properties.Settings.Default.kullaniciadi);
+            komut.ExecuteNonQuery();
             MessageBox.Show("Başarılı.");
             baglanti.Close(); 
         }
