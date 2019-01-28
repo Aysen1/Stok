@@ -376,15 +376,6 @@ namespace Stok_Programı {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fatura Şablonları.
-        /// </summary>
-        internal static string sablon {
-            get {
-                return ResourceManager.GetString("sablon", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Sorumlu:.
         /// </summary>
         internal static string sorumlu {

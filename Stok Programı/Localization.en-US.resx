@@ -249,9 +249,6 @@
   <data name="rapor" xml:space="preserve">
     <value>Report</value>
   </data>
-  <data name="sablon" xml:space="preserve">
-    <value>Invoice Templates</value>
-  </data>
   <data name="tarih1" xml:space="preserve">
     <value>From Date:</value>
   </data>

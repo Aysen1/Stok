@@ -249,9 +249,6 @@
   <data name="rapor" xml:space="preserve">
     <value>Rapor</value>
   </data>
-  <data name="sablon" xml:space="preserve">
-    <value>Fatura Şablonları</value>
-  </data>
   <data name="tarih1" xml:space="preserve">
     <value>Başlangıç Tarihi:</value>
   </data>

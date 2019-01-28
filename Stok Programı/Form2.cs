@@ -32,7 +32,6 @@ namespace Stok_Programı
             else if (txt_serverip.Text != "NFM-1\\MSSQLSERVER01" & txt_veritabani.Text != "StokTakip")
                 MessageBox.Show(txt_serverip.Text);
         }
-
         private void Form2_Load(object sender, EventArgs e)
         {
             txt_serverip.Text = Properties.Settings.Default.serverip;
