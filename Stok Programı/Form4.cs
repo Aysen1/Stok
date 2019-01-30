@@ -14,21 +14,18 @@ namespace Stok_Programı
 {
     public partial class Form4 : Form
     {
-        SqlConnection baglanti;
-        SqlConnectionStringBuilder baglan = new SqlConnectionStringBuilder();
         SqlCommand komut;
+        DatabaseConnection database;
         public Form4()
         {
             InitializeComponent();
         }
         private void Form4_Load(object sender, EventArgs e)
         {
+            database = new DatabaseConnection();
+            database.Baglanti();
             this.WindowState = FormWindowState.Maximized;
             timer1.Start();
-            baglan.DataSource = Properties.Settings.Default.serverip;
-            baglan.InitialCatalog = Properties.Settings.Default.veritabani;
-            baglan.IntegratedSecurity = true;
-            baglanti = new SqlConnection(baglan.ConnectionString);
             il_listele();
             tarih.Text = DateTime.Today.ToLongDateString();
 
@@ -62,9 +59,9 @@ namespace Stok_Programı
         }
         private void btn_kaydet_Click(object sender, EventArgs e)
         {
-            baglanti.Open();
+            database.BaglantiAc();
             komut = new SqlCommand();
-            komut.Connection = baglanti;
+            komut.Connection = database.baglanti;
             if(txt_adres.Text != " " && txt_firmaadi.Text!="" && cmbx_il.Text!="" && cmbx_ilce.Text!="" && txt_sorumlu.Text!=""  && txt_vergidaire.Text!="" && txt_vergino.Text!="" && txt_mersis.Text!="")
             {
                 if (txt_telno.Text.Length == 11)
@@ -77,8 +74,8 @@ namespace Stok_Programı
                     MessageBox.Show("Lütfen geçerli bir telefon numarası giriniz.");     
             }
             else
-                MessageBox.Show("Lütfen gerekli tüm alanları doldurun.");     
-            baglanti.Close();
+                MessageBox.Show("Lütfen gerekli tüm alanları doldurun.");
+            database.BaglantiKapat();
         }
         private void anasayfaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -104,21 +101,21 @@ namespace Stok_Programı
         }
         private void il_listele()
         {
-            baglanti.Open();
+            database.BaglantiAc();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("select * from iller ORDER BY id ASC", baglanti);
+            SqlDataAdapter da = new SqlDataAdapter("select * from iller ORDER BY id ASC", database.baglanti);
             da.Fill(dt);
             cmbx_il.ValueMember = "id";
             cmbx_il.DisplayMember = "sehir";
             cmbx_il.DataSource = dt;
-            baglanti.Close();
+            database.BaglantiKapat();
         }
         private void cmbx_il_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbx_il.SelectedIndex != -1)
             {
                 DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter("select * from ilceler where sehir=" + cmbx_il.SelectedValue, baglanti);
+                SqlDataAdapter da = new SqlDataAdapter("select * from ilceler where sehir=" + cmbx_il.SelectedValue, database.baglanti);
                 da.Fill(dt);
                 cmbx_ilce.DisplayMember = "ilce";
                 cmbx_ilce.DataSource = dt;
@@ -126,9 +123,9 @@ namespace Stok_Programı
         }
         private void excelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SqlConnection baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
-            baglanti.Open();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from FirmaKayit", baglanti);
+           // SqlConnection baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
+            database.BaglantiAc();
+            SqlDataAdapter da = new SqlDataAdapter("Select * from FirmaKayit", database.baglanti);
             DataSet ds = new DataSet();
             da.Fill(ds);
             string data = null;
@@ -148,7 +145,7 @@ namespace Stok_Programı
                     ws.Cells[i, j - 1].ColumnWidth = 20;
                 }
             }
-            baglanti.Close();
+            database.BaglantiKapat();
             xl.Visible = true;
         }
         private void metin()

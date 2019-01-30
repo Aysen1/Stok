@@ -88,6 +88,15 @@ namespace Stok_Programı {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BAĞLAN.
+        /// </summary>
+        internal static string baglan {
+            get {
+                return ResourceManager.GetString("baglan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bilgi Fişi.
         /// </summary>
         internal static string bilgifisi {
@@ -120,6 +129,15 @@ namespace Stok_Programı {
         internal static string excel_dokumani {
             get {
                 return ResourceManager.GetString("excel_dokumani", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FATURA.
+        /// </summary>
+        internal static string fatura {
+            get {
+                return ResourceManager.GetString("fatura", resourceCulture);
             }
         }
         
@@ -264,6 +282,24 @@ namespace Stok_Programı {
         internal static string islem {
             get {
                 return ResourceManager.GetString("islem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to KAYDET.
+        /// </summary>
+        internal static string kaydet {
+            get {
+                return ResourceManager.GetString("kaydet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BAĞLANTIYI SINA.
+        /// </summary>
+        internal static string kontrol {
+            get {
+                return ResourceManager.GetString("kontrol", resourceCulture);
             }
         }
         
@@ -453,15 +489,6 @@ namespace Stok_Programı {
         internal static string veritabani {
             get {
                 return ResourceManager.GetString("veritabani", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Yazıcı Ekle.
-        /// </summary>
-        internal static string y_ekle {
-            get {
-                return ResourceManager.GetString("y_ekle", resourceCulture);
             }
         }
         

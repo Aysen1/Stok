@@ -15,8 +15,7 @@ namespace Stok_Programı
 {
     public partial class Form3 : Form
     {
-        SqlConnection baglanti;
-        SqlConnectionStringBuilder baglan = new SqlConnectionStringBuilder();
+        DatabaseConnection database;
         SqlCommand komut;
         string resimpath;
         SqlDataReader dr;
@@ -26,13 +25,11 @@ namespace Stok_Programı
         }      
         private void Form3_Load(object sender, EventArgs e)
         {
+            database = new DatabaseConnection();
+            database.Baglanti();
             tarih.Text = DateTime.Today.ToLongDateString();
             this.WindowState = FormWindowState.Maximized;
             timer1.Start();
-            baglan.DataSource = Properties.Settings.Default.serverip;
-            baglan.InitialCatalog = Properties.Settings.Default.veritabani;
-            baglan.IntegratedSecurity = true;
-            baglanti = new SqlConnection(baglan.ConnectionString);
             firma_listele();
             pctrbx_urunresim.Image = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\barkod.png");
 
@@ -59,14 +56,14 @@ namespace Stok_Programı
         }
         private void firma_listele()
         {
-            komut = new SqlCommand("select * from FirmaKayit",baglanti);
-            baglanti.Open();
+            komut = new SqlCommand("select * from FirmaKayit",database.baglanti);
+            database.BaglantiAc();
             dr = komut.ExecuteReader();
             while (dr.Read())
             {
                 cmbbx_firma_adi.Items.Add(dr["FirmaAdi"]);
             }
-            baglanti.Close();
+            database.BaglantiKapat();
         }
         private void btn_temizle_Click(object sender, EventArgs e)
         {
@@ -82,7 +79,7 @@ namespace Stok_Programı
             }
             else
             {
-                baglanti.Close();
+                database.BaglantiKapat();
                 MessageBox.Show("Lütfen Bilgileri Tam Giriniz.");
             }     
         }
@@ -95,14 +92,14 @@ namespace Stok_Programı
             fs.Close();
             
             komut = new SqlCommand();
-            komut.Connection = baglanti;
-            baglanti.Open();
+            komut.Connection = database.baglanti;
+            database.BaglantiAc();
             komut.CommandText = "insert into UrunKayit1(FirmaAdi, UrunKodu, KayitTarihi, UrunResim, ToplamAdet, Personel) values ('" + cmbbx_firma_adi.Text + "','" + txt_urun_kodu.Text + "','" + dateTimePicker1.Text + "',@image,0, @personel)";
             komut.Parameters.Add("@image", SqlDbType.Image, resim.Length).Value = resim;
             komut.Parameters.AddWithValue("@personel", Properties.Settings.Default.kullaniciadi);
             komut.ExecuteNonQuery();
             MessageBox.Show("Başarılı.");
-            baglanti.Close(); 
+            database.BaglantiKapat();
         }
         private void btn_resim_yukle_Click(object sender, EventArgs e)
         {
@@ -142,10 +139,10 @@ namespace Stok_Programı
         }
         private void urunkod_kontrol()
         {
-            baglanti.Open();
+            database.BaglantiAc();
             int kontrol = 0;
             komut = new SqlCommand();
-            komut.Connection = baglanti;
+            komut.Connection = database.baglanti;
             komut.CommandText = "select * from UrunKayit1 where UrunKodu=@kod ";
             komut.Parameters.AddWithValue("@kod", txt_urun_kodu.Text);
             dr = komut.ExecuteReader();
@@ -156,7 +153,7 @@ namespace Stok_Programı
                     kontrol++;
                 }
             }
-            baglanti.Close(); 
+            database.BaglantiKapat(); 
             if (kontrol == 0)
                 urun_kayit();
             else

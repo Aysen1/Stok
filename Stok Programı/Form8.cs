@@ -14,6 +14,9 @@ using System.Globalization;
 using DevExpress.XtraReports.UI;
 using System.Data.SqlClient;
 using System.IO;
+using DevExpress.LookAndFeel;
+using DevExpress.XtraReports.UserDesigner;
+using DevExpress.XtraExport;
 namespace Stok_Programı
 {
     public partial class Form8 : Form
@@ -25,16 +28,12 @@ namespace Stok_Programı
         DataSet ds;
         SqlDataAdapter da;
         SqlCommand komut;
-        SqlConnection baglanti;
-        SqlConnectionStringBuilder baglan = new SqlConnectionStringBuilder();
+        DatabaseConnection database;
         private void Form8_Load(object sender, EventArgs e)
         {
             timer1.Start();
-            baglan.DataSource = Properties.Settings.Default.serverip;
-            baglan.InitialCatalog = Properties.Settings.Default.veritabani;
-            baglan.IntegratedSecurity = true;
-            baglanti = new SqlConnection(baglan.ConnectionString);
-            //baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
+            database = new DatabaseConnection();
+            database.Baglanti();
             this.WindowState = FormWindowState.Maximized;
             this.BackColor = Properties.Settings.Default.tema;
             foreach (String yazici in PrinterSettings.InstalledPrinters)
@@ -57,21 +56,21 @@ namespace Stok_Programı
             }
             metin();
 
-            baglanti.Open();
             SqlDataReader dr;
-            SqlCommand komut = new SqlCommand("select UrunKodu from UrunKayit1", baglanti);
+            database.BaglantiAc();
+            SqlCommand komut = new SqlCommand("select UrunKodu from UrunKayit1", database.baglanti);
             dr = komut.ExecuteReader();
             while(dr.Read())
             {
                   cmbx_kodlar.Items.Add(dr["UrunKodu"]);
             }
-            baglanti.Close();
-            baglanti.Open();
-            komut = new SqlCommand("select FirmaAdi from FirmaKayit", baglanti);
+            database.BaglantiKapat();
+            database.BaglantiAc();
+            komut = new SqlCommand("select FirmaAdi from FirmaKayit", database.baglanti);
             dr = komut.ExecuteReader();
             while (dr.Read())
                 cmbx_firmaadi.Items.Add(dr["FirmaAdi"]);
-            baglanti.Close();
+            database.BaglantiKapat();
             baslangic_tarihi.Text = DateTime.Now.ToString();
             bitis_tarihi.Text = DateTime.Now.ToString();
             baslangic_tarihi.ShowCheckBox = true;
@@ -82,35 +81,6 @@ namespace Stok_Programı
             groupBox1.Anchor = AnchorStyles.None;
             saat.BackColor = Color.White;
             tarih.BackColor = Color.White;
-        }
-        private static ManagementScope oManagementScope = null;              
-        public static bool yazici_ekle(string sPrinterName)
-        {
-            try
-            {
-                oManagementScope = new ManagementScope(ManagementPath.DefaultPath);
-                oManagementScope.Connect();
-                ManagementClass oPrinterClass = new ManagementClass(new ManagementPath("Win32_Printer"), null);
-                ManagementBaseObject oInputParameters = oPrinterClass.GetMethodParameters("AddPrinterConnection");
-                oInputParameters.SetPropertyValue("Name", sPrinterName);
-                oPrinterClass.InvokeMethod("AddPrinterConnection", oInputParameters, null);
-                MessageBox.Show("başarılı");
-                return true;
-            }
-            catch(Exception ex)
-            {
-                return false;
-            }
-        }
-        private void btn_yazici_ekle_Click(object sender, EventArgs e)
-        {
-            string sPrinterName="abc";
-            yazici_ekle(sPrinterName);
-            cmbx_yazici.Items.Clear();
-            foreach (String yazici in PrinterSettings.InstalledPrinters)
-            {
-                cmbx_yazici.Items.Add(yazici);
-            }
         }
         private void cikisToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -139,7 +109,7 @@ namespace Stok_Programı
             lbl_firma.Text = Localization.lbl_firmaadi;
             lbl_kod.Text = Localization.filtrekod;
             groupBox1.Text = Localization.filtre_araclari;
-            btn_yazici_ekle.Text = Localization.y_ekle;
+            fatura_goruntule.Text = Localization.fatura;
         }
         private void raporToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -155,30 +125,30 @@ namespace Stok_Programı
         {
             if (cmbx_kodlar.Text != "" & baslangic_tarihi.Checked==false & bitis_tarihi.Checked==false)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi,Personel FROM UrunGiris1 WHERE (UrunKodu=@kod)  ORDER BY GirisTarihi", baglanti);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi,Personel FROM UrunGiris1 WHERE (UrunKodu=@kod)  ORDER BY GirisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
             }
             else if (cmbx_kodlar.Text == "" & baslangic_tarihi.Checked==true & bitis_tarihi.Checked==true)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi,Personel FROM UrunGiris1 WHERE (GirisTarihi >= @baslangic AND GirisTarihi < @bitis) ORDER BY GirisTarihi", baglanti);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi,Personel FROM UrunGiris1 WHERE (GirisTarihi >= @baslangic AND GirisTarihi < @bitis) ORDER BY GirisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
             }
             else if (cmbx_kodlar.Text != "" & baslangic_tarihi.Checked ==true  & bitis_tarihi.Checked == true)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi,Personel FROM UrunGiris1 WHERE (UrunKodu=@kod) AND (GirisTarihi >= @baslangic AND GirisTarihi < @bitis) ORDER BY GirisTarihi", baglanti);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi,Personel FROM UrunGiris1 WHERE (UrunKodu=@kod) AND (GirisTarihi >= @baslangic AND GirisTarihi < @bitis) ORDER BY GirisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
             }
             else if(cmbx_kodlar.Text=="" & baslangic_tarihi.Checked==false & bitis_tarihi.Checked==false)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi,Personel FROM UrunGiris1 ORDER BY GirisTarihi", baglanti); 
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi,Personel FROM UrunGiris1 ORDER BY GirisTarihi", database.baglanti); 
             }
             da = new SqlDataAdapter(komut);
             da.Fill(ds);
             ds.Tables[0].TableName = "bilgiler";
-            baglanti.Close();
+            database.BaglantiKapat();
 
             if (ds.Tables[0].Rows.Count == 0)
                 MessageBox.Show("Ürün Bulunmamaktadır.");
@@ -201,30 +171,30 @@ namespace Stok_Programı
         {
             if (cmbx_kodlar.Text != "" & baslangic_tarihi.Checked == true & bitis_tarihi.Checked == true)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi,Personel FROM UrunCikis WHERE (UrunKodu=@kod) AND (CikisTarihi >= @baslangic AND CikisTarihi < @bitis)  ORDER BY CikisTarihi", baglanti);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi,Personel FROM UrunCikis WHERE (UrunKodu=@kod) AND (CikisTarihi >= @baslangic AND CikisTarihi < @bitis)  ORDER BY CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
             }
             else if (cmbx_kodlar.Text == "" & baslangic_tarihi.Checked == true & bitis_tarihi.Checked == true)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi,Personel FROM UrunCikis WHERE (CikisTarihi >= @baslangic AND CikisTarihi < @bitis) ORDER BY CikisTarihi", baglanti);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi,Personel FROM UrunCikis WHERE (CikisTarihi >= @baslangic AND CikisTarihi < @bitis) ORDER BY CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
             }
             else if (cmbx_kodlar.Text != "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi,Personel FROM UrunCikis WHERE (UrunKodu=@kod) ORDER BY CikisTarihi", baglanti);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi,Personel FROM UrunCikis WHERE (UrunKodu=@kod) ORDER BY CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
             }
             else if (cmbx_kodlar.Text == "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi,Personel FROM UrunCikis ORDER BY CikisTarihi", baglanti);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi,Personel FROM UrunCikis ORDER BY CikisTarihi", database.baglanti);
             }
             da = new SqlDataAdapter(komut);
             da.Fill(ds);
             ds.Tables[0].TableName = "bilgi";
-            baglanti.Close();
+            database.BaglantiKapat();
             if (ds.Tables[0].Rows.Count == 0)
                 MessageBox.Show("Ürün Bulunmamaktadır.");
             else
@@ -250,7 +220,7 @@ namespace Stok_Programı
                 FirmaKayit.Adres,FirmaKayit.SorumluAdi,UrunCikis.BirimFiyati,UrunCikis.ToplamFiyat
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=@firma)
-                ORDER BY UrunCikis.CikisTarihi", baglanti);
+                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 tasarim1(ds);
@@ -261,13 +231,13 @@ namespace Stok_Programı
                 FirmaKayit.Adres,FirmaKayit.SorumluAdi,UrunCikis.BirimFiyati,UrunCikis.ToplamFiyat
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
-                ORDER BY UrunCikis.CikisTarihi", baglanti);
+                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 tasarim1(ds);
             }      
             else
             {
-                baglanti.Close();
+                database.BaglantiKapat();
                 MessageBox.Show("Üzgünüz işleminiz gerçekleştirilemedi. Bu fatura modelinde tarih filtrelemesi yapılmamaktadır, filtreleme yapılabilmesi için Firma Adı alanını boş bırakmamalısınız. Kontrol edip yeniden deneyiniz..",
                     "Bilgilendirme Penceresi");
             }
@@ -278,7 +248,7 @@ namespace Stok_Programı
             da.Fill(ds);
             decimal a = 0;
             ds.Tables[0].TableName = "bilgiler";
-            baglanti.Close();
+            database.BaglantiKapat();
 
             if (ds.Tables[0].Rows.Count == 0)
                 MessageBox.Show("Ürün Bulunmamaktadır.","Bilgilendirme Penceresi");
@@ -319,7 +289,7 @@ namespace Stok_Programı
                 FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,UrunCikis.BirimFiyati 
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi)
-                AND (UrunCikis.FirmaAdi=@firma)", baglanti);
+                AND (UrunCikis.FirmaAdi=@firma)", database.baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 tasarim2(ds);
@@ -330,13 +300,13 @@ namespace Stok_Programı
                 FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,UrunCikis.BirimFiyati 
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi)
-                AND (UrunCikis.FirmaAdi=@firma)", baglanti);
+                AND (UrunCikis.FirmaAdi=@firma)", database.baglanti);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 tasarim2(ds);
             }
             else
             {
-                baglanti.Close();
+                database.BaglantiKapat();
                 MessageBox.Show("Üzgünüz işleminiz gerçekleştirilemedi. Bu fatura modelinde tarihe göre filtreleme yapılmamaktadır. Filtrelemenin doğru bir şekilde yapılabilmesi için Firma Adı alanını boş bırakmayınız.",
                     "Bilgilendirme Penceresi");
             }
@@ -347,7 +317,7 @@ namespace Stok_Programı
             da.Fill(ds);
             decimal fiyat = 0;
             ds.Tables[0].TableName = "bilgiler";
-            baglanti.Close();
+            database.BaglantiKapat();
 
             if (ds.Tables[0].Rows.Count == 0)
                 MessageBox.Show("Ürün Bulunmamaktadır.");
@@ -391,7 +361,7 @@ namespace Stok_Programı
                 FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,UrunCikis.BirimFiyati 
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi)
-                AND (UrunCikis.FirmaAdi=@firma)", baglanti);
+                AND (UrunCikis.FirmaAdi=@firma)", database.baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 tasarim3(ds);
@@ -401,7 +371,7 @@ namespace Stok_Programı
                 komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,UrunCikis.UrunKodu,UrunCikis.ToplamFiyat,
                 FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,UrunCikis.BirimFiyati 
                 FROM UrunCikis,FirmaKayit 
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)", baglanti);
+                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)", database.baglanti);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 tasarim3(ds);
             }
@@ -411,7 +381,7 @@ namespace Stok_Programı
                 FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,UrunCikis.BirimFiyati 
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
-                AND (UrunCikis.CikisTarihi>@baslangic) AND (UrunCikis.CikisTarihi<@bitis)", baglanti);
+                AND (UrunCikis.CikisTarihi>@baslangic) AND (UrunCikis.CikisTarihi<@bitis)", database.baglanti);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
@@ -423,7 +393,7 @@ namespace Stok_Programı
                 FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,UrunCikis.BirimFiyati 
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
-                AND (UrunCikis.CikisTarihi>@baslangic) AND (UrunCikis.CikisTarihi<@bitis)", baglanti);
+                AND (UrunCikis.CikisTarihi>@baslangic) AND (UrunCikis.CikisTarihi<@bitis)", database.baglanti);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
@@ -432,7 +402,7 @@ namespace Stok_Programı
             }
             else
             {
-                baglanti.Close();
+                database.BaglantiKapat();
                 MessageBox.Show("Üzgünüz işleminiz gerçekleştirilemedi. Bu fatura modelinde işlem yapabilmek için Firma Adı alanı boş bırakılmamalıdır, tarihe göre filtreleme yapılmak isteniyorsa Başlangıç Tarihi ve Bitiş Tarihi alanları aynı anda işaretlenmelidir.",
     "Bilgilendirme Penceresi");
             }
@@ -443,7 +413,7 @@ namespace Stok_Programı
             da.Fill(ds);
             decimal fiyat = 0;
             ds.Tables[0].TableName = "bilgiler";
-            baglanti.Close();
+            database.BaglantiKapat();
 
             if (ds.Tables[0].Rows.Count == 0)
                 MessageBox.Show("Ürün Bulunmamaktadır.");
@@ -483,7 +453,7 @@ namespace Stok_Programı
                 FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,FirmaKayit.TelefonNo,UrunCikis.BirimFiyati 
                 FROM UrunCikis,FirmaKayit 
                 WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
-                ORDER BY UrunCikis.CikisTarihi", baglanti);
+                ORDER BY UrunCikis.CikisTarihi", database. baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 tasarim4(ds);
@@ -494,13 +464,13 @@ namespace Stok_Programı
                 FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,FirmaKayit.TelefonNo,UrunCikis.BirimFiyati 
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
-                ORDER BY UrunCikis.CikisTarihi", baglanti);
+                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 tasarim4(ds);
             }
             else
             {
-                baglanti.Close();
+                database.BaglantiKapat();
                 MessageBox.Show("Üzgünüz işleminiz gerçekleştirilemedi. Bu fatura modelinde tarihe göre filtreleme yapılmamaktadır. Filtrelemenin doğru bir şekilde yapılabilmesi için Firma Adı alanını boş bırakmayınız.",
                     "Bilgilendirme Penceresi");
             }
@@ -511,7 +481,7 @@ namespace Stok_Programı
             da.Fill(ds);
             decimal fiyat = 0;
             ds.Tables[0].TableName = "bilgiler";
-            baglanti.Close();
+            database.BaglantiKapat();
 
             if (ds.Tables[0].Rows.Count == 0)
                 MessageBox.Show("Ürün Bulunmamaktadır.");
@@ -554,7 +524,7 @@ namespace Stok_Programı
                 komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.UrunKodu,UrunCikis.CikisTarihi,UrunCikis.ToplamFiyat,
                 FirmaKayit.Adres,FirmaKayit.ilce,FirmaKayit.Sehir,UrunCikis.BirimFiyati   
                 FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)", baglanti);
+                WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)", database.baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 tasarim6(ds);
@@ -564,7 +534,7 @@ namespace Stok_Programı
                 komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.UrunKodu,UrunCikis.CikisTarihi,UrunCikis.ToplamFiyat,
                 FirmaKayit.Adres,FirmaKayit.ilce,FirmaKayit.Sehir,UrunCikis.BirimFiyati   
                 FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)", baglanti);
+                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)", database.baglanti);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 tasarim6(ds);
             }
@@ -574,7 +544,7 @@ namespace Stok_Programı
                 FirmaKayit.Adres,FirmaKayit.ilce,FirmaKayit.Sehir,UrunCikis.BirimFiyati   
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
-                AND (UrunCikis.CikisTarihi>@baslangic) AND (UrunCikis.CikisTarihi<@bitis)", baglanti);
+                AND (UrunCikis.CikisTarihi>@baslangic) AND (UrunCikis.CikisTarihi<@bitis)", database.baglanti);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
@@ -586,7 +556,7 @@ namespace Stok_Programı
                 FirmaKayit.Adres,FirmaKayit.ilce,FirmaKayit.Sehir,UrunCikis.BirimFiyati   
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
-                AND (UrunCikis.CikisTarihi>@baslangic) AND (UrunCikis.CikisTarihi<@bitis) AND (UrunCikis.UrunKodu=@kod)", baglanti);
+                AND (UrunCikis.CikisTarihi>@baslangic) AND (UrunCikis.CikisTarihi<@bitis) AND (UrunCikis.UrunKodu=@kod)", database.baglanti);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
@@ -595,7 +565,7 @@ namespace Stok_Programı
             }
             else
             {
-                baglanti.Close();
+                database.BaglantiKapat();
                 MessageBox.Show("Üzgünüz işleminiz gerçekleştirilemedi. Bu fatura modelinde işlem yapabilmek için Firma Adı alanı boş bırakılmamalıdır, tarihe göre filtreleme yapılmak isteniyorsa Başlangıç Tarihi ve Bitiş Tarihi alanları aynı anda işaretlenmelidir.",
                     "Bilgilendirme Penceresi");
             }
@@ -606,7 +576,7 @@ namespace Stok_Programı
             da.Fill(ds);
             decimal a = 0;
             ds.Tables[0].TableName = "bilgiler";
-            baglanti.Close();
+            database.BaglantiKapat();
 
             if (ds.Tables[0].Rows.Count == 0)
                 MessageBox.Show("Ürün Bulunmamaktadır.");
@@ -652,7 +622,7 @@ namespace Stok_Programı
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
                 AND (UrunCikis.CikisTarihi<@bitis)
-                ORDER BY UrunCikis.CikisTarihi", baglanti);
+                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
@@ -665,7 +635,7 @@ namespace Stok_Programı
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
                 AND (UrunCikis.CikisTarihi>@baslangic)
-                ORDER BY UrunCikis.CikisTarihi", baglanti);
+                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
@@ -678,7 +648,7 @@ namespace Stok_Programı
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
                 AND (UrunCikis.CikisTarihi>@baslangic)
-                ORDER BY UrunCikis.CikisTarihi", baglanti);
+                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 tasarim7(ds);
@@ -690,14 +660,14 @@ namespace Stok_Programı
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
                 AND (UrunCikis.CikisTarihi<@bitis)
-                ORDER BY UrunCikis.CikisTarihi", baglanti);
+                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
                 tasarim7(ds);
             }
             else
             {
-                baglanti.Close();
+                database.BaglantiKapat();
                 MessageBox.Show("Üzgünüz işleminiz gerçekleştirilemedi. Bu fatura modelinde işlem yapabilmek için Firma Adı ve tarih alanı boş bırakılmamalıdır, tarihe göre filtreleme yapılması için Başlangıç Tarihi ve Bitiş Tarihi alanları aynı anda işaretlenmemelidir.",
     "Bilgilendirme Penceresi");
             }
@@ -708,7 +678,7 @@ namespace Stok_Programı
             da.Fill(ds);
             decimal fiyat = 0;
             ds.Tables[0].TableName = "bilgiler";
-            baglanti.Close();
+            database.BaglantiKapat();
 
             if (ds.Tables[0].Rows.Count == 0)
                 MessageBox.Show("Ürün Bulunmamaktadır.");
@@ -753,7 +723,7 @@ namespace Stok_Programı
                 komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunKodu,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,FirmaKayit.Adres,FirmaKayit.Sehir,
                 FirmaKayit.ilce,FirmaKayit.TelefonNo,FirmaKayit.VergiDairesiAdi,FirmaKayit.MersisNo,UrunCikis.BirimFiyati,UrunCikis.ToplamFiyat
                 FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) ORDER BY UrunCikis.CikisTarihi", baglanti);
+                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) ORDER BY UrunCikis.CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 fatura_olustur(ds);
             }
@@ -762,7 +732,7 @@ namespace Stok_Programı
                 komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunKodu,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,FirmaKayit.Adres,FirmaKayit.Sehir,
                 FirmaKayit.ilce,FirmaKayit.TelefonNo,FirmaKayit.VergiDairesiAdi,FirmaKayit.MersisNo,UrunCikis.BirimFiyati,UrunCikis.ToplamFiyat
                 FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) AND (UrunCikis.UrunKodu=@kod) ORDER BY UrunCikis.CikisTarihi", baglanti);
+                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) AND (UrunCikis.UrunKodu=@kod) ORDER BY UrunCikis.CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 fatura_olustur(ds);
@@ -774,7 +744,7 @@ namespace Stok_Programı
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) AND (UrunCikis.UrunKodu=@kod) 
                 AND (UrunCikis.CikisTarihi>@baslangic)
-                ORDER BY UrunCikis.CikisTarihi", baglanti);
+                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
@@ -786,7 +756,7 @@ namespace Stok_Programı
                 FirmaKayit.ilce,FirmaKayit.TelefonNo,FirmaKayit.VergiDairesiAdi,FirmaKayit.MersisNo,UrunCikis.BirimFiyati,UrunCikis.ToplamFiyat
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) AND (UrunCikis.CikisTarihi>@baslangic)
-                ORDER BY UrunCikis.CikisTarihi", baglanti);
+                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 fatura_olustur(ds);
@@ -797,7 +767,7 @@ namespace Stok_Programı
                 FirmaKayit.ilce,FirmaKayit.TelefonNo,FirmaKayit.VergiDairesiAdi,FirmaKayit.MersisNo,UrunCikis.BirimFiyati,UrunCikis.ToplamFiyat
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) AND (UrunCikis.CikisTarihi<@bitis)
-                ORDER BY UrunCikis.CikisTarihi", baglanti);
+                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
                 fatura_olustur(ds);
@@ -808,7 +778,7 @@ namespace Stok_Programı
                 FirmaKayit.ilce,FirmaKayit.TelefonNo,FirmaKayit.VergiDairesiAdi,FirmaKayit.MersisNo,UrunCikis.BirimFiyati,UrunCikis.ToplamFiyat
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) AND (UrunCikis.CikisTarihi<@bitis) AND (UrunCikis.UrunKodu=@kod)
-                ORDER BY UrunCikis.CikisTarihi", baglanti);
+                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
@@ -820,7 +790,7 @@ namespace Stok_Programı
                 FirmaKayit.ilce,FirmaKayit.TelefonNo,FirmaKayit.VergiDairesiAdi,FirmaKayit.MersisNo,UrunCikis.BirimFiyati,UrunCikis.ToplamFiyat
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) AND (UrunCikis.CikisTarihi>@baslangic) AND (UrunCikis.CikisTarihi<@bitis)
-                ORDER BY UrunCikis.CikisTarihi", baglanti);
+                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
@@ -832,7 +802,7 @@ namespace Stok_Programı
                 FirmaKayit.ilce,FirmaKayit.TelefonNo,FirmaKayit.VergiDairesiAdi,FirmaKayit.MersisNo,UrunCikis.BirimFiyati,UrunCikis.ToplamFiyat
                 FROM UrunCikis,FirmaKayit
                 WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) AND (UrunCikis.UrunKodu=@kod) AND (UrunCikis.CikisTarihi>@baslangic) AND (UrunCikis.CikisTarihi<@bitis)
-                ORDER BY UrunCikis.CikisTarihi", baglanti);
+                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
                 komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
@@ -841,7 +811,7 @@ namespace Stok_Programı
             }
             else
             {
-                baglanti.Close();
+                database.BaglantiKapat();
                 MessageBox.Show("Üzgünüz işleminiz gerçekleştirilemedi. Filtreleme yapabilmeniz için Firma Adı seçimi yapmanız gerekmektedir..Gerekli alanları kontrol edip tekrar deneyiniz..", "Bilgilendirme Penceresi");
             }
         }
@@ -850,7 +820,7 @@ namespace Stok_Programı
             da = new SqlDataAdapter(komut);
             da.Fill(ds);
             ds.Tables[0].TableName = "bilgiler";
-            baglanti.Close();
+            database.BaglantiKapat();
             decimal a = 0;
             if (ds.Tables[0].Rows.Count == 0)
                 MessageBox.Show("Ürün Bulunmamaktadır.");
@@ -861,8 +831,8 @@ namespace Stok_Programı
                     a += Convert.ToDecimal(ds.Tables[0].Rows[i].ItemArray[11]);
                 }
                 Properties.Settings.Default.faturano++;
-                Properties.Settings.Default.Save();
-                fatura fatura1 = new fatura();
+                Properties.Settings.Default.Save();          
+                fatura fatura1 = new fatura(); 
                 fatura1.DataAdapter = da;
                 fatura1.DataSource = ds;
                 if (ds.Tables[0].Rows.Count == 1)
@@ -885,39 +855,43 @@ namespace Stok_Programı
                 fatura1.toplam.Text = string.Format("{0:#,##.00 ₺}", a);
                 fatura1.personel.Text = Properties.Settings.Default.kullaniciadi;
                 fatura1.DataMember = ((DataSet)fatura1.DataSource).Tables[0].TableName;
-               // fatura1.LoadLayout(Application.StartupPath + "\\faturalar\\fatura2.prnx");
-                fatura1.ShowPreview();
+              //  fatura1.LoadLayout(Application.StartupPath + "\\faturalar\\fatura.repx");
+                fatura1.ShowPreview();        
             }
+        }
+        void DesignmdiController(object sender, DesignerLoadedEventArgs e)
+        {
+            ((XRDesignPanel)sender).ExecCommand(ReportCommand.NewReportWizard);
         }
         private void rapor(DataSet ds)
         {
             if(cmbx_firmaadi.Text=="" & cmbx_kodlar.Text=="" & baslangic_tarihi.Checked==false & bitis_tarihi.Checked==false)
             {
-                komut = new SqlCommand(@"SELECT * FROM UrunCikis ORDER BY FirmaAdi", baglanti);
+                komut = new SqlCommand(@"SELECT * FROM UrunCikis ORDER BY FirmaAdi", database.baglanti);
                 rapor_olustur(ds);
             }
             else if(cmbx_firmaadi.Text=="" & cmbx_kodlar.Text=="" & baslangic_tarihi.Checked==true & bitis_tarihi.Checked==false)
             {
-                komut = new SqlCommand(@"SELECT * FROM UrunCikis WHERE CikisTarihi>@baslangic ORDER BY FirmaAdi", baglanti);
+                komut = new SqlCommand(@"SELECT * FROM UrunCikis WHERE CikisTarihi>@baslangic ORDER BY FirmaAdi", database.baglanti);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 rapor_olustur(ds);
             }
             else if (cmbx_firmaadi.Text == "" & cmbx_kodlar.Text == "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == true)
             {
-                komut = new SqlCommand(@"SELECT * FROM UrunCikis WHERE CikisTarihi<@bitis ORDER BY FirmaAdi", baglanti);
+                komut = new SqlCommand(@"SELECT * FROM UrunCikis WHERE CikisTarihi<@bitis ORDER BY FirmaAdi", database.baglanti);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
                 rapor_olustur(ds);
             }
             else if (cmbx_firmaadi.Text == "" & cmbx_kodlar.Text == "" & baslangic_tarihi.Checked == true & bitis_tarihi.Checked == true)
             {
-                komut = new SqlCommand(@"SELECT * FROM UrunCikis WHERE (CikisTarihi>@baslangic) AND (CikisTarihi<@bitis) ORDER BY FirmaAdi", baglanti);
+                komut = new SqlCommand(@"SELECT * FROM UrunCikis WHERE (CikisTarihi>@baslangic) AND (CikisTarihi<@bitis) ORDER BY FirmaAdi", database.baglanti);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 rapor_olustur(ds);
             }
             else
             {
-                baglanti.Close();
+                database.BaglantiKapat();
                 MessageBox.Show("Üzgünüz işleminiz gerçekleştirilemedi. Ürünlerin satış raporunu görüntülenmek için Firma Adı alanı ve Filtrelenen Kod alanı boş bırakılmalıdır. Kontrol edip yeniden deneyiniz.", "Bilgilendirme Penceresi");
             }
         }
@@ -926,7 +900,7 @@ namespace Stok_Programı
             da = new SqlDataAdapter(komut);
             da.Fill(ds);
             ds.Tables[0].TableName = "bilgiler";
-            baglanti.Close();
+            database.BaglantiKapat();
             decimal a = 0;
             if (ds.Tables[0].Rows.Count == 0)
                 MessageBox.Show("Ürün Bulunmamaktadır.");
@@ -960,6 +934,7 @@ namespace Stok_Programı
                 fatura1.toplam.Text = string.Format("{0:#,##.00 ₺}", a);
                 fatura1.personel.Text = Properties.Settings.Default.kullaniciadi;
                 fatura1.DataMember = ((DataSet)fatura1.DataSource).Tables[0].TableName;
+               // fatura1.LoadLayout(Application.StartupPath + "\\faturalar\\rapor.repx");
                 fatura1.ShowPreview();
             }
         }
@@ -985,7 +960,7 @@ namespace Stok_Programı
         private void fatura_goruntule_Click(object sender, EventArgs e)
         {
             ds = new DataSet("Tablo");
-            baglanti.Open();
+            database.BaglantiAc();
             switch (Properties.Settings.Default.fatura)
             {
                 case "fatura.repx":

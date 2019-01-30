@@ -184,7 +184,6 @@
             this.tamekran.Name = "tamekran";
             this.tamekran.Size = new System.Drawing.Size(34, 33);
             this.tamekran.TabIndex = 17;
-            this.tamekran.Click += new System.EventHandler(this.tamekran_Click);
             // 
             // cikis
             // 

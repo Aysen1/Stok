@@ -16,8 +16,7 @@ namespace Stok_Programı
 {
     public partial class Form7 : Form
     {
-        SqlConnection baglanti;
-        SqlConnectionStringBuilder baglan = new SqlConnectionStringBuilder();
+        DatabaseConnection database;
         SqlCommand komut;
         SqlDataReader dr;
         public Form7()
@@ -27,13 +26,11 @@ namespace Stok_Programı
 
         private void Form7_Load(object sender, EventArgs e)
         {
+            database = new DatabaseConnection();
+            database.Baglanti();
             this.BackColor = Properties.Settings.Default.tema;
             this.WindowState = FormWindowState.Maximized;
             timer1.Start();
-            baglan.DataSource = Properties.Settings.Default.serverip;
-            baglan.InitialCatalog = Properties.Settings.Default.veritabani;
-            baglan.IntegratedSecurity = true;
-            baglanti = new SqlConnection(baglan.ConnectionString);
            // baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
             firma_listele();
             pctrbx_resim.Image = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\barkod.png");
@@ -56,23 +53,23 @@ namespace Stok_Programı
         }
         private void firma_listele()
         {
+            database.BaglantiAc();
             komut = new SqlCommand();
-            komut.Connection = baglanti;
-            baglanti.Open();
+            komut.Connection = database.baglanti;
             komut.CommandText = "select * from FirmaKayit";
             dr = komut.ExecuteReader();
             while (dr.Read())
             {
                 cmbx_firmaadi.Items.Add(dr["FirmaAdi"]);
             }
-            baglanti.Close();
+            database.BaglantiKapat();
         }
         private void urun_listele()
         {
             cmbx_urunadi.Items.Clear(); //yazılmadığı zaman cmbx_urunadi elemanları kademeli olarak artmaktadır.
             komut = new SqlCommand();
-            komut.Connection = baglanti;
-            baglanti.Open();
+            komut.Connection = database.baglanti;
+            database.BaglantiAc();
             komut.CommandText = "select * from UrunKayit1 where FirmaAdi=@firma";
             komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
             dr = komut.ExecuteReader();
@@ -80,7 +77,7 @@ namespace Stok_Programı
             {
                 cmbx_urunadi.Items.Add(dr["UrunKodu"]);
             }
-            baglanti.Close();
+            database.BaglantiKapat();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -107,9 +104,9 @@ namespace Stok_Programı
 
         private void cmbx_urunadi_SelectedIndexChanged(object sender, EventArgs e)
         {
-            baglanti.Open();
+            database.BaglantiAc();
             komut = new SqlCommand();
-            komut.Connection = baglanti;
+            komut.Connection = database.baglanti;
             komut.CommandText = "select * from UrunKayit1 where UrunKodu=@kod ";
             komut.Parameters.AddWithValue("@kod", cmbx_urunadi.Text);
             dr = komut.ExecuteReader();
@@ -118,7 +115,7 @@ namespace Stok_Programı
                 Stream stream = dr.GetStream(4);
                 pctrbx_resim.Image = Image.FromStream(stream);
             }
-            baglanti.Close();  
+            database.BaglantiKapat(); 
         }
 
         private void btn_kaydet_Click(object sender, EventArgs e)
@@ -127,32 +124,32 @@ namespace Stok_Programı
             if (cmbx_firmaadi.Text != "" && cmbx_urunadi.Text != "" && txt_adet.Text != "" && txt_islem.Text != "")
             {
                 string UrunID="";
-                baglanti.Open();
+                database.BaglantiAc();
                 SqlCommand komut1 = new SqlCommand();
-                komut1.Connection = baglanti;
+                komut1.Connection = database.baglanti;
                 komut1.CommandText = "select UrunID from UrunKayit1 where UrunKodu=@kod";
                 komut1.Parameters.AddWithValue("@kod", cmbx_urunadi.Text);
                 dr = komut1.ExecuteReader();
                 while (dr.Read())
                     UrunID = dr["UrunID"].ToString();
-                baglanti.Close();
+                database.BaglantiKapat();
 
-                baglanti.Open();
+                database.BaglantiAc();
                 komut = new SqlCommand();
-                komut.Connection = baglanti;
+                komut.Connection = database.baglanti;
                 komut.CommandText = "insert into UrunGiris1(UrunID, FirmaAdi, UrunKodu, GirisTarihi, UrunAdet, İslem, Personel) values ('"+UrunID+"','" + cmbx_firmaadi.Text + "','" + cmbx_urunadi.Text + "','" + dateTimePicker1.Text + "','" + txt_adet.Text + "','" + txt_islem.Text + "',@personel)";
                 komut.Parameters.AddWithValue("@personel",Properties.Settings.Default.kullaniciadi);
                 komut.ExecuteNonQuery();
-                baglanti.Close();
+                database.BaglantiKapat();
 
-                baglanti.Open();
+                database.BaglantiAc();
                 SqlCommand komut2 = new SqlCommand();
-                komut2.Connection = baglanti;
+                komut2.Connection = database.baglanti;
                 komut2.CommandText = "update UrunKayit1 set ToplamAdet=ToplamAdet+@miktar where UrunKodu=@kod";
                 komut2.Parameters.AddWithValue("@kod", cmbx_urunadi.Text);
                 komut2.Parameters.AddWithValue("@miktar", int.Parse(txt_adet.Text));
                 komut2.ExecuteNonQuery();
-                baglanti.Close();
+                database.BaglantiKapat();
 
                 MessageBox.Show("Kayıt Başarılı.");
             }
@@ -180,9 +177,8 @@ namespace Stok_Programı
         } 
         private void excelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SqlConnection baglanti = new SqlConnection("Data Source=NFM-1\\MSSQLSERVER01; Integrated Security=TRUE; Initial Catalog=StokTakip");
-            baglanti.Open();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from UrunGiris1", baglanti);
+            database.BaglantiAc();
+            SqlDataAdapter da = new SqlDataAdapter("Select * from UrunGiris1", database.baglanti);
             DataSet ds = new DataSet();
             da.Fill(ds);
             string data = null;
@@ -202,7 +198,7 @@ namespace Stok_Programı
                     ws.Cells[i, j - 1].ColumnWidth = 20;
                 }
             }
-            baglanti.Close();
+            database.BaglantiKapat();
             xl.Visible = true;
         }
         private void metinler()

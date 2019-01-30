@@ -128,10 +128,11 @@
             // txt_kullanici_sifre
             // 
             this.txt_kullanici_sifre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_kullanici_sifre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_kullanici_sifre.Location = new System.Drawing.Point(103, 57);
+            this.txt_kullanici_sifre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txt_kullanici_sifre.Location = new System.Drawing.Point(103, 54);
             this.txt_kullanici_sifre.Name = "txt_kullanici_sifre";
-            this.txt_kullanici_sifre.Size = new System.Drawing.Size(95, 20);
+            this.txt_kullanici_sifre.PasswordChar = '*';
+            this.txt_kullanici_sifre.Size = new System.Drawing.Size(95, 26);
             this.txt_kullanici_sifre.TabIndex = 3;
             // 
             // btn_kapat

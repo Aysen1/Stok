@@ -18,12 +18,15 @@ namespace Stok_Programı
 {
     public partial class Form6 : Form
     {
+        DatabaseConnection database;
         public Form6()
         {
             InitializeComponent();
         }
         private void Form6_Load(object sender, EventArgs e)
         {
+            database = new DatabaseConnection();
+            database.Baglanti();
             this.BackColor = Properties.Settings.Default.tema;
             Properties.Settings.Default.Save();
             this.WindowState = FormWindowState.Maximized;
@@ -95,7 +98,7 @@ namespace Stok_Programı
         {
             System.Diagnostics.Process.Start("http://www.nfmajans.com/iletisim.html");
         }
-        private void timer1_Tick(object sender, EventArgs e)
+       private void timer1_Tick(object sender, EventArgs e)
         {
             saat.Text = DateTime.Now.ToLongTimeString();
             timer1.Start();
@@ -108,13 +111,8 @@ namespace Stok_Programı
         }
         private void btn_stok_Click(object sender, EventArgs e)
         {
-            SqlConnectionStringBuilder baglan = new SqlConnectionStringBuilder();
-            baglan.DataSource = Properties.Settings.Default.serverip;
-            baglan.InitialCatalog = Properties.Settings.Default.veritabani;
-            baglan.IntegratedSecurity = true;
-            SqlConnection baglanti = new SqlConnection(baglan.ConnectionString);
-            baglanti.Open();
-            SqlDataAdapter da = new SqlDataAdapter("Select UrunID,FirmaAdi,UrunKodu,KayitTarihi,UrunResim,ToplamAdet,Personel,FORMAT(BirimFiyati,'n2')+space(1)+NCHAR(8378) from UrunKayit1", baglanti);
+            database.BaglantiAc();
+            SqlDataAdapter da = new SqlDataAdapter("Select UrunID,FirmaAdi,UrunKodu,KayitTarihi,UrunResim,ToplamAdet,Personel,FORMAT(BirimFiyati,'n2')+space(1)+NCHAR(8378) from UrunKayit1", database.baglanti);
             DataSet ds = new DataSet();
             da.Fill(ds);
             string data = null;
@@ -134,7 +132,7 @@ namespace Stok_Programı
                     ws.Cells[i, j - 1].ColumnWidth = 20;
                 }
             }
-            baglanti.Close();
+            database.BaglantiKapat();
             xl.Visible = true;
         }
         private void btn_ayarlar_Click(object sender, EventArgs e)

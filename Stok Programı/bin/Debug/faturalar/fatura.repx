@@ -152,8 +152,8 @@
           <Rows>
             <Item1 Ref="67" ControlType="XRTableRow" Name="xrTableRow5" Weight="1">
               <Cells>
-                <Item1 Ref="68" ControlType="XRTableCell" Name="islembicimi" Weight="1" Multiline="true" Text="FATURA" TextAlignment="MiddleLeft" Font="Arial, 15pt, style=Bold" Padding="2,2,0,0,100">
-                  <StylePriority Ref="69" UseFont="false" UseTextAlignment="false" />
+                <Item1 Ref="68" ControlType="XRTableCell" Name="islembicimi" Weight="1" Multiline="true" Text="FATURA" TextAlignment="MiddleLeft" Font="Arial, 15pt, style=Bold" ForeColor="Brown" Padding="2,2,0,0,100">
+                  <StylePriority Ref="69" UseFont="false" UseForeColor="false" UseTextAlignment="false" />
                 </Item1>
               </Cells>
             </Item1>
@@ -162,7 +162,7 @@
                 <Item1 Ref="71" ControlType="XRTableCell" Name="islemno" Weight="0.54886623347601959" Multiline="true" Text="FATURA NO#" TextAlignment="MiddleLeft" Font="Arial, 10pt, style=Bold" Padding="2,2,0,0,100">
                   <StylePriority Ref="72" UseFont="false" UseTextAlignment="false" />
                 </Item1>
-                <Item2 Ref="73" ControlType="XRTableCell" Name="faturano" Weight="0.4511337665239803" Multiline="true" Text="434" TextAlignment="MiddleLeft" Padding="2,2,0,0,100">
+                <Item2 Ref="73" ControlType="XRTableCell" Name="faturano" Weight="0.4511337665239803" Multiline="true" Text="450" TextAlignment="MiddleLeft" Padding="2,2,0,0,100">
                   <StylePriority Ref="74" UseTextAlignment="false" />
                 </Item2>
               </Cells>
@@ -172,7 +172,7 @@
                 <Item1 Ref="76" ControlType="XRTableCell" Name="xrTableCell7" Weight="0.54886623347601959" Multiline="true" Text="DÜZENLENME TARİHİ:" TextAlignment="MiddleLeft" Font="Arial, 10pt, style=Bold" Padding="2,2,0,0,100">
                   <StylePriority Ref="77" UseFont="false" UseTextAlignment="false" />
                 </Item1>
-                <Item2 Ref="78" ControlType="XRTableCell" Name="faturatarih" Weight="0.4511337665239803" Multiline="true" Text="1/28/2019 2:00:01 PM" TextAlignment="MiddleLeft" Padding="2,2,0,0,100">
+                <Item2 Ref="78" ControlType="XRTableCell" Name="faturatarih" Weight="0.4511337665239803" Multiline="true" Text="29.1.2019 10:44:13" TextAlignment="MiddleLeft" Padding="2,2,0,0,100">
                   <StylePriority Ref="79" UseTextAlignment="false" />
                 </Item2>
               </Cells>
@@ -231,7 +231,7 @@
                 <Item1 Ref="101" ControlType="XRTableCell" Name="xrTableCell18" Weight="1.5666058349609378" Multiline="true" Text="          TOPLAM   " TextAlignment="MiddleCenter" Font="Arial, 9.75pt, style=Bold" Padding="2,2,0,0,100" Borders="Left, Right, Bottom">
                   <StylePriority Ref="102" UseFont="false" UseBorders="false" UseTextAlignment="false" />
                 </Item1>
-                <Item2 Ref="103" ControlType="XRTableCell" Name="toplam" Weight="1.144864501953125" TextFormatString="{0:###,###,###₺}" Multiline="true" Text="4,209.00 ₺" TextAlignment="MiddleRight" BackColor="WhiteSmoke" Padding="2,2,0,0,100" Borders="Left, Right, Bottom">
+                <Item2 Ref="103" ControlType="XRTableCell" Name="toplam" Weight="1.144864501953125" TextFormatString="{0:###,###,###₺}" Multiline="true" Text="3.965,00 ₺" TextAlignment="MiddleRight" BackColor="WhiteSmoke" Padding="2,2,0,0,100" Borders="Left, Right, Bottom">
                   <StylePriority Ref="104" UseBackColor="false" UseBorders="false" UseTextAlignment="false" />
                 </Item2>
               </Cells>

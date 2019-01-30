@@ -225,9 +225,6 @@
   <data name="yazici" xml:space="preserve">
     <value>Yazıcılar:</value>
   </data>
-  <data name="y_ekle" xml:space="preserve">
-    <value>Yazıcı Ekle</value>
-  </data>
   <data name="tema" xml:space="preserve">
     <value>Tema</value>
   </data>
@@ -254,5 +251,17 @@
   </data>
   <data name="tarih2" xml:space="preserve">
     <value>Bitiş Tarihi:</value>
+  </data>
+  <data name="fatura" xml:space="preserve">
+    <value>FATURA</value>
+  </data>
+  <data name="baglan" xml:space="preserve">
+    <value>BAĞLAN</value>
+  </data>
+  <data name="kaydet" xml:space="preserve">
+    <value>KAYDET</value>
+  </data>
+  <data name="kontrol" xml:space="preserve">
+    <value>BAĞLANTIYI SINA</value>
   </data>
 </root>

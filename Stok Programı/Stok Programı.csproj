@@ -102,6 +102,8 @@
     <Reference Include="DevExpress.XtraGauges.v18.2.Core, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
+    <Reference Include="DevExpress.XtraGrid.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
     </Reference>
@@ -124,6 +126,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseConnection.cs" />
     <Compile Include="fatura.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -319,6 +322,7 @@
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -400,6 +404,9 @@
     <Content Include="image\urungirisK.fw.png" />
     <Content Include="image\yukle.fw.png" />
     <Content Include="image\yukleK.fw.png" />
+    <None Include="Resources\kaydet.png" />
+    <None Include="Resources\baglan.png" />
+    <None Include="Resources\kontrol.png" />
     <None Include="Resources\mcikis.png" />
     <None Include="Resources\mtamekran.png" />
     <None Include="Resources\msmge.png" />

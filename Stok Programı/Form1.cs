@@ -19,18 +19,18 @@ namespace Stok_Programı
 {
     public partial class Form1 : Form
     {
-        SqlConnection baglanti;
-        SqlConnectionStringBuilder baglan = new SqlConnectionStringBuilder();
         SqlCommand komut;
+        DatabaseConnection database;
         public Form1()
         {
             InitializeComponent();
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            baglanti.Open();
+            database.Baglanti();
+            database.BaglantiAc();
             komut = new SqlCommand( "select * from KullaniciBilgileri where convert(Varchar, KullaniciAdi)='"+ txt_kullanici_isim.Text +"' and convert(Varchar, KullaniciSifre)='"+ txt_kullanici_sifre.Text +"'");
-            komut.Connection = baglanti;
+            komut.Connection = database.baglanti;
             SqlDataReader data = komut.ExecuteReader();
             if (data.Read())
             {
@@ -42,19 +42,11 @@ namespace Stok_Programı
             }
             else
                 MessageBox.Show( "Girilen Bilgiler Hatalıdır!Tekrar Deneyiniz.");
-            baglanti.Close();
+            database.BaglantiKapat();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            //Properties.Settings.Default.serverip = "NFM-1\\MSSQLSERVER01";
-           // Properties.Settings.Default.veritabani = "StokTakip";
-            baglan.DataSource = Properties.Settings.Default.serverip;
-            baglan.InitialCatalog = Properties.Settings.Default.veritabani;
-            baglan.IntegratedSecurity = true;
-            baglan.UserID = Properties.Settings.Default.kullaniciisim;
-            baglan.Password = Properties.Settings.Default.kullanicisifre;
-            baglanti = new SqlConnection(baglan.ConnectionString);
-
+            database = new DatabaseConnection();
             txt_kullanici_isim.Text=Properties.Settings.Default.kullaniciadi;
             txt_kullanici_sifre.Text = Properties.Settings.Default.sifre;
            // Properties.Settings.Default.dil = "Türkçe";
@@ -173,22 +165,18 @@ namespace Stok_Programı
                 form2.Show();
             }
         }
-
         private void simge_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
         private void tamekran_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
         }
-
         private void cikis_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void btn_kapat_Click(object sender, EventArgs e)
         {
             txt_kullanici_isim.Text = "";

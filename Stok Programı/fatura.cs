@@ -10,8 +10,7 @@ namespace Stok_Programı
     {
         public fatura()
         {
-            InitializeComponent();
+            InitializeComponent();           
         }
-
     }
 }
