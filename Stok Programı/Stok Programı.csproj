@@ -127,10 +127,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseConnection.cs" />
-    <Compile Include="fatura.cs">
+    <Compile Include="Tasarımlar\fatura.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="fatura.Designer.cs">
+    <Compile Include="Tasarımlar\fatura.Designer.cs">
       <DependentUpon>fatura.cs</DependentUpon>
     </Compile>
     <Compile Include="Faturalar\Fatura1.cs" />
@@ -142,58 +142,58 @@
     <Compile Include="Faturalar\Fatura7.cs" />
     <Compile Include="Faturalar\Rapor.cs" />
     <Compile Include="Faturalar\satisFaturasi.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Formlar\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Formlar\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="Formlar\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
+    <Compile Include="Formlar\Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="Formlar\Form3.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
+    <Compile Include="Formlar\Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form4.cs">
+    <Compile Include="Formlar\Form4.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form4.Designer.cs">
+    <Compile Include="Formlar\Form4.Designer.cs">
       <DependentUpon>Form4.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form5.cs">
+    <Compile Include="Formlar\Form5.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form5.Designer.cs">
+    <Compile Include="Formlar\Form5.Designer.cs">
       <DependentUpon>Form5.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form6.cs">
+    <Compile Include="Formlar\Form6.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form6.Designer.cs">
+    <Compile Include="Formlar\Form6.Designer.cs">
       <DependentUpon>Form6.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form7.cs">
+    <Compile Include="Formlar\Form7.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form7.Designer.cs">
+    <Compile Include="Formlar\Form7.Designer.cs">
       <DependentUpon>Form7.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form8.cs">
+    <Compile Include="Formlar\Form8.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form8.Designer.cs">
+    <Compile Include="Formlar\Form8.Designer.cs">
       <DependentUpon>Form8.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form9.cs">
+    <Compile Include="Formlar\Form9.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form9.Designer.cs">
+    <Compile Include="Formlar\Form9.Designer.cs">
       <DependentUpon>Form9.cs</DependentUpon>
     </Compile>
     <Compile Include="Localization.Designer.cs">
@@ -208,82 +208,82 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="tasarim.cs">
+    <Compile Include="Tasarımlar\tasarim.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="tasarim.Designer.cs">
+    <Compile Include="Tasarımlar\tasarim.Designer.cs">
       <DependentUpon>tasarim.cs</DependentUpon>
     </Compile>
-    <Compile Include="tasarim2.cs">
+    <Compile Include="Tasarımlar\tasarim2.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="tasarim2.Designer.cs">
+    <Compile Include="Tasarımlar\tasarim2.Designer.cs">
       <DependentUpon>tasarim2.cs</DependentUpon>
     </Compile>
-    <Compile Include="tasarim3.cs">
+    <Compile Include="Tasarımlar\tasarim3.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="tasarim3.Designer.cs">
+    <Compile Include="Tasarımlar\tasarim3.Designer.cs">
       <DependentUpon>tasarim3.cs</DependentUpon>
     </Compile>
-    <Compile Include="tasarim4.cs">
+    <Compile Include="Tasarımlar\tasarim4.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="tasarim4.Designer.cs">
+    <Compile Include="Tasarımlar\tasarim4.Designer.cs">
       <DependentUpon>tasarim4.cs</DependentUpon>
     </Compile>
-    <Compile Include="tasarim6.cs">
+    <Compile Include="Tasarımlar\tasarim6.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="tasarim6.Designer.cs">
+    <Compile Include="Tasarımlar\tasarim6.Designer.cs">
       <DependentUpon>tasarim6.cs</DependentUpon>
     </Compile>
-    <Compile Include="tasarim7.cs">
+    <Compile Include="Tasarımlar\tasarim7.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="tasarim7.Designer.cs">
+    <Compile Include="Tasarımlar\tasarim7.Designer.cs">
       <DependentUpon>tasarim7.cs</DependentUpon>
     </Compile>
-    <Compile Include="uretimcikis.cs">
+    <Compile Include="Tasarımlar\uretimcikis.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="uretimcikis.Designer.cs">
+    <Compile Include="Tasarımlar\uretimcikis.Designer.cs">
       <DependentUpon>uretimcikis.cs</DependentUpon>
     </Compile>
-    <Compile Include="uretimgiris.cs">
+    <Compile Include="Tasarımlar\uretimgiris.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="uretimgiris.Designer.cs">
+    <Compile Include="Tasarımlar\uretimgiris.Designer.cs">
       <DependentUpon>uretimgiris.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="fatura.resx">
+    <EmbeddedResource Include="Tasarımlar\fatura.resx">
       <DependentUpon>fatura.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Formlar\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
+    <EmbeddedResource Include="Formlar\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
+    <EmbeddedResource Include="Formlar\Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form4.resx">
+    <EmbeddedResource Include="Formlar\Form4.resx">
       <DependentUpon>Form4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form5.resx">
+    <EmbeddedResource Include="Formlar\Form5.resx">
       <DependentUpon>Form5.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form6.resx">
+    <EmbeddedResource Include="Formlar\Form6.resx">
       <DependentUpon>Form6.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form7.resx">
+    <EmbeddedResource Include="Formlar\Form7.resx">
       <DependentUpon>Form7.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form8.resx">
+    <EmbeddedResource Include="Formlar\Form8.resx">
       <DependentUpon>Form8.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form9.resx">
+    <EmbeddedResource Include="Formlar\Form9.resx">
       <DependentUpon>Form9.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Localization.en-US.resx">
@@ -305,28 +305,28 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="tasarim.resx">
+    <EmbeddedResource Include="Tasarımlar\tasarim.resx">
       <DependentUpon>tasarim.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="tasarim2.resx">
+    <EmbeddedResource Include="Tasarımlar\tasarim2.resx">
       <DependentUpon>tasarim2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="tasarim3.resx">
+    <EmbeddedResource Include="Tasarımlar\tasarim3.resx">
       <DependentUpon>tasarim3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="tasarim4.resx">
+    <EmbeddedResource Include="Tasarımlar\tasarim4.resx">
       <DependentUpon>tasarim4.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="tasarim6.resx">
+    <EmbeddedResource Include="Tasarımlar\tasarim6.resx">
       <DependentUpon>tasarim6.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="tasarim7.resx">
+    <EmbeddedResource Include="Tasarımlar\tasarim7.resx">
       <DependentUpon>tasarim7.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="uretimcikis.resx">
+    <EmbeddedResource Include="Tasarımlar\uretimcikis.resx">
       <DependentUpon>uretimcikis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="uretimgiris.resx">
+    <EmbeddedResource Include="Tasarımlar\uretimgiris.resx">
       <DependentUpon>uretimgiris.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />

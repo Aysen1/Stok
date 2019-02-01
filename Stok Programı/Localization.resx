@@ -237,14 +237,11 @@
   <data name="veritabani" xml:space="preserve">
     <value>Veritabanı Adı:</value>
   </data>
-  <data name="filtrekod" xml:space="preserve">
-    <value>Filtrelenen Kod:</value>
-  </data>
   <data name="filtre_araclari" xml:space="preserve">
     <value>Fatura Filtreleme Araçları</value>
   </data>
-  <data name="rapor" xml:space="preserve">
-    <value>Rapor</value>
+  <data name="sablon" xml:space="preserve">
+    <value>Fatura Şablonları</value>
   </data>
   <data name="tarih1" xml:space="preserve">
     <value>Başlangıç Tarihi:</value>
@@ -263,5 +260,41 @@
   </data>
   <data name="kontrol" xml:space="preserve">
     <value>BAĞLANTIYI SINA</value>
+  </data>
+  <data name="alisf" xml:space="preserve">
+    <value>Alış Faturası</value>
+  </data>
+  <data name="duzenlenme" xml:space="preserve">
+    <value>Düzenlenme Tarihi:</value>
+  </data>
+  <data name="faturalar" xml:space="preserve">
+    <value>Faturalar</value>
+  </data>
+  <data name="faturano" xml:space="preserve">
+    <value>Fatura No:</value>
+  </data>
+  <data name="filtre" xml:space="preserve">
+    <value>Rapor Filtreleme Araçları</value>
+  </data>
+  <data name="f_goruntule" xml:space="preserve">
+    <value>Fatura Görüntüle</value>
+  </data>
+  <data name="goruntule" xml:space="preserve">
+    <value>GÖRÜNTÜLE</value>
+  </data>
+  <data name="r_goruntule" xml:space="preserve">
+    <value>Rapor Görüntüle</value>
+  </data>
+  <data name="satisf" xml:space="preserve">
+    <value>Satış Faturası</value>
+  </data>
+  <data name="satistarihi" xml:space="preserve">
+    <value>Satış Tarihi:</value>
+  </data>
+  <data name="tip" xml:space="preserve">
+    <value>Fatura Tipi:</value>
+  </data>
+  <data name="yazdir" xml:space="preserve">
+    <value>YAZDIR</value>
   </data>
 </root>

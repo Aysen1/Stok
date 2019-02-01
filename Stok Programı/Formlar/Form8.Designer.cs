@@ -41,6 +41,7 @@
             this.raporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.faturalarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.satisFaturasıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alisFaturasıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.yardımToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cikisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.baslangic_tarihi = new System.Windows.Forms.DateTimePicker();
@@ -51,10 +52,10 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.cmbx_firmaadi = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.faturano = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.temizle = new System.Windows.Forms.Button();
+            this.faturano = new System.Windows.Forms.ComboBox();
             this.fatura_goruntule = new DevExpress.XtraEditors.SimpleButton();
+            this.temizle = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tarih = new System.Windows.Forms.ToolStripStatusLabel();
@@ -62,8 +63,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_satis = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btn_yazdir = new System.Windows.Forms.Button();
+            this.l_firma = new System.Windows.Forms.Label();
             this.btn_kaydet = new System.Windows.Forms.Button();
             this.firmaadi = new System.Windows.Forms.ComboBox();
             this.ftra_tp = new System.Windows.Forms.Label();
@@ -72,11 +72,12 @@
             this.ftr_no = new System.Windows.Forms.Label();
             this.ftr_trh = new System.Windows.Forms.Label();
             this.t_fno = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.dznlnme = new System.Windows.Forms.Label();
             this.düzenlenme = new System.Windows.Forms.DateTimePicker();
+            this.s_yazdir = new DevExpress.XtraEditors.SimpleButton();
             this.tab_fatura = new System.Windows.Forms.TabPage();
             this.tab_rapor = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpbx_rapor = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.l_bas = new System.Windows.Forms.Label();
             this.tarih1 = new System.Windows.Forms.DateTimePicker();
@@ -93,7 +94,7 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.tab_fatura.SuspendLayout();
             this.tab_rapor.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grpbx_rapor.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -193,14 +194,15 @@
             // raporToolStripMenuItem
             // 
             this.raporToolStripMenuItem.Name = "raporToolStripMenuItem";
-            this.raporToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.raporToolStripMenuItem.Text = "Rapor";
+            this.raporToolStripMenuItem.Size = new System.Drawing.Size(111, 20);
+            this.raporToolStripMenuItem.Text = "Fatura Şablonları";
             this.raporToolStripMenuItem.Click += new System.EventHandler(this.raporToolStripMenuItem_Click);
             // 
             // faturalarToolStripMenuItem
             // 
             this.faturalarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.satisFaturasıToolStripMenuItem});
+            this.satisFaturasıToolStripMenuItem,
+            this.alisFaturasıToolStripMenuItem});
             this.faturalarToolStripMenuItem.Name = "faturalarToolStripMenuItem";
             this.faturalarToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.faturalarToolStripMenuItem.Text = "Faturalar";
@@ -211,6 +213,12 @@
             this.satisFaturasıToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.satisFaturasıToolStripMenuItem.Text = "Satış Faturası";
             this.satisFaturasıToolStripMenuItem.Click += new System.EventHandler(this.satisFaturası_Click);
+            // 
+            // alisFaturasıToolStripMenuItem
+            // 
+            this.alisFaturasıToolStripMenuItem.Name = "alisFaturasıToolStripMenuItem";
+            this.alisFaturasıToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.alisFaturasıToolStripMenuItem.Text = "Alış Faturası";
             // 
             // yardımToolStripMenuItem
             // 
@@ -327,16 +335,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(382, 282);
             this.tableLayoutPanel2.TabIndex = 28;
             // 
-            // faturano
-            // 
-            this.faturano.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.faturano.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.faturano.FormattingEnabled = true;
-            this.faturano.Location = new System.Drawing.Point(194, 185);
-            this.faturano.Name = "faturano";
-            this.faturano.Size = new System.Drawing.Size(185, 21);
-            this.faturano.TabIndex = 30;
-            // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -347,6 +345,27 @@
             this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 30;
             this.label3.Text = "Fatura No:";
+            // 
+            // faturano
+            // 
+            this.faturano.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.faturano.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.faturano.FormattingEnabled = true;
+            this.faturano.Location = new System.Drawing.Point(194, 185);
+            this.faturano.Name = "faturano";
+            this.faturano.Size = new System.Drawing.Size(185, 21);
+            this.faturano.TabIndex = 30;
+            // 
+            // fatura_goruntule
+            // 
+            this.fatura_goruntule.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fatura_goruntule.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("fatura_goruntule.ImageOptions.Image")));
+            this.fatura_goruntule.Location = new System.Drawing.Point(242, 233);
+            this.fatura_goruntule.Name = "fatura_goruntule";
+            this.fatura_goruntule.Size = new System.Drawing.Size(89, 40);
+            this.fatura_goruntule.TabIndex = 30;
+            this.fatura_goruntule.Text = "FATURA";
+            this.fatura_goruntule.Click += new System.EventHandler(this.fatura_goruntule_Click);
             // 
             // temizle
             // 
@@ -359,17 +378,6 @@
             this.temizle.TabIndex = 29;
             this.temizle.UseVisualStyleBackColor = true;
             this.temizle.Click += new System.EventHandler(this.temizle_Click);
-            // 
-            // fatura_goruntule
-            // 
-            this.fatura_goruntule.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fatura_goruntule.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("fatura_goruntule.ImageOptions.Image")));
-            this.fatura_goruntule.Location = new System.Drawing.Point(242, 233);
-            this.fatura_goruntule.Name = "fatura_goruntule";
-            this.fatura_goruntule.Size = new System.Drawing.Size(89, 40);
-            this.fatura_goruntule.TabIndex = 30;
-            this.fatura_goruntule.Text = "FATURA";
-            this.fatura_goruntule.Click += new System.EventHandler(this.fatura_goruntule_Click);
             // 
             // groupBox1
             // 
@@ -441,8 +449,7 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btn_yazdir, 1, 5);
+            this.tableLayoutPanel3.Controls.Add(this.l_firma, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.btn_kaydet, 0, 5);
             this.tableLayoutPanel3.Controls.Add(this.firmaadi, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.ftra_tp, 0, 1);
@@ -451,8 +458,9 @@
             this.tableLayoutPanel3.Controls.Add(this.ftr_no, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.ftr_trh, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.t_fno, 1, 2);
-            this.tableLayoutPanel3.Controls.Add(this.label2, 0, 4);
+            this.tableLayoutPanel3.Controls.Add(this.dznlnme, 0, 4);
             this.tableLayoutPanel3.Controls.Add(this.düzenlenme, 1, 4);
+            this.tableLayoutPanel3.Controls.Add(this.s_yazdir, 1, 5);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(103, 71);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 6;
@@ -465,35 +473,26 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(555, 280);
             this.tableLayoutPanel3.TabIndex = 49;
             // 
-            // label1
+            // l_firma
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(3, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 38;
-            this.label1.Text = "Firma Adı:";
-            // 
-            // btn_yazdir
-            // 
-            this.btn_yazdir.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_yazdir.Location = new System.Drawing.Point(378, 238);
-            this.btn_yazdir.Name = "btn_yazdir";
-            this.btn_yazdir.Size = new System.Drawing.Size(75, 33);
-            this.btn_yazdir.TabIndex = 47;
-            this.btn_yazdir.Text = "YAZDIR";
-            this.btn_yazdir.UseVisualStyleBackColor = true;
+            this.l_firma.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.l_firma.AutoSize = true;
+            this.l_firma.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.l_firma.Location = new System.Drawing.Point(3, 16);
+            this.l_firma.Name = "l_firma";
+            this.l_firma.Size = new System.Drawing.Size(63, 13);
+            this.l_firma.TabIndex = 38;
+            this.l_firma.Text = "Firma Adı:";
             // 
             // btn_kaydet
             // 
             this.btn_kaydet.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_kaydet.Location = new System.Drawing.Point(101, 238);
+            this.btn_kaydet.FlatAppearance.BorderSize = 0;
+            this.btn_kaydet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_kaydet.Location = new System.Drawing.Point(101, 235);
             this.btn_kaydet.Name = "btn_kaydet";
-            this.btn_kaydet.Size = new System.Drawing.Size(75, 33);
+            this.btn_kaydet.Size = new System.Drawing.Size(75, 40);
             this.btn_kaydet.TabIndex = 46;
-            this.btn_kaydet.Text = "KAYDET";
             this.btn_kaydet.UseVisualStyleBackColor = true;
             this.btn_kaydet.Click += new System.EventHandler(this.btn_kaydet_Click);
             // 
@@ -571,16 +570,16 @@
             this.t_fno.Size = new System.Drawing.Size(163, 20);
             this.t_fno.TabIndex = 45;
             // 
-            // label2
+            // dznlnme
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(3, 200);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 13);
-            this.label2.TabIndex = 48;
-            this.label2.Text = "Düzenleme Tarihi:";
+            this.dznlnme.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dznlnme.AutoSize = true;
+            this.dznlnme.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dznlnme.Location = new System.Drawing.Point(3, 200);
+            this.dznlnme.Name = "dznlnme";
+            this.dznlnme.Size = new System.Drawing.Size(109, 13);
+            this.dznlnme.TabIndex = 48;
+            this.dznlnme.Text = "Düzenleme Tarihi:";
             // 
             // düzenlenme
             // 
@@ -592,6 +591,16 @@
             this.düzenlenme.Name = "düzenlenme";
             this.düzenlenme.Size = new System.Drawing.Size(163, 20);
             this.düzenlenme.TabIndex = 49;
+            // 
+            // s_yazdir
+            // 
+            this.s_yazdir.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.s_yazdir.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.s_yazdir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("s_yazdir.ImageOptions.Image")));
+            this.s_yazdir.Location = new System.Drawing.Point(368, 238);
+            this.s_yazdir.Name = "s_yazdir";
+            this.s_yazdir.Size = new System.Drawing.Size(96, 33);
+            this.s_yazdir.TabIndex = 50;
             // 
             // tab_fatura
             // 
@@ -606,7 +615,7 @@
             // 
             // tab_rapor
             // 
-            this.tab_rapor.Controls.Add(this.groupBox2);
+            this.tab_rapor.Controls.Add(this.grpbx_rapor);
             this.tab_rapor.Location = new System.Drawing.Point(4, 22);
             this.tab_rapor.Name = "tab_rapor";
             this.tab_rapor.Padding = new System.Windows.Forms.Padding(3);
@@ -615,18 +624,18 @@
             this.tab_rapor.Text = "Rapor Görüntüle";
             this.tab_rapor.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // grpbx_rapor
             // 
-            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox2.Controls.Add(this.tableLayoutPanel4);
-            this.groupBox2.Controls.Add(this.s_goruntule);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox2.Location = new System.Drawing.Point(185, 54);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(395, 307);
-            this.groupBox2.TabIndex = 30;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Rapor Filtreleme Araçları";
+            this.grpbx_rapor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grpbx_rapor.Controls.Add(this.tableLayoutPanel4);
+            this.grpbx_rapor.Controls.Add(this.s_goruntule);
+            this.grpbx_rapor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.grpbx_rapor.Location = new System.Drawing.Point(185, 54);
+            this.grpbx_rapor.Name = "grpbx_rapor";
+            this.grpbx_rapor.Size = new System.Drawing.Size(395, 307);
+            this.grpbx_rapor.TabIndex = 30;
+            this.grpbx_rapor.TabStop = false;
+            this.grpbx_rapor.Text = "Rapor Filtreleme Araçları";
             // 
             // tableLayoutPanel4
             // 
@@ -697,7 +706,7 @@
             // s_goruntule
             // 
             this.s_goruntule.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.s_goruntule.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.s_goruntule.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("s_goruntule.ImageOptions.Image")));
             this.s_goruntule.Location = new System.Drawing.Point(149, 247);
             this.s_goruntule.Name = "s_goruntule";
             this.s_goruntule.Size = new System.Drawing.Size(113, 54);
@@ -736,7 +745,7 @@
             this.tableLayoutPanel3.PerformLayout();
             this.tab_fatura.ResumeLayout(false);
             this.tab_rapor.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.grpbx_rapor.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
@@ -776,8 +785,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tab_satis;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_yazdir;
+        private System.Windows.Forms.Label l_firma;
         private System.Windows.Forms.ComboBox firmaadi;
         private System.Windows.Forms.Button btn_kaydet;
         private System.Windows.Forms.Label ftra_tp;
@@ -787,17 +795,19 @@
         private System.Windows.Forms.Label ftr_trh;
         private System.Windows.Forms.TextBox t_fno;
         private System.Windows.Forms.TabPage tab_fatura;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label dznlnme;
         private System.Windows.Forms.DateTimePicker düzenlenme;
         private System.Windows.Forms.ComboBox faturano;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabPage tab_rapor;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpbx_rapor;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label l_bas;
         private System.Windows.Forms.DateTimePicker tarih1;
         private System.Windows.Forms.Label l_bit;
         private System.Windows.Forms.DateTimePicker tarih2;
         private DevExpress.XtraEditors.SimpleButton s_goruntule;
+        private System.Windows.Forms.ToolStripMenuItem alisFaturasıToolStripMenuItem;
+        private DevExpress.XtraEditors.SimpleButton s_yazdir;
     }
 }

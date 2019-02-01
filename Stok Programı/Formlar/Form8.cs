@@ -59,11 +59,13 @@ namespace Stok_Programı
             {
                 temizle.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\temizleK.fw.png");
                 System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+                btn_kaydet.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\kaydetK.fw.png");
             }
             else if (Properties.Settings.Default.dil == "Türkçe")
             {
                 temizle.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\temizle.fw.png");
                 System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
+                btn_kaydet.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\kaydet.fw.png");
             }
             metin();
             SqlDataReader dr;
@@ -107,12 +109,28 @@ namespace Stok_Programı
             anasayfaToolStripMenuItem.Text = Localization.lbl_anasayfa;
             yardımToolStripMenuItem.Text = Localization.lbl_yardim;
             cikisToolStripMenuItem.Text = Localization.lbl_cikis;
-            raporToolStripMenuItem.Text = Localization.rapor;
+            raporToolStripMenuItem.Text = Localization.sablon;
             lbl_baslangic.Text = Localization.tarih1;
             lbl_bitis.Text = Localization.tarih2;
             lbl_firma.Text = Localization.lbl_firmaadi;
             groupBox1.Text = Localization.filtre_araclari;
             fatura_goruntule.Text = Localization.fatura;
+            faturalarToolStripMenuItem.Text = Localization.faturalar;
+            satisFaturasıToolStripMenuItem.Text = Localization.satisf;
+            alisFaturasıToolStripMenuItem.Text = Localization.alisf;
+            l_firma.Text = Localization.lbl_firmaadi;
+            ftr_no.Text = Localization.faturano;
+            ftr_trh.Text = Localization.satistarihi;
+            dznlnme.Text = Localization.duzenlenme;
+            s_yazdir.Text = Localization.yazdir;
+            grpbx_rapor.Text = Localization.filtre;
+            l_bas.Text = Localization.tarih1;
+            l_bit.Text = Localization.tarih2;
+            s_goruntule.Text = Localization.goruntule;
+            tab_satis.Text = Localization.satisf;
+            tab_fatura.Text = Localization.f_goruntule;
+            tab_rapor.Text = Localization.r_goruntule;
+            ftra_tp.Text = Localization.tip;
         }
         private void raporToolStripMenuItem_Click(object sender, EventArgs e)
         {

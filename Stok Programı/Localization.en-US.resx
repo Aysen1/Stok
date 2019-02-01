@@ -237,14 +237,11 @@
   <data name="veritabani" xml:space="preserve">
     <value>Database Name:</value>
   </data>
-  <data name="filtrekod" xml:space="preserve">
-    <value>Filtering Code:</value>
-  </data>
   <data name="filtre_araclari" xml:space="preserve">
     <value>Invoice Filtering Tools</value>
   </data>
-  <data name="rapor" xml:space="preserve">
-    <value>Report</value>
+  <data name="sablon" xml:space="preserve">
+    <value>Invoice Templates</value>
   </data>
   <data name="tarih1" xml:space="preserve">
     <value>From Date:</value>
@@ -263,5 +260,41 @@
   </data>
   <data name="kontrol" xml:space="preserve">
     <value>CHECK CONNECTION</value>
+  </data>
+  <data name="alisf" xml:space="preserve">
+    <value>Purchase Invoice</value>
+  </data>
+  <data name="duzenlenme" xml:space="preserve">
+    <value>Date of Issue:</value>
+  </data>
+  <data name="faturalar" xml:space="preserve">
+    <value>Invoices</value>
+  </data>
+  <data name="faturano" xml:space="preserve">
+    <value>Invoice Number:</value>
+  </data>
+  <data name="filtre" xml:space="preserve">
+    <value>Report Filtering Tools</value>
+  </data>
+  <data name="f_goruntule" xml:space="preserve">
+    <value>View Invoice</value>
+  </data>
+  <data name="goruntule" xml:space="preserve">
+    <value>VIEW</value>
+  </data>
+  <data name="r_goruntule" xml:space="preserve">
+    <value>View Report</value>
+  </data>
+  <data name="satisf" xml:space="preserve">
+    <value>Sales Invoice</value>
+  </data>
+  <data name="satistarihi" xml:space="preserve">
+    <value>Date of Sale:</value>
+  </data>
+  <data name="tip" xml:space="preserve">
+    <value>Invoice Type:</value>
+  </data>
+  <data name="yazdir" xml:space="preserve">
+    <value>PRINT</value>
   </data>
 </root>

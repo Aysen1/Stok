@@ -79,6 +79,15 @@ namespace Stok_Programı {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alış Faturası.
+        /// </summary>
+        internal static string alisf {
+            get {
+                return ResourceManager.GetString("alisf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AYARLAR.
         /// </summary>
         internal static string ayarlar {
@@ -124,11 +133,29 @@ namespace Stok_Programı {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Düzenlenme Tarihi:.
+        /// </summary>
+        internal static string duzenlenme {
+            get {
+                return ResourceManager.GetString("duzenlenme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Excel Dokümanı.
         /// </summary>
         internal static string excel_dokumani {
             get {
                 return ResourceManager.GetString("excel_dokumani", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fatura Görüntüle.
+        /// </summary>
+        internal static string f_goruntule {
+            get {
+                return ResourceManager.GetString("f_goruntule", resourceCulture);
             }
         }
         
@@ -142,20 +169,38 @@ namespace Stok_Programı {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Faturalar.
+        /// </summary>
+        internal static string faturalar {
+            get {
+                return ResourceManager.GetString("faturalar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fatura No:.
+        /// </summary>
+        internal static string faturano {
+            get {
+                return ResourceManager.GetString("faturano", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rapor Filtreleme Araçları.
+        /// </summary>
+        internal static string filtre {
+            get {
+                return ResourceManager.GetString("filtre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fatura Filtreleme Araçları.
         /// </summary>
         internal static string filtre_araclari {
             get {
                 return ResourceManager.GetString("filtre_araclari", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Filtrelenen Kod:.
-        /// </summary>
-        internal static string filtrekod {
-            get {
-                return ResourceManager.GetString("filtrekod", resourceCulture);
             }
         }
         
@@ -237,6 +282,15 @@ namespace Stok_Programı {
         internal static string giris {
             get {
                 return ResourceManager.GetString("giris", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GÖRÜNTÜLE.
+        /// </summary>
+        internal static string goruntule {
+            get {
+                return ResourceManager.GetString("goruntule", resourceCulture);
             }
         }
         
@@ -403,11 +457,38 @@ namespace Stok_Programı {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rapor.
+        ///   Looks up a localized string similar to Rapor Görüntüle.
         /// </summary>
-        internal static string rapor {
+        internal static string r_goruntule {
             get {
-                return ResourceManager.GetString("rapor", resourceCulture);
+                return ResourceManager.GetString("r_goruntule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fatura Şablonları.
+        /// </summary>
+        internal static string sablon {
+            get {
+                return ResourceManager.GetString("sablon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Satış Faturası.
+        /// </summary>
+        internal static string satisf {
+            get {
+                return ResourceManager.GetString("satisf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Satış Tarihi:.
+        /// </summary>
+        internal static string satistarihi {
+            get {
+                return ResourceManager.GetString("satistarihi", resourceCulture);
             }
         }
         
@@ -457,6 +538,15 @@ namespace Stok_Programı {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fatura Tipi:.
+        /// </summary>
+        internal static string tip {
+            get {
+                return ResourceManager.GetString("tip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Türkçe.
         /// </summary>
         internal static string türkçe {
@@ -489,6 +579,15 @@ namespace Stok_Programı {
         internal static string veritabani {
             get {
                 return ResourceManager.GetString("veritabani", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to YAZDIR.
+        /// </summary>
+        internal static string yazdir {
+            get {
+                return ResourceManager.GetString("yazdir", resourceCulture);
             }
         }
         
