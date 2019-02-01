@@ -133,6 +133,15 @@
     <Compile Include="fatura.Designer.cs">
       <DependentUpon>fatura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Faturalar\Fatura1.cs" />
+    <Compile Include="Faturalar\Fatura2.cs" />
+    <Compile Include="Faturalar\Fatura3.cs" />
+    <Compile Include="Faturalar\Fatura4.cs" />
+    <Compile Include="Faturalar\Fatura5.cs" />
+    <Compile Include="Faturalar\Fatura6.cs" />
+    <Compile Include="Faturalar\Fatura7.cs" />
+    <Compile Include="Faturalar\Rapor.cs" />
+    <Compile Include="Faturalar\satisFaturasi.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -17,6 +17,7 @@ using System.IO;
 using DevExpress.LookAndFeel;
 using DevExpress.XtraReports.UserDesigner;
 using DevExpress.XtraExport;
+using Stok_Programı.Faturalar;
 namespace Stok_Programı
 {
     public partial class Form8 : Form
@@ -29,6 +30,16 @@ namespace Stok_Programı
         SqlDataAdapter da;
         SqlCommand komut;
         DatabaseConnection database;
+        Fatura1 deneme1 = new Fatura1();
+        Fatura2 deneme2=new Fatura2();
+        Fatura3 deneme3 = new Fatura3();
+        Fatura4 deneme4 = new Fatura4();
+        Fatura5 deneme5 = new Fatura5();
+        Fatura6 deneme6 = new Fatura6();
+        Fatura7 deneme7 = new Fatura7();
+        Rapor rapor1 = new Rapor();
+        bool t1 = false;
+        bool t2 = false;
         private void Form8_Load(object sender, EventArgs e)
         {
             timer1.Start();
@@ -55,16 +66,7 @@ namespace Stok_Programı
                 System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("tr-TR");
             }
             metin();
-
             SqlDataReader dr;
-            database.BaglantiAc();
-            SqlCommand komut = new SqlCommand("select UrunKodu from UrunKayit1", database.baglanti);
-            dr = komut.ExecuteReader();
-            while(dr.Read())
-            {
-                  cmbx_kodlar.Items.Add(dr["UrunKodu"]);
-            }
-            database.BaglantiKapat();
             database.BaglantiAc();
             komut = new SqlCommand("select FirmaAdi from FirmaKayit", database.baglanti);
             dr = komut.ExecuteReader();
@@ -77,10 +79,12 @@ namespace Stok_Programı
             baslangic_tarihi.Checked = false;
             bitis_tarihi.ShowCheckBox = true;
             bitis_tarihi.Checked = false;
-            groupBox1.Location = new Point(this.ClientSize.Width / 2 - groupBox1.ClientSize.Width / 2, this.ClientSize.Height / 2 - groupBox1.ClientSize.Height / 2);
-            groupBox1.Anchor = AnchorStyles.None;
             saat.BackColor = Color.White;
             tarih.BackColor = Color.White;
+            tarih1.ShowCheckBox = true;
+            tarih1.Checked = false;
+            tarih2.ShowCheckBox = true;
+            tarih2.Checked = false;
         }
         private void cikisToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -107,7 +111,6 @@ namespace Stok_Programı
             lbl_baslangic.Text = Localization.tarih1;
             lbl_bitis.Text = Localization.tarih2;
             lbl_firma.Text = Localization.lbl_firmaadi;
-            lbl_kod.Text = Localization.filtrekod;
             groupBox1.Text = Localization.filtre_araclari;
             fatura_goruntule.Text = Localization.fatura;
         }
@@ -123,25 +126,23 @@ namespace Stok_Programı
         }
         private void girisF(DataSet ds)
         {
-            if (cmbx_kodlar.Text != "" & baslangic_tarihi.Checked==false & bitis_tarihi.Checked==false)
+            if (baslangic_tarihi.Checked==false & bitis_tarihi.Checked==false)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi,Personel FROM UrunGiris1 WHERE (UrunKodu=@kod)  ORDER BY GirisTarihi", database.baglanti);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi,Personel FROM UrunGiris1  ORDER BY GirisTarihi", database.baglanti);
             }
-            else if (cmbx_kodlar.Text == "" & baslangic_tarihi.Checked==true & bitis_tarihi.Checked==true)
+            else if (baslangic_tarihi.Checked==true & bitis_tarihi.Checked==true)
             {
                 komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi,Personel FROM UrunGiris1 WHERE (GirisTarihi >= @baslangic AND GirisTarihi < @bitis) ORDER BY GirisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
             }
-            else if (cmbx_kodlar.Text != "" & baslangic_tarihi.Checked ==true  & bitis_tarihi.Checked == true)
+            else if (baslangic_tarihi.Checked ==true  & bitis_tarihi.Checked == true)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi,Personel FROM UrunGiris1 WHERE (UrunKodu=@kod) AND (GirisTarihi >= @baslangic AND GirisTarihi < @bitis) ORDER BY GirisTarihi", database.baglanti);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi,Personel FROM UrunGiris1 WHERE (GirisTarihi >= @baslangic AND GirisTarihi < @bitis) ORDER BY GirisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
             }
-            else if(cmbx_kodlar.Text=="" & baslangic_tarihi.Checked==false & bitis_tarihi.Checked==false)
+            else if(baslangic_tarihi.Checked==false & bitis_tarihi.Checked==false)
             {
                 komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,GirisTarihi,Personel FROM UrunGiris1 ORDER BY GirisTarihi", database.baglanti); 
             }
@@ -169,25 +170,23 @@ namespace Stok_Programı
         }
         private void satisF(DataSet ds)
         {
-            if (cmbx_kodlar.Text != "" & baslangic_tarihi.Checked == true & bitis_tarihi.Checked == true)
+            if (baslangic_tarihi.Checked == true & bitis_tarihi.Checked == true)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi,Personel FROM UrunCikis WHERE (UrunKodu=@kod) AND (CikisTarihi >= @baslangic AND CikisTarihi < @bitis)  ORDER BY CikisTarihi", database.baglanti);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi,Personel FROM UrunCikis WHERE (CikisTarihi >= @baslangic AND CikisTarihi < @bitis)  ORDER BY CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
             }
-            else if (cmbx_kodlar.Text == "" & baslangic_tarihi.Checked == true & bitis_tarihi.Checked == true)
+            else if (baslangic_tarihi.Checked == true & bitis_tarihi.Checked == true)
             {
                 komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi,Personel FROM UrunCikis WHERE (CikisTarihi >= @baslangic AND CikisTarihi < @bitis) ORDER BY CikisTarihi", database.baglanti);
                 komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
                 komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
             }
-            else if (cmbx_kodlar.Text != "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false)
+            else if (baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false)
             {
-                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi,Personel FROM UrunCikis WHERE (UrunKodu=@kod) ORDER BY CikisTarihi", database.baglanti);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
+                komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi,Personel FROM UrunCikis ORDER BY CikisTarihi", database.baglanti);
             }
-            else if (cmbx_kodlar.Text == "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false)
+            else if (baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false)
             {
                 komut = new SqlCommand(@"SELECT UrunKodu,FirmaAdi,UrunAdet,CikisTarihi,Personel FROM UrunCikis ORDER BY CikisTarihi", database.baglanti);
             }
@@ -212,736 +211,17 @@ namespace Stok_Programı
                 rapor2.ShowPreview();
             }
         }
-        private void tasarim1_F(DataSet ds)
-        {
-            if (cmbx_kodlar.Text != "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.UrunKodu,UrunCikis.CikisTarihi,UrunCikis.Personel,FirmaKayit.Sehir,FirmaKayit.ilce,
-                FirmaKayit.Adres,FirmaKayit.SorumluAdi,UrunCikis.BirimFiyati,UrunCikis.ToplamFiyat
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=@firma)
-                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                tasarim1(ds);
-            }
-            else if (cmbx_kodlar.Text == "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.UrunKodu,UrunCikis.CikisTarihi,UrunCikis.Personel,FirmaKayit.Sehir,FirmaKayit.ilce,
-                FirmaKayit.Adres,FirmaKayit.SorumluAdi,UrunCikis.BirimFiyati,UrunCikis.ToplamFiyat
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
-                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                tasarim1(ds);
-            }      
-            else
-            {
-                database.BaglantiKapat();
-                MessageBox.Show("Üzgünüz işleminiz gerçekleştirilemedi. Bu fatura modelinde tarih filtrelemesi yapılmamaktadır, filtreleme yapılabilmesi için Firma Adı alanını boş bırakmamalısınız. Kontrol edip yeniden deneyiniz..",
-                    "Bilgilendirme Penceresi");
-            }
-        }
-        private void tasarim1(DataSet ds)
-        {
-            da = new SqlDataAdapter(komut);
-            da.Fill(ds);
-            decimal a = 0;
-            ds.Tables[0].TableName = "bilgiler";
-            database.BaglantiKapat();
-
-            if (ds.Tables[0].Rows.Count == 0)
-                MessageBox.Show("Ürün Bulunmamaktadır.","Bilgilendirme Penceresi");
-            else
-            {
-                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                {
-                    a += Convert.ToDecimal(ds.Tables[0].Rows[i].ItemArray[10]);
-                }
-                Properties.Settings.Default.faturano++;
-                Properties.Settings.Default.Save();
-                tasarim fatura = new tasarim();
-                fatura.DataAdapter = da;
-                fatura.DataSource = ds;
-                fatura.productName.DataBindings.Add("Text", ds, "UrunKodu");
-                fatura.invoiceDate.Text = DateTime.Now.ToString();
-                fatura.ilce.DataBindings.Add("Text", ds, "ilce");
-                fatura.sehir.DataBindings.Add("Text", ds, "Sehir");
-                fatura.customerAddress.DataBindings.Add("Text", ds, "Adres");
-                fatura.quantity.DataBindings.Add("Text", ds, "UrunAdet");
-                fatura.customerName.DataBindings.Add("Text", ds, "FirmaAdi");
-                fatura.unitPrice.DataBindings.Add("Text", ds, "BirimFiyati");
-                fatura.lineTotal.DataBindings.Add("Text", ds, "ToplamFiyat");
-                fatura.total.Text = string.Format("{0:#,##.00 ₺}", a);
-                fatura.personel.Text = Properties.Settings.Default.kullaniciadi;
-                fatura.invoiceNumber.Text = Properties.Settings.Default.faturano.ToString();
-                fatura.customerContactName.DataBindings.Add("Text", ds, "SorumluAdi");
-                fatura.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-                fatura.DataMember = ((DataSet)fatura.DataSource).Tables[0].TableName;
-                fatura.ShowPreview();
-            }  
-        }
-        private void tasarim2_F(DataSet ds)
-        {
-            if (cmbx_kodlar.Text != "" & cmbx_firmaadi.Text!="" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,UrunCikis.UrunKodu,UrunCikis.ToplamFiyat,
-                FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,UrunCikis.BirimFiyati 
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi)
-                AND (UrunCikis.FirmaAdi=@firma)", database.baglanti);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                tasarim2(ds);
-            }
-            else if (cmbx_kodlar.Text == "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false) 
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,UrunCikis.UrunKodu,UrunCikis.ToplamFiyat,
-                FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,UrunCikis.BirimFiyati 
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi)
-                AND (UrunCikis.FirmaAdi=@firma)", database.baglanti);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                tasarim2(ds);
-            }
-            else
-            {
-                database.BaglantiKapat();
-                MessageBox.Show("Üzgünüz işleminiz gerçekleştirilemedi. Bu fatura modelinde tarihe göre filtreleme yapılmamaktadır. Filtrelemenin doğru bir şekilde yapılabilmesi için Firma Adı alanını boş bırakmayınız.",
-                    "Bilgilendirme Penceresi");
-            }
-        }
-        private void tasarim2(DataSet ds)
-        {
-            da = new SqlDataAdapter(komut);
-            da.Fill(ds);
-            decimal fiyat = 0;
-            ds.Tables[0].TableName = "bilgiler";
-            database.BaglantiKapat();
-
-            if (ds.Tables[0].Rows.Count == 0)
-                MessageBox.Show("Ürün Bulunmamaktadır.");
-            else
-            {
-                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                {
-                    fiyat += Convert.ToDecimal(ds.Tables[0].Rows[i].ItemArray[4]);
-                }
-                //Properties.Settings.Default.faturano = 0;
-                Properties.Settings.Default.faturano++;
-                Properties.Settings.Default.Save();
-                tasarim2 fatura2 = new tasarim2();
-                fatura2.DataAdapter = da;
-                fatura2.DataSource = ds;
-                fatura2.productName.DataBindings.Add("Text", ds, "UrunKodu");
-                fatura2.invoiceDate.Text = DateTime.Now.ToString();
-                //fatura2.invoiceDueDate.DataBindings.Add("Text", ds, "CikisTarihi");
-                fatura2.quantity.DataBindings.Add("Text", ds, "UrunAdet");
-                fatura2.customerName.DataBindings.Add("Text", ds, "FirmaAdi");
-                fatura2.invoiceNumber.Text = Properties.Settings.Default.faturano.ToString();
-                fatura2.personel.Text = Properties.Settings.Default.kullaniciadi;
-                fatura2.unitPrice.DataBindings.Add("Text", ds, "BirimFiyati");
-                fatura2.lineTotal.DataBindings.Add("Text", ds, "ToplamFiyat");
-                fatura2.total.Text = string.Format("{0:#,##.00 ₺}", fiyat);
-                fatura2.DataMember = ((DataSet)fatura2.DataSource).Tables[0].TableName;
-                fatura2.ShowPreview();
-            }
-        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             tarih.Text = DateTime.Today.ToLongDateString();
             saat.Text = DateTime.Now.ToLongTimeString();
+            düzenlenme.Text = DateTime.Now.ToString();
             timer1.Start();
-        }
-        private void tasarim3_F(DataSet ds)
-        {
-            if (cmbx_kodlar.Text != "" & cmbx_firmaadi.Text!="" & baslangic_tarihi.Checked==false & bitis_tarihi.Checked==false)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,UrunCikis.UrunKodu,UrunCikis.ToplamFiyat,
-                FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,UrunCikis.BirimFiyati 
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi)
-                AND (UrunCikis.FirmaAdi=@firma)", database.baglanti);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                tasarim3(ds);
-            }
-            else if (cmbx_kodlar.Text == "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,UrunCikis.UrunKodu,UrunCikis.ToplamFiyat,
-                FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,UrunCikis.BirimFiyati 
-                FROM UrunCikis,FirmaKayit 
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)", database.baglanti);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                tasarim3(ds);
-            }
-            else if (cmbx_kodlar.Text == "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == true & bitis_tarihi.Checked == true)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,UrunCikis.UrunKodu,UrunCikis.ToplamFiyat,
-                FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,UrunCikis.BirimFiyati 
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
-                AND (UrunCikis.CikisTarihi>@baslangic) AND (UrunCikis.CikisTarihi<@bitis)", database.baglanti);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
-                komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
-                tasarim3(ds);
-            }
-            else if (cmbx_kodlar.Text != "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == true & bitis_tarihi.Checked == true)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,UrunCikis.UrunKodu,UrunCikis.ToplamFiyat,
-                FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,UrunCikis.BirimFiyati 
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
-                AND (UrunCikis.CikisTarihi>@baslangic) AND (UrunCikis.CikisTarihi<@bitis)", database.baglanti);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
-                komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
-                tasarim3(ds);
-            }
-            else
-            {
-                database.BaglantiKapat();
-                MessageBox.Show("Üzgünüz işleminiz gerçekleştirilemedi. Bu fatura modelinde işlem yapabilmek için Firma Adı alanı boş bırakılmamalıdır, tarihe göre filtreleme yapılmak isteniyorsa Başlangıç Tarihi ve Bitiş Tarihi alanları aynı anda işaretlenmelidir.",
-    "Bilgilendirme Penceresi");
-            }
-        }
-        private void tasarim3(DataSet ds)
-        {
-            da = new SqlDataAdapter(komut);
-            da.Fill(ds);
-            decimal fiyat = 0;
-            ds.Tables[0].TableName = "bilgiler";
-            database.BaglantiKapat();
-
-            if (ds.Tables[0].Rows.Count == 0)
-                MessageBox.Show("Ürün Bulunmamaktadır.");
-            else
-            {
-                for(int i=0;i<ds.Tables[0].Rows.Count;i++)
-                {
-                    fiyat += Convert.ToDecimal(ds.Tables[0].Rows[i].ItemArray[4]);
-                }
-                tasarim3 fatura3 = new tasarim3();
-                Properties.Settings.Default.faturano++;
-                Properties.Settings.Default.Save();
-                fatura3.DataAdapter = da;
-                fatura3.DataSource = ds;
-                fatura3.invoiceDate.Text = DateTime.Now.ToString();
-                fatura3.total.Text = string.Format("{0:#,##.00 ₺}", fiyat);
-                fatura3.total2.Text = string.Format("{0:#,##.00 ₺}", fiyat);
-                fatura3.personel.Text = Properties.Settings.Default.kullaniciadi;
-                fatura3.unitPrice.DataBindings.Add("Text",ds,"BirimFiyati");
-                fatura3.lineTotal.DataBindings.Add("Text", ds, "ToplamFiyat");
-                fatura3.productName.DataBindings.Add("Text", ds, "UrunKodu");
-                fatura3.firmail.DataBindings.Add("Text", ds, "Sehir");
-                fatura3.firmailce.DataBindings.Add("Text", ds, "ilce");
-                fatura3.customerAddress.DataBindings.Add("Text", ds, "Adres");
-                fatura3.quantity.DataBindings.Add("Text", ds, "UrunAdet");
-                fatura3.customerName.DataBindings.Add("Text", ds, "FirmaAdi");
-                fatura3.invoiceNumber.Text = Properties.Settings.Default.faturano.ToString();
-                fatura3.DataMember = ((DataSet)fatura3.DataSource).Tables[0].TableName;
-                fatura3.ShowPreview();
-            }
-        }
-        private void tasarim4_F(DataSet ds)
-        {
-            if (cmbx_kodlar.Text != "" & cmbx_firmaadi.Text!="")
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.UrunKodu,UrunCikis.CikisTarihi,UrunCikis.ToplamFiyat
-                FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,FirmaKayit.TelefonNo,UrunCikis.BirimFiyati 
-                FROM UrunCikis,FirmaKayit 
-                WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
-                ORDER BY UrunCikis.CikisTarihi", database. baglanti);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                tasarim4(ds);
-            }
-            else if (cmbx_kodlar.Text == "" & cmbx_firmaadi.Text!="")
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.UrunKodu,UrunCikis.CikisTarihi,UrunCikis.ToplamFiyat,
-                FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,FirmaKayit.TelefonNo,UrunCikis.BirimFiyati 
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
-                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                tasarim4(ds);
-            }
-            else
-            {
-                database.BaglantiKapat();
-                MessageBox.Show("Üzgünüz işleminiz gerçekleştirilemedi. Bu fatura modelinde tarihe göre filtreleme yapılmamaktadır. Filtrelemenin doğru bir şekilde yapılabilmesi için Firma Adı alanını boş bırakmayınız.",
-                    "Bilgilendirme Penceresi");
-            }
-        }
-        private void tasarim4(DataSet ds)
-        {
-            da = new SqlDataAdapter(komut);
-            da.Fill(ds);
-            decimal fiyat = 0;
-            ds.Tables[0].TableName = "bilgiler";
-            database.BaglantiKapat();
-
-            if (ds.Tables[0].Rows.Count == 0)
-                MessageBox.Show("Ürün Bulunmamaktadır.");
-            else
-            {
-                for(int i=0;i<ds.Tables[0].Rows.Count;i++)
-                {
-                    fiyat += Convert.ToDecimal(ds.Tables[0].Rows[i].ItemArray[4]);
-                }
-                tasarim4 fatura4 = new tasarim4();
-                Properties.Settings.Default.faturano++;
-                Properties.Settings.Default.Save();
-                fatura4.DataAdapter = da;
-                fatura4.DataSource = ds;
-                fatura4.productDescription.DataBindings.Add("Text", ds, "UrunKodu");
-                fatura4.invoiceDate.Text = DateTime.Now.ToShortDateString();
-                fatura4.saat.Text = DateTime.Now.ToShortTimeString();
-                fatura4.customerAddress.DataBindings.Add("Text", ds, "Adres");
-                fatura4.quantity.DataBindings.Add("Text", ds, "UrunAdet");
-                fatura4.customerName.DataBindings.Add("Text", ds, "FirmaAdi");
-                fatura4.customerTown.DataBindings.Add("Text", ds, "ilce");
-                fatura4.customerCity.DataBindings.Add("Text", ds, "Sehir");
-                fatura4.customerTel.DataBindings.Add("Text", ds, "TelefonNo");
-                fatura4.total2.Text = string.Format("{0:#,##.00 ₺}", fiyat);
-                fatura4.unitPrice.DataBindings.Add("Text", ds, "BirimFiyati");
-                fatura4.lineTotal.DataBindings.Add("Text", ds, "ToplamFiyat");
-                fatura4.personel.Text = Properties.Settings.Default.kullaniciadi;
-                fatura4.invoiceNumber.Text = Properties.Settings.Default.faturano.ToString();
-                fatura4.DataMember = ((DataSet)fatura4.DataSource).Tables[0].TableName;
-              //  fatura4.LoadLayout(Application.StartupPath + "\\faturalar\\tasarim4.repx");
-                fatura4.ShowPreview();
-                //fatura4.ShowDesigner();
-                //fatura4.SaveLayout(Application.StartupPath + "\\faturalar");
-            }
-        }
-        private void tasarim6_F(DataSet ds)
-        {
-            if (cmbx_kodlar.Text != "" & cmbx_firmaadi.Text!="" & baslangic_tarihi.Checked==false & bitis_tarihi.Checked==false)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.UrunKodu,UrunCikis.CikisTarihi,UrunCikis.ToplamFiyat,
-                FirmaKayit.Adres,FirmaKayit.ilce,FirmaKayit.Sehir,UrunCikis.BirimFiyati   
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)", database.baglanti);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                tasarim6(ds);
-            }
-            else if (cmbx_kodlar.Text == "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.UrunKodu,UrunCikis.CikisTarihi,UrunCikis.ToplamFiyat,
-                FirmaKayit.Adres,FirmaKayit.ilce,FirmaKayit.Sehir,UrunCikis.BirimFiyati   
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)", database.baglanti);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                tasarim6(ds);
-            }
-            else if (cmbx_kodlar.Text == "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == true & bitis_tarihi.Checked == true)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.UrunKodu,UrunCikis.CikisTarihi,UrunCikis.ToplamFiyat,
-                FirmaKayit.Adres,FirmaKayit.ilce,FirmaKayit.Sehir,UrunCikis.BirimFiyati   
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
-                AND (UrunCikis.CikisTarihi>@baslangic) AND (UrunCikis.CikisTarihi<@bitis)", database.baglanti);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
-                komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
-                tasarim6(ds);
-            }
-            else if (cmbx_kodlar.Text != "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == true & bitis_tarihi.Checked == true)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.UrunKodu,UrunCikis.CikisTarihi,UrunCikis.ToplamFiyat,
-                FirmaKayit.Adres,FirmaKayit.ilce,FirmaKayit.Sehir,UrunCikis.BirimFiyati   
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
-                AND (UrunCikis.CikisTarihi>@baslangic) AND (UrunCikis.CikisTarihi<@bitis) AND (UrunCikis.UrunKodu=@kod)", database.baglanti);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
-                komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
-                komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
-                tasarim6(ds);
-            }
-            else
-            {
-                database.BaglantiKapat();
-                MessageBox.Show("Üzgünüz işleminiz gerçekleştirilemedi. Bu fatura modelinde işlem yapabilmek için Firma Adı alanı boş bırakılmamalıdır, tarihe göre filtreleme yapılmak isteniyorsa Başlangıç Tarihi ve Bitiş Tarihi alanları aynı anda işaretlenmelidir.",
-                    "Bilgilendirme Penceresi");
-            }
-        }
-        private void tasarim6(DataSet ds)
-        {
-            da = new SqlDataAdapter(komut);
-            da.Fill(ds);
-            decimal a = 0;
-            ds.Tables[0].TableName = "bilgiler";
-            database.BaglantiKapat();
-
-            if (ds.Tables[0].Rows.Count == 0)
-                MessageBox.Show("Ürün Bulunmamaktadır.");
-            else
-            {
-                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                {
-                    a += Convert.ToDecimal(ds.Tables[0].Rows[i].ItemArray[4]);
-                }
-                tasarim6 fatura5 = new tasarim6();
-                Properties.Settings.Default.faturano++;
-                Properties.Settings.Default.Save();
-                fatura5.DataAdapter = da;
-                fatura5.DataSource = ds;
-                if (ds.Tables[0].Rows.Count == 1)
-                    fatura5.invoiceDueDateRow.Visible = true;
-                else
-                    fatura5.invoiceDueDateRow.Visible = false;
-                fatura5.productName.DataBindings.Add("Text", ds, "UrunKodu");
-                fatura5.invoiceDate.Text = DateTime.Now.ToString();
-                fatura5.invoiceDueDate.DataBindings.Add("Text", ds, "CikisTarihi");
-                fatura5.quantity.DataBindings.Add("Text", ds, "UrunAdet");
-                fatura5.productDescription.DataBindings.Add("Text", ds, "FirmaAdi");
-                fatura5.customerName.DataBindings.Add("Text", ds, "FirmaAdi");
-                fatura5.customerAddress.DataBindings.Add("Text", ds, "Adres");
-                fatura5.ilce.DataBindings.Add("Text", ds, "ilce");
-                fatura5.sehir.DataBindings.Add("Text",ds,"Sehir");
-                fatura5.unitPrice.DataBindings.Add("Text",ds,"BirimFiyati");
-                fatura5.lineTotal.DataBindings.Add("Text", ds, "ToplamFiyat");
-                fatura5.total.Text = string.Format("{0:#,##.00 ₺}", a);
-                fatura5.personel.Text = Properties.Settings.Default.kullaniciadi;
-                fatura5.invoiceNumber.Text = Properties.Settings.Default.faturano.ToString();
-                fatura5.DataMember = ((DataSet)fatura5.DataSource).Tables[0].TableName;
-                fatura5.ShowPreview();
-            }
-        }
-        private void tasarim7_F(DataSet ds)
-        {
-            if (cmbx_kodlar.Text != "" & cmbx_firmaadi.Text!="" & baslangic_tarihi.Checked==false & bitis_tarihi.Checked==true)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.UrunKodu,UrunCikis.CikisTarihi,UrunCikis.ToplamFiyat,
-                FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,FirmaKayit.TelefonNo, UrunCikis.BirimFiyati 
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
-                AND (UrunCikis.CikisTarihi<@bitis)
-                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
-                tasarim7(ds);
-            }
-            else if (cmbx_kodlar.Text != "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == true & bitis_tarihi.Checked == false)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.UrunKodu,UrunCikis.CikisTarihi,UrunCikis.ToplamFiyat,
-                FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,FirmaKayit.TelefonNo, UrunCikis.BirimFiyati 
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.UrunKodu=@kod) AND (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
-                AND (UrunCikis.CikisTarihi>@baslangic)
-                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
-                tasarim7(ds);
-            }
-            else if (cmbx_kodlar.Text == "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == true & bitis_tarihi.Checked == false)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.UrunKodu,UrunCikis.CikisTarihi,UrunCikis.ToplamFiyat,
-                FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,FirmaKayit.TelefonNo, UrunCikis.BirimFiyati 
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
-                AND (UrunCikis.CikisTarihi>@baslangic)
-                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
-                tasarim7(ds);
-            }
-            else if (cmbx_kodlar.Text == "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == true)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunAdet,UrunCikis.UrunKodu,UrunCikis.CikisTarihi,UrunCikis.ToplamFiyat,
-                FirmaKayit.Adres,FirmaKayit.Sehir,FirmaKayit.ilce,FirmaKayit.TelefonNo, UrunCikis.BirimFiyati 
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma)
-                AND (UrunCikis.CikisTarihi<@bitis)
-                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
-                tasarim7(ds);
-            }
-            else
-            {
-                database.BaglantiKapat();
-                MessageBox.Show("Üzgünüz işleminiz gerçekleştirilemedi. Bu fatura modelinde işlem yapabilmek için Firma Adı ve tarih alanı boş bırakılmamalıdır, tarihe göre filtreleme yapılması için Başlangıç Tarihi ve Bitiş Tarihi alanları aynı anda işaretlenmemelidir.",
-    "Bilgilendirme Penceresi");
-            }
-        }
-        private void tasarim7(DataSet ds)
-        {
-            da = new SqlDataAdapter(komut);
-            da.Fill(ds);
-            decimal fiyat = 0;
-            ds.Tables[0].TableName = "bilgiler";
-            database.BaglantiKapat();
-
-            if (ds.Tables[0].Rows.Count == 0)
-                MessageBox.Show("Ürün Bulunmamaktadır.");
-            else
-            {
-                for(int i=0; i<ds.Tables[0].Rows.Count;i++)
-                {
-                    fiyat+=Convert.ToDecimal(ds.Tables[0].Rows[i].ItemArray[4]);
-                }
-                tasarim7 fatura5 = new tasarim7();
-                Properties.Settings.Default.faturano++;
-                Properties.Settings.Default.Save();
-                fatura5.DataAdapter = da;
-                fatura5.DataSource = ds;
-                if (ds.Tables[0].Rows.Count == 1)
-                    fatura5.invoiceDueDateRow.Visible = true;
-                else
-                    fatura5.invoiceDueDateRow.Visible = false;
-                fatura5.productName.DataBindings.Add("Text", ds, "UrunKodu");
-                fatura5.invoiceDate.Text = DateTime.Now.ToString();
-                fatura5.invoiceDueDate.DataBindings.Add("Text", ds, "CikisTarihi");
-                fatura5.quantity.DataBindings.Add("Text", ds, "UrunAdet");
-                fatura5.productDescription.DataBindings.Add("Text", ds, "FirmaAdi");
-                fatura5.customerName.DataBindings.Add("Text", ds, "FirmaAdi");
-                fatura5.customerAddress.DataBindings.Add("Text", ds, "Adres");
-                fatura5.customerTown.DataBindings.Add("Text", ds, "ilce");
-                fatura5.customerCity.DataBindings.Add("Text", ds, "Sehir");
-                fatura5.customerPhone.DataBindings.Add("Text", ds, "TelefonNo");
-                fatura5.unitPrice.DataBindings.Add("Text", ds, "BirimFiyati");
-                fatura5.lineTotal.DataBindings.Add("Text", ds, "ToplamFiyat");
-                fatura5.personel.Text = Properties.Settings.Default.kullaniciadi;
-                fatura5.total.Text = string.Format("{0:#,##.00 ₺}", fiyat);
-                fatura5.faturano.Text = Properties.Settings.Default.faturano.ToString();
-                fatura5.DataMember = ((DataSet)fatura5.DataSource).Tables[0].TableName;
-                fatura5.ShowPreview(); ;
-            }
-        }
-        private void fatura1(DataSet ds)
-        {
-            if (cmbx_kodlar.Text == "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunKodu,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,FirmaKayit.Adres,FirmaKayit.Sehir,
-                FirmaKayit.ilce,FirmaKayit.TelefonNo,FirmaKayit.VergiDairesiAdi,FirmaKayit.MersisNo,UrunCikis.BirimFiyati,UrunCikis.ToplamFiyat
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) ORDER BY UrunCikis.CikisTarihi", database.baglanti);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                fatura_olustur(ds);
-            }
-            else if (cmbx_kodlar.Text != "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == false)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunKodu,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,FirmaKayit.Adres,FirmaKayit.Sehir,
-                FirmaKayit.ilce,FirmaKayit.TelefonNo,FirmaKayit.VergiDairesiAdi,FirmaKayit.MersisNo,UrunCikis.BirimFiyati,UrunCikis.ToplamFiyat
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) AND (UrunCikis.UrunKodu=@kod) ORDER BY UrunCikis.CikisTarihi", database.baglanti);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                fatura_olustur(ds);
-            }
-            else if (cmbx_kodlar.Text != "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == true & bitis_tarihi.Checked == false)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunKodu,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,FirmaKayit.Adres,FirmaKayit.Sehir,
-                FirmaKayit.ilce,FirmaKayit.TelefonNo,FirmaKayit.VergiDairesiAdi,FirmaKayit.MersisNo,UrunCikis.BirimFiyati,UrunCikis.ToplamFiyat
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) AND (UrunCikis.UrunKodu=@kod) 
-                AND (UrunCikis.CikisTarihi>@baslangic)
-                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
-                fatura_olustur(ds);
-            }
-            else if (cmbx_kodlar.Text == "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == true & bitis_tarihi.Checked == false)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunKodu,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,FirmaKayit.Adres,FirmaKayit.Sehir,
-                FirmaKayit.ilce,FirmaKayit.TelefonNo,FirmaKayit.VergiDairesiAdi,FirmaKayit.MersisNo,UrunCikis.BirimFiyati,UrunCikis.ToplamFiyat
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) AND (UrunCikis.CikisTarihi>@baslangic)
-                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
-                fatura_olustur(ds);
-            }
-            else if (cmbx_kodlar.Text == "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == true)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunKodu,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,FirmaKayit.Adres,FirmaKayit.Sehir,
-                FirmaKayit.ilce,FirmaKayit.TelefonNo,FirmaKayit.VergiDairesiAdi,FirmaKayit.MersisNo,UrunCikis.BirimFiyati,UrunCikis.ToplamFiyat
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) AND (UrunCikis.CikisTarihi<@bitis)
-                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
-                fatura_olustur(ds);
-            }
-            else if (cmbx_kodlar.Text != "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == true)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunKodu,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,FirmaKayit.Adres,FirmaKayit.Sehir,
-                FirmaKayit.ilce,FirmaKayit.TelefonNo,FirmaKayit.VergiDairesiAdi,FirmaKayit.MersisNo,UrunCikis.BirimFiyati,UrunCikis.ToplamFiyat
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) AND (UrunCikis.CikisTarihi<@bitis) AND (UrunCikis.UrunKodu=@kod)
-                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
-                fatura_olustur(ds);
-            }
-            else if (cmbx_kodlar.Text == "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == true & bitis_tarihi.Checked == true)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunKodu,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,FirmaKayit.Adres,FirmaKayit.Sehir,
-                FirmaKayit.ilce,FirmaKayit.TelefonNo,FirmaKayit.VergiDairesiAdi,FirmaKayit.MersisNo,UrunCikis.BirimFiyati,UrunCikis.ToplamFiyat
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) AND (UrunCikis.CikisTarihi>@baslangic) AND (UrunCikis.CikisTarihi<@bitis)
-                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
-                komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
-                fatura_olustur(ds);
-            }
-            else if (cmbx_kodlar.Text != "" & cmbx_firmaadi.Text != "" & baslangic_tarihi.Checked == true & bitis_tarihi.Checked == true)
-            {
-                komut = new SqlCommand(@"SELECT UrunCikis.FirmaAdi,UrunCikis.UrunKodu,UrunCikis.UrunAdet,UrunCikis.CikisTarihi,FirmaKayit.Adres,FirmaKayit.Sehir,
-                FirmaKayit.ilce,FirmaKayit.TelefonNo,FirmaKayit.VergiDairesiAdi,FirmaKayit.MersisNo,UrunCikis.BirimFiyati,UrunCikis.ToplamFiyat
-                FROM UrunCikis,FirmaKayit
-                WHERE (UrunCikis.FirmaAdi=FirmaKayit.FirmaAdi) AND (UrunCikis.FirmaAdi=@firma) AND (UrunCikis.UrunKodu=@kod) AND (UrunCikis.CikisTarihi>@baslangic) AND (UrunCikis.CikisTarihi<@bitis)
-                ORDER BY UrunCikis.CikisTarihi", database.baglanti);
-                komut.Parameters.AddWithValue("@kod", cmbx_kodlar.Text);
-                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
-                komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
-                komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
-                fatura_olustur(ds);
-            }
-            else
-            {
-                database.BaglantiKapat();
-                MessageBox.Show("Üzgünüz işleminiz gerçekleştirilemedi. Filtreleme yapabilmeniz için Firma Adı seçimi yapmanız gerekmektedir..Gerekli alanları kontrol edip tekrar deneyiniz..", "Bilgilendirme Penceresi");
-            }
-        }
-        private void fatura_olustur(DataSet ds)
-        {
-            da = new SqlDataAdapter(komut);
-            da.Fill(ds);
-            ds.Tables[0].TableName = "bilgiler";
-            database.BaglantiKapat();
-            decimal a = 0;
-            if (ds.Tables[0].Rows.Count == 0)
-                MessageBox.Show("Ürün Bulunmamaktadır.");
-            else
-            {
-                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                {
-                    a += Convert.ToDecimal(ds.Tables[0].Rows[i].ItemArray[11]);
-                }
-                Properties.Settings.Default.faturano++;
-                Properties.Settings.Default.Save();          
-                fatura fatura1 = new fatura(); 
-                fatura1.DataAdapter = da;
-                fatura1.DataSource = ds;
-                if (ds.Tables[0].Rows.Count == 1)
-                    fatura1.invoiceduedaterow.Visible = true;
-                else
-                    fatura1.invoiceduedaterow.Visible = false;
-                fatura1.faturano.Text = Properties.Settings.Default.faturano.ToString();
-                fatura1.faturatarih.Text = DateTime.Now.ToString();
-                fatura1.satistarih.DataBindings.Add("Text", ds, "CikisTarihi");
-                fatura1.firmaadi.DataBindings.Add("Text", ds, "FirmaAdi");
-                fatura1.firmaadres.DataBindings.Add("Text", ds, "Adres");
-                fatura1.firmail.DataBindings.Add("Text", ds, "Sehir");
-                fatura1.firmailce.DataBindings.Add("Text", ds, "ilce");
-                fatura1.urunadi.DataBindings.Add("Text", ds, "UrunKodu");
-                fatura1.miktar.DataBindings.Add("Text", ds, "UrunAdet");
-                fatura1.vergi.DataBindings.Add("Text", ds, "VergiDairesiAdi");
-                fatura1.mersis.DataBindings.Add("Text", ds, "MersisNo");
-                fatura1.birimfiyat.DataBindings.Add("Text", ds, "BirimFiyati");
-                fatura1.tutar.DataBindings.Add("Text", ds, "ToplamFiyat");
-                fatura1.toplam.Text = string.Format("{0:#,##.00 ₺}", a);
-                fatura1.personel.Text = Properties.Settings.Default.kullaniciadi;
-                fatura1.DataMember = ((DataSet)fatura1.DataSource).Tables[0].TableName;
-              //  fatura1.LoadLayout(Application.StartupPath + "\\faturalar\\fatura.repx");
-                fatura1.ShowPreview();        
-            }
-        }
-        void DesignmdiController(object sender, DesignerLoadedEventArgs e)
-        {
-            ((XRDesignPanel)sender).ExecCommand(ReportCommand.NewReportWizard);
-        }
-        private void rapor(DataSet ds)
-        {
-            if(cmbx_firmaadi.Text=="" & cmbx_kodlar.Text=="" & baslangic_tarihi.Checked==false & bitis_tarihi.Checked==false)
-            {
-                komut = new SqlCommand(@"SELECT * FROM UrunCikis ORDER BY FirmaAdi", database.baglanti);
-                rapor_olustur(ds);
-            }
-            else if(cmbx_firmaadi.Text=="" & cmbx_kodlar.Text=="" & baslangic_tarihi.Checked==true & bitis_tarihi.Checked==false)
-            {
-                komut = new SqlCommand(@"SELECT * FROM UrunCikis WHERE CikisTarihi>@baslangic ORDER BY FirmaAdi", database.baglanti);
-                komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
-                rapor_olustur(ds);
-            }
-            else if (cmbx_firmaadi.Text == "" & cmbx_kodlar.Text == "" & baslangic_tarihi.Checked == false & bitis_tarihi.Checked == true)
-            {
-                komut = new SqlCommand(@"SELECT * FROM UrunCikis WHERE CikisTarihi<@bitis ORDER BY FirmaAdi", database.baglanti);
-                komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
-                rapor_olustur(ds);
-            }
-            else if (cmbx_firmaadi.Text == "" & cmbx_kodlar.Text == "" & baslangic_tarihi.Checked == true & bitis_tarihi.Checked == true)
-            {
-                komut = new SqlCommand(@"SELECT * FROM UrunCikis WHERE (CikisTarihi>@baslangic) AND (CikisTarihi<@bitis) ORDER BY FirmaAdi", database.baglanti);
-                komut.Parameters.AddWithValue("@bitis", bitis_tarihi.Value);
-                komut.Parameters.AddWithValue("@baslangic", baslangic_tarihi.Value);
-                rapor_olustur(ds);
-            }
-            else
-            {
-                database.BaglantiKapat();
-                MessageBox.Show("Üzgünüz işleminiz gerçekleştirilemedi. Ürünlerin satış raporunu görüntülenmek için Firma Adı alanı ve Filtrelenen Kod alanı boş bırakılmalıdır. Kontrol edip yeniden deneyiniz.", "Bilgilendirme Penceresi");
-            }
-        }
-        private void rapor_olustur(DataSet ds)
-        {
-            da = new SqlDataAdapter(komut);
-            da.Fill(ds);
-            ds.Tables[0].TableName = "bilgiler";
-            database.BaglantiKapat();
-            decimal a = 0;
-            if (ds.Tables[0].Rows.Count == 0)
-                MessageBox.Show("Ürün Bulunmamaktadır.");
-            else
-            {
-                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                {
-                    a += Convert.ToDecimal(ds.Tables[0].Rows[i].ItemArray[9]);
-                }
-                Properties.Settings.Default.raporno++;
-                Properties.Settings.Default.Save();
-                fatura fatura1 = new fatura();
-                fatura1.DataAdapter = da;
-                fatura1.DataSource = ds;
-                fatura1.faturano.Text = Properties.Settings.Default.raporno.ToString();
-                fatura1.faturatarih.Text = DateTime.Now.ToString();
-                fatura1.urunadi.DataBindings.Add("Text", ds, "UrunKodu");
-                fatura1.miktar.DataBindings.Add("Text", ds, "UrunAdet");
-                fatura1.firma.DataBindings.Add("Text", ds, "FirmaAdi");
-                fatura1.xrTable3.Visible = false;
-                fatura1.xrTable4.Visible = false;
-                fatura1.invoiceduedaterow.Visible = false;
-                fatura1.islembicimi.Text = "SATIŞ RAPORU";
-                fatura1.islemno.Text = "RAPOR NO#";
-                fatura1.xrTableCell23.Visible = false;
-                fatura1.xrTableCell25.Visible = false;
-                fatura1.xrTableCell27.Visible = false;
-                fatura1.xrTableCell21.Text = "DÜZENLEYEN PERSONEL";
-                fatura1.birimfiyat.DataBindings.Add("Text", ds, "BirimFiyati");
-                fatura1.tutar.DataBindings.Add("Text", ds, "ToplamFiyat");
-                fatura1.toplam.Text = string.Format("{0:#,##.00 ₺}", a);
-                fatura1.personel.Text = Properties.Settings.Default.kullaniciadi;
-                fatura1.DataMember = ((DataSet)fatura1.DataSource).Tables[0].TableName;
-               // fatura1.LoadLayout(Application.StartupPath + "\\faturalar\\rapor.repx");
-                fatura1.ShowPreview();
-            }
         }
         private void temizle_Click(object sender, EventArgs e)
         {
             cmbx_firmaadi.Text = "";
-            cmbx_kodlar.Text = "";
+            faturano.Text="";
             baslangic_tarihi.Checked = false;
             bitis_tarihi.Checked = false;
         }
@@ -957,35 +237,50 @@ namespace Stok_Programı
         {
             this.WindowState = FormWindowState.Maximized;
         }
+        private void checkbox()
+        {
+            if(tarih1.Checked==false & tarih2.Checked==false)
+            {
+                t1 = false; t2 = false;
+            }
+            else if(tarih1.Checked==true & tarih2.Checked==false)
+            {
+                t1 = true; t2 = false;
+            }
+            else if (tarih1.Checked==false & tarih2.Checked==true)
+            {
+                t1 = false; t2 = true;
+            }
+            else
+            {
+                t1 = true; t2 = true;
+            }
+        }
         private void fatura_goruntule_Click(object sender, EventArgs e)
         {
             ds = new DataSet("Tablo");
-            database.BaglantiAc();
             switch (Properties.Settings.Default.fatura)
             {
                 case "fatura.repx":
-                    fatura1(ds);
-                    break;
-                case "rapor.repx":
-                    rapor(ds);
+                    deneme1.sql(ds, cmbx_firmaadi.Text, faturano.Text);
                     break;
                 case "tasarim7.repx":
-                    tasarim7_F(ds);
+                    deneme7.sql(ds, cmbx_firmaadi.Text, faturano.Text);
                     break;
                 case "tasarim6.repx":
-                    tasarim6_F(ds);
+                    deneme6.sql(ds,cmbx_firmaadi.Text,faturano.Text);
                     break;
                 case "tasarim4.repx":
-                    tasarim4_F(ds);
+                    deneme2.sablon(ds,cmbx_firmaadi.Text,faturano.Text);
                     break;
                 case "tasarim3.repx":
-                    tasarim3_F(ds);
+                    deneme3.sql(ds,cmbx_firmaadi.Text,faturano.Text);
                     break;
                 case "tasarim2.repx":
-                    tasarim2_F(ds);
+                    deneme4.sql(ds,cmbx_firmaadi.Text,faturano.Text);
                     break;
                 case "tasarim1.repx":
-                    tasarim1_F(ds);
+                    deneme5.sql(ds,cmbx_firmaadi.Text,faturano.Text);
                     break;
                 case "uretimgirisS.repx":
                     girisF(ds);
@@ -997,6 +292,49 @@ namespace Stok_Programı
                     MessageBox.Show("Bir hata oluştu. Lütfen bir fatura şablonu seçip yeniden deneyin.","Bilgilendirme Penceresi");
                     break;
             }            
+        }
+        private void satisFaturası_Click(object sender, EventArgs e)
+        {
+            tabControl1.Visible = true;
+            database.BaglantiAc();
+            komut = new SqlCommand("select FirmaAdi from FirmaKayit", database.baglanti);
+           SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+                firmaadi.Items.Add(dr["FirmaAdi"]);
+            database.BaglantiKapat();
+            t_fno.Text = Properties.Settings.Default.faturano.ToString();
+        }
+        private void btn_kaydet_Click(object sender, EventArgs e)
+        {
+            satisFaturasi yeni = new satisFaturasi();
+            yeni.kayıt_ekle(firmaadi.Text,satistarihi.Text,düzenlenme.Text);
+        }
+        private void cmbx_firmaadi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbx_firmaadi.SelectedIndex != -1)
+            {
+                faturano.Items.Clear();
+                faturano.Text = "";
+                database.Baglanti();
+                database.BaglantiAc();
+                komut = new SqlCommand("select * from Fatura where (FirmaAdi=@firma)", database.baglanti);
+                komut.Parameters.AddWithValue("@firma", cmbx_firmaadi.Text);
+                SqlDataReader dr = komut.ExecuteReader();
+                while (dr.Read())
+                {
+                    faturano.Items.Add(dr["FaturaNo"]);
+                }
+                database.BaglantiKapat();
+            }
+        }
+        private void s_goruntule_Click(object sender, EventArgs e)
+        {
+            ds = new DataSet("Tablo");
+            checkbox();
+            if (Properties.Settings.Default.fatura == "rapor.repx")
+                rapor1.sql(ds,tarih1.Text,tarih2.Text,t1,t2);
+            else
+                MessageBox.Show("Raporu Görüntüleyebilmeniz İçin Lütfen Önce Rapor Şablonunu Seçin.", "Bilgilendirme Penceresi");
         }
     }
 }
