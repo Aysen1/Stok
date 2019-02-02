@@ -42,6 +42,8 @@
             this.faturalarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.satisFaturasıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alisFaturasıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.faturaGörüntüleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.raporGörüntüleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.yardımToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cikisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.baslangic_tarihi = new System.Windows.Forms.DateTimePicker();
@@ -84,6 +86,7 @@
             this.l_bit = new System.Windows.Forms.Label();
             this.tarih2 = new System.Windows.Forms.DateTimePicker();
             this.s_goruntule = new DevExpress.XtraEditors.SimpleButton();
+            this.varsayilan = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -176,6 +179,8 @@
             this.anasayfaToolStripMenuItem,
             this.raporToolStripMenuItem,
             this.faturalarToolStripMenuItem,
+            this.faturaGörüntüleToolStripMenuItem,
+            this.raporGörüntüleToolStripMenuItem,
             this.yardımToolStripMenuItem,
             this.cikisToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -219,6 +224,20 @@
             this.alisFaturasıToolStripMenuItem.Name = "alisFaturasıToolStripMenuItem";
             this.alisFaturasıToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.alisFaturasıToolStripMenuItem.Text = "Alış Faturası";
+            // 
+            // faturaGörüntüleToolStripMenuItem
+            // 
+            this.faturaGörüntüleToolStripMenuItem.Name = "faturaGörüntüleToolStripMenuItem";
+            this.faturaGörüntüleToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
+            this.faturaGörüntüleToolStripMenuItem.Text = "Fatura Görüntüle";
+            this.faturaGörüntüleToolStripMenuItem.Click += new System.EventHandler(this.faturaGörüntüleToolStripMenuItem_Click);
+            // 
+            // raporGörüntüleToolStripMenuItem
+            // 
+            this.raporGörüntüleToolStripMenuItem.Name = "raporGörüntüleToolStripMenuItem";
+            this.raporGörüntüleToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
+            this.raporGörüntüleToolStripMenuItem.Text = "Rapor Görüntüle";
+            this.raporGörüntüleToolStripMenuItem.Click += new System.EventHandler(this.raporGörüntüleToolStripMenuItem_Click);
             // 
             // yardımToolStripMenuItem
             // 
@@ -359,6 +378,7 @@
             // fatura_goruntule
             // 
             this.fatura_goruntule.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fatura_goruntule.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.fatura_goruntule.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("fatura_goruntule.ImageOptions.Image")));
             this.fatura_goruntule.Location = new System.Drawing.Point(242, 233);
             this.fatura_goruntule.Name = "fatura_goruntule";
@@ -384,7 +404,7 @@
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.tableLayoutPanel2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox1.Location = new System.Drawing.Point(235, 34);
+            this.groupBox1.Location = new System.Drawing.Point(241, 34);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(395, 307);
             this.groupBox1.TabIndex = 29;
@@ -425,11 +445,14 @@
             this.tabControl1.Controls.Add(this.tab_satis);
             this.tabControl1.Controls.Add(this.tab_fatura);
             this.tabControl1.Controls.Add(this.tab_rapor);
-            this.tabControl1.Location = new System.Drawing.Point(12, 71);
+            this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tabControl1.Location = new System.Drawing.Point(0, 71);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(773, 440);
+            this.tabControl1.Size = new System.Drawing.Size(785, 440);
             this.tabControl1.TabIndex = 33;
+            this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
+            this.tabControl1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tabControl1_MouseClick);
             // 
             // tab_satis
             // 
@@ -438,7 +461,7 @@
             this.tab_satis.Location = new System.Drawing.Point(4, 22);
             this.tab_satis.Name = "tab_satis";
             this.tab_satis.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_satis.Size = new System.Drawing.Size(765, 414);
+            this.tab_satis.Size = new System.Drawing.Size(777, 414);
             this.tab_satis.TabIndex = 0;
             this.tab_satis.Text = "Satış Faturası";
             this.tab_satis.UseVisualStyleBackColor = true;
@@ -461,7 +484,7 @@
             this.tableLayoutPanel3.Controls.Add(this.dznlnme, 0, 4);
             this.tableLayoutPanel3.Controls.Add(this.düzenlenme, 1, 4);
             this.tableLayoutPanel3.Controls.Add(this.s_yazdir, 1, 5);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(103, 71);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(109, 71);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 6;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -604,14 +627,14 @@
             // 
             // tab_fatura
             // 
+            this.tab_fatura.BackColor = System.Drawing.Color.Transparent;
             this.tab_fatura.Controls.Add(this.groupBox1);
             this.tab_fatura.Location = new System.Drawing.Point(4, 22);
             this.tab_fatura.Name = "tab_fatura";
             this.tab_fatura.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_fatura.Size = new System.Drawing.Size(765, 414);
+            this.tab_fatura.Size = new System.Drawing.Size(777, 414);
             this.tab_fatura.TabIndex = 1;
             this.tab_fatura.Text = "Fatura Görüntüle";
-            this.tab_fatura.UseVisualStyleBackColor = true;
             // 
             // tab_rapor
             // 
@@ -619,7 +642,7 @@
             this.tab_rapor.Location = new System.Drawing.Point(4, 22);
             this.tab_rapor.Name = "tab_rapor";
             this.tab_rapor.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_rapor.Size = new System.Drawing.Size(765, 414);
+            this.tab_rapor.Size = new System.Drawing.Size(777, 414);
             this.tab_rapor.TabIndex = 2;
             this.tab_rapor.Text = "Rapor Görüntüle";
             this.tab_rapor.UseVisualStyleBackColor = true;
@@ -630,7 +653,7 @@
             this.grpbx_rapor.Controls.Add(this.tableLayoutPanel4);
             this.grpbx_rapor.Controls.Add(this.s_goruntule);
             this.grpbx_rapor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.grpbx_rapor.Location = new System.Drawing.Point(185, 54);
+            this.grpbx_rapor.Location = new System.Drawing.Point(191, 54);
             this.grpbx_rapor.Name = "grpbx_rapor";
             this.grpbx_rapor.Size = new System.Drawing.Size(395, 307);
             this.grpbx_rapor.TabIndex = 30;
@@ -706,6 +729,7 @@
             // s_goruntule
             // 
             this.s_goruntule.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.s_goruntule.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.s_goruntule.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("s_goruntule.ImageOptions.Image")));
             this.s_goruntule.Location = new System.Drawing.Point(149, 247);
             this.s_goruntule.Name = "s_goruntule";
@@ -714,12 +738,24 @@
             this.s_goruntule.Text = "GÖRÜNTÜLE";
             this.s_goruntule.Click += new System.EventHandler(this.s_goruntule_Click);
             // 
+            // varsayilan
+            // 
+            this.varsayilan.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.varsayilan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("varsayilan.ImageOptions.Image")));
+            this.varsayilan.Location = new System.Drawing.Point(544, 527);
+            this.varsayilan.Name = "varsayilan";
+            this.varsayilan.Size = new System.Drawing.Size(176, 35);
+            this.varsayilan.TabIndex = 34;
+            this.varsayilan.Text = "Varsayılan Olarak Kaydet";
+            this.varsayilan.Click += new System.EventHandler(this.varsayilan_Click);
+            // 
             // Form8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 611);
             this.ControlBox = false;
+            this.Controls.Add(this.varsayilan);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.cmbx_yazici);
@@ -809,5 +845,8 @@
         private DevExpress.XtraEditors.SimpleButton s_goruntule;
         private System.Windows.Forms.ToolStripMenuItem alisFaturasıToolStripMenuItem;
         private DevExpress.XtraEditors.SimpleButton s_yazdir;
+        private System.Windows.Forms.ToolStripMenuItem faturaGörüntüleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem raporGörüntüleToolStripMenuItem;
+        private DevExpress.XtraEditors.SimpleButton varsayilan;
     }
 }

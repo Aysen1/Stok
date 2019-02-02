@@ -297,4 +297,7 @@
   <data name="yazdir" xml:space="preserve">
     <value>YAZDIR</value>
   </data>
+  <data name="varsayilan" xml:space="preserve">
+    <value>Varsayılan Olarak Kaydet</value>
+  </data>
 </root>

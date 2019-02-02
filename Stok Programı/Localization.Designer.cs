@@ -556,6 +556,15 @@ namespace Stok_Programı {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Varsayılan Olarak Kaydet.
+        /// </summary>
+        internal static string varsayilan {
+            get {
+                return ResourceManager.GetString("varsayilan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Vergi Dairesi:.
         /// </summary>
         internal static string vergi {

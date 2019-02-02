@@ -26,6 +26,7 @@ namespace Stok_Programı
         {
             InitializeComponent();
         }
+        Image closeImage;
         DataSet ds;
         SqlDataAdapter da;
         SqlCommand komut;
@@ -38,6 +39,8 @@ namespace Stok_Programı
         Fatura6 deneme6 = new Fatura6();
         Fatura7 deneme7 = new Fatura7();
         Rapor rapor1 = new Rapor();
+        PrintDocument pd = new PrintDocument();
+        string defaultPrinter;
         bool t1 = false;
         bool t2 = false;
         private void Form8_Load(object sender, EventArgs e)
@@ -47,14 +50,12 @@ namespace Stok_Programı
             database.Baglanti();
             this.WindowState = FormWindowState.Maximized;
             this.BackColor = Properties.Settings.Default.tema;
+            //this.BackColor = Control;
+            
             foreach (String yazici in PrinterSettings.InstalledPrinters)
             {
                 cmbx_yazici.Items.Add(yazici);
-            }
-            PrintDocument pd = new PrintDocument();
-            string defaultPrinter = pd.PrinterSettings.PrinterName;
-            cmbx_yazici.Text = defaultPrinter;
-          
+            }        
             if (Properties.Settings.Default.dil == "İngilizce")
             {
                 temizle.BackgroundImage = Image.FromFile(System.Windows.Forms.Application.StartupPath + "\\image\\temizleK.fw.png");
@@ -68,25 +69,18 @@ namespace Stok_Programı
                 btn_kaydet.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\kaydet.fw.png");
             }
             metin();
-            SqlDataReader dr;
-            database.BaglantiAc();
-            komut = new SqlCommand("select FirmaAdi from FirmaKayit", database.baglanti);
-            dr = komut.ExecuteReader();
-            while (dr.Read())
-                cmbx_firmaadi.Items.Add(dr["FirmaAdi"]);
-            database.BaglantiKapat();
-            baslangic_tarihi.Text = DateTime.Now.ToString();
-            bitis_tarihi.Text = DateTime.Now.ToString();
-            baslangic_tarihi.ShowCheckBox = true;
-            baslangic_tarihi.Checked = false;
-            bitis_tarihi.ShowCheckBox = true;
-            bitis_tarihi.Checked = false;
             saat.BackColor = Color.White;
             tarih.BackColor = Color.White;
-            tarih1.ShowCheckBox = true;
-            tarih1.Checked = false;
-            tarih2.ShowCheckBox = true;
-            tarih2.Checked = false;
+            t_fno.Text = Properties.Settings.Default.faturano.ToString();
+            Size mysize=new System.Drawing.Size(15,15);
+            Bitmap bt = new Bitmap(Properties.Resources.kapat);
+            Bitmap btm=new Bitmap(bt,mysize);
+            closeImage = btm;
+            tabControl1.Padding = new Point(35);
+            tabControl1.TabPages.Remove(tab_fatura);
+            tabControl1.TabPages.Remove(tab_satis);
+            tabControl1.TabPages.Remove(tab_rapor);
+            tabControl1.BackColor = Properties.Settings.Default.tema;
         }
         private void cikisToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -131,6 +125,9 @@ namespace Stok_Programı
             tab_fatura.Text = Localization.f_goruntule;
             tab_rapor.Text = Localization.r_goruntule;
             ftra_tp.Text = Localization.tip;
+            faturaGörüntüleToolStripMenuItem.Text = Localization.f_goruntule;
+            raporGörüntüleToolStripMenuItem.Text = Localization.r_goruntule;
+            varsayilan.Text = Localization.varsayilan;
         }
         private void raporToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -312,20 +309,30 @@ namespace Stok_Programı
             }            
         }
         private void satisFaturası_Click(object sender, EventArgs e)
-        {
-            tabControl1.Visible = true;
+        {           
+            if(tabControl1.TabPages.Contains(tab_satis))
+                tabControl1.SelectedTab = tab_satis;
+            else
+            {
+                tabControl1.TabPages.Add(tab_satis);
+                tabControl1.SelectedTab = tab_satis;
+            }
             database.BaglantiAc();
+            firmaadi.Items.Clear();
             komut = new SqlCommand("select FirmaAdi from FirmaKayit", database.baglanti);
            SqlDataReader dr = komut.ExecuteReader();
             while (dr.Read())
                 firmaadi.Items.Add(dr["FirmaAdi"]);
             database.BaglantiKapat();
+            cmbx_tip.Items.Add("ALIŞ FATURASI");
+            cmbx_tip.Items.Add("SATIŞ FATURASI");
+            tabControl1.SelectedTab.BackColor = Properties.Settings.Default.tema;
             t_fno.Text = Properties.Settings.Default.faturano.ToString();
         }
         private void btn_kaydet_Click(object sender, EventArgs e)
         {
             satisFaturasi yeni = new satisFaturasi();
-            yeni.kayıt_ekle(firmaadi.Text,satistarihi.Text,düzenlenme.Text);
+            yeni.kayıt_ekle(firmaadi.Text,satistarihi.Text,düzenlenme.Text,cmbx_tip.Text);
         }
         private void cmbx_firmaadi_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -353,6 +360,84 @@ namespace Stok_Programı
                 rapor1.sql(ds,tarih1.Text,tarih2.Text,t1,t2);
             else
                 MessageBox.Show("Raporu Görüntüleyebilmeniz İçin Lütfen Önce Rapor Şablonunu Seçin.", "Bilgilendirme Penceresi");
+        }
+        Font f;
+        Brush br = Brushes.Black;
+        StringFormat strF = new StringFormat(StringFormat.GenericDefault);
+        private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            Rectangle rect = tabControl1.GetTabRect(e.Index);
+            Rectangle imageRec = new Rectangle(rect.Right - closeImage.Width, rect.Top + (rect.Height - closeImage.Height) / 2,closeImage.Width,closeImage.Height);
+            rect.Size = new Size(rect.Width + 24, 38);
+            if(tabControl1.SelectedTab==tabControl1.TabPages[e.Index])
+            {
+                e.Graphics.DrawImage(closeImage, imageRec);
+                f = new Font("Arial", 10, FontStyle.Bold);
+                e.Graphics.DrawString("     "+tabControl1.TabPages[e.Index].Text, f, br, rect, strF);
+            }
+            else
+            {
+                e.Graphics.DrawImage(closeImage, imageRec);
+                f = new Font("Arial", 9, FontStyle.Regular);
+                e.Graphics.DrawString("    "+tabControl1.TabPages[e.Index].Text, f, br, rect, strF);
+            }
+        }
+
+        private void tabControl1_MouseClick(object sender, MouseEventArgs e)
+        {
+            for (int i=0;i<tabControl1.TabCount;i++)
+            {
+                Rectangle rect = tabControl1.GetTabRect(i);
+                Rectangle imageRec = new Rectangle(rect.Right - closeImage.Width, rect.Top + (rect.Height - closeImage.Height) / 2, closeImage.Width, closeImage.Height);
+                if(imageRec.Contains(e.Location))
+                {
+                    tabControl1.TabPages.Remove(tabControl1.SelectedTab);
+                }
+            }
+        }
+        private void faturaGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (tabControl1.TabPages.Contains(tab_fatura))
+                tabControl1.SelectedTab = tab_fatura;
+            else
+            {
+                tabControl1.TabPages.Add(tab_fatura);
+                tabControl1.SelectedTab = tab_fatura;
+            }
+            SqlDataReader dr;
+            database.BaglantiAc();
+            komut = new SqlCommand("select FirmaAdi from FirmaKayit", database.baglanti);
+            dr = komut.ExecuteReader();
+            while (dr.Read())
+                cmbx_firmaadi.Items.Add(dr["FirmaAdi"]);
+            database.BaglantiKapat();
+            tabControl1.SelectedTab.BackColor = Properties.Settings.Default.tema;
+            baslangic_tarihi.Text = DateTime.Now.ToString();
+            bitis_tarihi.Text = DateTime.Now.ToString();
+            baslangic_tarihi.ShowCheckBox = true;
+            baslangic_tarihi.Checked = false;
+            bitis_tarihi.ShowCheckBox = true;
+            bitis_tarihi.Checked = false;
+        }
+        private void raporGörüntüleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (tabControl1.TabPages.Contains(tab_rapor))
+                tabControl1.SelectedTab = tab_rapor;
+            else
+            {
+                tabControl1.TabPages.Add(tab_rapor);
+                tabControl1.SelectedTab = tab_rapor;
+            }
+            tabControl1.SelectedTab.BackColor = Properties.Settings.Default.tema;
+            tarih1.ShowCheckBox = true;
+            tarih1.Checked = false;
+            tarih2.ShowCheckBox = true;
+            tarih2.Checked = false;
+        }
+        private void varsayilan_Click(object sender, EventArgs e)
+        {
+            defaultPrinter = cmbx_yazici.Text;
+            pd.PrinterSettings.PrinterName = defaultPrinter;
         }
     }
 }

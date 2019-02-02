@@ -127,6 +127,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseConnection.cs" />
+    <Compile Include="Tasarımlar\alis_fatura_tasarimi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tasarımlar\alis_fatura_tasarimi.Designer.cs">
+      <DependentUpon>alis_fatura_tasarimi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tasarımlar\fatura.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -256,6 +262,9 @@
     <Compile Include="Tasarımlar\uretimgiris.Designer.cs">
       <DependentUpon>uretimgiris.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Tasarımlar\alis_fatura_tasarimi.resx">
+      <DependentUpon>alis_fatura_tasarimi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tasarımlar\fatura.resx">
       <DependentUpon>fatura.cs</DependentUpon>
     </EmbeddedResource>
@@ -413,6 +422,7 @@
     <Content Include="image\urungirisK.fw.png" />
     <Content Include="image\yukle.fw.png" />
     <Content Include="image\yukleK.fw.png" />
+    <None Include="Resources\kapat.png" />
     <None Include="Resources\kaydet.png" />
     <None Include="Resources\baglan.png" />
     <None Include="Resources\kontrol.png" />
