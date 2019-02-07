@@ -115,7 +115,6 @@
             this.quantityCaption = new DevExpress.XtraReports.UI.XRTableCell();
             this.unitPriceCaption = new DevExpress.XtraReports.UI.XRTableCell();
             this.lineTotalCaption = new DevExpress.XtraReports.UI.XRTableCell();
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.baseControlStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
@@ -131,9 +130,10 @@
             this.xrTableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrLine3 = new DevExpress.XtraReports.UI.XRLine();
-            this.saat = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.saat = new DevExpress.XtraReports.UI.XRTableCell();
+            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.detailTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorContactsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorTable)).BeginInit();
@@ -865,45 +865,6 @@
             this.lineTotalCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.lineTotalCaption.Weight = 0.30785032120391059D;
             // 
-            // sqlDataSource1
-            // 
-            this.sqlDataSource1.ConnectionName = "StokTakip_Connection";
-            this.sqlDataSource1.Name = "sqlDataSource1";
-            columnExpression1.ColumnName = "CikisID";
-            table1.Name = "UrunCikis";
-            columnExpression1.Table = table1;
-            column1.Expression = columnExpression1;
-            columnExpression2.ColumnName = "UrunID";
-            columnExpression2.Table = table1;
-            column2.Expression = columnExpression2;
-            columnExpression3.ColumnName = "FirmaAdi";
-            columnExpression3.Table = table1;
-            column3.Expression = columnExpression3;
-            columnExpression4.ColumnName = "UrunKodu";
-            columnExpression4.Table = table1;
-            column4.Expression = columnExpression4;
-            columnExpression5.ColumnName = "CikisTarihi";
-            columnExpression5.Table = table1;
-            column5.Expression = columnExpression5;
-            columnExpression6.ColumnName = "UrunAdet";
-            columnExpression6.Table = table1;
-            column6.Expression = columnExpression6;
-            columnExpression7.ColumnName = "Personel";
-            columnExpression7.Table = table1;
-            column7.Expression = columnExpression7;
-            selectQuery1.Columns.Add(column1);
-            selectQuery1.Columns.Add(column2);
-            selectQuery1.Columns.Add(column3);
-            selectQuery1.Columns.Add(column4);
-            selectQuery1.Columns.Add(column5);
-            selectQuery1.Columns.Add(column6);
-            selectQuery1.Columns.Add(column7);
-            selectQuery1.Name = "UrunCikis";
-            selectQuery1.Tables.Add(table1);
-            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            selectQuery1});
-            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
-            // 
             // baseControlStyle
             // 
             this.baseControlStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F);
@@ -1042,19 +1003,6 @@
             this.xrLine3.SizeF = new System.Drawing.SizeF(699.9998F, 10F);
             this.xrLine3.StylePriority.UseForeColor = false;
             // 
-            // saat
-            // 
-            this.saat.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.saat.Multiline = true;
-            this.saat.Name = "saat";
-            this.saat.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.saat.StylePriority.UseFont = false;
-            this.saat.StylePriority.UseTextAlignment = false;
-            this.saat.Text = "saat";
-            this.saat.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.saat.TextFormatString = "{0:HH:mm:ss}";
-            this.saat.Weight = 0.53497801928164324D;
-            // 
             // xrTableCell1
             // 
             this.xrTableCell1.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Italic);
@@ -1074,6 +1022,58 @@
             this.saat});
             this.xrTableRow1.Name = "xrTableRow1";
             this.xrTableRow1.Weight = 0.72209877320573135D;
+            // 
+            // saat
+            // 
+            this.saat.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.saat.Multiline = true;
+            this.saat.Name = "saat";
+            this.saat.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.saat.StylePriority.UseFont = false;
+            this.saat.StylePriority.UseTextAlignment = false;
+            this.saat.Text = "saat";
+            this.saat.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.saat.TextFormatString = "{0:HH:mm:ss}";
+            this.saat.Weight = 0.53497801928164324D;
+            // 
+            // sqlDataSource1
+            // 
+            this.sqlDataSource1.ConnectionName = "StokTakip_Connection";
+            this.sqlDataSource1.Name = "sqlDataSource1";
+            columnExpression1.ColumnName = "CikisID";
+            table1.Name = "UrunCikis";
+            columnExpression1.Table = table1;
+            column1.Expression = columnExpression1;
+            columnExpression2.ColumnName = "UrunID";
+            columnExpression2.Table = table1;
+            column2.Expression = columnExpression2;
+            columnExpression3.ColumnName = "FirmaAdi";
+            columnExpression3.Table = table1;
+            column3.Expression = columnExpression3;
+            columnExpression4.ColumnName = "UrunKodu";
+            columnExpression4.Table = table1;
+            column4.Expression = columnExpression4;
+            columnExpression5.ColumnName = "CikisTarihi";
+            columnExpression5.Table = table1;
+            column5.Expression = columnExpression5;
+            columnExpression6.ColumnName = "UrunAdet";
+            columnExpression6.Table = table1;
+            column6.Expression = columnExpression6;
+            columnExpression7.ColumnName = "Personel";
+            columnExpression7.Table = table1;
+            column7.Expression = columnExpression7;
+            selectQuery1.Columns.Add(column1);
+            selectQuery1.Columns.Add(column2);
+            selectQuery1.Columns.Add(column3);
+            selectQuery1.Columns.Add(column4);
+            selectQuery1.Columns.Add(column5);
+            selectQuery1.Columns.Add(column6);
+            selectQuery1.Columns.Add(column7);
+            selectQuery1.Name = "UrunCikis";
+            selectQuery1.Tables.Add(table1);
+            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            selectQuery1});
+            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // tasarim4
             // 
@@ -1158,7 +1158,6 @@
         private DevExpress.XtraReports.UI.XRTableCell quantityCaption;
         private DevExpress.XtraReports.UI.XRTableCell unitPriceCaption;
         private DevExpress.XtraReports.UI.XRTableCell lineTotalCaption;
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraReports.UI.XRControlStyle baseControlStyle;
         private DevExpress.XtraReports.UI.XRTableRow vendorAddressRow;
         private DevExpress.XtraReports.UI.XRTableCell vendorAddress;
@@ -1195,6 +1194,7 @@
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow1;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell1;
         public DevExpress.XtraReports.UI.XRTableCell saat;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
 
     }
 }

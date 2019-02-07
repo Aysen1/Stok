@@ -135,3 +135,4 @@ C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Program
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok Programı.csproj.GenerateResource.Cache
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok Programı.exe.licenses
 C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\en-US\Stok Programı.resources.dll
+C:\Users\NFM-1PC\Desktop\Stok_Takip-master\Stok Programı\obj\Debug\Stok_Programı.Tasarımlar.alis_fatura_tasarimi.resources

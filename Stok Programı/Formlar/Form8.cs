@@ -439,5 +439,10 @@ namespace Stok_Programı
             defaultPrinter = cmbx_yazici.Text;
             pd.PrinterSettings.PrinterName = defaultPrinter;
         }
+        private void btn_ara_Click(object sender, EventArgs e)
+        {
+            satisFaturasi yeni = new satisFaturasi();
+            yeni.ara(firmaadi.Text, satistarihi.Text,veriler);
+        }
     }
 }

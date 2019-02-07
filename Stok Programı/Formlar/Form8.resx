@@ -179,16 +179,6 @@
         YII=
 </value>
   </data>
-  <data name="s_goruntule.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAANdEVYdFRpdGxlAFJlcG9ydDsMcqUZAAAAz0lEQVRY
-        R93QwQ3CMAwF0CyI2KUTIJR5uFViAKbhwAomRlgq1heNE8eIHJ4EH9f9JhHRT8EwEgwjwXBPzvlUkMIZ
-        nP8Ghnvkpfr7sAJl8WXzklr8DNy3BUN2X4/0uC3l48eFVol38C7Zq8GQqQLN/4BXgWbdBd54UYvX890F
-        9G+15itwOF+phsyPKFBF5kcUgBdrMu9ewMq9ALoWkXn3AlbuBdC1iMy7F7ByL4CuRWTevYDVPAUKXtZi
-        ngJd/reAJ71fwDASDCPBMBIM41B6AgaSgNCuruYWAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="varsayilan.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
@@ -200,6 +190,16 @@
         shDS4tQRL9BcTtqRhWCWp45QLN+C29/TjiwEtwxzR1TLSTuyENzyiEd8gpZ/ww2494F2ZCG4ZXEJ5QiW
         34J794d2ZCG45YRHvEFzOWlHFoJbNjZmNks7MjvsyQ57ssOe7LAnO+xnWP0CbFjkt+hdVzwAAAAASUVO
         RK5CYII=
+</value>
+  </data>
+  <data name="s_goruntule.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAANdEVYdFRpdGxlAFJlcG9ydDsMcqUZAAAAz0lEQVRY
+        R93QwQ3CMAwF0CyI2KUTIJR5uFViAKbhwAomRlgq1heNE8eIHJ4EH9f9JhHRT8EwEgwjwXBPzvlUkMIZ
+        nP8Ghnvkpfr7sAJl8WXzklr8DNy3BUN2X4/0uC3l48eFVol38C7Zq8GQqQLN/4BXgWbdBd54UYvX890F
+        9G+15itwOF+phsyPKFBF5kcUgBdrMu9ewMq9ALoWkXn3AlbuBdC1iMy7F7ByL4CuRWTevYDVPAUKXtZi
+        ngJd/reAJ71fwDASDCPBMBIM41B6AgaSgNCuruYWAAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

@@ -268,7 +268,7 @@
     <value>Date of Issue:</value>
   </data>
   <data name="faturalar" xml:space="preserve">
-    <value>Invoices</value>
+    <value>Create Invoice</value>
   </data>
   <data name="faturano" xml:space="preserve">
     <value>Invoice Number:</value>

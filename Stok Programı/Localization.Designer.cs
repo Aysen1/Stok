@@ -169,7 +169,7 @@ namespace Stok_Programı {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Faturalar.
+        ///   Looks up a localized string similar to Fatura Oluştur.
         /// </summary>
         internal static string faturalar {
             get {
