@@ -41,6 +41,9 @@
             this.raporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.faturalarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.satisFaturasıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alisFaturasıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.açıkAlışFaturasıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kapalıAlışFaturasıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.faturaGörüntüleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.raporGörüntüleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.yardımToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,9 +66,9 @@
             this.saat = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_satis = new System.Windows.Forms.TabPage();
+            this.veriler = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.l_firma = new System.Windows.Forms.Label();
-            this.btn_kaydet = new System.Windows.Forms.Button();
             this.firmaadi = new System.Windows.Forms.ComboBox();
             this.ftra_tp = new System.Windows.Forms.Label();
             this.satistarihi = new System.Windows.Forms.DateTimePicker();
@@ -75,22 +78,20 @@
             this.t_fno = new System.Windows.Forms.TextBox();
             this.dznlnme = new System.Windows.Forms.Label();
             this.düzenlenme = new System.Windows.Forms.DateTimePicker();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.s_yazdir = new DevExpress.XtraEditors.SimpleButton();
-            this.tab_fatura = new System.Windows.Forms.TabPage();
-            this.varsayilan = new DevExpress.XtraEditors.SimpleButton();
-            this.tab_rapor = new System.Windows.Forms.TabPage();
-            this.s_goruntule = new DevExpress.XtraEditors.SimpleButton();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.tarih2 = new System.Windows.Forms.DateTimePicker();
-            this.l_bit = new System.Windows.Forms.Label();
-            this.tarih1 = new System.Windows.Forms.DateTimePicker();
-            this.l_bas = new System.Windows.Forms.Label();
-            this.grpbx_rapor = new System.Windows.Forms.GroupBox();
+            this.btn_kaydet = new System.Windows.Forms.Button();
             this.btn_ara = new DevExpress.XtraEditors.SimpleButton();
-            this.veriler = new System.Windows.Forms.DataGridView();
-            this.açıkAlışFaturasıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kapalıAlışFaturasıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.alisFaturasıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tab_fatura = new System.Windows.Forms.TabPage();
+            this.tab_rapor = new System.Windows.Forms.TabPage();
+            this.grpbx_rapor = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.l_bas = new System.Windows.Forms.Label();
+            this.tarih1 = new System.Windows.Forms.DateTimePicker();
+            this.l_bit = new System.Windows.Forms.Label();
+            this.tarih2 = new System.Windows.Forms.DateTimePicker();
+            this.s_goruntule = new DevExpress.XtraEditors.SimpleButton();
+            this.varsayilan = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -98,12 +99,13 @@
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tab_satis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.veriler)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.tab_fatura.SuspendLayout();
             this.tab_rapor.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
             this.grpbx_rapor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.veriler)).BeginInit();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_yazici
@@ -224,6 +226,27 @@
             this.satisFaturasıToolStripMenuItem.Text = "Satış Faturası";
             this.satisFaturasıToolStripMenuItem.Click += new System.EventHandler(this.satisFaturası_Click);
             // 
+            // alisFaturasıToolStripMenuItem
+            // 
+            this.alisFaturasıToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.açıkAlışFaturasıToolStripMenuItem,
+            this.kapalıAlışFaturasıToolStripMenuItem});
+            this.alisFaturasıToolStripMenuItem.Name = "alisFaturasıToolStripMenuItem";
+            this.alisFaturasıToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.alisFaturasıToolStripMenuItem.Text = "Alış Faturası";
+            // 
+            // açıkAlışFaturasıToolStripMenuItem
+            // 
+            this.açıkAlışFaturasıToolStripMenuItem.Name = "açıkAlışFaturasıToolStripMenuItem";
+            this.açıkAlışFaturasıToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.açıkAlışFaturasıToolStripMenuItem.Text = "Açık Alış Faturası";
+            // 
+            // kapalıAlışFaturasıToolStripMenuItem
+            // 
+            this.kapalıAlışFaturasıToolStripMenuItem.Name = "kapalıAlışFaturasıToolStripMenuItem";
+            this.kapalıAlışFaturasıToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.kapalıAlışFaturasıToolStripMenuItem.Text = "Kapalı Alış Faturası";
+            // 
             // faturaGörüntüleToolStripMenuItem
             // 
             this.faturaGörüntüleToolStripMenuItem.Name = "faturaGörüntüleToolStripMenuItem";
@@ -318,6 +341,8 @@
             // cmbx_firmaadi
             // 
             this.cmbx_firmaadi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbx_firmaadi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbx_firmaadi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbx_firmaadi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbx_firmaadi.FormattingEnabled = true;
             this.cmbx_firmaadi.Location = new System.Drawing.Point(194, 129);
@@ -367,6 +392,8 @@
             // faturano
             // 
             this.faturano.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.faturano.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.faturano.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.faturano.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.faturano.FormattingEnabled = true;
             this.faturano.Location = new System.Drawing.Point(194, 185);
@@ -456,7 +483,6 @@
             // tab_satis
             // 
             this.tab_satis.Controls.Add(this.veriler);
-            this.tab_satis.Controls.Add(this.btn_ara);
             this.tab_satis.Controls.Add(this.tableLayoutPanel3);
             this.tab_satis.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tab_satis.Location = new System.Drawing.Point(4, 22);
@@ -467,6 +493,17 @@
             this.tab_satis.Text = "Satış Faturası";
             this.tab_satis.UseVisualStyleBackColor = true;
             // 
+            // veriler
+            // 
+            this.veriler.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.veriler.BackgroundColor = System.Drawing.Color.White;
+            this.veriler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.veriler.Location = new System.Drawing.Point(8, 382);
+            this.veriler.Name = "veriler";
+            this.veriler.Size = new System.Drawing.Size(1061, 156);
+            this.veriler.TabIndex = 51;
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -474,7 +511,6 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.l_firma, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btn_kaydet, 0, 5);
             this.tableLayoutPanel3.Controls.Add(this.firmaadi, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.ftra_tp, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.satistarihi, 1, 3);
@@ -484,7 +520,8 @@
             this.tableLayoutPanel3.Controls.Add(this.t_fno, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.dznlnme, 0, 4);
             this.tableLayoutPanel3.Controls.Add(this.düzenlenme, 1, 4);
-            this.tableLayoutPanel3.Controls.Add(this.s_yazdir, 1, 5);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 1, 5);
+            this.tableLayoutPanel3.Controls.Add(this.btn_ara, 0, 5);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(267, 71);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 6;
@@ -494,7 +531,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(546, 266);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(546, 286);
             this.tableLayoutPanel3.TabIndex = 49;
             // 
             // l_firma
@@ -502,30 +539,20 @@
             this.l_firma.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.l_firma.AutoSize = true;
             this.l_firma.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.l_firma.Location = new System.Drawing.Point(3, 15);
+            this.l_firma.Location = new System.Drawing.Point(3, 17);
             this.l_firma.Name = "l_firma";
             this.l_firma.Size = new System.Drawing.Size(63, 13);
             this.l_firma.TabIndex = 38;
             this.l_firma.Text = "Firma Adı:";
             // 
-            // btn_kaydet
-            // 
-            this.btn_kaydet.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_kaydet.FlatAppearance.BorderSize = 0;
-            this.btn_kaydet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_kaydet.Location = new System.Drawing.Point(99, 223);
-            this.btn_kaydet.Name = "btn_kaydet";
-            this.btn_kaydet.Size = new System.Drawing.Size(75, 40);
-            this.btn_kaydet.TabIndex = 46;
-            this.btn_kaydet.UseVisualStyleBackColor = true;
-            this.btn_kaydet.Click += new System.EventHandler(this.btn_kaydet_Click);
-            // 
             // firmaadi
             // 
             this.firmaadi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.firmaadi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.firmaadi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.firmaadi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.firmaadi.FormattingEnabled = true;
-            this.firmaadi.Location = new System.Drawing.Point(328, 11);
+            this.firmaadi.Location = new System.Drawing.Point(328, 13);
             this.firmaadi.Name = "firmaadi";
             this.firmaadi.Size = new System.Drawing.Size(163, 21);
             this.firmaadi.TabIndex = 39;
@@ -535,7 +562,7 @@
             this.ftra_tp.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ftra_tp.AutoSize = true;
             this.ftra_tp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.ftra_tp.Location = new System.Drawing.Point(3, 59);
+            this.ftra_tp.Location = new System.Drawing.Point(3, 64);
             this.ftra_tp.Name = "ftra_tp";
             this.ftra_tp.Size = new System.Drawing.Size(72, 13);
             this.ftra_tp.TabIndex = 40;
@@ -547,7 +574,7 @@
             this.satistarihi.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.satistarihi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.satistarihi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.satistarihi.Location = new System.Drawing.Point(328, 144);
+            this.satistarihi.Location = new System.Drawing.Point(328, 154);
             this.satistarihi.Name = "satistarihi";
             this.satistarihi.Size = new System.Drawing.Size(163, 20);
             this.satistarihi.TabIndex = 44;
@@ -555,9 +582,11 @@
             // cmbx_tip
             // 
             this.cmbx_tip.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbx_tip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbx_tip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbx_tip.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbx_tip.FormattingEnabled = true;
-            this.cmbx_tip.Location = new System.Drawing.Point(328, 55);
+            this.cmbx_tip.Location = new System.Drawing.Point(328, 60);
             this.cmbx_tip.Name = "cmbx_tip";
             this.cmbx_tip.Size = new System.Drawing.Size(163, 21);
             this.cmbx_tip.TabIndex = 41;
@@ -567,7 +596,7 @@
             this.ftr_no.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ftr_no.AutoSize = true;
             this.ftr_no.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.ftr_no.Location = new System.Drawing.Point(3, 103);
+            this.ftr_no.Location = new System.Drawing.Point(3, 111);
             this.ftr_no.Name = "ftr_no";
             this.ftr_no.Size = new System.Drawing.Size(67, 13);
             this.ftr_no.TabIndex = 42;
@@ -578,7 +607,7 @@
             this.ftr_trh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ftr_trh.AutoSize = true;
             this.ftr_trh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.ftr_trh.Location = new System.Drawing.Point(3, 147);
+            this.ftr_trh.Location = new System.Drawing.Point(3, 158);
             this.ftr_trh.Name = "ftr_trh";
             this.ftr_trh.Size = new System.Drawing.Size(75, 13);
             this.ftr_trh.TabIndex = 43;
@@ -589,7 +618,7 @@
             this.t_fno.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.t_fno.Enabled = false;
             this.t_fno.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.t_fno.Location = new System.Drawing.Point(328, 100);
+            this.t_fno.Location = new System.Drawing.Point(328, 107);
             this.t_fno.Name = "t_fno";
             this.t_fno.Size = new System.Drawing.Size(163, 20);
             this.t_fno.TabIndex = 45;
@@ -599,7 +628,7 @@
             this.dznlnme.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dznlnme.AutoSize = true;
             this.dznlnme.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dznlnme.Location = new System.Drawing.Point(3, 191);
+            this.dznlnme.Location = new System.Drawing.Point(3, 205);
             this.dznlnme.Name = "dznlnme";
             this.dznlnme.Size = new System.Drawing.Size(109, 13);
             this.dznlnme.TabIndex = 48;
@@ -611,20 +640,57 @@
             this.düzenlenme.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.düzenlenme.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.düzenlenme.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.düzenlenme.Location = new System.Drawing.Point(328, 188);
+            this.düzenlenme.Location = new System.Drawing.Point(328, 201);
             this.düzenlenme.Name = "düzenlenme";
             this.düzenlenme.Size = new System.Drawing.Size(163, 20);
             this.düzenlenme.TabIndex = 49;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.s_yazdir, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.btn_kaydet, 0, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(276, 238);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(267, 45);
+            this.tableLayoutPanel5.TabIndex = 50;
             // 
             // s_yazdir
             // 
             this.s_yazdir.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.s_yazdir.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.s_yazdir.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("s_yazdir.ImageOptions.Image")));
-            this.s_yazdir.Location = new System.Drawing.Point(361, 226);
+            this.s_yazdir.Location = new System.Drawing.Point(152, 6);
             this.s_yazdir.Name = "s_yazdir";
             this.s_yazdir.Size = new System.Drawing.Size(96, 33);
             this.s_yazdir.TabIndex = 50;
+            // 
+            // btn_kaydet
+            // 
+            this.btn_kaydet.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_kaydet.FlatAppearance.BorderSize = 0;
+            this.btn_kaydet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_kaydet.Location = new System.Drawing.Point(29, 3);
+            this.btn_kaydet.Name = "btn_kaydet";
+            this.btn_kaydet.Size = new System.Drawing.Size(75, 39);
+            this.btn_kaydet.TabIndex = 46;
+            this.btn_kaydet.UseVisualStyleBackColor = true;
+            this.btn_kaydet.Click += new System.EventHandler(this.btn_kaydet_Click);
+            // 
+            // btn_ara
+            // 
+            this.btn_ara.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_ara.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_ara.ImageOptions.Image")));
+            this.btn_ara.Location = new System.Drawing.Point(91, 242);
+            this.btn_ara.Name = "btn_ara";
+            this.btn_ara.Size = new System.Drawing.Size(90, 37);
+            this.btn_ara.TabIndex = 50;
+            this.btn_ara.Text = "ARA";
+            this.btn_ara.Click += new System.EventHandler(this.btn_ara_Click);
             // 
             // tab_fatura
             // 
@@ -633,20 +699,9 @@
             this.tab_fatura.Location = new System.Drawing.Point(4, 22);
             this.tab_fatura.Name = "tab_fatura";
             this.tab_fatura.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_fatura.Size = new System.Drawing.Size(777, 414);
+            this.tab_fatura.Size = new System.Drawing.Size(1075, 544);
             this.tab_fatura.TabIndex = 1;
             this.tab_fatura.Text = "Fatura Görüntüle";
-            // 
-            // varsayilan
-            // 
-            this.varsayilan.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.varsayilan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("varsayilan.ImageOptions.Image")));
-            this.varsayilan.Location = new System.Drawing.Point(693, 657);
-            this.varsayilan.Name = "varsayilan";
-            this.varsayilan.Size = new System.Drawing.Size(176, 35);
-            this.varsayilan.TabIndex = 34;
-            this.varsayilan.Text = "Varsayılan Olarak Kaydet";
-            this.varsayilan.Click += new System.EventHandler(this.varsayilan_Click);
             // 
             // tab_rapor
             // 
@@ -654,22 +709,23 @@
             this.tab_rapor.Location = new System.Drawing.Point(4, 22);
             this.tab_rapor.Name = "tab_rapor";
             this.tab_rapor.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_rapor.Size = new System.Drawing.Size(777, 414);
+            this.tab_rapor.Size = new System.Drawing.Size(1075, 544);
             this.tab_rapor.TabIndex = 2;
             this.tab_rapor.Text = "Rapor Görüntüle";
             this.tab_rapor.UseVisualStyleBackColor = true;
             // 
-            // s_goruntule
+            // grpbx_rapor
             // 
-            this.s_goruntule.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.s_goruntule.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.s_goruntule.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("s_goruntule.ImageOptions.Image")));
-            this.s_goruntule.Location = new System.Drawing.Point(149, 247);
-            this.s_goruntule.Name = "s_goruntule";
-            this.s_goruntule.Size = new System.Drawing.Size(113, 54);
-            this.s_goruntule.TabIndex = 30;
-            this.s_goruntule.Text = "GÖRÜNTÜLE";
-            this.s_goruntule.Click += new System.EventHandler(this.s_goruntule_Click);
+            this.grpbx_rapor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grpbx_rapor.Controls.Add(this.tableLayoutPanel4);
+            this.grpbx_rapor.Controls.Add(this.s_goruntule);
+            this.grpbx_rapor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.grpbx_rapor.Location = new System.Drawing.Point(191, 54);
+            this.grpbx_rapor.Name = "grpbx_rapor";
+            this.grpbx_rapor.Size = new System.Drawing.Size(395, 307);
+            this.grpbx_rapor.TabIndex = 30;
+            this.grpbx_rapor.TabStop = false;
+            this.grpbx_rapor.Text = "Rapor Filtreleme Araçları";
             // 
             // tableLayoutPanel4
             // 
@@ -689,29 +745,16 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(382, 222);
             this.tableLayoutPanel4.TabIndex = 28;
             // 
-            // tarih2
+            // l_bas
             // 
-            this.tarih2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tarih2.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.tarih2.CustomFormat = "yyyy-MM-dd HH:mm:ss";
-            this.tarih2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tarih2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.tarih2.Location = new System.Drawing.Point(194, 156);
-            this.tarih2.Name = "tarih2";
-            this.tarih2.Size = new System.Drawing.Size(185, 20);
-            this.tarih2.TabIndex = 12;
-            this.tarih2.Value = new System.DateTime(2019, 1, 16, 0, 0, 0, 0);
-            // 
-            // l_bit
-            // 
-            this.l_bit.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.l_bit.AutoSize = true;
-            this.l_bit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.l_bit.Location = new System.Drawing.Point(3, 160);
-            this.l_bit.Name = "l_bit";
-            this.l_bit.Size = new System.Drawing.Size(71, 13);
-            this.l_bit.TabIndex = 14;
-            this.l_bit.Text = "Bitiş Tarihi:";
+            this.l_bas.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.l_bas.AutoSize = true;
+            this.l_bas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.l_bas.Location = new System.Drawing.Point(3, 49);
+            this.l_bas.Name = "l_bas";
+            this.l_bas.Size = new System.Drawing.Size(102, 13);
+            this.l_bas.TabIndex = 13;
+            this.l_bas.Text = "Başlangıç Tarihi:";
             // 
             // tarih1
             // 
@@ -726,70 +769,52 @@
             this.tarih1.TabIndex = 10;
             this.tarih1.Value = new System.DateTime(2019, 1, 16, 0, 0, 0, 0);
             // 
-            // l_bas
+            // l_bit
             // 
-            this.l_bas.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.l_bas.AutoSize = true;
-            this.l_bas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.l_bas.Location = new System.Drawing.Point(3, 49);
-            this.l_bas.Name = "l_bas";
-            this.l_bas.Size = new System.Drawing.Size(102, 13);
-            this.l_bas.TabIndex = 13;
-            this.l_bas.Text = "Başlangıç Tarihi:";
+            this.l_bit.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.l_bit.AutoSize = true;
+            this.l_bit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.l_bit.Location = new System.Drawing.Point(3, 160);
+            this.l_bit.Name = "l_bit";
+            this.l_bit.Size = new System.Drawing.Size(71, 13);
+            this.l_bit.TabIndex = 14;
+            this.l_bit.Text = "Bitiş Tarihi:";
             // 
-            // grpbx_rapor
+            // tarih2
             // 
-            this.grpbx_rapor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.grpbx_rapor.Controls.Add(this.tableLayoutPanel4);
-            this.grpbx_rapor.Controls.Add(this.s_goruntule);
-            this.grpbx_rapor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.grpbx_rapor.Location = new System.Drawing.Point(191, 54);
-            this.grpbx_rapor.Name = "grpbx_rapor";
-            this.grpbx_rapor.Size = new System.Drawing.Size(395, 307);
-            this.grpbx_rapor.TabIndex = 30;
-            this.grpbx_rapor.TabStop = false;
-            this.grpbx_rapor.Text = "Rapor Filtreleme Araçları";
+            this.tarih2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tarih2.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.tarih2.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.tarih2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tarih2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.tarih2.Location = new System.Drawing.Point(194, 156);
+            this.tarih2.Name = "tarih2";
+            this.tarih2.Size = new System.Drawing.Size(185, 20);
+            this.tarih2.TabIndex = 12;
+            this.tarih2.Value = new System.DateTime(2019, 1, 16, 0, 0, 0, 0);
             // 
-            // btn_ara
+            // s_goruntule
             // 
-            this.btn_ara.Location = new System.Drawing.Point(20, 31);
-            this.btn_ara.Name = "btn_ara";
-            this.btn_ara.Size = new System.Drawing.Size(75, 37);
-            this.btn_ara.TabIndex = 50;
-            this.btn_ara.Text = "ARA";
-            this.btn_ara.Click += new System.EventHandler(this.btn_ara_Click);
+            this.s_goruntule.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.s_goruntule.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.s_goruntule.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("s_goruntule.ImageOptions.Image")));
+            this.s_goruntule.Location = new System.Drawing.Point(149, 247);
+            this.s_goruntule.Name = "s_goruntule";
+            this.s_goruntule.Size = new System.Drawing.Size(113, 54);
+            this.s_goruntule.TabIndex = 30;
+            this.s_goruntule.Text = "GÖRÜNTÜLE";
+            this.s_goruntule.Click += new System.EventHandler(this.s_goruntule_Click);
             // 
-            // veriler
+            // varsayilan
             // 
-            this.veriler.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.veriler.BackgroundColor = System.Drawing.Color.White;
-            this.veriler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.veriler.Location = new System.Drawing.Point(8, 363);
-            this.veriler.Name = "veriler";
-            this.veriler.Size = new System.Drawing.Size(1061, 175);
-            this.veriler.TabIndex = 51;
-            // 
-            // açıkAlışFaturasıToolStripMenuItem
-            // 
-            this.açıkAlışFaturasıToolStripMenuItem.Name = "açıkAlışFaturasıToolStripMenuItem";
-            this.açıkAlışFaturasıToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.açıkAlışFaturasıToolStripMenuItem.Text = "Açık Alış Faturası";
-            // 
-            // kapalıAlışFaturasıToolStripMenuItem
-            // 
-            this.kapalıAlışFaturasıToolStripMenuItem.Name = "kapalıAlışFaturasıToolStripMenuItem";
-            this.kapalıAlışFaturasıToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.kapalıAlışFaturasıToolStripMenuItem.Text = "Kapalı Alış Faturası";
-            // 
-            // alisFaturasıToolStripMenuItem
-            // 
-            this.alisFaturasıToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.açıkAlışFaturasıToolStripMenuItem,
-            this.kapalıAlışFaturasıToolStripMenuItem});
-            this.alisFaturasıToolStripMenuItem.Name = "alisFaturasıToolStripMenuItem";
-            this.alisFaturasıToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.alisFaturasıToolStripMenuItem.Text = "Alış Faturası";
+            this.varsayilan.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.varsayilan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("varsayilan.ImageOptions.Image")));
+            this.varsayilan.Location = new System.Drawing.Point(693, 657);
+            this.varsayilan.Name = "varsayilan";
+            this.varsayilan.Size = new System.Drawing.Size(176, 35);
+            this.varsayilan.TabIndex = 34;
+            this.varsayilan.Text = "Varsayılan Olarak Kaydet";
+            this.varsayilan.Click += new System.EventHandler(this.varsayilan_Click);
             // 
             // Form8
             // 
@@ -819,14 +844,15 @@
             this.statusStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tab_satis.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.veriler)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
             this.tab_fatura.ResumeLayout(false);
             this.tab_rapor.ResumeLayout(false);
+            this.grpbx_rapor.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            this.grpbx_rapor.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.veriler)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -895,5 +921,6 @@
         private System.Windows.Forms.ToolStripMenuItem alisFaturasıToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem açıkAlışFaturasıToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kapalıAlışFaturasıToolStripMenuItem;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
     }
 }

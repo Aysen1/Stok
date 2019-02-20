@@ -69,6 +69,9 @@
             this.cikis = new DevExpress.XtraEditors.SimpleButton();
             this.simge = new DevExpress.XtraEditors.SimpleButton();
             this.tamekran = new DevExpress.XtraEditors.SimpleButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.grpbx_firmabilgi.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.grpbx_islem.SuspendLayout();
@@ -230,6 +233,7 @@
             this.txt_vergino.Name = "txt_vergino";
             this.txt_vergino.Size = new System.Drawing.Size(159, 20);
             this.txt_vergino.TabIndex = 13;
+            this.txt_vergino.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_vergino_KeyPress);
             // 
             // lbl_telno
             // 
@@ -334,6 +338,7 @@
             this.txt_mersis.Name = "txt_mersis";
             this.txt_mersis.Size = new System.Drawing.Size(159, 20);
             this.txt_mersis.TabIndex = 19;
+            this.txt_mersis.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_mersis_KeyPress);
             // 
             // grpbx_islem
             // 
@@ -357,6 +362,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(329, 46);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
@@ -520,6 +526,37 @@
             this.tamekran.TabIndex = 7;
             this.tamekran.Click += new System.EventHandler(this.tamekran_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox1.Location = new System.Drawing.Point(26, 568);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(159, 20);
+            this.textBox1.TabIndex = 12;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(233, 562);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 26);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "k";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(329, 568);
+            this.maskedTextBox1.Mask = "0(999) 000-00-00";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(154, 20);
+            this.maskedTextBox1.TabIndex = 14;
+            this.maskedTextBox1.Text = "0";
+            // 
             // Form4
             // 
             this.AcceptButton = this.btn_kaydet;
@@ -527,6 +564,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(516, 616);
             this.ControlBox = false;
+            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.tableLayoutPanel4);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.statusStrip1);
@@ -594,5 +634,8 @@
         private DevExpress.XtraEditors.SimpleButton simge;
         private DevExpress.XtraEditors.SimpleButton tamekran;
         private DevExpress.XtraEditors.SimpleButton cikis;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }

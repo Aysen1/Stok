@@ -58,9 +58,9 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.simge = new DevExpress.XtraEditors.SimpleButton();
-            this.tamekran = new DevExpress.XtraEditors.SimpleButton();
             this.cikis = new DevExpress.XtraEditors.SimpleButton();
+            this.tamekran = new DevExpress.XtraEditors.SimpleButton();
+            this.simge = new DevExpress.XtraEditors.SimpleButton();
             this.menuStrip2.SuspendLayout();
             this.grpbx_bilgi.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -182,6 +182,7 @@
             this.txt_islem.Name = "txt_islem";
             this.txt_islem.Size = new System.Drawing.Size(163, 20);
             this.txt_islem.TabIndex = 4;
+            this.txt_islem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lbl_firmaadi
             // 
@@ -202,10 +203,14 @@
             this.txt_adet.Name = "txt_adet";
             this.txt_adet.Size = new System.Drawing.Size(163, 20);
             this.txt_adet.TabIndex = 3;
+            this.txt_adet.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_adet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_adet_KeyPress);
             // 
             // cmbx_firmaadi
             // 
             this.cmbx_firmaadi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbx_firmaadi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbx_firmaadi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbx_firmaadi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbx_firmaadi.FormattingEnabled = true;
             this.cmbx_firmaadi.Location = new System.Drawing.Point(172, 17);
@@ -228,6 +233,8 @@
             // cmbx_urunadi
             // 
             this.cmbx_urunadi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbx_urunadi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbx_urunadi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbx_urunadi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbx_urunadi.FormattingEnabled = true;
             this.cmbx_urunadi.Location = new System.Drawing.Point(172, 72);
@@ -392,16 +399,16 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(138, 41);
             this.tableLayoutPanel5.TabIndex = 14;
             // 
-            // simge
+            // cikis
             // 
-            this.simge.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.simge.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simge.ImageOptions.Image = global::Stok_Programı.Properties.Resources.msmge;
-            this.simge.Location = new System.Drawing.Point(6, 6);
-            this.simge.Name = "simge";
-            this.simge.Size = new System.Drawing.Size(34, 33);
-            this.simge.TabIndex = 15;
-            this.simge.Click += new System.EventHandler(this.simge_Click);
+            this.cikis.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cikis.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.cikis.ImageOptions.Image = global::Stok_Programı.Properties.Resources.mcikis;
+            this.cikis.Location = new System.Drawing.Point(98, 6);
+            this.cikis.Name = "cikis";
+            this.cikis.Size = new System.Drawing.Size(34, 33);
+            this.cikis.TabIndex = 17;
+            this.cikis.Click += new System.EventHandler(this.cikis_Click);
             // 
             // tamekran
             // 
@@ -414,16 +421,16 @@
             this.tamekran.TabIndex = 16;
             this.tamekran.Click += new System.EventHandler(this.tamekran_Click);
             // 
-            // cikis
+            // simge
             // 
-            this.cikis.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cikis.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.cikis.ImageOptions.Image = global::Stok_Programı.Properties.Resources.mcikis;
-            this.cikis.Location = new System.Drawing.Point(98, 6);
-            this.cikis.Name = "cikis";
-            this.cikis.Size = new System.Drawing.Size(34, 33);
-            this.cikis.TabIndex = 17;
-            this.cikis.Click += new System.EventHandler(this.cikis_Click);
+            this.simge.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.simge.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.simge.ImageOptions.Image = global::Stok_Programı.Properties.Resources.msmge;
+            this.simge.Location = new System.Drawing.Point(6, 6);
+            this.simge.Name = "simge";
+            this.simge.Size = new System.Drawing.Size(34, 33);
+            this.simge.TabIndex = 15;
+            this.simge.Click += new System.EventHandler(this.simge_Click);
             // 
             // Form7
             // 

@@ -49,7 +49,7 @@ namespace Stok_Programı
         private void baglan_Click(object sender, EventArgs e)
         {
             //txt_serverip.Text == "NFM-1\\MSSQLSERVER01"
-            if (txt_serverip.Text == "192.168.1.33" & txt_veritabani.Text == "StokTakip" & txt_kullaniciadi.Text == "nfm" & txt_sifre.Text == "NFM")
+            if ((txt_serverip.Text == "192.168.1.33" || txt_serverip.Text=="localhost\\SQLEXPRESS" || txt_serverip.Text == "SIGORTAM") & txt_veritabani.Text == "StokTakip" & txt_kullaniciadi.Text == "nfm" & txt_sifre.Text == "NFM")
             {
                 Properties.Settings.Default.serverip = txt_serverip.Text;
                 Properties.Settings.Default.veritabani = txt_veritabani.Text;

@@ -14,6 +14,7 @@ using System.Drawing.Printing;
 using System.IO;
 using System.Management;
 using System.Drawing.Imaging;
+using Stok_Programı.Formlar;
 
 namespace Stok_Programı
 {
@@ -21,6 +22,7 @@ namespace Stok_Programı
     {
         SqlCommand komut;
         DatabaseConnection database;
+        SigortamWebb yeni = new SigortamWebb();
         public Form1()
         {
             InitializeComponent();
@@ -34,11 +36,20 @@ namespace Stok_Programı
             SqlDataReader data = komut.ExecuteReader();
             if (data.Read())
             {
+                if(txt_kullanici_isim.Text=="sigortamweb" & txt_kullanici_sifre.Text=="1")
+                {
+                    yeni.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    Form6 form6 = new Form6();
+                    form6.Show();
+                    this.Hide();
+                }
                 Properties.Settings.Default.kullaniciadi = txt_kullanici_isim.Text;
                 Properties.Settings.Default.sifre = txt_kullanici_sifre.Text;
-                Form6 form6 = new Form6();
-                form6.Show();
-                this.Hide();             
+                Properties.Settings.Default.Save();
             }
             else
                 MessageBox.Show( "Girilen Bilgiler Hatalıdır!Tekrar Deneyiniz.");
@@ -65,7 +76,7 @@ namespace Stok_Programı
             btn_7.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\b7.fw.png");
             btn_8.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\b8.fw.png");
             btn_9.BackgroundImage = Image.FromFile(Application.StartupPath + "\\image\\b9.fw.png");
-            pctrbx_logo.Image = Image.FromFile(Application.StartupPath + "\\image\\logo.jpeg");
+            pctrbx_logo.Image = Image.FromFile(Application.StartupPath + "\\image\\sigortamweb.png");
             lbl_versiyon.Text = "Versiyon " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             if (Properties.Settings.Default.dil == "İngilizce")
@@ -159,7 +170,7 @@ namespace Stok_Programı
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F10)
+            if (e.KeyCode == Keys.F11)
             {
                 Form2 form2 = new Form2();
                 form2.Show();

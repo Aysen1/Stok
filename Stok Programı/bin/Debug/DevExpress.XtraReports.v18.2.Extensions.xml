@@ -4001,55 +4001,55 @@
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.AddGroupingLevelPageView.EnableAddGroupingLevelButton(System.Boolean)">
       <summary>
-        <para>If implemented, activates or deactivates the Add Grouping Level button on a wizard page.</para>
+        <para>Activates or deactivates the Add Grouping Level button on a wizard page.</para>
       </summary>
       <param name="enable">true to activate the button; otherwise false.</param>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.AddGroupingLevelPageView.EnableCombineGroupingLevelButton(System.Boolean)">
       <summary>
-        <para>If implemented, activates or deactivates the Combine Grouping Level button on a wizard page.</para>
+        <para>Activates or deactivates the Combine Grouping Level button on a wizard page.</para>
       </summary>
       <param name="enable">true to activate the button; otherwise false.</param>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.AddGroupingLevelPageView.EnableGroupingLevelDown(System.Boolean)">
       <summary>
-        <para>If implemented, activates or deactivates the Move Grouping Level Down button on a wizard page.</para>
+        <para>Activates or deactivates the Move Grouping Level Down button on a wizard page.</para>
       </summary>
       <param name="enable">true to activate the button; otherwise false.</param>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.AddGroupingLevelPageView.EnableGroupingLevelUp(System.Boolean)">
       <summary>
-        <para>If implemented, activates or deactivates the Move Grouping Level Up button on a wizard page.</para>
+        <para>Activates or deactivates the Move Grouping Level Up button on a wizard page.</para>
       </summary>
       <param name="enable">true to activate the button; otherwise false.</param>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.AddGroupingLevelPageView.EnableRemoveGroupingLevelButton(System.Boolean)">
       <summary>
-        <para>If implemented, activates or deactivates the Remove Grouping Level button on a wizard page.</para>
+        <para>Activates or deactivates the Remove Grouping Level button on a wizard page.</para>
       </summary>
       <param name="enable">true to activate the button; otherwise false.</param>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.AddGroupingLevelPageView.FillAvailableColumns(DevExpress.Data.XtraReports.DataProviders.ColumnInfo[])">
       <summary>
-        <para>If implemented, populates the list of available columns.</para>
+        <para>Populates the list of available columns.</para>
       </summary>
       <param name="columns">An array of <see cref="T:DevExpress.Data.XtraReports.DataProviders.ColumnInfo"/> objects.</param>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.AddGroupingLevelPageView.FillGroupingLevels(DevExpress.XtraReports.Wizards.GroupingLevelInfo[])">
       <summary>
-        <para>If implemented, populates the list of grouping levels.</para>
+        <para>Populates the list of grouping levels.</para>
       </summary>
       <param name="groupingLevels">An array of <see cref="T:DevExpress.XtraReports.Wizards.GroupingLevelInfo"/> objects.</param>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.AddGroupingLevelPageView.GetActiveAvailableColumns">
       <summary>
-        <para>If implemented, gets an array of records selected in the list of available columns.</para>
+        <para>Gets an array of records selected in the list of available columns.</para>
       </summary>
       <returns>An array of <see cref="T:DevExpress.Data.XtraReports.DataProviders.ColumnInfo"/> objects.</returns>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.AddGroupingLevelPageView.GetActiveGroupingLevel">
       <summary>
-        <para>If implemented, gets the record selected in the list of grouping levels.</para>
+        <para>Gets the record selected in the list of grouping levels.</para>
       </summary>
       <returns>A <see cref="T:DevExpress.XtraReports.Wizards.GroupingLevelInfo"/> object.</returns>
     </member>
@@ -4079,13 +4079,13 @@
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.AddGroupingLevelPageView.SetActiveGroupingLevel(DevExpress.XtraReports.Wizards.GroupingLevelInfo)">
       <summary>
-        <para>If implemented, changes the active record in the list of grouping levels.</para>
+        <para>Changes the active record in the list of grouping levels.</para>
       </summary>
       <param name="groupingLevel">A <see cref="T:DevExpress.XtraReports.Wizards.GroupingLevelInfo"/> object.</param>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.AddGroupingLevelPageView.ShowWaitIndicator(System.Boolean)">
       <summary>
-        <para>If implemented, shows or hides the wait indicator on a wizard page.</para>
+        <para>Shows or hides the wait indicator on a wizard page.</para>
       </summary>
       <param name="show">true to show the wait indicator; otherwise false.</param>
     </member>
@@ -4101,37 +4101,37 @@
     </member>
     <member name="T:DevExpress.XtraReports.Wizards.Views.ChooseReportColorSchemePageView">
       <summary>
-        <para></para>
+        <para>Provides a view for the Choose a Report Color Scheme page of the Report Wizard in WinForms applications.</para>
       </summary>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.ChooseReportColorSchemePageView.#ctor">
       <summary>
-        <para></para>
+        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraReports.Wizards.Views.ChooseReportColorSchemePageView"/> class with the default settings.</para>
       </summary>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.ChooseReportColorSchemePageView.ColorScheme">
       <summary>
-        <para></para>
+        <para>Specifies the selected color scheme.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme"/> object that specifies the selected color scheme.</value>
     </member>
     <member name="E:DevExpress.XtraReports.Wizards.Views.ChooseReportColorSchemePageView.ColorSchemeChanged">
       <summary>
-        <para></para>
+        <para>Occurs when the active color scheme is changed.</para>
       </summary>
       <value></value>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.ChooseReportColorSchemePageView.FillColorSchemes(System.Collections.Generic.IEnumerable{DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme})">
       <summary>
-        <para></para>
+        <para>Populates the list of available color schemes.</para>
       </summary>
-      <param name="colorSchemes"></param>
+      <param name="colorSchemes">A collection of <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme"/> objects.</param>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.ChooseReportColorSchemePageView.HeaderDescription">
       <summary>
-        <para></para>
+        <para>Specifies the description of the current wizard page.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.String"/> value that specifies the page description.</value>
     </member>
     <member name="T:DevExpress.XtraReports.Wizards.Views.ChooseReportDataSourceTypePageViewEx">
       <summary>
@@ -4303,114 +4303,114 @@
     </member>
     <member name="T:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView">
       <summary>
-        <para></para>
+        <para>Provides a view for the Specify Report Page Settings page of the Report Wizard in WinForms applications.</para>
       </summary>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.#ctor">
       <summary>
-        <para></para>
+        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView"/> class with the default settings.</para>
       </summary>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.BottomMargin">
       <summary>
-        <para></para>
+        <para>Specifies the bottom margin of the report page, measured in the units defined by the <see cref="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.Unit"/> property.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Single"/> value that specifies the page&#39;s bottom margin.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.HeaderDescription">
       <summary>
-        <para></para>
+        <para>Specifies the description of the current wizard page.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.String"/> value that specifies the page description.</value>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.Initialize(System.Collections.Generic.IEnumerable{System.Drawing.Printing.PaperSize},System.Collections.Generic.IEnumerable{DevExpress.XtraReports.Wizards.GraphicsUnitInfo})">
       <summary>
-        <para></para>
+        <para>Initializes a wizard page with the specified options.</para>
       </summary>
-      <param name="paperSizes"></param>
-      <param name="units"></param>
+      <param name="paperSizes">A collection of <see cref="T:System.Drawing.Printing.PaperSize"/> objects that contains predefined sizes of the report&#39;s pages.</param>
+      <param name="units">A collection of <see cref="T:DevExpress.XtraReports.Wizards.GraphicsUnitInfo"/> objects that contains available units of measurement.</param>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.Landscape">
       <summary>
-        <para></para>
+        <para>Specifies whether or not the page orientation is landscape.</para>
       </summary>
-      <value></value>
+      <value>true, if the page orientation is landscape; otherwise, false.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.LeftMargin">
       <summary>
-        <para></para>
+        <para>Specifies the left margin of the report page, measured in the units defined by the <see cref="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.Unit"/> property.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Single"/> value that specifies the page&#39;s left margin.</value>
     </member>
     <member name="E:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.OrientationChanged">
       <summary>
-        <para></para>
+        <para>Occurs when the page orientation is changed.</para>
       </summary>
       <value></value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.PaperHeight">
       <summary>
-        <para></para>
+        <para>Specifies the paper height (measured in report units defined by the <see cref="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.Unit"/> property). This can only be set if the <see cref="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.PaperKind"/> property is set to Custom.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Single"/> value that specifies the paper height.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.PaperKind">
       <summary>
-        <para></para>
+        <para>Specifies the standard paper sizes for the report.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Drawing.Printing.PaperKind"/> enumeration value. By default, this property is set to PaperKind.Letter.</value>
     </member>
     <member name="E:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.PaperKindChanged">
       <summary>
-        <para></para>
+        <para>Occurs when the report&#39;s paper type is changed.</para>
       </summary>
       <value></value>
     </member>
     <member name="E:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.PaperSizeChanged">
       <summary>
-        <para></para>
+        <para>Occurs when the width or height of the report&#39;s paper is changed.</para>
       </summary>
       <value></value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.PaperWidth">
       <summary>
-        <para></para>
+        <para>Specifies the paper width (measured in report units defined by the <see cref="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.Unit"/> property). This can only be set if the <see cref="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.PaperKind"/> property is set to Custom.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Single"/> value that specifies the paper width.</value>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.RefreshViewer">
       <summary>
-        <para></para>
+        <para>Refreshes content of the Specify Report Page Settings wizard page according to specified page settings.</para>
       </summary>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.RightMargin">
       <summary>
-        <para></para>
+        <para>Specifies the right margin of the report page, measured in the units defined by the <see cref="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.Unit"/> property.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Single"/> value that specifies the page&#39;s right margin.</value>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.SetDisplayFormat(System.String,System.String)">
       <summary>
-        <para></para>
+        <para>Sets the format settings applied to the display text of editors on the Specify Report Page Settings wizard page.</para>
       </summary>
-      <param name="mask"></param>
-      <param name="formatString"></param>
+      <param name="mask">A string that specifies the editors&#39; mask.</param>
+      <param name="formatString">A string that specifies the output format for the editors&#39; text.</param>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.TopMargin">
       <summary>
-        <para></para>
+        <para>Specifies the top margin of the report page, measured in the units defined by the <see cref="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.Unit"/> property.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Single"/> value that specifies the page&#39;s top margin.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.Unit">
       <summary>
-        <para></para>
+        <para>Specifies the selected measure units of the report&#39;s page.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Drawing.GraphicsUnit"/> value.</value>
     </member>
     <member name="E:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.UnitChanged">
       <summary>
-        <para></para>
+        <para>Occurs when the Unit property value is changed.</para>
       </summary>
       <value></value>
     </member>

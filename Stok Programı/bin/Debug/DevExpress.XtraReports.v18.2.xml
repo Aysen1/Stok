@@ -8535,9 +8535,9 @@
     </member>
     <member name="P:DevExpress.XtraReports.UI.CalculatedField.Name">
       <summary>
-        <para>Gets or sets the name of the calculated field.</para>
+        <para>Gets or sets the calculated field&#39;s name.</para>
       </summary>
-      <value>A <see cref="T:System.String"/> containing the name of the calculated field.</value>
+      <value>A <see cref="T:System.String"/> that specifies the calculated field&#39;s name.</value>
     </member>
     <member name="P:DevExpress.XtraReports.UI.CalculatedField.ObjectType">
       <summary>
@@ -9126,9 +9126,9 @@
     </member>
     <member name="P:DevExpress.XtraReports.UI.FormattingRule.Name">
       <summary>
-        <para>Gets or sets the name of the formatting rule.</para>
+        <para>Gets or sets the formatting rule&#39;s name.</para>
       </summary>
-      <value>A <see cref="T:System.String"/> containing the name of the formatting rule.</value>
+      <value>A <see cref="T:System.String"/> that specifies the formatting rule name.</value>
     </member>
     <member name="M:DevExpress.XtraReports.UI.FormattingRule.ToString">
       <summary>
@@ -14625,9 +14625,9 @@
     </member>
     <member name="P:DevExpress.XtraReports.UI.XRControlStyle.Name">
       <summary>
-        <para>Gets or sets the name of the control style.</para>
+        <para>Gets or sets the control style name.</para>
       </summary>
-      <value>A <see cref="T:System.String"/> representing the name of the control style.</value>
+      <value>A <see cref="T:System.String"/> that specifies the style name.</value>
     </member>
     <member name="P:DevExpress.XtraReports.UI.XRControlStyle.Padding">
       <summary>
@@ -20481,280 +20481,280 @@
     </member>
     <member name="N:DevExpress.XtraReports.Wizards.ColorSchemes">
       <summary>
-        <para></para>
+        <para>Contains classes that enable you to use and store color schemes.</para>
       </summary>
     </member>
     <member name="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme">
       <summary>
-        <para></para>
+        <para>A color scheme that specifies the report control&#39;s appearance.</para>
       </summary>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme.#ctor(System.String,System.Drawing.Color)">
       <summary>
-        <para></para>
+        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme"/> class with the specified base color.</para>
       </summary>
-      <param name="name"></param>
-      <param name="baseColor"></param>
+      <param name="name">A string that specifies the color scheme name.</param>
+      <param name="baseColor">The scheme&#39;s base color whose variations, according to an internal algorithm, are used as other color components of the scheme.</param>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme.#ctor(System.String,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color)">
       <summary>
-        <para></para>
+        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme"/> class with the specified color components.</para>
       </summary>
-      <param name="name"></param>
-      <param name="detail1Caption"></param>
-      <param name="detail2Caption"></param>
-      <param name="detail3Caption"></param>
-      <param name="detail1Odd"></param>
-      <param name="color1"></param>
-      <param name="color2"></param>
-      <param name="color3"></param>
+      <param name="name">A string that specifies the color scheme name.</param>
+      <param name="detail1Caption">A <see cref="T:System.Drawing.Color"/> value that specifies the background color for captions on the master-detail report&#39;s first level.</param>
+      <param name="detail2Caption">A <see cref="T:System.Drawing.Color"/> value that specifies the background color for captions on the master-detail report&#39;s second level.</param>
+      <param name="detail3Caption">A <see cref="T:System.Drawing.Color"/> value that specifies the background color for captions on the master-detail report&#39;s third level and captions on deeper levels.</param>
+      <param name="detail1Odd">A <see cref="T:System.Drawing.Color"/> value that specifies the background color for the report control that displays an odd record from the bound dataset.</param>
+      <param name="color1">A <see cref="T:System.Drawing.Color"/> value specifying foreground color for the report title and the Page Info control.</param>
+      <param name="color2">A <see cref="T:System.Drawing.Color"/> value that specifies the background color for the report control on the Group Footer band of the master-detail report&#39;s third level and deeper levels.</param>
+      <param name="color3">A <see cref="T:System.Drawing.Color"/> value that specifies the the foreground color for the master-detail report&#39;s total captions.</param>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme.#ctor(System.String,System.String,System.Drawing.Color)">
       <summary>
-        <para></para>
+        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme"/> class with the specified scheme&#39;s display name and base color.</para>
       </summary>
-      <param name="name"></param>
-      <param name="displayName"></param>
-      <param name="baseColor"></param>
+      <param name="name">A string that specifies the color scheme name.</param>
+      <param name="displayName">A string that specifies the color scheme name displayed on the Choose a Report Color Scheme wizard page.</param>
+      <param name="baseColor">The scheme&#39;s base color whose variations, according to an internal algorithm, are used as other color components of the scheme.</param>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme.#ctor(System.String,System.String,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color)">
       <summary>
-        <para></para>
+        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme"/> class with the specified scheme&#39;s display name and color components.</para>
       </summary>
-      <param name="name"></param>
-      <param name="displayName"></param>
-      <param name="detail1Caption"></param>
-      <param name="detail2Caption"></param>
-      <param name="detail3Caption"></param>
-      <param name="detail1Odd"></param>
-      <param name="color1"></param>
-      <param name="color2"></param>
-      <param name="color3"></param>
+      <param name="name">A string that specifies the color scheme name.</param>
+      <param name="displayName">A string that specifies the color scheme name displayed on the Choose a Report Color Scheme wizard page.</param>
+      <param name="detail1Caption">A <see cref="T:System.Drawing.Color"/> value that specifies the background color for captions on the master-detail report&#39;s first level.</param>
+      <param name="detail2Caption">A <see cref="T:System.Drawing.Color"/> value that specifies the background color for captions on the master-detail report&#39;s second level.</param>
+      <param name="detail3Caption">A <see cref="T:System.Drawing.Color"/> value that specifies the background color for captions on the master-detail report&#39;s third level and captions on deeper levels.</param>
+      <param name="detail1Odd">A <see cref="T:System.Drawing.Color"/> value that specifies the background color for the report control that displays an odd record from the bound dataset.</param>
+      <param name="color1">A <see cref="T:System.Drawing.Color"/> value specifying foreground color for the report title and the Page Info control.</param>
+      <param name="color2">A <see cref="T:System.Drawing.Color"/> value that specifies the background color for the report control on the Group Footer band of the master-detail report&#39;s third level and deeper levels.</param>
+      <param name="color3">A <see cref="T:System.Drawing.Color"/> value that specifies the the foreground color for the master-detail report&#39;s total captions.</param>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme.BaseColor">
       <summary>
-        <para></para>
+        <para>Specifies the scheme&#39;s base color.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Drawing.Color"/> value whose variations, according to an internal algorithm, are used as other color components of the scheme.</value>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme.Clone">
       <summary>
-        <para></para>
+        <para>Creates a new <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme"/> instance, which is a copy of the current instance.</para>
       </summary>
-      <returns></returns>
+      <returns>A new <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme"/> instance, which is a copy of the current instance.</returns>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme.Color1">
       <summary>
-        <para></para>
+        <para>Specifies the foreground color for the report title and the Page Info control.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Drawing.Color"/> value specifying foreground color for the report title and the Page Info control.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme.Color2">
       <summary>
-        <para></para>
+        <para>Specifies the background color for the report control on the Group Footer band of the master-detail report&#39;s third level and deeper levels.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Drawing.Color"/> value that specifies the background color for the report control on the Group Footer band of the master-detail report&#39;s third level and deeper levels.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme.Color3">
       <summary>
-        <para></para>
+        <para>Specifies the foreground color for the master-detail report&#39;s total captions.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Drawing.Color"/> value that specifies the foreground color for the master-detail report&#39;s total captions.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme.Detail1CaptionColor">
       <summary>
-        <para></para>
+        <para>Specifies the background color for captions on the master-detail report&#39;s first level.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Drawing.Color"/> value that specifies the background color for captions on the master-detail report&#39;s first level.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme.Detail2CaptionColor">
       <summary>
-        <para></para>
+        <para>Specifies the background color for captions on the master-detail report&#39;s second level.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Drawing.Color"/> value that specifies the background color for captions on the master-detail report&#39;s second level.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme.DetailOddColor">
       <summary>
-        <para></para>
+        <para>Specifies the background color for the report control that displays an odd record from the bound dataset.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Drawing.Color"/> value that specifies the background color for the report control that displays an odd record from the bound dataset.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme.DisplayName">
       <summary>
-        <para></para>
+        <para>Specifies the color scheme name displayed on the Choose a Report Color Scheme wizard page.</para>
       </summary>
-      <value></value>
+      <value>A string that specifies the color scheme name displayed on the Choose a Report Color Scheme wizard page.</value>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme.Equals(System.Object)">
       <summary>
-        <para></para>
+        <para>Determines whether or not the specified object is equal to the current <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme"/> instance.</para>
       </summary>
-      <param name="obj"></param>
-      <returns></returns>
+      <param name="obj">The object to compare with the current object.</param>
+      <returns>true if the specified object is equal to the current <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme"/> instance; otherwise false.</returns>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme.GetHashCode">
       <summary>
-        <para></para>
+        <para>Gets the hash code that corresponds to the value of the current <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme"/> object.</para>
       </summary>
-      <returns></returns>
+      <returns>An integer value representing the hash code for the current object.</returns>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme.GroupCaption3Color">
       <summary>
-        <para></para>
+        <para>Specifies the background color for captions on the master-detail report&#39;s third level and captions on deeper levels.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Drawing.Color"/> value that specifies the background color for captions on the master-detail report&#39;s third level and captions on deeper levels.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme.IsLightColor">
       <summary>
-        <para></para>
+        <para>Specifies whether or not the scheme&#39;s base color is light.</para>
       </summary>
-      <value></value>
+      <value>true if the base color is light; otherwise false.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme.Name">
       <summary>
-        <para></para>
+        <para>Specifies the color scheme name.</para>
       </summary>
-      <value></value>
+      <value>A string that specifies the color scheme name.</value>
     </member>
     <member name="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeNames">
       <summary>
-        <para></para>
+        <para>Names of the predefined color schemes displayed on the Choose a Report Color Scheme wizard page.</para>
       </summary>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeNames.#ctor">
       <summary>
-        <para></para>
+        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeNames"/> class with the default settings.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeNames.Azure">
       <summary>
-        <para></para>
+        <para>The Azure color scheme&#39;s name.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeNames.Blue">
       <summary>
-        <para></para>
+        <para>The Blue color scheme&#39;s name.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeNames.ColdGrey">
       <summary>
-        <para></para>
+        <para>The ColdGrey color scheme&#39;s name.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeNames.Coral">
       <summary>
-        <para></para>
+        <para>The Coral color scheme&#39;s name.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeNames.Cream">
       <summary>
-        <para></para>
+        <para>The Cream color scheme&#39;s name.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeNames.Custom">
       <summary>
-        <para></para>
+        <para>Specifies the custom color scheme&#39;s name.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeNames.Grey">
       <summary>
-        <para></para>
+        <para>The Grey color scheme&#39;s name.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeNames.JeansBlue">
       <summary>
-        <para></para>
+        <para>The JeansBlue color scheme&#39;s name.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeNames.LightBlue">
       <summary>
-        <para></para>
+        <para>The LightBlue color scheme&#39;s name.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeNames.LightGreen">
       <summary>
-        <para></para>
+        <para>The LightGreen color scheme&#39;s name.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeNames.Mint">
       <summary>
-        <para></para>
+        <para>The Mint color scheme&#39;s name.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeNames.Raspberry">
       <summary>
-        <para></para>
+        <para>The Raspberry color scheme&#39;s name.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeNames.Red">
       <summary>
-        <para></para>
+        <para>The Red color scheme&#39;s name.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeNames.Violet">
       <summary>
-        <para></para>
+        <para>The Violet color scheme&#39;s name.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeNames.Yellow">
       <summary>
-        <para></para>
+        <para>The Yellow color scheme&#39;s name.</para>
       </summary>
     </member>
     <member name="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeStorage">
       <summary>
-        <para></para>
+        <para>A storage for the Report Wizard&#39;s color schemes.</para>
       </summary>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeStorage.#ctor">
       <summary>
-        <para></para>
+        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeStorage"/> class with the default settings.</para>
       </summary>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeStorage.AddColorScheme(DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme)">
       <summary>
-        <para></para>
+        <para>Adds a color scheme to the storage.</para>
       </summary>
-      <param name="colorScheme"></param>
-      <returns></returns>
+      <param name="colorScheme">A <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme"/> object that specifies the color scheme to be added.</param>
+      <returns>true, if the color scheme is added successfully; otherwise, false.</returns>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeStorage.GetColorSchemes">
       <summary>
-        <para></para>
+        <para>Retrieves the collection of color schemes from the storage.</para>
       </summary>
-      <returns></returns>
+      <returns>A collection of <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme"/> objects.</returns>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.ColorSchemes.ColorSchemeStorage.RemoveColorScheme(System.String)">
       <summary>
-        <para></para>
+        <para>Removes a color scheme from the storage.</para>
       </summary>
-      <param name="colorSchemeName"></param>
-      <returns></returns>
+      <param name="colorSchemeName">A string that specifies the the color scheme name to be removed.</param>
+      <returns>true, if the color scheme is removed successfully; otherwise, false.</returns>
     </member>
     <member name="T:DevExpress.XtraReports.Wizards.ColorSchemes.IColorSchemeStorage">
       <summary>
-        <para></para>
+        <para>If implemented, enables you to create a custom color scheme storage in WinForms and WPF applications.</para>
       </summary>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.ColorSchemes.IColorSchemeStorage.AddColorScheme(DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme)">
       <summary>
-        <para></para>
+        <para>If implemented, adds a color scheme to the storage.</para>
       </summary>
-      <param name="colorScheme"></param>
-      <returns></returns>
+      <param name="colorScheme">A <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme"/> object that specifies the color scheme to be added.</param>
+      <returns>true, if the color scheme is added successfully; otherwise, false.</returns>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.ColorSchemes.IColorSchemeStorage.GetColorSchemes">
       <summary>
-        <para></para>
+        <para>If implemented, retrieves the collection of color schemes from the storage.</para>
       </summary>
-      <returns></returns>
+      <returns>A collection of <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme"/> objects.</returns>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.ColorSchemes.IColorSchemeStorage.RemoveColorScheme(System.String)">
       <summary>
-        <para></para>
+        <para>Removes a color scheme from the storage.</para>
       </summary>
-      <param name="colorSchemeName"></param>
-      <returns></returns>
+      <param name="colorSchemeName">A string that specifies the the color scheme name to be removed.</param>
+      <returns>true, if the color scheme is removed successfully; otherwise, false.</returns>
     </member>
     <member name="T:DevExpress.XtraReports.Wizards.ColumnInfoCache">
       <summary>
@@ -22240,43 +22240,43 @@
     </member>
     <member name="T:DevExpress.XtraReports.Wizards.Presenters.ChooseReportColorSchemePage`1">
       <summary>
-        <para></para>
+        <para>Provides a presenter to the Choose a Report Color Scheme page of the Report Wizard.</para>
       </summary>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Presenters.ChooseReportColorSchemePage`1.#ctor(DevExpress.XtraReports.Wizards.Views.IChooseReportColorSchemePageView,DevExpress.XtraReports.Wizards.ColorSchemes.IColorSchemeStorage)">
       <summary>
-        <para></para>
+        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraReports.Wizards.Presenters.ChooseReportColorSchemePage`1"/> class with the specified settings.</para>
       </summary>
-      <param name="view"></param>
-      <param name="colorSchemeStorage"></param>
+      <param name="view">An object implementing the <see cref="T:DevExpress.XtraReports.Wizards.Views.IChooseReportColorSchemePageView"/> interface that provides a view for a wizard page.</param>
+      <param name="colorSchemeStorage">An object implementing the <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.IColorSchemeStorage"/> interface that provides the color scheme storage.</param>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Presenters.ChooseReportColorSchemePage`1.Begin">
       <summary>
-        <para></para>
+        <para>Initializes controls of the current wizard page.</para>
       </summary>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Presenters.ChooseReportColorSchemePage`1.Commit">
       <summary>
-        <para></para>
+        <para>Saves settings specified by a wizard page to the report model.</para>
       </summary>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Presenters.ChooseReportColorSchemePage`1.FinishEnabled">
       <summary>
-        <para></para>
+        <para>Specifies whether or not the Finish button is enabled on a wizard page.</para>
       </summary>
-      <value></value>
+      <value>true, if the Finish button is enabled; otherwise, false.</value>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Presenters.ChooseReportColorSchemePage`1.GetNextPageType">
       <summary>
-        <para></para>
+        <para>Returns the type of the next wizard page.</para>
       </summary>
-      <returns></returns>
+      <returns>A <see cref="T:System.Type"/> enumeration value.</returns>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Presenters.ChooseReportColorSchemePage`1.MoveNextEnabled">
       <summary>
-        <para></para>
+        <para>Specifies whether or not the Next button is enabled on a wizard page.</para>
       </summary>
-      <value></value>
+      <value>true, if the Next button is enabled; otherwise, false.</value>
     </member>
     <member name="T:DevExpress.XtraReports.Wizards.Presenters.ChooseReportLayoutPage`1">
       <summary>
@@ -22723,42 +22723,42 @@
     </member>
     <member name="T:DevExpress.XtraReports.Wizards.Presenters.ConfigureReportPageSettingsPage`1">
       <summary>
-        <para></para>
+        <para>Provides a presenter to the Specify Report Page Settings page of the Report Wizard.</para>
       </summary>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Presenters.ConfigureReportPageSettingsPage`1.#ctor(DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView)">
       <summary>
-        <para></para>
+        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraReports.Wizards.Presenters.ConfigureReportPageSettingsPage`1"/> class with the specified settings.</para>
       </summary>
-      <param name="view"></param>
+      <param name="view">An object implementing the <see cref="T:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView"/> interface that provides a view for a wizard page.</param>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Presenters.ConfigureReportPageSettingsPage`1.Begin">
       <summary>
-        <para></para>
+        <para>Initializes controls of the current wizard page.</para>
       </summary>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Presenters.ConfigureReportPageSettingsPage`1.Commit">
       <summary>
-        <para></para>
+        <para>Saves settings specified by a wizard page to the report model.</para>
       </summary>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Presenters.ConfigureReportPageSettingsPage`1.FinishEnabled">
       <summary>
-        <para></para>
+        <para>Specifies whether or not the Finish button is enabled on a wizard page.</para>
       </summary>
-      <value></value>
+      <value>true, if the Finish button is enabled; otherwise, false.</value>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Presenters.ConfigureReportPageSettingsPage`1.GetNextPageType">
       <summary>
-        <para></para>
+        <para>Returns the type of the next wizard page.</para>
       </summary>
-      <returns></returns>
+      <returns>A <see cref="T:System.Type"/> enumeration value.</returns>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Presenters.ConfigureReportPageSettingsPage`1.MoveNextEnabled">
       <summary>
-        <para></para>
+        <para>Specifies whether or not the Next button is enabled on a wizard page.</para>
       </summary>
-      <value></value>
+      <value>true, if the Next button is enabled; otherwise, false.</value>
     </member>
     <member name="T:DevExpress.XtraReports.Wizards.Presenters.ConfigureSqlParametersPageEx`1">
       <summary>
@@ -23960,21 +23960,21 @@
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.ReportModel.Margins">
       <summary>
-        <para></para>
+        <para>Specifies the margins of the report&#39;s pages (measured in <see cref="F:System.Drawing.GraphicsUnit.Document"/> units).</para>
       </summary>
-      <value></value>
+      <value>A  object.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.ReportModel.PaperKind">
       <summary>
-        <para></para>
+        <para>Specifies the type of paper for the report.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Drawing.Printing.PaperKind"/> enumeration value. By default, this property is set to PaperKind.Letter.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.ReportModel.PaperSize">
       <summary>
-        <para></para>
+        <para>Specifies the report&#39;s paper size (measured in <see cref="F:System.Drawing.GraphicsUnit.Document"/> units). This can only be set if the <see cref="P:DevExpress.XtraReports.Wizards.ReportModel.PaperKind"/> property is set to Custom.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Drawing.SizeF"/> object.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.ReportModel.Portrait">
       <summary>
@@ -23984,9 +23984,9 @@
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.ReportModel.ReportColorScheme">
       <summary>
-        <para></para>
+        <para>Specifies the color scheme applied to the report&#39;s controls.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme"/> object that specifies the color scheme applied to the report&#39;s controls.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.ReportModel.ReportStyleId">
       <summary>
@@ -24038,9 +24038,9 @@
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.ReportModel.Unit">
       <summary>
-        <para></para>
+        <para>Specifies units of measure for the report.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Drawing.GraphicsUnit"/> object.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.ReportModel.UseMasterDetailBuilder">
       <summary>
@@ -24879,26 +24879,26 @@
     </member>
     <member name="T:DevExpress.XtraReports.Wizards.Views.IChooseReportColorSchemePageView">
       <summary>
-        <para></para>
+        <para>If implemented, provides a view for the Choose a Report Color Scheme page of the Report Wizard.</para>
       </summary>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.IChooseReportColorSchemePageView.ColorScheme">
       <summary>
-        <para></para>
+        <para>If implemented, specifies the selected color scheme.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme"/> object that specifies the selected color scheme.</value>
     </member>
     <member name="E:DevExpress.XtraReports.Wizards.Views.IChooseReportColorSchemePageView.ColorSchemeChanged">
       <summary>
-        <para></para>
+        <para>Occurs when the active color scheme is changed.</para>
       </summary>
       <value></value>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.IChooseReportColorSchemePageView.FillColorSchemes(System.Collections.Generic.IEnumerable{DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme})">
       <summary>
-        <para></para>
+        <para>If implemented, populates the list of available color schemes.</para>
       </summary>
-      <param name="colorSchemes"></param>
+      <param name="colorSchemes">A collection of <see cref="T:DevExpress.XtraReports.Wizards.ColorSchemes.ColorScheme"/> objects.</param>
     </member>
     <member name="T:DevExpress.XtraReports.Wizards.Views.IChooseReportLayoutPageView">
       <summary>
@@ -24999,109 +24999,109 @@
     </member>
     <member name="T:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView">
       <summary>
-        <para></para>
+        <para>If implemented, provides a view for the Specify Report Page Settings page of the Report Wizard.</para>
       </summary>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView.BottomMargin">
       <summary>
-        <para></para>
+        <para>If implemented, specifies the bottom margin of the report page, measured in the units defined by the <see cref="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.Unit"/> property.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Single"/> value that specifies the page&#39;s bottom margin.</value>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView.Initialize(System.Collections.Generic.IEnumerable{System.Drawing.Printing.PaperSize},System.Collections.Generic.IEnumerable{DevExpress.XtraReports.Wizards.GraphicsUnitInfo})">
       <summary>
-        <para></para>
+        <para>If implemented, initializes a wizard page with the specified options.</para>
       </summary>
-      <param name="paperSizes"></param>
-      <param name="units"></param>
+      <param name="paperSizes">A collection of <see cref="T:System.Drawing.Printing.PaperSize"/> objects that contains predefined sizes of the report&#39;s pages.</param>
+      <param name="units">A collection of <see cref="T:DevExpress.XtraReports.Wizards.GraphicsUnitInfo"/> objects that contains available units of measurement.</param>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView.Landscape">
       <summary>
-        <para></para>
+        <para>If implemented, specifies whether or not the page orientation is landscape.</para>
       </summary>
-      <value></value>
+      <value>true, if the page orientation is landscape; otherwise, false.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView.LeftMargin">
       <summary>
-        <para></para>
+        <para>If implemented, specifies the left margin of the report page, measured in the units defined by the <see cref="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.Unit"/> property.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Single"/> value that specifies the page&#39;s left margin.</value>
     </member>
     <member name="E:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView.MarginChanged">
       <summary>
-        <para></para>
+        <para>Occurs when the report&#39;s margin is changed.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:DevExpress.XtraReports.Wizards.Views.MarginChangedEventArgs"/> object that specifies the changed report&#39;s margin.</value>
     </member>
     <member name="E:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView.OrientationChanged">
       <summary>
-        <para></para>
+        <para>Occurs when the page orientation is changed.</para>
       </summary>
       <value></value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView.PaperHeight">
       <summary>
-        <para></para>
+        <para>If implemented, specifies the paper height (measured in report units defined by the <see cref="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.Unit"/> property). This can only be set if the <see cref="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.PaperKind"/> property is set to Custom.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Single"/> value that specifies the paper height.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView.PaperKind">
       <summary>
-        <para></para>
+        <para>If implemented, specifies the standard paper sizes for the report.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Drawing.Printing.PaperKind"/> enumeration value. By default, this property is set to PaperKind.Letter.</value>
     </member>
     <member name="E:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView.PaperKindChanged">
       <summary>
-        <para></para>
+        <para>Occurs when the report&#39;s paper type is changed.</para>
       </summary>
       <value></value>
     </member>
     <member name="E:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView.PaperSizeChanged">
       <summary>
-        <para></para>
+        <para>Occurs when the width or height of the report&#39;s paper is changed.</para>
       </summary>
       <value></value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView.PaperWidth">
       <summary>
-        <para></para>
+        <para>If implemented, specifies the paper width (measured in report units defined by the <see cref="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.Unit"/> property). This can only be set if the <see cref="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.PaperKind"/> property is set to Custom.</para>
       </summary>
       <value></value>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView.RefreshViewer">
       <summary>
-        <para></para>
+        <para>If implemented, refreshes content of the Specify Report Page Settings wizard page according to specified page settings.</para>
       </summary>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView.RightMargin">
       <summary>
-        <para></para>
+        <para>If implemented, specifies the right margin of the report page, measured in the units defined by the <see cref="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.Unit"/> property.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Single"/> value that specifies the page&#39;s right margin.</value>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView.SetDisplayFormat(System.String,System.String)">
       <summary>
-        <para></para>
+        <para>If implemented, sets the format settings applied to the display text of editors on the Specify Report Page Settings wizard page.</para>
       </summary>
-      <param name="mask"></param>
-      <param name="formatString"></param>
+      <param name="mask">A string that specifies the editors&#39; mask.</param>
+      <param name="formatString">A string that specifies the output format for the editors&#39; text.</param>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView.TopMargin">
       <summary>
-        <para></para>
+        <para>If implemented, specifies the top margin of the report page, measured in the units defined by the <see cref="P:DevExpress.XtraReports.Wizards.Views.ConfigureReportPageSettingsPageView.Unit"/> property.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:System.Single"/> value that specifies the page&#39;s top margin.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView.Unit">
       <summary>
-        <para></para>
+        <para>If implemented, specifies units of measure available on the Specify Report Page Settings wizard page.</para>
       </summary>
       <value></value>
     </member>
     <member name="E:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView.UnitChanged">
       <summary>
-        <para></para>
+        <para>Occurs when the Unit property value is changed.</para>
       </summary>
       <value></value>
     </member>
@@ -25685,20 +25685,20 @@
     </member>
     <member name="T:DevExpress.XtraReports.Wizards.Views.MarginChangedEventArgs">
       <summary>
-        <para></para>
+        <para>Provides data for the <see cref="E:DevExpress.XtraReports.Wizards.Views.IConfigureReportPageSettingsPageView.MarginChanged"/> event.</para>
       </summary>
     </member>
     <member name="M:DevExpress.XtraReports.Wizards.Views.MarginChangedEventArgs.#ctor(DevExpress.XtraPrinting.MarginSide)">
       <summary>
-        <para></para>
+        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraReports.Wizards.Views.MarginChangedEventArgs"/> class with the specified settings.</para>
       </summary>
-      <param name="side"></param>
+      <param name="side">A <see cref="T:DevExpress.XtraPrinting.MarginSide"/> object that specifies the changed page margin.</param>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.Views.MarginChangedEventArgs.Side">
       <summary>
-        <para></para>
+        <para>Specifies the changed report&#39;s margin.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:DevExpress.XtraPrinting.MarginSide"/> object that specifies the page margin.</value>
     </member>
     <member name="T:DevExpress.XtraReports.Wizards.XtraReportModel">
       <summary>
@@ -25779,15 +25779,15 @@
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.XtraReportModel.JsonSchema">
       <summary>
-        <para></para>
+        <para>Specifies the JSON data source schema.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:DevExpress.DataAccess.Json.JsonSchemaNode"/> value, specifying the JSON source schema.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.XtraReportModel.JsonSource">
       <summary>
-        <para></para>
+        <para>Specifies a source of JSON data.</para>
       </summary>
-      <value></value>
+      <value>A <see cref="T:DevExpress.DataAccess.Json.JsonSourceBase"/> object that specifies a source of JSON data.</value>
     </member>
     <member name="P:DevExpress.XtraReports.Wizards.XtraReportModel.MasterDetailGroupsInfo">
       <summary>

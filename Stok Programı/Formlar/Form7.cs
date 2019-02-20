@@ -226,5 +226,14 @@ namespace Stok_Programı
         {
             Application.Exit();
         }
+        private void txt_adet_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) == false && e.KeyChar != (char)08)
+            {
+                e.Handled = true;
+            }
+            else
+                e.Handled = false;
+        }
     }
 }

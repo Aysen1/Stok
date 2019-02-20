@@ -235,5 +235,29 @@ namespace Stok_Programı
         {
             Application.Exit();
         }
+        private void txt_birim_fiyati_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) == false && e.KeyChar != (char)08 && e.KeyChar != (char)44)
+            {
+                e.Handled = true;
+            }
+            else
+                e.Handled = false;
+        }
+        private void txt_birim_fiyati_Leave(object sender, EventArgs e)
+        {
+            decimal donusum;
+            donusum = decimal.Parse(txt_birim_fiyati.Text);
+            txt_birim_fiyati.Text = donusum.ToString("N");
+        }
+        private void txt_adet_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) == false && e.KeyChar != (char)08)
+            {
+                e.Handled = true;
+            }
+            else
+                e.Handled = false;
+        }
     }
 }

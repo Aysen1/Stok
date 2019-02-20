@@ -45,9 +45,9 @@
             this.btn_araclar = new System.Windows.Forms.Button();
             this.pctrbx_logo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.simge = new DevExpress.XtraEditors.SimpleButton();
-            this.tamekran = new DevExpress.XtraEditors.SimpleButton();
             this.cikis = new DevExpress.XtraEditors.SimpleButton();
+            this.tamekran = new DevExpress.XtraEditors.SimpleButton();
+            this.simge = new DevExpress.XtraEditors.SimpleButton();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -249,16 +249,16 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(569, 39);
             this.tableLayoutPanel4.TabIndex = 8;
             // 
-            // simge
+            // cikis
             // 
-            this.simge.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.simge.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.simge.ImageOptions.Image = global::Stok_Programı.Properties.Resources.msmge;
-            this.simge.Location = new System.Drawing.Point(437, 3);
-            this.simge.Name = "simge";
-            this.simge.Size = new System.Drawing.Size(34, 33);
-            this.simge.TabIndex = 12;
-            this.simge.Click += new System.EventHandler(this.simge_Click);
+            this.cikis.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cikis.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.cikis.ImageOptions.Image = global::Stok_Programı.Properties.Resources.mcikis;
+            this.cikis.Location = new System.Drawing.Point(529, 3);
+            this.cikis.Name = "cikis";
+            this.cikis.Size = new System.Drawing.Size(34, 33);
+            this.cikis.TabIndex = 14;
+            this.cikis.Click += new System.EventHandler(this.cikis_Click);
             // 
             // tamekran
             // 
@@ -271,16 +271,16 @@
             this.tamekran.TabIndex = 13;
             this.tamekran.Click += new System.EventHandler(this.tamekran_Click);
             // 
-            // cikis
+            // simge
             // 
-            this.cikis.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cikis.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.cikis.ImageOptions.Image = global::Stok_Programı.Properties.Resources.mcikis;
-            this.cikis.Location = new System.Drawing.Point(529, 3);
-            this.cikis.Name = "cikis";
-            this.cikis.Size = new System.Drawing.Size(34, 33);
-            this.cikis.TabIndex = 14;
-            this.cikis.Click += new System.EventHandler(this.cikis_Click);
+            this.simge.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.simge.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.simge.ImageOptions.Image = global::Stok_Programı.Properties.Resources.msmge;
+            this.simge.Location = new System.Drawing.Point(437, 3);
+            this.simge.Name = "simge";
+            this.simge.Size = new System.Drawing.Size(34, 33);
+            this.simge.TabIndex = 12;
+            this.simge.Click += new System.EventHandler(this.simge_Click);
             // 
             // Form6
             // 
@@ -293,10 +293,12 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(522, 358);
             this.Name = "Form6";
             this.Text = "ANA İŞLEM PANELİ";
             this.Load += new System.EventHandler(this.Form6_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form6_KeyDown);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);

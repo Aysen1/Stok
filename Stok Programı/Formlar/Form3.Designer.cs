@@ -153,6 +153,8 @@
             // cmbbx_firma_adi
             // 
             this.cmbbx_firma_adi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbbx_firma_adi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbbx_firma_adi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmbbx_firma_adi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbbx_firma_adi.FormattingEnabled = true;
             this.cmbbx_firma_adi.Location = new System.Drawing.Point(106, 24);

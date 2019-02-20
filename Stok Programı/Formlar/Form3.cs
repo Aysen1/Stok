@@ -161,7 +161,7 @@ namespace Stok_Programı
         }
         private void Form3_Shown(object sender, EventArgs e)
         {
-            txt_urun_kodu.Focus();
+             txt_urun_kodu.Focus();
         }
         private void metin()
         {

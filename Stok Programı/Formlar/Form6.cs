@@ -13,7 +13,7 @@ using System.IO;
 using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Management;
-
+using Stok_Programı.Formlar;
 namespace Stok_Programı
 {
     public partial class Form6 : Form
@@ -159,6 +159,16 @@ namespace Stok_Programı
             form1.Show();
             this.Dispose();
             //System.Windows.Forms.Application.Exit();
+        }
+
+        private void Form6_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.S)
+            {
+                SigortamWebb form = new SigortamWebb();
+                form.Show();
+                this.Dispose();
+            }
         }
     }
 }

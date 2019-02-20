@@ -162,6 +162,8 @@
             this.txt_birim_fiyati.TabIndex = 18;
             this.txt_birim_fiyati.Text = "0,00₺";
             this.txt_birim_fiyati.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_birim_fiyati.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_birim_fiyati_KeyPress);
+            this.txt_birim_fiyati.Leave += new System.EventHandler(this.txt_birim_fiyati_Leave);
             // 
             // label1
             // 
@@ -204,10 +206,14 @@
             this.txt_adet.Name = "txt_adet";
             this.txt_adet.Size = new System.Drawing.Size(156, 20);
             this.txt_adet.TabIndex = 4;
+            this.txt_adet.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_adet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_adet_KeyPress);
             // 
             // cmbx_firmaadi
             // 
             this.cmbx_firmaadi.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cmbx_firmaadi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbx_firmaadi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbx_firmaadi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbx_firmaadi.FormattingEnabled = true;
             this.cmbx_firmaadi.Location = new System.Drawing.Point(224, 23);
@@ -240,6 +246,8 @@
             // cmbx_urunadi
             // 
             this.cmbx_urunadi.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cmbx_urunadi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbx_urunadi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbx_urunadi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbx_urunadi.FormattingEnabled = true;
             this.cmbx_urunadi.Location = new System.Drawing.Point(224, 91);
@@ -328,7 +336,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tarih,
             this.saat});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 530);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 542);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(715, 22);
             this.statusStrip1.TabIndex = 3;
@@ -431,7 +439,7 @@
             this.AcceptButton = this.btn_kaydet;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 552);
+            this.ClientSize = new System.Drawing.Size(715, 564);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel5);
             this.Controls.Add(this.tableLayoutPanel1);

@@ -331,8 +331,13 @@ namespace Stok_Programı
         }
         private void btn_kaydet_Click(object sender, EventArgs e)
         {
-            satisFaturasi yeni = new satisFaturasi();
-            yeni.kayıt_ekle(firmaadi.Text,satistarihi.Text,düzenlenme.Text,cmbx_tip.Text);
+            if (cmbx_firmaadi.Text != "" & cmbx_tip.Text != "")
+            {
+                satisFaturasi yeni = new satisFaturasi();
+                yeni.kayıt_ekle(firmaadi.Text, satistarihi.Text, düzenlenme.Text, cmbx_tip.Text);
+            }
+            else
+                MessageBox.Show("Faturanın oluşturulabilmesi için gerekli bilgileri eksiksiz girmeniz gerekmektedir. Lütfen Firma Adı ve Fatura Tipini boş bırakmadığınızdan emin olun...","Bilgilendirme Penceresi");
         }
         private void cmbx_firmaadi_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -404,6 +409,7 @@ namespace Stok_Programı
                 tabControl1.TabPages.Add(tab_fatura);
                 tabControl1.SelectedTab = tab_fatura;
             }
+            cmbx_firmaadi.Items.Clear();
             SqlDataReader dr;
             database.BaglantiAc();
             komut = new SqlCommand("select FirmaAdi from FirmaKayit", database.baglanti);

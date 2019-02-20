@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Drawing.Drawing2D;
 using System.Globalization;
+using System.Text.RegularExpressions;
 namespace Stok_Programı
 {
     public partial class Form4 : Form
@@ -177,6 +178,39 @@ namespace Stok_Programı
         private void cikis_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        private void txt_vergino_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) == false && e.KeyChar != (char)08)
+            {
+                e.Handled = true;
+            }
+            else
+                e.Handled = false;
+        }
+        private void txt_mersis_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) == false && e.KeyChar != (char)08)
+            {
+                e.Handled = true;
+            }
+            else
+                e.Handled = false;
+        }
+        public static bool TelefonNoKontrol(string TelefonNo)
+        {
+            string RegexDesen = @"^(0(\d{3})-(\d{3})-(\d{2})-(\d{2}))";
+            Match Eslesme = Regex.Match(TelefonNo, RegexDesen, RegexOptions.IgnoreCase);
+            return Eslesme.Success;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            bool TlfnKntrol = TelefonNoKontrol(textBox1.Text);
+            if(TlfnKntrol==true)
+                MessageBox.Show("Başarılı..");
+            else
+                MessageBox.Show("Telefon numarası hatalıdır. Lütfen kontrol ediniz.");
         }
     }
 }
